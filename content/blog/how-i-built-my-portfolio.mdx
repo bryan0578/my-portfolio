@@ -1,0 +1,219 @@
+export const metadata = {
+  title: "How I Built My Portfolio with Next.js",
+  description: "A practical look at the structure, decisions, and tradeoffs behind rebuilding my portfolio with Next.js.",
+  date: "2026-04-07",
+  tags: ["Next.js", "MDX", "Portfolio"],
+  categories: ["Frontend", "Next.js", "React"],
+  featured: true,
+  published: true,
+}
+
+# How I Built My Portfolio with Next.js
+
+## Why I Rebuilt My Portfolio
+
+I didn’t rebuild my portfolio just to make something that looked good. I rebuilt it because I needed something that actually worked as a career asset.
+
+At the time, I was looking for a new role, and I wanted a portfolio that did more than say, “Here are some things I made.” I needed something that could better reflect my enterprise experience, show how I approach technical problems, and give people a clearer picture of how I think as a developer.
+
+That distinction mattered a lot to me. There’s a big difference between a portfolio that looks impressive for thirty seconds and one that actually helps someone understand your value. I wanted the second one.
+
+## The Goal: Move Fast Without Building Something Disposable
+
+This wasn’t a slow side project where I could spend months refining every decision. I wanted to move quickly and get the portfolio live, but I also wanted to avoid the trap of building something rushed that I would immediately outgrow.
+
+So the real goal became:
+
+> Build something fast, but structure it in a way that can evolve over time.
+
+That mindset shaped almost every technical decision I made. I wasn’t trying to create the final version of my portfolio — I was trying to create a strong version one: something polished enough to support my goals now, but structured well enough that I could keep extending it later.
+
+In a lot of ways, I treated it like a product MVP for my personal brand.
+
+## The Stack I Chose
+
+I kept the stack intentionally focused:
+
+- Next.js  
+- Tailwind CSS  
+- shadcn/ui  
+- MDX  
+- Vercel  
+- Vercel v0 as a starting point for design direction  
+
+None of this was about chasing trends or stacking tools just because they were popular. I picked tools that would help me move fast, stay consistent, and avoid unnecessary complexity.
+
+Next.js gave me a solid application structure and a clean path for routing. Tailwind made it easier to move quickly without getting buried in CSS overhead. shadcn/ui helped me keep the UI consistent, and MDX gave me a fast way to integrate blog content without building a larger content system around it.
+
+That combination gave me speed without sacrificing too much control.
+
+## Why I Chose MDX Instead of a CMS
+
+This was one of the most important decisions in the build. I chose MDX over a CMS because I wanted the fastest path to publishing useful content inside the same codebase as the rest of the site.
+
+More specifically, I didn’t want to spend time building infrastructure before I had content worth managing.
+
+Using MDX gave me a few advantages right away:
+
+- one codebase for the portfolio and the blog  
+- file-based content with no database  
+- no admin interface to configure  
+- no API layer to maintain  
+- easy control over layout and styling  
+
+At this stage, that tradeoff made perfect sense.
+
+Could I move to a CMS later? Absolutely.
+
+If I eventually want a more editorial workflow, previews, richer content management, or a cleaner writing interface, I can add that later. But at launch, I cared much more about simplicity and speed than editorial tooling.
+
+The best decision for this project was not the most scalable long-term architecture on paper — it was the one that let me ship something useful without slowing myself down. That’s an important distinction.
+
+## Treating the Portfolio Like a System
+
+One of the biggest mindset shifts in this project was deciding not to build isolated pages. Instead, I wanted to build a system.
+
+That meant thinking in reusable patterns instead of one-off layouts.
+
+### For projects
+
+I created reusable case study components that could adapt to different kinds of project content. Because my background spans enterprise development, frontend engineering, UI work, content, and technical documentation, I knew very early that a single rigid template would not work for every case study.
+
+Some projects needed deeper architectural explanation, others needed more process storytelling, and others needed structured impact sections or role breakdowns. So instead of repeating similar markup over and over, I built dynamic components that could change based on project data.
+
+That made the system more flexible and also helped me keep the design consistent.
+
+### For the blog
+
+I wanted the blog to feel like it belonged to the same product, not like a separate site stitched on afterward. So I reused the same overall visual language:
+
+- similar card patterns  
+- similar spacing and hierarchy  
+- the same dark, minimal aesthetic  
+- a navigation flow that mirrors the project experience  
+
+That consistency matters more than people think. When a blog feels visually disconnected from the rest of a portfolio, it weakens the whole experience. It starts to feel like a side project instead of part of the same story.
+
+### For navigation
+
+I also made a deliberate decision to keep the homepage visually clean. Instead of using the same global header everywhere, I used a breadcrumb-style navigation that appears based on the user’s path through the site.
+
+The idea was simple:
+
+Home → Projects → Single Project  
+Home → Blog → Article
+
+That let the homepage stay focused as an entry point, while the deeper pages became more contextual and structured. It also gave the whole experience a clearer sense of progression.
+
+## The Design Direction
+
+Visually, I wanted the site to feel:
+
+- dark  
+- modern  
+- minimal  
+- technical, but not cold  
+- polished, but not over-designed  
+
+A lot of developer portfolios lean heavily into animation and visual effects. That can work, but for this project I wanted something more controlled. I wanted the interface to support the content, not compete with it.
+
+So instead of trying to make everything louder, I focused on:
+
+- clean spacing  
+- consistent typography  
+- strong content hierarchy  
+- a restrained accent color  
+- reusable UI patterns  
+
+That gave the portfolio a more intentional feel. Because at the end of the day, nobody is hiring you because your hover effect is cool.
+
+## The Hardest Part Wasn’t Styling
+
+The hardest part of this project wasn’t making it look good. It was structuring the data in a way that supported flexible content without creating chaos.
+
+That showed up in a few areas:
+
+- organizing project data cleanly  
+- mapping that data into reusable components  
+- allowing layouts to adapt without breaking consistency  
+- keeping the blog and project sections visually aligned  
+
+It’s easy to build one polished page. It’s much harder to build a system where every project feels consistent but still adapts to different types of content.
+
+That’s where most of the real effort went — and honestly, that’s where most of the value is. Because content structure is part of the user experience. If the structure is weak, the UI has to work twice as hard.
+
+## What I’m Most Proud Of
+
+There are a few parts of this build that stand out.
+
+### The case study layout
+
+The case studies feel more intentional than a simple project gallery because they explain context, process, and outcomes instead of just showing visuals or listing technologies. That makes the work feel more real and easier to understand.
+
+### The visual consistency
+
+Everything across the site feels connected. The projects, blog, and navigation all share the same visual language, which makes the portfolio feel like a single system instead of separate sections.
+
+### The integrated blog
+
+Bringing the blog into the portfolio was one of the best decisions I made. It lets me show not only what I’ve built, but how I think — which is just as important.
+
+### The AI assistant
+
+The AI assistant adds an extra layer of interaction without taking over the experience. It gives the portfolio something unique while still keeping the focus on the work.
+
+## What I’d Improve Next
+
+This is a strong foundation, but it’s not finished. If I continue building on it, I’d focus on the following areas.
+
+### Stronger storytelling
+
+Some projects, especially UI/UX and content work, would benefit from deeper narrative and walkthrough-style explanations.
+
+### Better use of visuals
+
+Adding images, diagrams, and examples would make certain case studies easier to understand and more engaging.
+
+### SEO and discoverability
+
+Improving metadata, internal linking, and structure will help the content reach more people.
+
+### Analytics
+
+Understanding how users interact with the site will help guide future improvements.
+
+## What I’d Tell Someone Building Their First Portfolio
+
+If you’re building your first portfolio, the biggest lesson I’d pass on is this:
+
+> Consistency matters more than flashy effects.
+
+You don’t need:
+
+- complex animations  
+- a full CMS  
+- a perfect design system  
+
+You need:
+
+- clear structure  
+- strong content  
+- reusable patterns  
+
+Your portfolio is not just a gallery — it’s a communication tool. It should help someone quickly understand what you do, how you think, what problems you solve, and why your work matters.
+
+## Final Thought
+
+Building this portfolio reinforced something simple:
+
+> Your portfolio is a product.
+
+And like any product:
+
+- it should solve a real problem  
+- it should be easy to use  
+- it should evolve over time  
+
+This version gives me a strong foundation. Now the focus shifts from building it to improving it.
+
+Want to see how I apply this in practice? Check out my [project case studies](/projects).
