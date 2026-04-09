@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: "/opengraph-image.png",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "Bryan Cash Portfolio",
@@ -72,7 +72,7 @@ export const metadata: Metadata = {
     title: "Bryan Cash — SAP BTP Lead & UI Architect",
     description:
       "Enterprise-focused developer and UI architect showcasing projects, case studies, and technical writing.",
-    images: ["/twitter-image.png"],
+    images: ["/og-image.png"],
   },
   icons: {
     icon: [
