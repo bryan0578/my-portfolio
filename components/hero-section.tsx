@@ -58,14 +58,7 @@ export function HeroSection() {
             </a>
           </Button>
 
-          <Button
-            variant="outline"
-            size="lg"
-            className="min-w-[160px] border-[#00FFC2]/20 text-muted-foreground hover:text-[#00FFC2] hover:border-[#00FFC2]/50 hover:bg-[#00FFC2]/5 transition-all duration-300"
-          >
-            <Download className="mr-2 size-4" />
-            Download Resume
-          </Button>
+          
         </div>
       </div>
 
