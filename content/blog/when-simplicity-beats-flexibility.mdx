@@ -1,0 +1,151 @@
+export const metadata = {
+  title: "MDX vs CMS: When Simplicity Beats Flexibility",
+  description:
+    "A practical look at when to use MDX instead of a CMS, and why simplicity is often the better choice for developer-driven content.",
+  date: "2026-04-12",
+  tags: ["Next.js", "MDX", "Architecture"],
+  categories: ["Frontend", "Architecture"],
+  featured: true,
+  published: true,
+}
+
+# MDX vs CMS: When Simplicity Beats Flexibility
+
+## The Assumption Most Developers Start With
+
+When you’re building anything that involves content, the default assumption is:
+
+> “I need a CMS.”
+
+And on paper, that makes sense.
+
+A CMS gives you:
+- a UI for writing content  
+- structured data  
+- flexibility  
+- scalability  
+
+But what gets overlooked is the cost that comes with that flexibility.
+
+## The Hidden Cost of a CMS
+
+A CMS isn’t just a tool — it’s an entire layer of your application.
+
+Once you introduce it, you’re also introducing:
+
+- API integration  
+- data fetching complexity  
+- authentication (in some cases)  
+- content modeling decisions  
+- deployment dependencies  
+
+For large teams or content-heavy platforms, that tradeoff makes sense.
+
+But for a developer-driven project, it’s often overkill.
+
+## Why I Chose MDX Instead
+
+When I rebuilt my portfolio, I made a deliberate decision to use MDX instead of a CMS.
+
+Not because it’s better in every scenario, but because it was better for this one.
+
+My priorities were simple:
+
+- move fast  
+- keep everything in one codebase  
+- avoid unnecessary infrastructure  
+
+MDX gave me exactly that.
+
+## What MDX Solves Well
+
+Using MDX meant I could treat content as part of the application.
+
+Instead of building a content system, I just wrote:
+
+/content/blog/my-post.mdx
+
+That gave me:
+
+- no database  
+- no API layer  
+- no external dependencies  
+- full control over layout and styling  
+
+More importantly, it let me focus on writing instead of wiring things together.
+
+## The Tradeoffs (And Why They’re Okay)
+
+MDX isn’t perfect, and it’s important to acknowledge that.
+
+You don’t get:
+
+- a visual editor  
+- non-technical authoring  
+- built-in content management tools  
+
+If you’re working with a team or non-developers, that becomes a real limitation. But for a solo developer, those tradeoffs are often irrelevant.
+
+In my case, the benefits outweighed the limitations.
+
+## When to Use MDX vs a CMS
+
+This decision becomes much clearer when you frame it around your actual needs.
+
+### Use MDX when:
+
+- you are the primary content creator  
+- speed matters more than flexibility  
+- content is tightly coupled to the UI  
+- you want everything in a single codebase  
+
+### Use a CMS when:
+
+- multiple people need to manage content  
+- you need editorial workflows (drafts, previews, approvals)  
+- content changes frequently and independently of the code  
+- non-technical users need access  
+
+The key is not choosing the “best” tool — it’s choosing the right one for the context.
+
+## Simplicity Is a Feature
+
+There’s a tendency to optimize for flexibility too early.
+
+More features, more options, more scalability.
+
+But in reality, that often slows things down.
+
+In this project, simplicity was the feature.
+
+By removing layers, I reduced:
+
+- setup time  
+- maintenance overhead  
+- cognitive load  
+
+And that made the entire system easier to build and evolve.
+
+## A Practical Perspective
+
+If I ever need to scale this further, I can.
+
+I could introduce:
+
+- a headless CMS  
+- a database  
+- an editorial workflow  
+
+But I’d be doing it with a clear reason, not as a default starting point.
+
+That’s the difference.
+
+## Final Thought
+
+If there’s one thing I’d recommend, it’s this:
+
+> Don’t build infrastructure before you have a problem that requires it.
+
+The best solution isn’t the most flexible one. It’s the one that lets you move forward without slowing you down.
+
+And in many cases, that’s simpler than you think.

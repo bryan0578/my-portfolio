@@ -1,0 +1,152 @@
+export const metadata = {
+  title: "How I Structure Frontend Projects (Without Creating a Mess)",
+  description:
+    "A practical look at how I structure frontend applications so they stay maintainable, scalable, and consistent over time.",
+  date: "2026-04-10",
+  tags: ["Frontend", "Architecture", "Next.js"],
+  categories: ["Frontend", "Architecture"],
+  featured: true,
+  published: true,
+}
+
+# How I Structure Frontend Projects (Without Creating a Mess)
+
+## The Problem Isn’t the Code — It’s the Structure
+
+Most frontend projects don’t break because of bad code.
+
+They break because of bad structure.
+
+At the beginning, everything feels simple:
+- a few components  
+- a couple of pages  
+- some basic state  
+
+But as the project grows, things start to drift.
+
+Files get duplicated. Logic gets scattered. Components become harder to reuse. And suddenly, even small changes feel risky.
+
+That’s not a coding problem — it’s an architecture problem.
+
+## What I Optimize For
+
+When I structure a frontend project, I’m not trying to be clever.
+
+I’m optimizing for three things:
+
+- clarity  
+- consistency  
+- scalability  
+
+Clarity means someone else can open the project and understand it quickly. Consistency means similar problems are solved in similar ways. Scalability means the structure still works when the project doubles in size.
+
+If those three things hold, everything else becomes easier.
+
+## Thinking in Systems, Not Pages
+
+One of the biggest shifts for me was moving away from thinking in pages and toward thinking in systems.
+
+Instead of asking:
+> “What does this page need?”
+
+I started asking:
+> “What patterns will repeat across the app?”
+
+That changes how you structure everything.
+
+Instead of building isolated components, you start building reusable pieces that can adapt to different use cases.
+
+## My Default Structure
+
+For most projects, I keep things simple and predictable.
+
+At a high level, it looks something like this:
+
+- `/app`
+- `/components`
+- `/lib`
+- `/content` (optional)
+
+Each of these has a clear purpose.
+
+- `app` handles routing and page composition  
+- `components` contains reusable UI pieces  
+- `lib` handles logic, helpers, and data utilities  
+- `content` (if used) stores MDX or structured content  
+
+Nothing fancy — just intentional separation.
+
+## Separating UI from Logic
+
+One of the most important decisions is keeping UI and logic separate. A component should primarily focus on rendering.
+
+If it starts handling:
+
+- data fetching  
+- business logic  
+- transformations  
+
+…it becomes harder to reuse and harder to test.
+
+Instead, I push that logic into:
+
+- hooks  
+- utility functions  
+- or the server layer (when possible)  
+
+This keeps components clean and predictable.
+
+## Reusable vs One-Off Components
+
+Not everything needs to be reusable. This is where a lot of projects overcomplicate things.
+
+I usually think in three levels:
+
+- **Global components** → used everywhere (buttons, cards, layout elements)  
+- **Feature components** → used within a specific section  
+- **One-off components** → used once, kept local  
+
+Trying to make everything reusable too early adds complexity for no real benefit. Reuse should be intentional, not automatic.
+
+## Consistency Over Cleverness
+
+A structure doesn’t need to be perfect — it needs to be consistent.
+
+If two parts of the app solve the same problem in completely different ways, that’s where confusion starts. I’d rather have a slightly imperfect structure that’s consistent than a “perfect” one that’s applied inconsistently.
+
+Consistency reduces cognitive load, and that matters more than anything else.
+
+## A Real Example From My Portfolio
+
+When I rebuilt my portfolio, I treated it like a small system instead of a collection of pages.
+
+Projects, blog posts, and navigation all follow similar patterns:
+
+- shared layout principles  
+- reusable card components  
+- consistent spacing and hierarchy  
+
+Even though the content is different, the structure stays predictable. That’s what keeps the experience cohesive.
+
+## The Hidden Benefit of Good Structure
+
+Good structure doesn’t make your app look better — it makes your app easier to work on.
+
+That shows up in ways like:
+
+- faster feature development  
+- fewer bugs  
+- easier onboarding  
+- less hesitation when making changes  
+
+It’s the kind of improvement you don’t notice immediately, but you feel over time.
+
+## Final Thought
+
+If there’s one thing I’ve learned, it’s this:
+
+> Frontend architecture isn’t about organizing files. It’s about reducing friction.
+
+A good structure doesn’t just help you today — it protects you from your future self.
+
+And that’s what makes it worth getting right.

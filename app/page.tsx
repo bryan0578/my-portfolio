@@ -13,7 +13,7 @@ export default async function Home() {
       <HeroSection />
       <SkillsBentoGrid />
       <ProjectsSection />
-      <BlogSection />
+      <BlogSection limit={2} />
       <MetricsSection />
       <AIChatBubble />
     </main>
