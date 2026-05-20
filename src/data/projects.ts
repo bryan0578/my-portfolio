@@ -422,7 +422,6 @@ export interface Project {
     "kpmg-client-dashboard": {
         slug: "kpmg-client-dashboard",
         title: "Client Data Dashboard (SAPUI5)",
-        featured: true,
         categories: ["SAP BTP", "UI/UX"],
         stack: ["SAPUI5", "Fiori Launchpad", "JavaScript", "Bootstrap"],
 
@@ -586,5 +585,5 @@ export interface Project {
             description:
             "The project evolved from a visual landing page into a scalable digital platform for a cinematic record label. The architecture was intentionally designed to support future artists, independent visual themes, segmented newsletter automations, and reusable content systems while maintaining a unified Dorsyth Records brand experience."
         }
-        }
+    }
   }
