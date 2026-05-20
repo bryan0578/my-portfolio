@@ -506,5 +506,85 @@ export interface Project {
             title: "Narrative-Driven Solution Showcase",
             description: "Focused on transforming technical features into a clear narrative by highlighting user journeys, simplifying complex functionality, and presenting the solution in a format tailored for executive stakeholders."
         }
-    }
+    },
+    "dorsyth-records-platform": {
+        slug: "dorsyth-records-platform",
+        title: "Dorsyth Records Artist Platform",
+        featured: true,
+
+        categories: ["UI/UX", "Content", "DevOps", "Technical Documentation"],
+
+        stack: [
+            "Next.js",
+            "TypeScript",
+            "Tailwind CSS",
+            "Framer Motion",
+            "Resend",
+            "Vercel",
+            "Fourthwall"
+        ],
+
+        summary:
+            "Designed and developed a cinematic multi-artist platform for Dorsyth Records, supporting artist-specific branding, release promotion, video content, newsletter segmentation, and future merch expansion.",
+
+        problem:
+            "Dorsyth Records required a scalable digital platform capable of supporting multiple artists with distinct visual identities while maintaining a unified label experience. The platform also needed to support future artist onboarding, release promotion, newsletter automation, and ecommerce expansion without rebuilding the application architecture.",
+
+        solution:
+            "Built a config-driven Next.js platform using reusable artist templates, centralized theme systems, dynamic routing, and topic-based newsletter segmentation with Resend. Implemented reusable sections for releases, videos, streaming links, merch previews, and artist storytelling while preparing the platform for future scaling across additional artists and storefront integrations.",
+
+        impact:
+            "Scalable Multi-Artist Platform",
+
+        architecture: {
+            title: "Config-Driven Artist Architecture",
+            description:
+            "The platform separates label identity, artist identity, and release identity into reusable configuration-driven systems. Artist pages are rendered dynamically from centralized config files, allowing new artists to be onboarded without rewriting page templates. Theme variables, release data, newsletter segmentation, and media assets are managed independently to support long-term scalability."
+        },
+
+        role: {
+            title: "Platform Architecture & Full-Stack Development",
+            description:
+            "Led the full platform implementation from concept through deployment, including visual system design, frontend architecture, reusable component development, newsletter infrastructure, deployment configuration, and operational documentation.",
+            points: [
+            "Built a scalable multi-artist architecture using TypeScript artist configuration files",
+            "Implemented reusable cinematic page sections for releases, videos, streaming links, merch, and artist storytelling",
+            "Designed artist-specific theming systems supporting Caleb Ash and PrettyWise under a unified label identity",
+            "Integrated Resend Contacts, Topics, and Events for segmented newsletter automations",
+            "Prepared the platform for future artist onboarding and Fourthwall merchandise integration",
+            "Created enterprise-style technical documentation and onboarding procedures for long-term maintainability"
+            ],
+            footerLabel:
+            "Next.js • Resend • Vercel • Config-Driven Architecture"
+        },
+
+        metrics: [
+            { label: "Artist Platforms", value: "2" },
+            { label: "Newsletter Segments", value: "3" },
+            { label: "Reusable Sections", value: "8+" }
+        ],
+
+        timeline: {
+            discovery:
+            "Defined the Dorsyth Records brand identity and established requirements for artist onboarding, release promotion, newsletter infrastructure, and future commerce expansion.",
+
+            architecture:
+            "Designed a reusable configuration-driven architecture separating artist data, release media, themes, newsletter segmentation, and shared UI components.",
+
+            development:
+            "Built the Next.js frontend, reusable section components, cinematic theme system, Spotify/video integrations, and Resend subscription API.",
+
+            deployment:
+            "Configured GitHub and Vercel deployment workflows, production environment variables, newsletter automations, and operational maintenance documentation."
+        },
+
+        deepDive: {
+            eyebrow: "Technical Deep Dive",
+
+            title: "Scalable Label Infrastructure",
+
+            description:
+            "The project evolved from a visual landing page into a scalable digital platform for a cinematic record label. The architecture was intentionally designed to support future artists, independent visual themes, segmented newsletter automations, and reusable content systems while maintaining a unified Dorsyth Records brand experience."
+        }
+        }
   }
