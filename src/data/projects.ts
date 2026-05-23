@@ -626,17 +626,17 @@ export interface Project {
               "A flexible brand identity system with standalone, vertical, and horizontal logo lockups.",
             images: [
               {
-                src: "/images/design/dorsyth-records/dorsyth-records-logo-mark.png",
+                src: "/images/design/dorsyth-records/dorsyth-records-logo-mark.webp",
                 alt: "Dorsyth Records circular gold logo mark",
                 caption: "Primary logo mark"
               },
               {
-                src: "/images/design/dorsyth-records/dorsyth-records-vertical-lockup.png",
+                src: "/images/design/dorsyth-records/dorsyth-records-vertical-lockup.webp",
                 alt: "Dorsyth Records vertical logo lockup",
                 caption: "Vertical lockup"
               },
               {
-                src: "/images/design/dorsyth-records/dorsyth-records-horizontal-lockup.png",
+                src: "/images/design/dorsyth-records/dorsyth-records-horizontal-lockup.webp",
                 alt: "Dorsyth Records horizontal logo lockup",
                 caption: "Horizontal lockup"
               }
