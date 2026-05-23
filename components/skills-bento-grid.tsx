@@ -1,10 +1,9 @@
 "use client"
 
-"use client"
-
+import Link from "next/link"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Database, Cloud, Palette, Code2 } from "lucide-react"
+import { Database, Cloud, Palette, Code2, ArrowRight } from "lucide-react"
 
 // Reuse your existing logic for brand consistency
 function getTagStyle(tag: string): string {
@@ -49,6 +48,7 @@ const skills = [
     title: "SAP BTP",
     category: "Architecture",
     icon: Cloud,
+    href: "/services/sap-btp-development",
     description: "Enterprise cloud solutions with SAP Business Technology Platform. CAP development, integration suites, and extensibility.",
     tags: ["CAP", "SAPUI5", "Fiori", "Build Work Zone", "IAS", "HANA Cloud"],
     themeColor: "text-blue-400 border-blue-500/50 bg-blue-500/10",
@@ -60,6 +60,7 @@ const skills = [
     title: "Salesforce",
     category: "DevOps",
     icon: Database,
+    href: "/services/salesforce-experience-cloud",
     description: "Salesforce platform development and DevOps automation. CI/CD pipelines, integrations, and Lightning components.",
     tags: ["Apex", "Aura Components", "LWC", "CI/CD", "LDS"],
     themeColor: "text-sky-400 border-sky-500/50 bg-sky-500/10",
@@ -71,6 +72,7 @@ const skills = [
     title: "UI/UX",
     category: "Figma/Adobe",
     icon: Palette,
+    href: "/services/enterprise-ui-ux",
     description: "User-centered design for enterprise applications. Design systems, prototyping, and accessibility-first approaches.",
     tags: ["Figma", "Adobe XD", "Design Systems", "Axure"],
     themeColor: "text-purple-400 border-purple-500/50 bg-purple-500/10",
@@ -82,6 +84,7 @@ const skills = [
     title: "Full-Stack Dev",
     category: "Node.js/Next.js",
     icon: Code2,
+    href: "/services",
     description: "Modern web development with React ecosystem. Server-side rendering, API design, and database architecture.",
     tags: ["React", "Next.js", "Node.js", "TypeScript", "JavaScript"],
     themeColor: "text-emerald-400 border-emerald-500/50 bg-emerald-500/10",
@@ -106,10 +109,10 @@ export function SkillsBentoGrid() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {skills.map((skill) => (
+              <Link key={skill.title} href={skill.href} className="block h-full">
               <Card 
-                key={skill.title}
                 className={`
-                    group relative overflow-hidden border-zinc-800 bg-zinc-950/50 backdrop-blur-md
+                    group relative overflow-hidden border-zinc-800 bg-zinc-950/50 backdrop-blur-md h-full
                     transition-all duration-500 ${skill.hoverBorder} ${skill.borderGlow}
                 `}
               >
@@ -135,7 +138,7 @@ export function SkillsBentoGrid() {
                   <p className="text-sm text-zinc-400 leading-relaxed mb-6">
                     {skill.description}
                   </p>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-2 mb-4">
                   {skill.tags.map((tag) => (
                     <Badge 
                         key={tag} 
@@ -147,8 +150,13 @@ export function SkillsBentoGrid() {
                     </Badge>
                     ))}
                   </div>
+                  <span className={`inline-flex items-center text-xs font-medium ${skill.themeColor.split(" ")[0]} opacity-80 group-hover:opacity-100`}>
+                    View service
+                    <ArrowRight className="ml-1 size-3" />
+                  </span>
                 </CardContent>
               </Card>
+              </Link>
             ))}
           </div>
         </div>

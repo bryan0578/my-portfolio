@@ -1,0 +1,143 @@
+import { BlogFaq } from "@/components/blog/blog-faq"
+import { BlogCta } from "@/components/blog/blog-cta"
+
+export const metadata = {
+  title: "When to Hire an SAP BTP Developer (vs SI or Full-Time)",
+  description:
+    "A practical guide for IT leaders deciding between an SAP BTP developer, systems integrator, or full-time hire—for portals, CAP, identity, and Clean Core programs.",
+  date: "2026-05-10",
+  tags: ["SAP BTP", "Consulting", "Enterprise"],
+  categories: ["SAP BTP", "Enterprise"],
+  featured: true,
+  published: true,
+}
+
+# When to Hire an SAP BTP Developer (vs SI or Full-Time)
+
+If you are evaluating how to staff an SAP Business Technology Platform initiative, you are usually past the “what is BTP?” phase. The real question is **who should own delivery** when portals, CAP services, identity, and extensibility standards must land together—not six months apart.
+
+This guide is for program managers, enterprise architects, and IT leaders deciding between a **specialist SAP BTP developer/consultant**, a **systems integrator (SI) workstream**, or a **full-time hire**.
+
+---
+
+## What an SAP BTP developer actually delivers
+
+On mature programs, “SAP BTP developer” rarely means “someone who can click around BTP cockpit.” It typically means hands-on ownership across:
+
+- **SAP Build Work Zone** (or equivalent portal shell) for external or internal users  
+- **CAP** (often Node.js) service layers with OData APIs and authorization models  
+- **SAPUI5 / Fiori** applications integrated into that portal experience  
+- **Identity**—SAP Cloud Identity Services (IAS), federation with corporate IdPs (e.g., Okta), attribute mapping into XSUAA/ABAC  
+- **Extensibility alignment**—Side-by-Side vs In-App decisions documented for Clean Core strategies  
+
+That combination is what separates a portal that launches from a portal that **stays governable** after go-live.
+
+On programs I have supported, that looked like a [manufacturer analytics portal](/projects/manufacturer-portal) consolidating many legacy entry points into one BTP experience—with CAP enforcing tenant-specific data access—and separate [extensibility governance](/projects/enterprise-governance) work defining how teams should build on BTP under Clean Core.
+
+---
+
+## When a specialist consultant is the right fit
+
+Hire a senior SAP BTP consultant or contract developer when:
+
+1. **You have a defined initiative with a go-live window**—partner portal, analytics hub, or extensibility standards pack—and need someone who can own architecture *and* implementation.  
+2. **Your SI is strong on S/4 but thin on BTP UX, identity, or CAP**—you need a senior embed, not another generic dev slot.  
+3. **You are pre- or mid-flight** and risk is concentrated in federation, multi-tenant access, or portal IA—not in ABAP transports.  
+4. **You need documented patterns** your internal CoE can operate after the engagement ends.  
+5. **Full-time headcount approval is slow** but the program cannot wait two quarters.
+
+A consultant should arrive with opinions grounded in delivery: what to validate in discovery, what to prove in a thin vertical slice, and what to document so the next team does not improvise.
+
+---
+
+## When a systems integrator should lead
+
+An SI-led model is appropriate when:
+
+- The program is a **large transformation** with BTP as one stream among many (data, process, change management).  
+- You need **global delivery scale** and formal governance across dozens of workstreams.  
+- BTP scope is fully packaged with fixed milestones, acceptance criteria, and vendor accountability at the program level.
+
+**Risk to watch:** BTP portal and identity workstreams are sometimes staffed with generalist full-stack developers who do not live in IAS, ABAC, and Work Zone configuration. If your RFP treats BTP as “any cloud developer,” you may pay for re-work in UAT.
+
+Many clients use an **SI for program scale** and a **BTP specialist** for the portal, CAP, and identity slice—especially when external users and security boundaries are non-negotiable.
+
+---
+
+## When to hire full-time
+
+A full-time SAP BTP developer (or architect) makes sense when:
+
+- BTP is a **multi-year platform** inside your organization—not a single project.  
+- You will operate and extend **multiple portals and CAP services** continuously.  
+- You have enough backlog to keep a senior person utilized across releases.  
+- Institutional knowledge (your IdP attributes, ABAC rules, transport paths) is worth retaining in-house.
+
+Full-time is weaker as the **first** move when you are still proving value on BTP—before patterns exist. Many teams hire full-time *after* a consultant helps establish the first production footprint.
+
+---
+
+## Comparison at a glance
+
+| Factor | SAP BTP consultant | Systems integrator | Full-time hire |
+|--------|-------------------|-------------------|----------------|
+| Time to start | Weeks | Months (procurement) | Months (recruiting) |
+| BTP depth | High if specialist | Variable by team | High after ramp |
+| Identity / portal focus | Can be primary scope | Often underweighted | Depends on role |
+| Knowledge retention | Documented handoff | Vendor-dependent | Strong |
+| Best for | Focused initiative | Enterprise transform | Ongoing platform |
+
+---
+
+## Questions to ask any candidate (consultant or FTE)
+
+1. Describe a **production** BTP portal with external users—what did you own in IAS, CAP, and UI?  
+2. How do you implement **tenant or partner isolation** in the service layer?  
+3. How do you decide **Side-by-Side vs In-App** extensibility—and where is that documented?  
+4. What is your approach to **OData contracts** when UI and CAP teams are separate?  
+5. What does “done” mean for a portal milestone in UAT?
+
+If answers stay at “we use Fiori elements” without identity or CAP detail, keep looking.
+
+---
+
+## How this connects to your next step
+
+If you are planning a BTP portal, CAP backend, or Clean Core extensibility standards effort, the decision is not only *who* to hire but *what scope* they own in the first 90 days. A focused consultant engagement often de-risks the architecture and identity model before you scale team size.
+
+Explore [SAP BTP development services](/services/sap-btp-development) for engagement models, or review the [manufacturer portal case study](/projects/manufacturer-portal) for a reference architecture pattern (NDA-safe summary).
+
+<BlogFaq
+  items={[
+    {
+      question: "How long should an initial SAP BTP consultant engagement last?",
+      answer:
+        "For a portal or CAP initiative, three to six months is common for a thin vertical slice through first production milestone—longer if governance standards and multiple app teams are in scope. Advisory-only windows can be shorter if discovery and standards are the primary deliverable.",
+    },
+    {
+      question: "Can a consultant work inside our SI's delivery model?",
+      answer:
+        "Yes. The effective model is clear workstream ownership: the specialist owns portal, CAP, and identity patterns while aligning to the SI's program governance, testing, and release calendars.",
+    },
+    {
+      question: "Do I need an SAP BTP developer if we already have SAPUI5 developers?",
+      answer:
+        "SAPUI5 skills overlap, but BTP portal delivery also requires CAP, Work Zone, IAS/XSUAA, and extensibility decisions. If your UI team cannot own those platform layers, you still need BTP platform depth—not only UI developers.",
+    },
+    {
+      question: "What should I send in a first inquiry?",
+      answer:
+        "Timeline, user types (internal vs external), target services (Work Zone, CAP, IAS), IdP landscape, and whether you need build, governance, or both. That is enough to assess fit without a lengthy RFP.",
+    },
+  ]}
+/>
+
+<BlogCta
+  headline="Evaluating SAP BTP staffing for your program?"
+  description="Share your portal, CAP, or Clean Core scope. I will respond with whether a specialist engagement fits and how similar programs were structured."
+  serviceHref="/services/sap-btp-development"
+  serviceLabel="SAP BTP development services"
+  mailSubject="Blog inquiry: Hire SAP BTP developer"
+  caseStudyHref="/projects/manufacturer-portal"
+  caseStudyLabel="Manufacturer portal case study"
+/>

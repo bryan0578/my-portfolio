@@ -36,6 +36,15 @@ function getTagColor(tag: string): string {
     case "CAREER":
     case "PERSONAL BRANDING":
       return "bg-fuchsia-500/10 text-fuchsia-400 border-fuchsia-500/20"
+    case "SAP BTP":
+    case "SAP":
+      return "bg-blue-500/10 text-blue-400 border-blue-500/20"
+    case "SALESFORCE":
+    case "DEVOPS":
+    case "EXPERIENCE CLOUD":
+      return "bg-sky-500/10 text-sky-400 border-sky-500/20"
+    case "CONSULTING":
+      return "bg-teal-500/10 text-teal-400 border-teal-500/20"
     case "JAVASCRIPT":
       return "bg-yellow-500/10 text-yellow-300 border-yellow-500/20"
     case "TYPESCRIPT":

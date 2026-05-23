@@ -1,8 +1,10 @@
 "use client"
 
 import { useMemo, useState } from "react"
+import Link from "next/link"
 import { ProjectCard } from "@/components/project-card"
 import { GlobalHeader } from "@/components/global-header"
+import { SiteHeader } from "@/components/site-header"
 import { Button } from "@/components/ui/button"
 import { projects } from "@/src/data/projects"
 import { AIChatBubble } from "@/components/ai-chat-bubble"
@@ -38,19 +40,24 @@ export default function AllProjectsPage() {
 
   return (
     <>
+      <SiteHeader />
       <GlobalHeader />
 
-      <main className="min-h-screen bg-background pt-32 pb-24 px-6">
+      <main id="main-content" className="min-h-screen bg-background pt-36 pb-24 px-6">
         <div className="max-w-7xl mx-auto w-full">
           <div className="flex flex-col items-center text-center mb-16">
             <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-foreground mb-6">
-              Enterprise <span className="text-[#00FFC2]">Solutions</span>
+              SAP BTP &amp; Salesforce{" "}
+              <span className="text-[#00FFC2]">Case Studies</span>
             </h1>
 
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
-              A curated collection of enterprise applications, customer portals,
-              workflow tools, release management initiatives, and solution
-              showcase content.
+              SAP BTP, SAPUI5, Salesforce Experience Cloud, and DevOps case studies—proof
+              of enterprise delivery. See{" "}
+              <Link href="/services" className="text-[#00FFC2] hover:underline font-medium">
+                services
+              </Link>{" "}
+              for how I engage on similar programs.
             </p>
 
             <div className="flex flex-wrap justify-center gap-3 mt-10">

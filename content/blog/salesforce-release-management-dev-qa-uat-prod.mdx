@@ -1,0 +1,170 @@
+import { BlogFaq } from "@/components/blog/blog-faq"
+import { BlogCta } from "@/components/blog/blog-cta"
+
+export const metadata = {
+  title: "Salesforce Release Management Across Dev, QA, UAT, and Prod",
+  description:
+    "How to run Salesforce releases across Dev, QA, UAT, and Production—metadata validation, promotion discipline, and when to assign a release owner.",
+  date: "2026-05-14",
+  tags: ["Salesforce", "DevOps", "Enterprise"],
+  categories: ["Salesforce", "DevOps"],
+  featured: true,
+  published: true,
+}
+
+# Salesforce Release Management Across Dev, QA, UAT, and Prod
+
+Salesforce programs do not fail only in Production—they fail in the **handoffs** between environments. A feature “works in Dev” but breaks in UAT because dependencies, profiles, or Experience Cloud site settings were never promoted as a **single releasable unit**.
+
+This article is for delivery managers, Salesforce leads, and IT owners who need a **practical release model** across Dev → QA → UAT → Production—not a tool tutorial.
+
+It aligns with delivery patterns from [Salesforce release management](/projects/salesforce-devops) work: GitHub and SFDX, metadata validation before promotion, and coordination when multiple teams contribute to the same org landscape.
+
+---
+
+## Why environment promotion is a product, not a task
+
+Each promotion should answer:
+
+1. **What metadata moves?** (and what explicitly does not)  
+2. **What was validated?** (tests, peer review, dependency check)  
+3. **Who approved?** (business and technical)  
+4. **What rolls back?** (if the answer is “we can’t,” treat that as risk)
+
+Treating promotion as “whoever is free runs the deploy” is how Experience Cloud sites and integrations destabilize under parallel development.
+
+---
+
+## Environment roles (what each is for)
+
+| Environment | Purpose | Common mistakes |
+|-------------|---------|-----------------|
+| **Dev** | Feature development, spikes, breaking changes | Long-lived sandboxes that drift from team norms |
+| **QA** | Integrated testing, regression | Used as personal dev sandboxes |
+| **UAT** | Business acceptance | Missing prod-like identity/site config |
+| **Prod** | Live users | Emergency changes without back-promotion plan |
+
+**UAT must resemble Production** for portal and auth flows—not only for Apex tests. If federation, Experience Cloud sites, or sharing differ, you are UAT-testing the wrong system.
+
+---
+
+## A disciplined promotion flow
+
+### Step 1 — Define the release unit
+
+Package work as a **release**, not a bag of stories:
+
+- Metadata components (and manifest)  
+- Experience Cloud changes (sites, templates, digital experiences)  
+- Dependencies on other teams’ merges  
+
+### Step 2 — Validate before leaving Dev
+
+- Peer review on Git  
+- Static checks your program requires (tests, linting where applicable)  
+- **Conflict detection** against the integration branch other teams use  
+
+### Step 3 — Promote Dev → QA
+
+- Deploy the same artifact QA will later trust  
+- Smoke-test critical journeys (login, core objects, portal home)  
+- Log defects against the release, not “the sandbox feels weird”
+
+### Step 4 — Promote QA → UAT
+
+- Confirm **business testers** know the scope  
+- Validate sharing, profiles, and portal visibility with realistic personas  
+- Freeze or control concurrent drops into UAT during acceptance windows  
+
+### Step 5 — Promote UAT → Production
+
+- Change advisory / release calendar alignment  
+- Communication to support and business owners  
+- Post-deploy verification checklist (not only “deploy succeeded”)  
+
+On programs with parallel tracks, the release owner resolves **metadata conflicts before** Production—not during the maintenance window.
+
+---
+
+## Metadata conflicts: predictability beats heroics
+
+Conflicts usually mean two teams touched the same component, or someone deployed partial metadata. Prevention:
+
+- **Branching strategy** everyone understands  
+- **One integration path** to QA/UAT  
+- **Release owner** accountable for the manifest—not every developer self-deploying  
+
+When conflicts happen, fix in Dev (or a dedicated integration branch), re-run the promotion path, and **do not** patch Production ad hoc without back-promoting.
+
+---
+
+## Experience Cloud and portal releases
+
+Portal programs add:
+
+- Site and community configuration  
+- LWC/Aura bundles tied to specific API versions  
+- Content and navigation that business updates  
+
+Include portal smoke tests in **every** promotion, not only “Apex passed.” Partner-facing work like a [partner warranty portal](/projects/partner-portal) depends on stable releases as much as code quality.
+
+If portal and backend teams release independently, define **combined release criteria** or you will debug in Production.
+
+---
+
+## When to assign a Salesforce DevOps consultant or release owner
+
+Assign dedicated release ownership when:
+
+- Multiple scrum teams deploy to shared environments  
+- UAT “passed” but Production incidents trace to promotion gaps  
+- No one can explain what changed between environments  
+- A major cutover is within 4–8 weeks  
+
+[Salesforce DevOps services](/services/salesforce-devops) focus on this ownership model—SFDX, GitHub, and multi-environment discipline—so feature teams stay on features.
+
+---
+
+## Metrics that matter to leadership
+
+- **Failed promotions** per release (and root cause category)  
+- **Rollback events** (or emergency hotfix count)  
+- **Lead time** from merge to Production (if improving CI/CD)  
+- **Defects found in UAT vs Prod** (late discovery = process gap)
+
+Vanity metrics like “number of deploys” are less useful than **predictable, boring releases**.
+
+<BlogFaq
+  items={[
+    {
+      question: "Do we need Copado or another tool to do this?",
+      answer:
+        "Tools help, but discipline comes first. Git + SFDX + clear ownership can work at significant scale if promotion rules are enforced. Choose tooling after you define the release unit and environment gates.",
+    },
+    {
+      question: "How often should we release to Production?",
+      answer:
+        "Cadence depends on change tolerance and testing capacity. More important than frequency is that each release is a known, validated artifact—not continuous partial deploys.",
+    },
+    {
+      question: "Who should own the final Production deploy?",
+      answer:
+        "Ideally a named release owner (internal or consultant), not whichever developer is online. They hold the manifest, approvals, and verification checklist.",
+    },
+    {
+      question: "Can release management be combined with portal development?",
+      answer:
+        "Yes. Many programs engage the same specialist for Experience Cloud delivery and release ownership so site config and metadata move together.",
+    },
+  ]}
+/>
+
+<BlogCta
+  headline="Releases breaking between QA and Production?"
+  description="Share your environment landscape and next cutover date. I can outline release ownership options based on similar Salesforce programs."
+  serviceHref="/services/salesforce-devops"
+  serviceLabel="Salesforce DevOps services"
+  mailSubject="Blog inquiry: Salesforce release management"
+  caseStudyHref="/projects/salesforce-devops"
+  caseStudyLabel="Release management case study"
+/>

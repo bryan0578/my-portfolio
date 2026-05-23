@@ -1,9 +1,13 @@
 import { notFound } from "next/navigation"
 import type { Metadata } from "next"
 import { BlogHeader } from "@/components/blog/blog-header"
+import { SiteHeader } from "@/components/site-header"
 import { BlogPostLayout } from "@/components/blog/blog-post-layout"
 import { AIChatBubble } from "@/components/ai-chat-bubble"
 import { getAllPostSlugs, getPostBySlug } from "@/lib/blog"
+import { JsonLd } from "@/lib/seo/json-ld"
+import { createBlogPostMetadata } from "@/lib/seo/blog-metadata"
+import { buildBlogPostingSchema, buildBreadcrumbSchema } from "@/lib/seo/schemas"
 
 export async function generateStaticParams() {
   const slugs = await getAllPostSlugs()
@@ -19,13 +23,13 @@ export async function generateMetadata({
   const post = await getPostBySlug(slug)
 
   if (!post) {
-    return { title: "Post Not Found" }
+    return {
+      title: { absolute: "Post Not Found | Bryan Cash" },
+      robots: { index: false, follow: false },
+    }
   }
 
-  return {
-    title: `${post.frontmatter.title} — Bryan Cash`,
-    description: post.frontmatter.description,
-  }
+  return createBlogPostMetadata(slug, post.frontmatter)
 }
 
 export default async function BlogPostPage({
@@ -48,11 +52,32 @@ export default async function BlogPostPage({
     notFound()
   }
 
+  const postPath = `/blog/${slug}`
+  const structuredData = [
+    ...buildBlogPostingSchema({
+      path: postPath,
+      headline: post.frontmatter.title,
+      description: post.frontmatter.description,
+      datePublished: post.frontmatter.date,
+      keywords: [
+        ...(post.frontmatter.tags ?? []),
+        ...(post.frontmatter.categories ?? []),
+      ],
+    }),
+    buildBreadcrumbSchema([
+      { name: "Home", path: "/" },
+      { name: "Blog", path: "/blog" },
+      { name: post.frontmatter.title, path: postPath },
+    ]),
+  ]
+
   return (
     <div className="min-h-screen bg-background">
+      <JsonLd data={structuredData} />
+      <SiteHeader />
       <BlogHeader postTitle={post.frontmatter.title} />
 
-      <main className="pt-20">
+      <main id="main-content" className="pt-36">
         <BlogPostLayout
           title={post.frontmatter.title}
           description={post.frontmatter.description}

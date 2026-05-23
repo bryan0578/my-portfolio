@@ -1,0 +1,174 @@
+import { BlogFaq } from "@/components/blog/blog-faq"
+import { BlogCta } from "@/components/blog/blog-cta"
+
+export const metadata = {
+  title: "SAP BTP External Partner Portal: Architecture Checklist",
+  description:
+    "An architecture checklist for SAP BTP external partner portals—identity, multi-tenant access, Work Zone, CAP, and go-live readiness for enterprise IT leaders.",
+  date: "2026-05-12",
+  tags: ["SAP BTP", "Architecture", "Portals"],
+  categories: ["SAP BTP", "Enterprise"],
+  featured: true,
+  published: true,
+}
+
+# SAP BTP External Partner Portal: Architecture Checklist
+
+External partner portals on SAP BTP fail quietly: login works in QA, but **wrong tenants see wrong data**, or every release breaks federation. This checklist is for architects and delivery leads planning a **partner-facing** experience—not an internal Fiori rollout with extra VPN steps.
+
+It reflects patterns from enterprise programs including a [manufacturer analytics portal](/projects/manufacturer-portal) that replaced many fragmented entry points with a unified Build Work Zone experience, CAP-based services, and federated identity.
+
+Use it in discovery, architecture review, or before you sign off on an SI design.
+
+---
+
+## 1. Users and boundaries
+
+Before choosing services, document:
+
+- **Who is external** (partners, vendors, distributors) vs internal support staff  
+- **Authentication source** (partner IdP, your corporate IdP, local BTP users—avoid local for scale)  
+- **Authorization model**—roles, attributes (e.g., partner ID, region), and whether isolation is **RBAC only** or **attribute-based (ABAC)** in CAP  
+- **Data scope per tenant**—what “multi-tenant” means in your domain (legal entity, region, brand)
+
+**Red flag:** “We will figure out security in UAT.”
+
+---
+
+## 2. Portal shell: SAP Build Work Zone
+
+Confirm:
+
+- Work Zone is the **intended shell** for app catalog, branding, and navigation  
+- How many **SAPUI5/Fiori apps** launch from the portal vs embedded elsewhere  
+- **Branding and content** ownership (business vs IT)  
+- Mobile/responsive expectations for external users  
+
+**Red flag:** A pile of standalone Fiori URLs with no unified entry—partners will not adopt it.
+
+---
+
+## 3. Service layer: CAP and OData
+
+Confirm:
+
+- **CAP runtime** (e.g., Node.js) and deployment target on Cloud Foundry  
+- OData APIs are the **contract** between UI and backend—versioned and documented  
+- **ABAC or equivalent** enforces partner isolation in the service layer—not only in UI filters  
+- Integration to S/4, analytics (e.g., datasphere), or legacy APIs is mapped with failure modes  
+
+On manufacturer-style programs, CAP enforced attribute-based access after mapping IdP attributes through IAS into XSUAA—so the UI never became the security boundary.
+
+**Red flag:** UI hides rows partners should not see; service layer returns everything.
+
+---
+
+## 4. Identity: IAS and federation
+
+Confirm:
+
+- **SAP Cloud Identity Services (IAS)** role in the flow (proxy, SAML, attribute propagation)  
+- Federation with **Okta, Azure AD, or partner IdP** is designed—not bolted on in week 12  
+- **Attribute mapping** is documented (which claims become authorization inputs)  
+- Session timeout, logout, and partner offboarding are defined  
+
+**Red flag:** “IAS is Basis’s problem” while UI and CAP teams proceed without attribute contracts.
+
+---
+
+## 5. Applications: SAPUI5 / Fiori
+
+Confirm:
+
+- App inventory: net-new vs migrated from legacy portals  
+- **Launchpad integration** and role-based visibility  
+- Shared UX patterns (errors, empty states, onboarding) across apps  
+- OData readiness gates before UI sprints complete  
+
+Related delivery often sits with [SAPUI5 & Fiori development](/services/sapui5-fiori-development); the portal architecture still must define how those apps share identity and services.
+
+---
+
+## 6. Extensibility and Clean Core
+
+If S/4 is in scope, confirm:
+
+- **Side-by-Side vs In-App** choices per capability  
+- BTP services allowed for net-new extension  
+- Who maintains **standards** when multiple teams contribute apps  
+
+See [SAP BTP extensibility governance](/projects/enterprise-governance) for how standards can be packaged for development teams—not only architecture slides.
+
+---
+
+## 7. Environments, transport, and operations
+
+Confirm:
+
+- Dev / QA / UAT / Prod parity for **identity config**—not only code  
+- CI/CD ownership for CAP and UI repos  
+- Monitoring: auth failures, OData errors, portal availability  
+- Runbooks for partner onboarding and offboarding  
+
+---
+
+## 8. Go-live readiness (executive view)
+
+| Area | Ready? |
+|------|--------|
+| Partner pilot cohort identified | |
+| Federation tested with real IdP attributes | |
+| ABAC negative tests (Partner A cannot see Partner B) | |
+| Support model for login and access issues | |
+| Rollback plan for portal and services | |
+| Adoption metrics defined (not only go-live date) | |
+
+---
+
+## Common failure modes (and what to do instead)
+
+1. **Treating the portal as a UI project**—Start with identity and CAP contracts.  
+2. **Copying internal Fiori patterns**—External users need simpler IA and stronger guidance.  
+3. **Skipping negative security tests**—Test forbidden access explicitly.  
+4. **No single architect across IAS + CAP + Work Zone**—Assign cross-layer ownership.  
+
+---
+
+## When to bring in a specialist
+
+Bring in senior SAP BTP delivery help when federation, multi-tenant CAP, or Work Zone at scale is on the critical path—and your team has not done it in production before. A short architecture phase before mass development often pays for itself in avoided UAT cycles.
+
+<BlogFaq
+  items={[
+    {
+      question: "Is Build Work Zone always required for an external portal?",
+      answer:
+        "Not always—but you need a deliberate portal shell strategy. Work Zone is the common choice when many Fiori apps share one branded entry. The checklist still applies if you use another supported pattern; gaps in navigation and identity are what hurt adoption.",
+    },
+    {
+      question: "How does this differ from Customer Experience portals on Salesforce?",
+      answer:
+        "Salesforce Experience Cloud solves a similar business problem on a different stack. If your CRM and journeys are Salesforce-centric, compare both platforms on identity, data location, and team skills—not only licensing.",
+    },
+    {
+      question: "Can we phase go-live by partner region?",
+      answer:
+        "Yes, if ABAC and federation support it from day one. Phasing by region without attribute discipline often causes expensive rework.",
+    },
+    {
+      question: "What is the first document I should produce?",
+      answer:
+        "A one-page data and identity boundary diagram: user types, IdP, attributes, CAP services, and which systems hold truth for partner master data.",
+    },
+  ]}
+/>
+
+<BlogCta
+  headline="Planning an external partner portal on SAP BTP?"
+  description="Use this checklist in your next architecture review—or reach out with your IdP and portal scope for a focused conversation."
+  serviceHref="/services/sap-btp-development"
+  serviceLabel="SAP BTP portal development"
+  mailSubject="Blog inquiry: SAP BTP partner portal architecture"
+  caseStudyHref="/projects/manufacturer-portal"
+  caseStudyLabel="See manufacturer portal case study"
+/>

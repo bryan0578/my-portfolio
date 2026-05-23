@@ -1,18 +1,19 @@
 "use client"
 
 import { useMemo, useState } from "react"
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { BlogCard } from "@/components/blog/blog-card"
 import type { BlogPost } from "@/lib/blog"
 
 const categories = [
   "All",
-  "Frontend",
-  "React",
-  "Next.js",
-  "Architecture",
-  "Career",
+  "SAP BTP",
+  "Salesforce",
+  "DevOps",
   "Enterprise",
+  "Architecture",
+  "Frontend",
 ] as const
 
 interface BlogIndexClientProps {
@@ -43,12 +44,15 @@ export function BlogIndexClient({ posts }: BlogIndexClientProps) {
     <div className="max-w-7xl mx-auto w-full">
       <div className="flex flex-col items-center text-center mb-16">
         <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-foreground mb-6">
-          Technical <span className="text-[#00FFC2]">Writing</span>
+          Enterprise Development <span className="text-[#00FFC2]">Blog</span>
         </h1>
 
         <p className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
-          A curated collection of articles on frontend architecture, engineering decisions,
-          portfolio building, and practical lessons from real-world development.
+          Articles on enterprise software delivery, SAP and Salesforce ecosystems,
+          frontend architecture, and practical lessons from Fortune 500 programs.{" "}
+          <Link href="/services" className="text-[#00FFC2] hover:underline font-medium">
+            View services
+          </Link>
         </p>
 
         <div className="flex flex-wrap justify-center gap-3 mt-10">

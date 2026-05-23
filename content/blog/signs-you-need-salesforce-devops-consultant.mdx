@@ -1,0 +1,152 @@
+import { BlogFaq } from "@/components/blog/blog-faq"
+import { BlogCta } from "@/components/blog/blog-cta"
+
+export const metadata = {
+  title: "Do You Need a Salesforce DevOps Consultant? Signs Your Releases Are at Risk",
+  description:
+    "Seven signs your Salesforce program needs a DevOps consultant or release owner—metadata conflicts, environment drift, and failed UAT-to-Prod promotions.",
+  date: "2026-05-16",
+  tags: ["Salesforce", "DevOps", "Consulting"],
+  categories: ["Salesforce", "DevOps"],
+  featured: true,
+  published: true,
+}
+
+# Do You Need a Salesforce DevOps Consultant? Signs Your Releases Are at Risk
+
+If you are asking whether you need a **Salesforce DevOps consultant**, you probably already feel release pain—you may not have named it yet. Tooling alone does not fix releases; **ownership and promotion discipline** do.
+
+This article is for IT and delivery leaders deciding whether to add a release owner, tighten SFDX/Git practices, or keep hoping the next cutover goes smoother.
+
+---
+
+## What a Salesforce DevOps consultant actually does
+
+Unlike a generic admin who “knows deployments,” a DevOps-focused consultant typically owns:
+
+- **Release trains** across Dev, QA, UAT, and Production  
+- **Metadata validation and packaging** before promotion  
+- **Conflict resolution** when parallel teams overwrite each other  
+- **GitHub (or equivalent) + SFDX** workflows your teams can sustain  
+- **Communication** with dev, QA, and business during high-risk windows  
+
+They are not a substitute for Salesforce admins on org policy—but they prevent feature teams from becoming accidental release managers every Friday.
+
+Reference: [Salesforce release management case study](/projects/salesforce-devops) (NDA-safe summary of multi-environment ownership).
+
+---
+
+## Sign 1 — UAT passes, Production still breaks
+
+**Symptom:** Business signs off in UAT; Production issues appear in week one.  
+**Likely cause:** Environment drift—profiles, sharing, site config, or integrations differ.  
+**What to do:** Parity checklist before UAT starts; named owner for promotion artifacts.  
+
+---
+
+## Sign 2 — Nobody knows what is in the release
+
+**Symptom:** “What are we deploying Friday?” gets vague answers.  
+**Likely cause:** No release manifest; deployments are story-driven, not release-driven.  
+**What to do:** Define release units; one owner maintains the deployment package.  
+
+---
+
+## Sign 3 — Metadata conflicts are “normal”
+
+**Symptom:** Frequent merge/deploy failures; teams blame each other’s commits.  
+**Likely cause:** Parallel tracks without integration branch discipline.  
+**What to do:** Integration path + release owner who resolves conflicts before UAT lock.  
+
+---
+
+## Sign 4 — Developers own Production deploys ad hoc
+
+**Symptom:** The same developers building features also push to Prod under pressure.  
+**Likely cause:** No release role; speed over process.  
+**What to do:** Separate build from release ownership—even part-time.  
+
+---
+
+## Sign 5 — Experience Cloud or portal changes surprise the team
+
+**Symptom:** Site breaks after “a small LWC change.”  
+**Likely cause:** Portal metadata not released with the same discipline as Apex/LWC repos.  
+**What to do:** Include site config in release criteria; see [Experience Cloud services](/services/salesforce-experience-cloud) when portal and releases must align.  
+
+Partner programs such as a [partner warranty portal](/projects/partner-portal) need the same release rigor as core CRM.
+
+---
+
+## Sign 6 — You are approaching a high-visibility cutover without a runbook
+
+**Symptom:** Executive date is fixed; technical readiness is unclear.  
+**Likely cause:** Release planning started too late.  
+**What to do:** Short engagement for release ownership + runbook—even if feature dev is elsewhere.  
+
+---
+
+## Sign 7 — You bought DevOps tooling but behavior did not change
+
+**Symptom:** Pipeline exists; teams still deploy manually to sandboxes.  
+**Likely cause:** Tools without operating model.  
+**What to do:** Define gates, roles, and who can click “promote to Prod.”  
+
+---
+
+## Consultant vs internal hire vs SI
+
+| Option | When it fits |
+|--------|----------------|
+| **Consultant / contract release owner** | Peak risk window, multi-team conflict, no internal owner yet |
+| **Internal release manager** | Steady release cadence, enough volume to retain |
+| **SI-managed releases** | Large program with vendor accountability—verify BTP/portal metadata is in scope |
+
+Many teams use a **consultant to stabilize** two or three release cycles, then transition to internal ownership with documented runbooks.
+
+---
+
+## What success looks like after 90 days
+
+- Named release owner and backup  
+- Documented promotion path Dev → QA → UAT → Prod  
+- Manifest-based releases with verification checklist  
+- Fewer Production hotfixes traced to “we missed that metadata”  
+- Feature teams back on feature work  
+
+Read the companion article on [release management across environments](/blog/salesforce-release-management-dev-qa-uat-prod) for the promotion model in detail.
+
+<BlogFaq
+  items={[
+    {
+      question: "Is a Salesforce DevOps consultant the same as a Salesforce architect?",
+      answer:
+        "Overlap exists, but DevOps consultants optimize for release safety and environment discipline. Architects may design solutions; release owners make sure the right metadata reaches Production intact.",
+    },
+    {
+      question: "Can you help for one Production weekend only?",
+      answer:
+        "Yes, if scope and access are agreed in advance. Preferably include at least one prior cycle in non-Prod to reduce weekend risk.",
+    },
+    {
+      question: "Do we need this if we only use Salesforce lightly?",
+      answer:
+        "If multiple developers touch the same orgs or you have an Experience Cloud site in Production, yes—light usage with many contributors still creates conflict risk.",
+    },
+    {
+      question: "How does this relate to SAP BTP programs?",
+      answer:
+        "Different platform—but the same organizational problem: parallel teams need promotion discipline. Some enterprises run both; staffing can be separate or combined per initiative.",
+    },
+  ]}
+/>
+
+<BlogCta
+  headline="Seeing these signs on your Salesforce program?"
+  description="Describe your environments, teams, and next release date. I will tell you if release ownership support is appropriate."
+  serviceHref="/services/salesforce-devops"
+  serviceLabel="Salesforce DevOps consulting"
+  mailSubject="Blog inquiry: Salesforce DevOps consultant"
+  caseStudyHref="/projects/salesforce-devops"
+  caseStudyLabel="View release management case study"
+/>

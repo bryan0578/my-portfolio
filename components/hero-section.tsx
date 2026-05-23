@@ -1,49 +1,27 @@
 "use client"
 
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Download, Mail, ArrowDown } from "lucide-react"
-
-const CONTACT_EMAIL = "bryancash.dev@gmail.com"
-
-function buildMailtoHref(email: string, subject?: string, body?: string) {
-  const params = new URLSearchParams()
-
-  if (subject) params.set("subject", subject)
-  if (body) params.set("body", body)
-
-  const query = params.toString()
-  return `mailto:${email}${query ? `?${query}` : ""}`
-}
-
+import { Mail, ArrowDown, ArrowRight } from "lucide-react"
 export function HeroSection() {
-  const mailtoHref = buildMailtoHref(
-    CONTACT_EMAIL,
-    "Inquiry from Portfolio: SAP BTP / DevOps Consulting",
-    [
-      "Hi Bryan,",
-      "",
-      "I was reviewing your portfolio and would love to discuss your experience with...",
-    ].join("\n")
-  )
-
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center px-6 py-24 overflow-hidden">
+    <section className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-24 pb-24 overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-zinc-900 via-background to-background" />
 
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-[#00FFC2]/5 blur-[120px] rounded-full pointer-events-none" />
 
       <div className="relative z-10 max-w-4xl mx-auto text-center">
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground mb-6">
-          <span className="text-balance">Bryan Cash</span>
-        </h1>
-
-        <p className="text-lg md:text-xl text-[#00FFC2] font-semibold mb-4 tracking-wide uppercase">
-          SAP BTP Lead & UI Architect
+        <p className="text-sm uppercase tracking-widest text-[#00FFC2] mb-4 font-semibold">
+          Bryan Cash
         </p>
 
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground mb-6 text-balance">
+          SAP BTP Lead &amp; Enterprise UI Architect
+        </h1>
+
         <p className="text-base md:text-lg text-muted-foreground/80 max-w-2xl mx-auto mb-12 leading-relaxed text-pretty">
-          Bridging enterprise backend with intuitive UX. I architect scalable SAP solutions
-          while crafting user experiences that drive adoption and business value.
+          SAP BTP development, SAPUI5/Fiori applications, Salesforce Experience Cloud,
+          and DevOps for organizations that need adoption—not just delivery.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -52,13 +30,18 @@ export function HeroSection() {
             asChild
             className="min-w-[160px] bg-[#00FFC2] text-zinc-950 hover:bg-[#00FFC2]/90 shadow-[0_0_20px_rgba(0,255,194,0.3)] hover:shadow-[0_0_30px_rgba(0,255,194,0.5)] transition-all duration-300 font-bold"
           >
-            <a href={mailtoHref} target="_blank" aria-label="Email Bryan Cash">
+            <Link href="/contact" aria-label="Contact Bryan Cash">
               <Mail className="mr-2 size-4" />
               Get in Touch
-            </a>
+            </Link>
           </Button>
 
-          
+          <Button size="lg" variant="outline" asChild className="min-w-[160px]">
+            <Link href="/services" aria-label="View enterprise development services">
+              View Services
+              <ArrowRight className="ml-2 size-4" />
+            </Link>
+          </Button>
         </div>
       </div>
 

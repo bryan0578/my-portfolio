@@ -1,0 +1,181 @@
+import { BlogFaq } from "@/components/blog/blog-faq"
+import { BlogCta } from "@/components/blog/blog-cta"
+
+export const metadata = {
+  title: "Experience Cloud for B2B Partner Portals: What to Plan Before Build",
+  description:
+    "What to plan before building a Salesforce Experience Cloud B2B partner portal—users, CRM data, LWC vs Aura, admin boundaries, and release readiness.",
+  date: "2026-05-18",
+  tags: ["Salesforce", "Experience Cloud", "Portals"],
+  categories: ["Salesforce", "Enterprise"],
+  featured: true,
+  published: true,
+}
+
+# Experience Cloud for B2B Partner Portals: What to Plan Before Build
+
+B2B partner portals on **Salesforce Experience Cloud** fail when teams treat them as “a website on Salesforce.” Partners need **operational data**—warranty status, order context, RGA workflows—not marketing pages with a login button.
+
+This guide is for product owners, Salesforce leads, and IT decision makers **before** development starts: what to decide, what to document, and what to assign—so LWC/Aura work does not begin on shifting sand.
+
+It draws on patterns from a [partner warranty portal](/projects/partner-portal) (LWC and Aura surfacing warranty and RGA data in support flows) and large-scale [utility customer self-service](/projects/utility-customer-portal) delivery (design-system-driven UI at enterprise scale)—adapted for **B2B partner** scenarios.
+
+---
+
+## 1. Define partner personas and jobs-to-be-done
+
+Document:
+
+- **Partner types** (dealer, reseller, service partner) and what each must do monthly  
+- **Top 5 journeys** (e.g., check warranty, submit claim, download policy, update account contacts)  
+- **What they do today** (phone, email, spreadsheet)—your portal must beat that friction  
+
+**Output:** Journey list ranked by business value—not a sitemap from marketing alone.
+
+---
+
+## 2. CRM data model and sharing
+
+Partners see data through **your sharing model**, not through UI tricks.
+
+Confirm:
+
+- Which objects and fields are exposed (Case, Asset, custom RGA objects, etc.)  
+- **Sharing sets**, profiles, and permission sets for partner users  
+- Whether partners are **Experience Cloud users** with correct licenses  
+- How **person accounts** or B2B models apply  
+
+**Red flag:** “We will hide fields in the LWC” without fixing sharing.
+
+---
+
+## 3. Experience Cloud site strategy
+
+Decide:
+
+- **B2B template** vs custom branding approach  
+- **Authenticated** experience only vs mixed public content  
+- **Languages and regions** at launch vs phase 2  
+- Who owns **site administration** (business vs IT vs SI)  
+
+Link to [Salesforce Experience Cloud development services](/services/salesforce-experience-cloud) when you need hands-on LWC/Aura and site configuration during rollout.
+
+---
+
+## 4. LWC vs Aura—and who builds what
+
+| Topic | Decide early |
+|-------|----------------|
+| Org standard for new components | LWC-first unless legacy requires Aura |
+| Existing codebase | Reuse vs rewrite criteria |
+| Design system | Lightning Design System vs custom enterprise system |
+| Integration pattern | LDS vs imperative Apex calls |
+
+**Admin vs developer split:** Admins own sites, sharing, and much configuration; developers own complex LWC/Aura and integration. Blurring roles causes UAT delays.
+
+---
+
+## 5. Integration and backend timing
+
+Partner portals often need:
+
+- ERP or SAP data (direct or via middleware)  
+- SLA on API availability and error handling  
+- Clear **source of truth** when CRM and external systems disagree  
+
+Plan integration milestones **before** UI sprints finish—otherwise partners see empty tables in UAT.
+
+---
+
+## 6. UX and design system (for adoption)
+
+B2B users are infrequent but high-stakes. Plan for:
+
+- **Obvious entry points** to top journeys  
+- Error messages that explain the next action  
+- Consistent layouts across objects (lists, detail, forms)  
+- Accessibility expectations your industry may regulate  
+
+[Enterprise UI/UX services](/services/enterprise-ui-ux) apply when design system implementation—not only mockups—is required in production code.
+
+---
+
+## 7. Release and environment plan
+
+Partner portals break when site metadata and code promote separately.
+
+Before build:
+
+- Align with [Salesforce release management](/blog/salesforce-release-management-dev-qa-uat-prod) practices  
+- Assign **release ownership** if multiple teams contribute—see [DevOps consulting](/services/salesforce-devops) when releases are already a pain point  
+
+---
+
+## 8. Success metrics (before go-live hype)
+
+Define measurable outcomes:
+
+- Reduction in partner support calls for top journeys  
+- Time to complete key tasks in UAT baselines  
+- Login/adoption by active partner accounts  
+- Defect rate in first 30 days post-launch  
+
+Executives care about **partner self-service rate**, not component count.
+
+---
+
+## Planning checklist (printable summary)
+
+- [ ] Personas and top journeys agreed with business  
+- [ ] Sharing model reviewed by admin + security  
+- [ ] Site template and branding owner assigned  
+- [ ] LWC/Aura standards documented  
+- [ ] Integrations scoped with API owners  
+- [ ] UAT personas match Production sharing  
+- [ ] Release owner named for portal metadata + code  
+- [ ] Support runbook for access and login issues  
+
+---
+
+## When to hire a specialist
+
+Hire an **Experience Cloud developer** or blended portal + DevOps specialist when:
+
+- Go-live is within two quarters and no senior LWC owner exists  
+- A prior portal attempt stalled on sharing or site config  
+- Multiple vendors touch CRM, portal, and integration without a single technical lead  
+
+<BlogFaq
+  items={[
+    {
+      question: "How is a B2B partner portal different from a customer community?",
+      answer:
+        "Partners often need deeper operational data and role complexity (dealer hierarchies, regions). Customer communities may emphasize self-service billing or cases. Sharing models and journeys differ—do not clone one template blindly.",
+    },
+    {
+      question: "Can we launch with three journeys and expand later?",
+      answer:
+        "Yes, if architecture supports it—shared components, clear navigation, and sharing designed for expansion. Launching too much at once often delays adoption of the critical paths.",
+    },
+    {
+      question: "Do we need a separate Experience Cloud developer and admin?",
+      answer:
+        "You need both capabilities. One person can wear both hats at small scale; enterprise programs usually separate them with tight coordination.",
+    },
+    {
+      question: "What if our partners are also on SAP BTP?",
+      answer:
+        "Some enterprises run hybrid landscapes. Decide which data lives in Salesforce vs SAP for each journey—avoid duplicating portals without a domain strategy.",
+    },
+  ]}
+/>
+
+<BlogCta
+  headline="Scoping a B2B partner portal on Experience Cloud?"
+  description="Share your partner journeys, timeline, and team structure. I will outline how similar portal programs were planned and delivered."
+  serviceHref="/services/salesforce-experience-cloud"
+  serviceLabel="Experience Cloud development"
+  mailSubject="Blog inquiry: B2B Experience Cloud partner portal"
+  caseStudyHref="/projects/partner-portal"
+  caseStudyLabel="Partner warranty portal case study"
+/>

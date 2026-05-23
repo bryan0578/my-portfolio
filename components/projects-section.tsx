@@ -35,7 +35,13 @@ export function ProjectsSection({
               Enterprise Projects
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Delivering measurable business outcomes through strategic technology solutions.
+              Delivering measurable business outcomes through strategic technology solutions.{" "}
+              <Link
+                href="/services"
+                className="text-[#00FFC2] hover:underline font-medium"
+              >
+                Explore services
+              </Link>
             </p>
           </div>
         )}
