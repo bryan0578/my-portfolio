@@ -7,29 +7,34 @@ import { Button } from "@/components/ui/button"
 import { projects } from "@/src/data/projects"
 import { AIChatBubble } from "@/components/ai-chat-bubble"
 
-const categories = ["All", "SAP BTP", "Salesforce", "DevOps", "UI/UX", "Content", "Technical Documentation"] as const
-
 export default function AllProjectsPage() {
-  const [filter, setFilter] = useState<(typeof categories)[number]>("All")
+  const [filter, setFilter] = useState("All")
 
   const allProjects = useMemo(() => {
     const values = Object.values(projects)
 
-    // temporary safeguard against duplicates by slug
     return values.filter(
       (project, index, arr) =>
         arr.findIndex((p) => p.slug === project.slug) === index
     )
   }, [])
 
+  const categories = useMemo(() => {
+    const uniqueCategories = Array.from(
+      new Set(allProjects.flatMap((project) => project.categories ?? []))
+    ).sort()
+
+    return ["All", ...uniqueCategories]
+  }, [allProjects])
+
   const filteredProjects =
-  filter === "All"
-    ? allProjects
-    : allProjects.filter((project) =>
-        project.categories?.some(
-          (cat) => cat.toLowerCase() === filter.toLowerCase()
+    filter === "All"
+      ? allProjects
+      : allProjects.filter((project) =>
+          project.categories?.some(
+            (cat) => cat.toLowerCase() === filter.toLowerCase()
+          )
         )
-      )
 
   return (
     <>
@@ -68,13 +73,11 @@ export default function AllProjectsPage() {
 
           <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-2">
             {filteredProjects.map((project) => (
-                <ProjectCard
-                    key={project.slug}
-                    {...project}
-                />
+              <ProjectCard key={project.slug} {...project} />
             ))}
           </div>
         </div>
+
         <AIChatBubble />
       </main>
     </>

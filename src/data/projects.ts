@@ -4,12 +4,28 @@ export interface Project {
     slug: string
     title: string
     featured?: boolean
-    categories: ("SAP BTP" | "Salesforce" | "DevOps" | "Content" | "UI/UX" | "Technical Documentation")[]
+    projectType?: "development" | "design" | "content" | "hybrid"
+    categories: ("SAP BTP" | "Salesforce" | "DevOps" | "Content" | "UI/UX" | "Technical Documentation" | "UI/UX" | "Content" | "Brand Identity")[]
     stack: string[]
     summary: string
     problem: string
     solution: string
     impact: string
+    deliverables?: string[]
+    images?: {
+        src: string
+        alt: string
+        caption?: string
+      }[]
+    gallery?: {
+    title?: string
+    description?: string
+    images: {
+        src: string
+        alt: string
+        caption?: string
+    }[]
+    }
     architecture?: {
         title?: string
         description?: string
@@ -42,7 +58,7 @@ export interface Project {
     codeLanguage?: string
     architectureDiagram?: {
         type: "manufacturer-portal"
-    }
+    }   
   }
   
   export const projects: Record<string, Project> = {
@@ -585,5 +601,72 @@ export interface Project {
             description:
             "The project evolved from a visual landing page into a scalable digital platform for a cinematic record label. The architecture was intentionally designed to support future artists, independent visual themes, segmented newsletter automations, and reusable content systems while maintaining a unified Dorsyth Records brand experience."
         }
-    }
+    },
+    "dorsyth-records-logo": {
+        slug: "dorsyth-records-logo",
+        title: "Dorsyth Records Logo Identity",
+        featured: true,
+        categories: ["Brand Identity", "UI/UX", "Content"],
+        stack: ["Logo Design", "Brand Identity", "Visual Identity"],
+
+        summary:
+            "Designed a premium black-and-gold logo identity for Dorsyth Records, built around audio-inspired iconography and elegant music-label branding.",
+
+        problem:
+            "Dorsyth Records needed a professional visual identity that felt cinematic, music-focused, and flexible across digital platforms.",
+
+        solution:
+            "Created a waveform-inspired circular logo mark and developed multiple lockups for social media, website banners, streaming profiles, and promotional assets.",
+
+        impact: "Premium Music Brand Identity",
+
+        gallery: {
+            title: "Logo System",
+            description:
+              "A flexible brand identity system with standalone, vertical, and horizontal logo lockups.",
+            images: [
+              {
+                src: "/images/design/dorsyth-records/dorsyth-records-logo-mark.png",
+                alt: "Dorsyth Records circular gold logo mark",
+                caption: "Primary logo mark"
+              },
+              {
+                src: "/images/design/dorsyth-records/dorsyth-records-vertical-lockup.png",
+                alt: "Dorsyth Records vertical logo lockup",
+                caption: "Vertical lockup"
+              },
+              {
+                src: "/images/design/dorsyth-records/dorsyth-records-horizontal-lockup.png",
+                alt: "Dorsyth Records horizontal logo lockup",
+                caption: "Horizontal lockup"
+              }
+            ]
+        },
+
+        metrics: [
+            { label: "Logo Variations", value: "3" },
+            { label: "Brand Uses", value: "5+" },
+            { label: "Visual Direction", value: "Gold / Black" }
+          ],
+        
+          role: {
+            title: "Brand Identity Designer",
+            description:
+              "Designed the visual identity system for Dorsyth Records with a premium music-label aesthetic.",
+            points: [
+              "Created the core logo mark using audio waveform and record-inspired shapes",
+              "Designed multiple lockups for website, social, and promotional use",
+              "Established a premium black and gold visual direction",
+              "Balanced modern music symbolism with elegant typography"
+            ],
+            footerLabel: "Logo Design • Brand Identity • Music Branding"
+          },
+        
+          deepDive: {
+            eyebrow: "Design Case Study",
+            title: "Building a Premium Music Identity",
+            description:
+              "The Dorsyth Records identity was designed to feel cinematic, polished, and connected to music. The circular mark gives the brand a record-label feel, while the waveform bars communicate sound, production, and rhythm."
+          }
+        },
   }

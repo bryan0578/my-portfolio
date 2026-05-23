@@ -11,7 +11,6 @@ type ProjectCardProps = Project
 
 function getStackColor(tech: string): string {
     const normalizedTech = tech.trim().toUpperCase()
-  
     switch (normalizedTech) {
       // SAP ecosystem
       case "SAP":
@@ -82,7 +81,34 @@ function getStackColor(tech: string): string {
   
       case "AMAZON POLLY":
         return "bg-orange-500/10 text-orange-300 border-orange-500/20"
-  
+        case "NEXT.JS":
+        case "NEXTJS":
+        case "REACT":
+            return "bg-zinc-500/10 text-zinc-300 border-zinc-500/20"
+        
+        case "TYPESCRIPT":
+            return "bg-blue-500/10 text-blue-300 border-blue-500/20"
+        
+        case "TAILWIND CSS":
+        case "TAILWIND":
+            return "bg-cyan-500/10 text-cyan-300 border-cyan-500/20"
+        
+        case "FRAMER MOTION":
+            return "bg-pink-500/10 text-pink-300 border-pink-500/20"
+        
+        case "RESEND":
+            return "bg-emerald-500/10 text-emerald-300 border-emerald-500/20"
+        
+        case "VERCEL":
+            return "bg-neutral-500/10 text-neutral-300 border-neutral-500/20"
+        
+        case "FOURTHWALL":
+            return "bg-orange-500/10 text-orange-300 border-orange-500/20"
+        
+        case "BRAND IDENTITY":
+        case "LOGO DESIGN":
+        case "VISUAL IDENTITY":
+            return "bg-amber-500/10 text-amber-300 border-amber-500/20"
       default:
         return "bg-muted text-muted-foreground border-border"
     }
@@ -96,6 +122,8 @@ export function ProjectCard({
   problem,
   solution,
 }: ProjectCardProps) {
+    const visibleStack = stack.slice(0, 4)
+    const hiddenStackCount = stack.length - visibleStack.length
   return (
     <Card className="group relative overflow-hidden border-border/50 bg-card/50 backdrop-blur-sm hover:border-border transition-all duration-300 hover:shadow-[0_0_40px_-10px_rgba(255,255,255,0.1)]">
       <CardHeader className="pb-4">
@@ -103,15 +131,24 @@ export function ProjectCard({
           <CardTitle className="text-xl leading-tight">{title}</CardTitle>
 
           <div className="flex flex-wrap gap-1.5 shrink-0">
-            {stack.map((tech) => (
-              <Badge
+          {visibleStack.map((tech) => (
+            <Badge
                 key={tech}
                 variant="outline"
                 className={`text-[10px] sm:text-xs font-medium ${getStackColor(tech)}`}
-              >
+                >
                 {tech}
-              </Badge>
+                </Badge>
             ))}
+
+            {hiddenStackCount > 0 && (
+                <Badge
+                variant="outline"
+                className="text-[10px] sm:text-xs font-medium bg-muted text-muted-foreground border-border"
+                >
+                +{hiddenStackCount}
+                </Badge>
+            )}
           </div>
         </div>
 

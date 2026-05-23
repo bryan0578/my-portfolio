@@ -11,6 +11,7 @@ import { projects } from "@/src/data/projects"
 import { RoleSection } from "@/components/case-study/role-section"
 import { ManufacturerArchitectureDiagram } from "@/components/case-study/maufacturerarchitecturediagram"
 import { AIChatBubble } from "@/components/ai-chat-bubble"
+import { ProjectGallery } from "@/components/case-study/project-gallery"
 
 
 // Project data store
@@ -48,12 +49,22 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ id: 
           stack={project.stack}
           summary={project.summary}
         />
+
+        {project.gallery && (
+        <ProjectGallery gallery={project.gallery} />
+        )}
         {/* This is the new section */}
         {project.securityArchitecture && (
           <SecuritySection data={project.securityArchitecture} />
         )}
-        <RoleSection data={project.role} />
-        <ProcessTimeline timeline={project.timeline} />
+
+        {project.role && (
+            <RoleSection data={project.role} />
+        )}
+        
+        {project.timeline && (
+            <ProcessTimeline timeline={project.timeline} />
+        )}
         
         <ArchitectureBlock
             deepDive={project.deepDive}
