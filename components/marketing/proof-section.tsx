@@ -5,11 +5,13 @@ import type { CaseStudyLink } from "@/lib/marketing/types"
 
 interface ProofSectionProps {
   title?: string
+  subheading?: string
   proof: CaseStudyLink[]
 }
 
 export function ProofSection({
   title = "Related Case Studies",
+  subheading,
   proof,
 }: ProofSectionProps) {
   if (!proof.length) return null
@@ -17,9 +19,18 @@ export function ProofSection({
   return (
     <section className="px-6 py-16 md:py-20">
       <div className="max-w-5xl mx-auto">
-        <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">
-          {title}
-        </h2>
+        {title ? (
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3 text-center">
+            {title}
+          </h2>
+        ) : null}
+        {subheading ? (
+          <p className="text-muted-foreground text-center max-w-2xl mx-auto mb-8 leading-relaxed">
+            {subheading}
+          </p>
+        ) : (
+          <div className="mb-8" />
+        )}
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {proof.map((item) => (
             <Card

@@ -5,6 +5,7 @@ const footerLinks = [
   { href: "/about", label: "About" },
   { href: "/projects", label: "Projects" },
   { href: "/blog", label: "Blog" },
+  { href: "/work-with-me", label: "Work With Me" },
   { href: "/contact", label: "Contact" },
 ] as const
 
@@ -21,12 +22,20 @@ export function SiteFooter() {
             SAP BTP lead and enterprise UI architect. SAP BTP, SAPUI5, Salesforce,
             and modern frontend delivery for complex organizations.
           </p>
-          <Link
-            href="/contact"
-            className="inline-block mt-4 text-sm font-medium text-[#00FFC2] hover:text-[#00FFC2]/80 transition-colors"
-          >
-            Get in touch →
-          </Link>
+          <div className="mt-4 flex flex-wrap gap-x-4 gap-y-1">
+            <Link
+              href="/work-with-me"
+              className="text-sm font-medium text-[#00FFC2] hover:text-[#00FFC2]/80 transition-colors"
+            >
+              Engagement options →
+            </Link>
+            <Link
+              href="/contact"
+              className="text-sm font-medium text-[#00FFC2] hover:text-[#00FFC2]/80 transition-colors"
+            >
+              Get in touch →
+            </Link>
+          </div>
         </div>
 
         <div>

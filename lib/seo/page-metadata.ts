@@ -44,6 +44,25 @@ export const contactPageMetadata = createPageMetadata({
   ],
 })
 
+export const workWithMeMetadata = createPageMetadata({
+  title: "Work With an Enterprise SAP BTP & Salesforce UI Architect",
+  description:
+    "Engage Bryan Cash for SAP BTP, SAPUI5, SAP Fiori, Salesforce Experience Cloud, Salesforce DevOps, and enterprise UI/UX work. Six engagement models, a clear process, and proof from Fortune 500 programs.",
+  path: "/work-with-me",
+  keywords: [
+    "SAP BTP consultant",
+    "Salesforce consultant",
+    "enterprise UI architect",
+    "SAPUI5 developer",
+    "Salesforce DevOps consultant",
+    "freelance SAP BTP developer",
+    "enterprise software consultant",
+    "SAP Fiori consultant",
+    "Salesforce Experience Cloud consultant",
+    "fractional architecture",
+  ],
+})
+
 export const servicesHubMetadata = createPageMetadata({
   title: "Enterprise Development Services",
   description: servicesHubContent.intro[0],

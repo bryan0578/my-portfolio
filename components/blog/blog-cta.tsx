@@ -74,9 +74,26 @@ export function BlogCta({
           </Button>
         ) : null}
         <Button size="lg" variant="ghost" asChild>
-          <Link href="/contact">Contact page</Link>
+          <Link href="/work-with-me">Engagement options</Link>
         </Button>
       </div>
+      <p className="mt-5 text-sm text-muted-foreground">
+        Want to understand how engagements work first? See{" "}
+        <Link
+          href="/work-with-me"
+          className="text-[#00FFC2] hover:underline font-medium"
+        >
+          Work With Me
+        </Link>{" "}
+        or visit the{" "}
+        <Link
+          href="/contact"
+          className="text-[#00FFC2] hover:underline font-medium"
+        >
+          contact page
+        </Link>
+        .
+      </p>
     </section>
   )
 }

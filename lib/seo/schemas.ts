@@ -257,6 +257,26 @@ export function buildCreativeWorkSchema(options: {
   ]
 }
 
+export function buildFaqPageSchema(
+  faqs: { question: string; answer: string }[],
+  options?: { path?: string }
+) {
+  const url = options?.path ? absoluteUrl(options.path) : undefined
+  return {
+    "@type": "FAQPage",
+    ...(url ? { "@id": `${url}#faqpage` } : {}),
+    ...(url ? { url } : {}),
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  }
+}
+
 export function buildBreadcrumbSchema(items: BreadcrumbItem[]) {
   return {
     "@type": "BreadcrumbList",

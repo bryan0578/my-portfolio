@@ -68,8 +68,16 @@ export function RelatedServices({ categories, stack }: RelatedServicesProps) {
           ))}
         </ul>
         <p className="mt-6 text-sm text-muted-foreground">
+          See{" "}
+          <Link
+            href="/work-with-me"
+            className="text-[#00FFC2] hover:underline"
+          >
+            engagement options
+          </Link>{" "}
+          or{" "}
           <Link href="/contact" className="text-[#00FFC2] hover:underline">
-            Contact Bryan
+            contact Bryan
           </Link>{" "}
           to discuss a similar engagement.
         </p>

@@ -43,26 +43,33 @@ export const serviceHubCards: ServiceHubCard[] = [
   },
 ]
 
+const workWithMeLink = { href: "/work-with-me", label: "Engagement Options" }
+
 const related = {
   sapBtp: [
     { href: "/services/sapui5-fiori-development", label: "SAPUI5 & Fiori" },
     { href: "/services/enterprise-ui-ux", label: "Enterprise UI/UX" },
+    workWithMeLink,
   ],
   sapui5: [
     { href: "/services/sap-btp-development", label: "SAP BTP Development" },
     { href: "/services/enterprise-ui-ux", label: "Enterprise UI/UX" },
+    workWithMeLink,
   ],
   salesforceCloud: [
     { href: "/services/salesforce-devops", label: "Salesforce DevOps" },
     { href: "/services/enterprise-ui-ux", label: "Enterprise UI/UX" },
+    workWithMeLink,
   ],
   salesforceDevops: [
     { href: "/services/salesforce-experience-cloud", label: "Experience Cloud" },
     { href: "/services/sap-btp-development", label: "SAP BTP Development" },
+    workWithMeLink,
   ],
   uiUx: [
     { href: "/services/sap-btp-development", label: "SAP BTP Development" },
     { href: "/services/salesforce-experience-cloud", label: "Experience Cloud" },
+    workWithMeLink,
   ],
 }
 

@@ -9,6 +9,7 @@ const navLinks = [
   { href: "/projects", label: "Projects" },
   { href: "/blog", label: "Blog" },
   { href: "/about", label: "About" },
+  { href: "/work-with-me", label: "Work With Me" },
   { href: "/contact", label: "Contact" },
 ] as const
 
@@ -30,9 +31,10 @@ export function SiteHeader() {
           aria-label="Primary navigation"
         >
           {navLinks.map(({ href, label }) => {
+            const path: string = href
             const isActive =
               pathname === href ||
-              (href !== "/" && pathname.startsWith(`${href}/`))
+              (path !== "/" && pathname.startsWith(`${href}/`))
 
             return (
               <Link

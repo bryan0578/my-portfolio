@@ -82,6 +82,28 @@ export default function ContactPage() {
         </div>
       </section>
 
+      <section className="px-6 py-12 bg-[#050505]">
+        <div className="max-w-3xl mx-auto rounded-2xl border border-[#00FFC2]/20 bg-[#00FFC2]/5 p-6 md:p-8">
+          <p className="text-xs uppercase tracking-widest text-[#00FFC2] mb-2 font-semibold">
+            Before You Reach Out
+          </p>
+          <h2 className="text-xl md:text-2xl font-bold text-foreground mb-3">
+            Not sure how to engage Bryan?
+          </h2>
+          <p className="text-sm md:text-base text-muted-foreground leading-relaxed mb-5">
+            The Work With Me page covers six engagement models, fit criteria,
+            and the discovery process—useful if you want to refine your brief
+            before sending it.
+          </p>
+          <Button asChild variant="outline">
+            <Link href="/work-with-me">
+              See engagement options
+              <ArrowRight className="ml-2 size-4" aria-hidden />
+            </Link>
+          </Button>
+        </div>
+      </section>
+
       <section className="px-6 py-12 md:py-16 bg-[#050505]">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">

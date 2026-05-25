@@ -9,9 +9,14 @@ import Link from "next/link"
 interface ImpactResultsProps {
   metrics: { label: string; value: string }[]
   impact: string
+  showBackLink?: boolean
 }
 
-export function ImpactResults({ metrics, impact }: ImpactResultsProps) {
+export function ImpactResults({
+  metrics,
+  impact,
+  showBackLink = true,
+}: ImpactResultsProps) {
   return (
     <section className="px-6 py-20">
       <div className="max-w-4xl mx-auto">
@@ -65,18 +70,20 @@ export function ImpactResults({ metrics, impact }: ImpactResultsProps) {
         </div>
         
         {/* Back Navigation */}
-        <div className="flex justify-center">
-          <Button 
-            variant="outline" 
-            asChild
-            className="group border-border/50 hover:border-mint/30 hover:bg-mint/5"
-          >
-            <Link href="/projects">
-              <ArrowLeft className="size-4 mr-2 transition-transform group-hover:-translate-x-1" />
-              Back to All Projects
-            </Link>
-          </Button>
-        </div>
+        {showBackLink ? (
+          <div className="flex justify-center">
+            <Button
+              variant="outline"
+              asChild
+              className="group border-border/50 hover:border-mint/30 hover:bg-mint/5"
+            >
+              <Link href="/projects">
+                <ArrowLeft className="size-4 mr-2 transition-transform group-hover:-translate-x-1" />
+                Back to All Projects
+              </Link>
+            </Button>
+          </div>
+        ) : null}
       </div>
     </section>
   )

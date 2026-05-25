@@ -13,6 +13,16 @@ import { ManufacturerArchitectureDiagram } from "@/components/case-study/maufact
 import { AIChatBubble } from "@/components/ai-chat-bubble"
 import { ProjectGallery } from "@/components/case-study/project-gallery"
 import { RelatedServices } from "@/components/case-study/related-services"
+import { ExecutiveSummary } from "@/components/case-study/executive-summary"
+import { BusinessChallenge } from "@/components/case-study/business-challenge"
+import { TechnicalApproach } from "@/components/case-study/technical-approach"
+import { ArchitecturalDecisions } from "@/components/case-study/architectural-decisions"
+import { KeyTradeoffs } from "@/components/case-study/key-tradeoffs"
+import { QualitativeOutcomes } from "@/components/case-study/qualitative-outcomes"
+import { LessonsLearned } from "@/components/case-study/lessons-learned"
+import { WhenItFits } from "@/components/case-study/when-it-fits"
+import { CaseStudyCta } from "@/components/case-study/case-study-cta"
+import { getConsultingCaseStudy } from "@/lib/case-studies/consulting"
 import { JsonLd } from "@/lib/seo/json-ld"
 import { createProjectMetadata } from "@/lib/seo/project-metadata"
 import {
@@ -54,12 +64,13 @@ export default async function CaseStudyPage({
     notFound()
   }
 
+  const consulting = getConsultingCaseStudy(project.slug)
   const projectPath = `/projects/${project.slug}`
   const structuredData = [
     ...buildCreativeWorkSchema({
       path: projectPath,
       name: project.title,
-      description: project.summary,
+      description: consulting?.executiveSummary ?? project.summary,
       keywords: [...project.stack, ...project.categories],
     }),
     buildBreadcrumbSchema([
@@ -82,15 +93,27 @@ export default async function CaseStudyPage({
           summary={project.summary}
         />
 
+        {consulting ? (
+          <ExecutiveSummary summary={consulting.executiveSummary} />
+        ) : null}
+
         {project.gallery ? (
           <ProjectGallery gallery={project.gallery} />
+        ) : null}
+
+        {consulting ? (
+          <BusinessChallenge data={consulting.businessChallenge} />
         ) : null}
 
         {project.securityArchitecture ? (
           <SecuritySection data={project.securityArchitecture} />
         ) : null}
 
-        {project.role ? <RoleSection data={project.role} /> : null}
+        {consulting ? (
+          <TechnicalApproach data={consulting.technicalApproach} />
+        ) : project.role ? (
+          <RoleSection data={project.role} />
+        ) : null}
 
         {project.timeline ? (
           <ProcessTimeline timeline={project.timeline} />
@@ -108,7 +131,31 @@ export default async function CaseStudyPage({
           ) : null}
         </ArchitectureBlock>
 
-        <ImpactResults metrics={project.metrics} impact={project.impact} />
+        {consulting ? (
+          <ArchitecturalDecisions
+            decisions={consulting.architecturalDecisions}
+          />
+        ) : null}
+
+        {consulting ? <KeyTradeoffs tradeoffs={consulting.tradeoffs} /> : null}
+
+        <ImpactResults
+          metrics={project.metrics}
+          impact={project.impact}
+          showBackLink={!consulting}
+        />
+
+        {consulting ? (
+          <QualitativeOutcomes outcomes={consulting.outcomes} />
+        ) : null}
+
+        {consulting ? (
+          <LessonsLearned lessons={consulting.lessonsLearned} />
+        ) : null}
+
+        {consulting ? <WhenItFits data={consulting.whenItFits} /> : null}
+
+        {consulting ? <CaseStudyCta cta={consulting.cta} /> : null}
 
         <RelatedServices
           categories={project.categories}
