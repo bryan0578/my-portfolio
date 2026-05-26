@@ -13,6 +13,7 @@ import { ServicesSupported } from "@/components/work-with-me/services-supported"
 import { EngagementProcess } from "@/components/work-with-me/engagement-process"
 import { FitCriteria } from "@/components/work-with-me/fit-criteria"
 import { Button } from "@/components/ui/button"
+import { ProfileCards } from "@/components/social-links"
 import { JsonLd } from "@/lib/seo/json-ld"
 import {
   buildBreadcrumbSchema,
@@ -97,6 +98,15 @@ export default function WorkWithMePage() {
         subheading={workWithMeContent.proof.subheading}
         proof={workWithMeContent.proof.cases}
       />
+
+      <section className="px-6 py-12 md:py-16 bg-[#050505]">
+        <div className="max-w-5xl mx-auto">
+          <ProfileCards
+            heading="Professional Profiles"
+            description="Verified profiles supporting the work above. Use LinkedIn for background and recommendations, GitHub for code, or email for direct conversation."
+          />
+        </div>
+      </section>
 
       <FitCriteria
         goodFit={workWithMeContent.fitCriteria.goodFit}

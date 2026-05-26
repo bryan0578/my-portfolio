@@ -11,6 +11,7 @@ import { ContentSections } from "@/components/marketing/content-section"
 import { FaqSection } from "@/components/marketing/faq-section"
 import { CtaBanner } from "@/components/marketing/cta-banner"
 import { Button } from "@/components/ui/button"
+import { ProfileCards } from "@/components/social-links"
 import { aboutContent } from "@/lib/marketing/about-content"
 import { buildMailtoHref } from "@/lib/contact"
 
@@ -58,6 +59,15 @@ export default function AboutPage() {
 
       <IntroParagraphs paragraphs={aboutContent.intro} />
       <ContentSections sections={aboutContent.sections} />
+
+      <section className="px-6 py-12 md:py-16 bg-[#050505]">
+        <div className="max-w-5xl mx-auto">
+          <ProfileCards
+            heading="Connect With Me"
+            description="Verified professional profiles. LinkedIn for background and recommendations, GitHub for code, and email for direct conversation."
+          />
+        </div>
+      </section>
 
       <section className="px-6 py-12">
         <div className="max-w-3xl mx-auto text-center">

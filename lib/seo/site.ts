@@ -26,3 +26,19 @@ export const SITE_KEYWORDS = [
   "enterprise UI architect",
   "enterprise software consulting",
 ] as const
+
+/** Canonical external profile URLs. Used in the Person schema `sameAs` and
+ *  surfaced in the footer, About page, and Work With Me page. */
+export const LINKEDIN_URL = "https://www.linkedin.com/in/cashbryan/"
+export const LINKEDIN_HANDLE = "in/cashbryan"
+
+export const GITHUB_URL = "https://github.com/bryan0578"
+export const GITHUB_HANDLE = "@bryan0578"
+
+/** Verified external profiles for `sameAs` and on-site display. */
+export const SOCIAL_PROFILES = [
+  { id: "linkedin", label: "LinkedIn", handle: LINKEDIN_HANDLE, url: LINKEDIN_URL },
+  { id: "github", label: "GitHub", handle: GITHUB_HANDLE, url: GITHUB_URL },
+] as const
+
+export type SocialProfileId = (typeof SOCIAL_PROFILES)[number]["id"]

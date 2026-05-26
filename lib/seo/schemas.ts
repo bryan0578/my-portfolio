@@ -1,5 +1,7 @@
 import {
   CONTACT_EMAIL,
+  GITHUB_URL,
+  LINKEDIN_URL,
   ORGANIZATION_ID,
   PERSON_ID,
   SITE_NAME,
@@ -32,7 +34,7 @@ export function buildPersonSchema() {
       "React",
       "Next.js",
     ],
-    sameAs: [SITE_URL],
+    sameAs: [SITE_URL, LINKEDIN_URL, GITHUB_URL],
   }
 }
 

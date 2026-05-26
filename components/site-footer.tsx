@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { serviceHubCards } from "@/lib/marketing/services-content"
+import { SocialLinksWithLabels } from "@/components/social-links"
 
 const footerLinks = [
   { href: "/about", label: "About" },
@@ -35,6 +36,15 @@ export function SiteFooter() {
             >
               Get in touch →
             </Link>
+          </div>
+          <div className="mt-5">
+            <p
+              id="footer-connect-heading"
+              className="text-xs uppercase tracking-widest text-muted-foreground/80 mb-2"
+            >
+              Connect
+            </p>
+            <SocialLinksWithLabels />
           </div>
         </div>
 
