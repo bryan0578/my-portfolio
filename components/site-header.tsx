@@ -52,7 +52,7 @@ export function SiteHeader() {
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between gap-4">
         <Link
           href="/"
-          className="text-sm font-semibold text-foreground hover:text-[#00FFC2] transition-colors shrink-0"
+          className="text-sm font-semibold text-foreground hover:text-[#00FFC2] transition-colors shrink-0 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00FFC2]/45 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
         >
           Bryan Cash
         </Link>
@@ -70,9 +70,10 @@ export function SiteHeader() {
                 href={href}
                 className={cn(
                   "px-2.5 py-1.5 text-sm whitespace-nowrap rounded-md transition-colors",
+                  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00FFC2]/45 focus-visible:ring-offset-2 focus-visible:ring-offset-background",
                   isActive
                     ? "text-[#00FFC2] font-medium bg-[#00FFC2]/10"
-                    : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                    : "text-zinc-400 hover:text-zinc-100 hover:bg-white/[0.06]"
                 )}
               >
                 {label}
@@ -122,9 +123,10 @@ export function SiteHeader() {
                       onClick={closeMobileMenu}
                       className={cn(
                         "flex items-center rounded-md px-3 min-h-11 text-base transition-colors",
+                        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00FFC2]/45 focus-visible:ring-offset-2 focus-visible:ring-offset-background",
                         isActive
                           ? "text-[#00FFC2] font-medium bg-[#00FFC2]/10"
-                          : "text-muted-foreground hover:text-foreground hover:bg-muted/60"
+                          : "text-zinc-400 hover:text-zinc-100 hover:bg-white/[0.06]"
                       )}
                     >
                       {label}

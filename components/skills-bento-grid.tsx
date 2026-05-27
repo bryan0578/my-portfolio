@@ -96,9 +96,9 @@ const skills = [
 
 export function SkillsBentoGrid() {
     return (
-      <section className="px-6 py-24 bg-[#050505]">
+      <section className="px-6 pt-10 pb-20 md:pt-12 md:pb-24 bg-[#050505]">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12 md:mb-14">
             <p className="text-sm uppercase tracking-widest text-[#00FFC2] mb-3 font-semibold">
               Expertise
             </p>
