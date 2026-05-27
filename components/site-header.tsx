@@ -98,47 +98,44 @@ export function SiteHeader() {
         </button>
       </div>
 
-      <div
-        className={cn(
-          "md:hidden fixed inset-0 z-40 bg-black/50 transition-opacity duration-200",
-          mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-        )}
-        onClick={closeMobileMenu}
-        aria-hidden="true"
-      />
+      {mobileOpen ? (
+        <>
+          <div
+            className="md:hidden fixed inset-0 z-40 bg-black/50"
+            onClick={closeMobileMenu}
+            aria-hidden="true"
+          />
 
-      <nav
-        id="mobile-site-menu"
-        aria-label="Mobile navigation"
-        className={cn(
-          "md:hidden fixed top-16 left-0 right-0 z-50 border-b border-border/50 bg-background/95 backdrop-blur-xl shadow-lg",
-          "transition-transform duration-200",
-          mobileOpen ? "translate-y-0" : "-translate-y-[110%]"
-        )}
-      >
-        <ul className="px-4 py-3 space-y-1">
-          {navLinks.map(({ href, label }) => {
-            const isActive = isActiveRoute(href)
+          <nav
+            id="mobile-site-menu"
+            aria-label="Mobile navigation"
+            className="md:hidden fixed top-16 left-0 right-0 z-50 border-b border-border/50 bg-background/95 backdrop-blur-xl shadow-lg"
+          >
+            <ul className="px-4 py-3 space-y-1">
+              {navLinks.map(({ href, label }) => {
+                const isActive = isActiveRoute(href)
 
-            return (
-              <li key={href}>
-                <Link
-                  href={href}
-                  onClick={closeMobileMenu}
-                  className={cn(
-                    "flex items-center rounded-md px-3 min-h-11 text-base transition-colors",
-                    isActive
-                      ? "text-[#00FFC2] font-medium bg-[#00FFC2]/10"
-                      : "text-muted-foreground hover:text-foreground hover:bg-muted/60"
-                  )}
-                >
-                  {label}
-                </Link>
-              </li>
-            )
-          })}
-        </ul>
-      </nav>
+                return (
+                  <li key={href}>
+                    <Link
+                      href={href}
+                      onClick={closeMobileMenu}
+                      className={cn(
+                        "flex items-center rounded-md px-3 min-h-11 text-base transition-colors",
+                        isActive
+                          ? "text-[#00FFC2] font-medium bg-[#00FFC2]/10"
+                          : "text-muted-foreground hover:text-foreground hover:bg-muted/60"
+                      )}
+                    >
+                      {label}
+                    </Link>
+                  </li>
+                )
+              })}
+            </ul>
+          </nav>
+        </>
+      ) : null}
     </header>
   )
 }
