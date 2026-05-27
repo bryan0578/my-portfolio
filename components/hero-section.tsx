@@ -5,16 +5,16 @@ import { HeroOrbitalVisual } from "@/components/hero-orbital-visual"
 
 export function HeroSection() {
   return (
-    <section className="relative px-4 sm:px-6 2xl:px-8 pt-24 pb-6 md:pt-28 md:pb-8 lg:pt-[7.25rem] lg:pb-10 overflow-hidden">
+    <section className="relative px-4 sm:px-6 2xl:px-8 pt-24 pb-5 md:pt-28 md:pb-6 lg:pt-[7.25rem] lg:pb-10 overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,var(--tw-gradient-stops))] from-zinc-900/50 via-background to-background pointer-events-none" />
-      <div className="absolute bottom-0 left-0 right-0 h-20 md:h-24 bg-gradient-to-b from-transparent to-[#050505] pointer-events-none z-[1]" />
-      <div className="absolute top-20 right-[4%] w-[min(100%,260px)] h-[260px] bg-[#00FFC2]/[0.025] blur-[68px] rounded-full pointer-events-none lg:right-[2%] lg:w-[280px] lg:h-[280px] 2xl:right-0" />
+      <div className="absolute bottom-0 left-0 right-0 h-16 md:h-20 lg:h-24 bg-gradient-to-b from-transparent to-[#050505] pointer-events-none z-[1]" />
+      <div className="hidden lg:block absolute top-20 right-[4%] w-[min(100%,260px)] h-[260px] bg-[#00FFC2]/[0.025] blur-[68px] rounded-full pointer-events-none lg:right-[2%] lg:w-[280px] lg:h-[280px] 2xl:right-0" />
 
       <div className="relative z-10 max-w-6xl 2xl:max-w-7xl mx-auto">
         <div className="rounded-xl border border-white/[0.06] bg-zinc-950/50 backdrop-blur-sm shadow-[0_1px_0_0_rgba(255,255,255,0.04)_inset] overflow-hidden">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 sm:gap-6 md:gap-7 lg:gap-8 xl:gap-10 2xl:gap-12 items-center lg:items-center p-5 sm:p-6 md:p-7 lg:py-8 lg:px-9 xl:py-9 xl:px-10 2xl:px-12">
-            {/* Left: copy + CTAs */}
-            <div className="relative z-10 text-center lg:text-left order-1 min-w-0 lg:py-1">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 lg:gap-8 xl:gap-10 2xl:gap-12 items-center lg:items-center p-5 sm:p-6 md:p-6 lg:py-8 lg:px-9 xl:py-9 xl:px-10 2xl:px-12">
+            {/* Copy + CTAs — sole focal point below lg */}
+            <div className="relative z-10 text-center lg:text-left order-1 min-w-0 lg:py-1 max-lg:mx-auto max-lg:max-w-lg">
               <p className="text-xs sm:text-sm uppercase tracking-widest text-[#00FFC2] mb-2.5 font-semibold">
                 Bryan Cash
               </p>
@@ -60,8 +60,11 @@ export function HeroSection() {
               </div>
             </div>
 
-            {/* Right: decorative visual — anchored to hero edge, not centered in column */}
-            <div className="order-2 relative flex w-full items-center justify-end lg:self-center translate-x-1 sm:translate-x-2 lg:translate-x-3 xl:translate-x-5 2xl:translate-x-6 -mt-0.5 sm:mt-0 opacity-90 lg:opacity-[0.78]">
+            {/* Decorative visual — desktop only (lg+) */}
+            <div
+              className="hidden lg:flex order-2 relative w-full items-center justify-end lg:self-center translate-x-3 xl:translate-x-5 2xl:translate-x-6 opacity-[0.78]"
+              aria-hidden="true"
+            >
               <HeroOrbitalVisual />
             </div>
           </div>
