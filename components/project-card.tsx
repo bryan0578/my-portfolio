@@ -68,7 +68,7 @@ export function ProjectCard({
 
         <Button variant="brandGhost" className={cardGhostAction} asChild>
           <Link href={`/projects/${slug}`}>
-            View Project
+            View case study
             <ArrowRight className="ml-2 size-4 transition-transform group-hover/btn:translate-x-1" />
           </Link>
         </Button>

@@ -124,6 +124,9 @@ export function ArchitectureBlock({
               </CardHeader>
 
               <CardContent className="p-0">
+                <p className="px-6 pt-2 pb-3 text-caption text-muted-foreground">
+                  Representative implementation pattern
+                </p>
                 <div className="overflow-x-auto">
                   <pre className="p-6 text-sm font-mono leading-relaxed text-foreground/80 bg-muted/30">
                     <code>{codeSnippet}</code>

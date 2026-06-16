@@ -3,21 +3,30 @@ import { Mail, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { CtaBlock } from "@/components/marketing/cta-block"
 import { buildMailtoHref } from "@/lib/contact"
+import { cn } from "@/lib/utils"
 
 interface CtaBannerProps {
   headline: string
   description: string
   subject?: string
-  secondaryHref?: string
+  primaryLabel?: string
   secondaryLabel?: string
+  secondaryHref?: string
+  tertiaryHref?: string
+  tertiaryLabel?: string
+  className?: string
 }
 
 export function CtaBanner({
   headline,
   description,
   subject,
-  secondaryHref = "/projects",
-  secondaryLabel = "View case studies",
+  primaryLabel = "Discuss your program",
+  secondaryLabel = "Contact Bryan",
+  secondaryHref = "/contact",
+  tertiaryHref,
+  tertiaryLabel = "View case studies",
+  className,
 }: CtaBannerProps) {
   const mailtoHref = buildMailtoHref(
     subject,
@@ -32,7 +41,7 @@ export function CtaBanner({
   )
 
   return (
-    <section className="px-6 py-16 md:py-20">
+    <section className={cn("px-6 py-16 md:py-20", className)}>
       <div className="max-w-4xl mx-auto">
         <CtaBlock
           title={headline}
@@ -49,22 +58,24 @@ export function CtaBanner({
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button size="lg" variant="brand" asChild className="min-w-[200px]">
               <a href={mailtoHref}>
-                <Mail className="mr-2 size-4" />
-                Discuss your project
+                <Mail className="mr-2 size-4" aria-hidden />
+                {primaryLabel}
               </a>
             </Button>
             <Button size="lg" variant="brandOutline" asChild className="min-w-[200px]">
-              <Link href="/contact">
-                Contact page
-                <ArrowRight className="ml-2 size-4" />
-              </Link>
-            </Button>
-            <Button size="lg" variant="brandGhost" asChild className="min-w-[200px]">
               <Link href={secondaryHref}>
                 {secondaryLabel}
-                <ArrowRight className="ml-2 size-4" />
+                <ArrowRight className="ml-2 size-4" aria-hidden />
               </Link>
             </Button>
+            {tertiaryHref ? (
+              <Button size="lg" variant="brandGhost" asChild className="min-w-[200px]">
+                <Link href={tertiaryHref}>
+                  {tertiaryLabel}
+                  <ArrowRight className="ml-2 size-4" aria-hidden />
+                </Link>
+              </Button>
+            ) : null}
           </div>
         </CtaBlock>
       </div>

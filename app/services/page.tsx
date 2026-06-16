@@ -17,6 +17,7 @@ import { CtaBanner } from "@/components/marketing/cta-banner"
 import { Button } from "@/components/ui/button"
 import { servicesHubContent } from "@/lib/marketing/services-hub-content"
 import { serviceHubCards } from "@/lib/marketing/services-content"
+import { cn } from "@/lib/utils"
 import { buildMailtoHref } from "@/lib/contact"
 
 export const metadata: Metadata = servicesHubMetadata
@@ -63,22 +64,35 @@ export default function ServicesPage() {
         </Button>
       </MarketingHero>
 
-      <IntroParagraphs paragraphs={servicesHubContent.intro} />
+      <IntroParagraphs
+        paragraphs={servicesHubContent.intro}
+        className="pb-10 md:pb-14"
+      />
 
-      <section className="px-6 py-12 md:py-16">
+      <section className="px-6 py-10 md:py-14">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">
-            Service Areas
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-7 text-center">
+            Focused Service Areas
           </h2>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {serviceHubCards.map((service) => (
-              <ServiceCard key={service.slug} {...service} />
+            {serviceHubCards.map((service, index) => (
+              <div
+                key={service.slug}
+                className={cn(
+                  "h-full",
+                  index === 3 && "lg:col-start-2",
+                  index === 4 &&
+                    "md:col-span-2 md:max-w-xl md:mx-auto lg:col-span-1 lg:max-w-none lg:mx-0"
+                )}
+              >
+                <ServiceCard {...service} />
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="px-6 py-12 md:py-16 bg-surface-canvas">
+      <section className="px-6 py-10 md:py-14 bg-surface-canvas">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6">
             {servicesHubContent.whySection.title}
@@ -100,7 +114,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="px-6 py-12 md:py-16">
+      <section className="px-6 py-10 md:py-14">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
             {servicesHubContent.modernStackNote.title}
@@ -123,11 +137,15 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <FaqSection items={servicesHubContent.faq} />
+      <FaqSection
+        items={servicesHubContent.faq}
+        className="py-14 md:py-16"
+      />
       <CtaBanner
         headline="Not Sure Which Service Fits?"
         description="Describe your program and stack. I will recommend an engagement path and relevant case studies."
         subject="Services Consultation Inquiry"
+        className="py-14 md:py-16"
       />
     </MarketingLayout>
   )

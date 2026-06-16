@@ -52,7 +52,7 @@ export function EngagementProcess({
                   </span>
                 </div>
               </div>
-              <div className="flex-1 rounded-xl border border-border/50 bg-card/40 p-5 md:p-6 hover:border-brand-primary/30 transition-colors">
+              <div className="flex-1 relative z-10 rounded-xl border border-border/50 bg-card/40 p-5 md:p-6 hover:border-brand-primary/30 transition-colors">
                 <h3 className="text-lg font-semibold text-foreground mb-2">
                   {step.title}
                 </h3>

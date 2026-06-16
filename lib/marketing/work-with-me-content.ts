@@ -82,7 +82,7 @@ export type WorkWithMeContent = {
 export const workWithMeContent: WorkWithMeContent = {
   hero: {
     eyebrow: "Engage Bryan Cash",
-    h1: "Work With an Enterprise SAP BTP & Salesforce UI Architect",
+    h1: "Work with a senior enterprise UI architect",
     subtitle:
       "Senior delivery and architecture support for SAP BTP, SAPUI5, SAP Fiori, Salesforce Experience Cloud, Salesforce DevOps, and enterprise UI/UX programs. Built for teams that need adoption and outcomes, not just code.",
     primaryCta: { label: "Start a conversation", href: "/contact" },
@@ -261,7 +261,7 @@ export const workWithMeContent: WorkWithMeContent = {
     ],
   },
   servicesSupported: {
-    headline: "Services I Can Support",
+    headline: "Enterprise Services I Support",
     subheading:
       "Each service has its own page with engagement details, common challenges, technology stack, and proof. Use these as a starting point.",
     services: [
@@ -306,7 +306,7 @@ export const workWithMeContent: WorkWithMeContent = {
         number: "01",
         title: "Discovery",
         description:
-          "A short call or written exchange to understand your program, stack, stakeholders, timeline, and the outcome you're accountable for. The goal is shared clarity on whether the engagement is a fit—before either side commits.",
+          "A short call or written exchange to understand your program, stack, stakeholders, timeline, and the outcome you're accountable for. The goal is shared clarity on whether the engagement is a fit before either side commits.",
       },
       {
         number: "02",

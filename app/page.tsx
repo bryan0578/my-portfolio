@@ -30,7 +30,9 @@ export default async function Home() {
         <SiteHeader />
         <HeroSection />
         <HomePositioningStrip />
-        <ProjectsSection />
+        <ProjectsSection
+          featuredSlugs={["manufacturer-portal", "salesforce-devops"]}
+        />
         <SkillsBentoGrid />
         <HomeWorkWithMeTeaser />
         <BlogSection limit={2} />

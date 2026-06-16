@@ -3,10 +3,11 @@ import { serviceHubCards } from "@/lib/marketing/services-content"
 import { SocialLinksWithLabels } from "@/components/social-links"
 
 const footerLinks = [
-  { href: "/about", label: "About" },
-  { href: "/projects", label: "Case Studies" },
-  { href: "/blog", label: "Insights" },
   { href: "/work-with-me", label: "Work With Me" },
+  { href: "/projects", label: "Case Studies" },
+  { href: "/services", label: "Services" },
+  { href: "/blog", label: "Insights" },
+  { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ] as const
 
@@ -78,14 +79,6 @@ export function SiteFooter() {
                 </Link>
               </li>
             ))}
-            <li>
-              <Link
-                href="/services"
-                className="text-body-sm text-muted-foreground hover:text-brand-primary transition-colors"
-              >
-                All services
-              </Link>
-            </li>
           </ul>
         </div>
       </div>

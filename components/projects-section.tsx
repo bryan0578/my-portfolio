@@ -8,26 +8,33 @@ import { ArrowRight } from "lucide-react"
 interface ProjectsSectionProps {
   limit?: number
   showHeader?: boolean
+  /** When set, shows only these slugs in order (homepage curation). */
+  featuredSlugs?: string[]
 }
 
 export function ProjectsSection({
   limit,
   showHeader = true,
+  featuredSlugs,
 }: ProjectsSectionProps) {
-    let displayProjects = Object.values(projects)
+  let displayProjects = Object.values(projects)
 
-    if (limit) {
-      displayProjects = displayProjects.slice(0, limit)
-    } else {
-      displayProjects = displayProjects.filter(p => p.featured)
-    }
+  if (featuredSlugs?.length) {
+    displayProjects = featuredSlugs
+      .map((slug) => projects[slug])
+      .filter((project): project is NonNullable<typeof project> => Boolean(project))
+  } else if (limit) {
+    displayProjects = displayProjects.slice(0, limit)
+  } else {
+    displayProjects = displayProjects.filter((p) => p.featured)
+  }
 
   return (
-    <section className="px-6 py-24">
+    <section className="px-6 py-24 lg:py-20">
       <div className="max-w-7xl mx-auto">
         {showHeader && (
           <SectionHeader
-            className="mb-16"
+            className="mb-16 lg:mb-12"
             eyebrow="Case Studies"
             title="Case Studies"
             description={

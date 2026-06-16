@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { SectionHeader } from "@/components/marketing/section-header"
 import { cardLinkAction } from "@/lib/ui/brand-classes"
+import { cn } from "@/lib/utils"
 import type { CaseStudyLink } from "@/lib/marketing/types"
 
 interface ProofSectionProps {
@@ -35,11 +36,21 @@ export function ProofSection({
         ) : null}
         {!title && !subheading ? <div className="mb-8" /> : null}
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {proof.map((item) => (
+          {proof.map((item, index) => {
+            const isLastOrphanMd =
+              proof.length % 2 === 1 && index === proof.length - 1
+            const isLastOrphanLg =
+              proof.length % 3 === 1 && index === proof.length - 1
+
+            return (
             <Card
               key={item.slug}
               variant="surface"
-              className="hover:border-brand-primary/30 transition-colors group"
+              className={cn(
+                "hover:border-brand-primary/30 transition-colors group h-full",
+                isLastOrphanMd && "md:col-span-2",
+                isLastOrphanLg && "lg:col-span-3"
+              )}
             >
               <CardHeader>
                 <CardTitle className="leading-snug">{item.title}</CardTitle>
@@ -66,7 +77,8 @@ export function ProofSection({
                 </Link>
               </CardContent>
             </Card>
-          ))}
+            )
+          })}
         </div>
       </div>
     </section>

@@ -3,7 +3,7 @@ import type { ConsultingCaseStudy } from "./types"
 export const consultingCaseStudies: Record<string, ConsultingCaseStudy> = {
   "manufacturer-portal": {
     executiveSummary:
-      "An enterprise modernization that consolidated fragmented partner reporting into a unified SAP BTP portal. Replaced 40+ legacy entry points with a single Build Work Zone experience secured by federated identity, CAP-based attribute access control, and 22 custom Fiori applications—delivering a single secure entry point for the external partner community.",
+      "An enterprise modernization that consolidated fragmented partner reporting into a unified SAP BTP portal. Replaced 40+ legacy entry points with a single Build Work Zone experience secured by federated identity, CAP-based attribute access control, and 22 custom SAPUI5 and SAP Fiori applications—delivering a single secure entry point for the external partner community.",
     businessChallenge: {
       context:
         "An external partner network accessed performance and reporting data through a patchwork of legacy portals and analytics tools. Each surface had distinct login flows, partial data coverage, and inconsistent security boundaries—creating audit risk and slowing every partner onboarding.",

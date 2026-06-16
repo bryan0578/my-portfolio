@@ -46,7 +46,7 @@ export const contactPageMetadata = createPageMetadata({
 })
 
 export const workWithMeMetadata = createPageMetadata({
-  title: "Work With an Enterprise SAP BTP & Salesforce UI Architect",
+  title: "Work With a Senior Enterprise UI Architect",
   description: withSeoContext(
     "Six engagement models, a clear discovery process, and proof in production for SAP BTP, SAPUI5, Salesforce Experience Cloud, and enterprise UI programs."
   ),

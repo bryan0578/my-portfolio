@@ -96,8 +96,8 @@ export function ServicePageTemplate({ content }: ServicePageTemplateProps) {
           headline={content.midCta.headline}
           description={content.midCta.description}
           subject={content.cta.subject}
-          secondaryHref="/projects"
-          secondaryLabel="Review case studies"
+          tertiaryHref="/projects"
+          tertiaryLabel="Review case studies"
         />
       ) : null}
       <FaqSection items={content.faq} />

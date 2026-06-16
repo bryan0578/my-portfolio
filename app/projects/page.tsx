@@ -9,6 +9,34 @@ import { Button } from "@/components/ui/button"
 import { projects } from "@/src/data/projects"
 import { cn } from "@/lib/utils"
 import { AIChatBubble } from "@/components/ai-chat-bubble"
+import type { Project } from "@/src/data/projects"
+
+const CASE_STUDY_FILTER_OPTIONS = [
+  "All",
+  "SAP BTP",
+  "SAPUI5",
+  "Salesforce",
+  "DevOps",
+  "UI/UX",
+  "Technical Documentation",
+] as const
+
+function matchesCaseStudyFilter(project: Project, filter: string): boolean {
+  if (filter === "All") return true
+
+  if (filter === "SAPUI5") {
+    return (
+      project.stack?.some((tech) => tech.toLowerCase().includes("sapui5")) ??
+      false
+    )
+  }
+
+  return (
+    project.categories?.some(
+      (cat) => cat.toLowerCase() === filter.toLowerCase()
+    ) ?? false
+  )
+}
 
 export default function AllProjectsPage() {
   const [filter, setFilter] = useState("All")
@@ -22,22 +50,12 @@ export default function AllProjectsPage() {
     )
   }, [])
 
-  const categories = useMemo(() => {
-    const uniqueCategories = Array.from(
-      new Set(allProjects.flatMap((project) => project.categories ?? []))
-    ).sort()
-
-    return ["All", ...uniqueCategories]
-  }, [allProjects])
+  const categories = CASE_STUDY_FILTER_OPTIONS
 
   const filteredProjects =
     filter === "All"
       ? allProjects
-      : allProjects.filter((project) =>
-          project.categories?.some(
-            (cat) => cat.toLowerCase() === filter.toLowerCase()
-          )
-        )
+      : allProjects.filter((project) => matchesCaseStudyFilter(project, filter))
 
   return (
     <>

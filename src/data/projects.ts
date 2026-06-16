@@ -70,7 +70,7 @@ export interface Project {
       stack: ["SAP BTP", "CAP", "SAPUI5", "Build Work Zone"],
       summary: "Architected a centralized secure entry point for external manufacturers, replacing legacy Power BI portals with a unified SAP BTP ecosystem.",
       problem: "External partners faced fragmented data access across siloed portals, leading to reporting delays and security complexities for a major healthcare leader.",
-      solution: "Designed a multi-tenant portal using SAP Build Work Zone and a Node.js CAP backend, centralizing 22 custom Fiori applications into a single authenticated experience.",
+      solution: "Designed a multi-tenant portal using SAP Build Work Zone and a Node.js CAP backend, centralizing 22 custom SAPUI5 and SAP Fiori applications into a single authenticated experience.",
       impact: "22 Custom Apps Deployed",
       architecture: {
         title: "Multi-Tenant Analytics Architecture",

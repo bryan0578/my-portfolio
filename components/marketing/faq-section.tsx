@@ -5,20 +5,25 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion"
 import type { FaqItem } from "@/lib/marketing/types"
+import { cn } from "@/lib/utils"
 
 interface FaqSectionProps {
   title?: string
   items: FaqItem[]
+  className?: string
 }
 
 export function FaqSection({
   title = "Frequently Asked Questions",
   items,
+  className,
 }: FaqSectionProps) {
   if (!items.length) return null
 
   return (
-    <section className="px-6 py-16 md:py-20 bg-surface-canvas">
+    <section
+      className={cn("px-6 py-16 md:py-20 bg-surface-canvas", className)}
+    >
       <div className="max-w-3xl mx-auto">
         <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">
           {title}

@@ -1,10 +1,13 @@
+import { cn } from "@/lib/utils"
+
 interface IntroParagraphsProps {
   paragraphs: string[]
+  className?: string
 }
 
-export function IntroParagraphs({ paragraphs }: IntroParagraphsProps) {
+export function IntroParagraphs({ paragraphs, className }: IntroParagraphsProps) {
   return (
-    <section className="px-6 pb-12 md:pb-16">
+    <section className={cn("px-6 pb-12 md:pb-16", className)}>
       <div className="max-w-3xl mx-auto space-y-4">
         {paragraphs.map((paragraph) => (
           <p

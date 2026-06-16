@@ -23,14 +23,14 @@ export async function BlogSection({
   }
 
   return (
-    <section className="px-6 py-24 bg-surface-canvas">
+    <section className="px-6 py-24 lg:py-20 bg-surface-canvas">
       <div className="max-w-7xl mx-auto">
         {showHeader && (
           <SectionHeader
-            className="mb-16"
+            className="mb-16 lg:mb-12"
             eyebrow="Insights"
             title="Insights"
-            description="Practical writing on frontend engineering, architecture, and lessons from building real products."
+            description="Practical writing on enterprise UI, SAP and Salesforce delivery, frontend architecture, and the systems behind real-world implementation."
           />
         )}
 

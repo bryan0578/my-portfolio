@@ -45,7 +45,7 @@ const skills = [
     borderGlow: "hover:shadow-[0_0_40px_-10px_rgba(168,85,247,0.3)]",
   },
   {
-    title: "Full-Stack Dev",
+    title: "Modern Web Platforms",
     category: "Node.js/Next.js",
     icon: Code2,
     href: "/services",
@@ -60,12 +60,12 @@ const skills = [
 
 export function SkillsBentoGrid() {
     return (
-      <section className="px-6 pt-10 pb-20 md:pt-12 md:pb-24 bg-surface-canvas">
+      <section className="px-6 pt-10 pb-20 md:pt-12 md:pb-24 lg:pb-20 bg-surface-canvas">
         <div className="max-w-7xl mx-auto">
           <SectionHeader
-            className="mb-12 md:mb-14"
+            className="mb-12 md:mb-14 lg:mb-12"
             eyebrow="Expertise"
-            title="Systems I build in"
+            title="Systems I Build"
           />
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">

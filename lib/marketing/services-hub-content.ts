@@ -8,9 +8,9 @@ export const servicesHubMetadata: Metadata = {
 }
 
 export const servicesHubContent = {
-  h1: "SAP, Salesforce & Enterprise UI Development Services",
+  h1: "Enterprise SAP, Salesforce & UI Development Services",
   subtitle:
-    "Focused offerings for organizations modernizing on SAP BTP, delivering Fiori experiences, and scaling Salesforce portals—with adoption and release discipline built in.",
+    "Focused offerings for organizations modernizing on SAP BTP, delivering Fiori experiences, and scaling Salesforce portals with adoption, governance, and release discipline.",
   intro: [
     "I work with enterprise IT leaders, delivery managers, and SI partners who need senior hands-on expertise—not a generic dev shop. Each service below maps to proven case studies and a clear engagement model.",
     "Explore a service area, review related projects, and reach out when you are ready to discuss scope.",

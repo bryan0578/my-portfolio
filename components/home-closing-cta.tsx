@@ -5,7 +5,7 @@ import { CtaBlock } from "@/components/marketing/cta-block"
 
 export function HomeClosingCta() {
   return (
-    <section className="px-6 py-16 md:py-20">
+    <section className="px-6 py-16 md:py-20 lg:py-16">
       <div className="max-w-4xl mx-auto">
         <CtaBlock
           id="home-closing-cta"

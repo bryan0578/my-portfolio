@@ -115,8 +115,6 @@ export default function WorkWithMePage() {
         headline={workWithMeContent.finalCta.headline}
         description={workWithMeContent.finalCta.description}
         subject={workWithMeContent.finalCta.subject}
-        secondaryHref="/services"
-        secondaryLabel="Browse services"
       />
     </MarketingLayout>
   )

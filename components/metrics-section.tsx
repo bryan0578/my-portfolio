@@ -7,7 +7,7 @@ const metrics = [
   {
     value: 20,
     suffix: "+",
-    label: "Executive Demos",
+    label: "Stakeholder Demos",
     description:
       "Fortune 500 stakeholders aligned on complex SAP and Salesforce programs",
   },
@@ -100,10 +100,10 @@ function AnimatedCounter({
 
 export function MetricsSection() {
   return (
-    <section className="px-6 py-24">
+    <section className="px-6 py-24 lg:py-20">
       <div className="max-w-6xl mx-auto">
         <SectionHeader
-          className="mb-16"
+          className="mb-16 lg:mb-12"
           eyebrow="Impact"
           title="Outcomes at scale"
           description="Representative results from enterprise SAP, Salesforce, and UI programs—adoption, delivery, and stakeholder alignment."
