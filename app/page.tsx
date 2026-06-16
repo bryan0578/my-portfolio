@@ -15,9 +15,9 @@ export const metadata: Metadata = homeMetadata
 export default async function Home() {
   const webPageSchema = buildWebPageSchema({
     path: "/",
-    name: "SAP BTP Lead & Enterprise UI Architect",
+    name: "Practical systems that turn enterprise chaos into clarity",
     description:
-      "Enterprise SAP BTP, SAPUI5, Salesforce, and UI architecture consulting with proven case studies.",
+      "SAP BTP developer and enterprise UI architect for SAPUI5, SAP Fiori, Salesforce Experience Cloud, and modern frontend delivery. Case studies and consulting for enterprise programs.",
   })
 
   return (

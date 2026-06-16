@@ -65,7 +65,7 @@ export function SkillsBentoGrid() {
           <SectionHeader
             className="mb-12 md:mb-14"
             eyebrow="Expertise"
-            title="Core Competencies"
+            title="Systems I build in"
           />
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">

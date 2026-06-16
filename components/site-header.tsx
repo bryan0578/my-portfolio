@@ -7,11 +7,11 @@ import { Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 const navLinks = [
-  { href: "/services", label: "Services" },
-  { href: "/projects", label: "Projects" },
-  { href: "/blog", label: "Blog" },
-  { href: "/about", label: "About" },
   { href: "/work-with-me", label: "Work With Me" },
+  { href: "/projects", label: "Case Studies" },
+  { href: "/services", label: "Services" },
+  { href: "/blog", label: "Insights" },
+  { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ] as const
 

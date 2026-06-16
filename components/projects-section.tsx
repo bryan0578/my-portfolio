@@ -29,7 +29,7 @@ export function ProjectsSection({
           <SectionHeader
             className="mb-16"
             eyebrow="Case Studies"
-            title="Enterprise Projects"
+            title="Case Studies"
             description={
               <>
                 Delivering measurable business outcomes through strategic technology solutions.{" "}

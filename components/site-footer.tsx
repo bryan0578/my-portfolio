@@ -4,8 +4,8 @@ import { SocialLinksWithLabels } from "@/components/social-links"
 
 const footerLinks = [
   { href: "/about", label: "About" },
-  { href: "/projects", label: "Projects" },
-  { href: "/blog", label: "Blog" },
+  { href: "/projects", label: "Case Studies" },
+  { href: "/blog", label: "Insights" },
   { href: "/work-with-me", label: "Work With Me" },
   { href: "/contact", label: "Contact" },
 ] as const
@@ -20,8 +20,9 @@ export function SiteFooter() {
         <div>
           <p className="text-body-sm font-semibold font-heading text-foreground mb-3">Bryan Cash</p>
           <p className="text-body-sm text-muted-foreground leading-body">
-            SAP BTP lead and enterprise UI architect. SAP BTP, SAPUI5, Salesforce,
-            and modern frontend delivery for complex organizations.
+            Bryan Cash is a developer, enterprise UI architect, and technical creator
+            helping organizations build practical systems for SAP, Salesforce, and modern
+            web platforms that turn complexity into clarity.
           </p>
           <div className="mt-4 flex flex-wrap gap-x-4 gap-y-1">
             <Link
@@ -91,7 +92,7 @@ export function SiteFooter() {
 
       <div className="max-w-6xl mx-auto mt-12 pt-8 border-t border-border/50">
         <p className="text-caption text-muted-foreground text-center">
-          © {new Date().getFullYear()} Bryan Cash. Enterprise consulting portfolio.
+          © {new Date().getFullYear()} Bryan Cash. Enterprise development & consulting.
         </p>
       </div>
     </footer>

@@ -29,7 +29,7 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 const defaultDescription =
-  "Enterprise SAP BTP developer and UI architect for SAPUI5, SAP Fiori, Salesforce Experience Cloud, DevOps, and modern React/Next.js delivery."
+  "SAP BTP developer and enterprise UI architect for SAPUI5, SAP Fiori, Salesforce Experience Cloud, and modern frontend delivery. Practical systems for enterprise teams."
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://cashbryan.com"),
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     template: `%s | ${SITE_NAME}`,
   },
   description: defaultDescription,
-  applicationName: `${SITE_NAME} Portfolio`,
+  applicationName: SITE_NAME,
   authors: [{ name: SITE_NAME, url: "https://cashbryan.com" }],
   creator: SITE_NAME,
   publisher: SITE_NAME,
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     follow: true,
   },
   openGraph: {
-    siteName: `${SITE_NAME} Portfolio`,
+    siteName: SITE_NAME,
     locale: "en_US",
     type: "website",
     images: [

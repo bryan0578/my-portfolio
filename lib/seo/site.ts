@@ -3,12 +3,13 @@ export const SITE_URL = "https://cashbryan.com"
 
 export const SITE_NAME = "Bryan Cash"
 
-export const SITE_TAGLINE = "SAP BTP Lead & Enterprise UI Architect"
+export const SITE_TAGLINE =
+  "Developer & Enterprise UI Architect | SAP BTP & Salesforce"
 
 export const DEFAULT_OG_IMAGE = "/og-image.png"
 
 export const DEFAULT_OG_IMAGE_ALT =
-  "Bryan Cash — SAP BTP, SAPUI5, and Salesforce enterprise development"
+  "Bryan Cash — SAP BTP, SAPUI5, Salesforce, and enterprise UI architecture"
 
 export const CONTACT_EMAIL =
   process.env.BRYAN_EMAIL ?? "bryancash.dev@gmail.com"

@@ -15,19 +15,17 @@ export function HeroSection() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 lg:gap-8 xl:gap-10 2xl:gap-12 items-center lg:items-center p-5 sm:p-6 md:p-6 lg:py-8 lg:px-9 xl:py-9 xl:px-10 2xl:px-12">
             {/* Copy + CTAs — sole focal point below lg */}
             <div className="relative z-10 text-center lg:text-left order-1 min-w-0 lg:py-1 max-lg:mx-auto max-lg:max-w-lg">
-              <p className="text-label uppercase tracking-wide text-brand-primary mb-2.5 font-semibold-plus">
-                Bryan Cash
+              <p className="text-label tracking-wide text-brand-primary mb-2.5 font-semibold-plus normal-case">
+                Developer · Architect · Technical Creator
               </p>
 
               <h1 className="text-h1 lg:text-hero font-bold text-foreground mb-3.5 sm:mb-4 text-balance">
-                SAP BTP Lead &amp;{" "}
-                <span className="text-brand-primary">Enterprise UI Architect</span>
+                Practical systems that turn enterprise chaos into clarity
               </h1>
 
               <p className="text-body lg:text-body-lg text-muted-foreground/90 max-w-xl mx-auto lg:mx-0 mb-5 sm:mb-5 text-pretty">
-                SAP BTP development, SAPUI5/Fiori applications, Salesforce
-                Experience Cloud, and DevOps for organizations that need
-                adoption—not just delivery.
+                SAP BTP, SAPUI5, Salesforce, and modern frontend delivery for teams
+                that need adoption, not just go-live.
               </p>
 
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-2.5 sm:gap-3">
@@ -37,9 +35,9 @@ export function HeroSection() {
                   asChild
                   className="w-full sm:w-auto min-h-11"
                 >
-                  <Link href="/contact" aria-label="Contact Bryan Cash">
+                  <Link href="/work-with-me" aria-label="Discuss your program with Bryan Cash">
                     <Mail className="mr-2 size-4 shrink-0" aria-hidden />
-                    Get in Touch
+                    Discuss your program
                   </Link>
                 </Button>
 
@@ -50,11 +48,11 @@ export function HeroSection() {
                   className="w-full sm:w-auto min-h-11 text-foreground hover:text-brand-primary hover:bg-transparent underline-offset-4 hover:underline px-2"
                 >
                   <Link
-                    href="/services"
-                    aria-label="View enterprise development services"
+                    href="/projects"
+                    aria-label="See Bryan Cash case studies"
                     className="inline-flex items-center justify-center gap-2"
                   >
-                    View Services
+                    See case studies
                     <ArrowRight className="size-4 shrink-0" aria-hidden />
                   </Link>
                 </Button>

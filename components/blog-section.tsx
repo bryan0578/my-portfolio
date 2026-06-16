@@ -29,7 +29,7 @@ export async function BlogSection({
           <SectionHeader
             className="mb-16"
             eyebrow="Insights"
-            title="Featured Articles"
+            title="Insights"
             description="Practical writing on frontend engineering, architecture, and lessons from building real products."
           />
         )}

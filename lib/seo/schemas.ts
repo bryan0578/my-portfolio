@@ -68,9 +68,9 @@ export function buildWebSiteSchema() {
     "@type": "WebSite",
     "@id": WEBSITE_ID,
     url: SITE_URL,
-    name: `${SITE_NAME} Portfolio`,
+    name: SITE_NAME,
     description:
-      "Enterprise SAP BTP, SAPUI5, Salesforce, and UI architecture consulting portfolio with case studies and technical writing.",
+      "SAP BTP, SAPUI5, Salesforce, and enterprise UI architecture—case studies, services, and technical insights from Bryan Cash.",
     publisher: { "@id": PERSON_ID },
     inLanguage: "en-US",
   }

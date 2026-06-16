@@ -14,7 +14,7 @@ import {
 export const homeMetadata = createPageMetadata({
   title: SITE_TAGLINE,
   description:
-    "Hire an SAP BTP developer and enterprise UI architect for SAPUI5, SAP Fiori, Salesforce Experience Cloud, and DevOps. Case studies and consulting for Fortune 500 programs.",
+    "SAP BTP developer and enterprise UI architect for SAPUI5, SAP Fiori, Salesforce Experience Cloud, and modern frontend delivery. Practical systems that turn enterprise complexity into clarity.",
   path: "/",
   keywords: [...SITE_KEYWORDS],
 })

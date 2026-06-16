@@ -23,7 +23,7 @@ type AssistantMode = "fallback" | "ai"
 const initialMessage: ChatMessage = {
   role: "assistant",
   content:
-    "Hi there! I’m Bryan’s portfolio assistant. I can help you explore his technical skills, featured projects, and ways to get in touch.",
+    "Hi there! I’m Bryan Cash’s site assistant. I can help you explore his skills, case studies, services, and ways to get in touch.",
 }
 
 export function AIChatBubble() {
@@ -101,7 +101,7 @@ export function AIChatBubble() {
         {
           role: "assistant",
           content:
-            "I’m currently running in portfolio fallback mode. I can still help with Bryan’s skills, featured projects, and contact details.",
+            "I’m currently running in fallback mode. I can still help with Bryan’s skills, case studies, services, and contact details.",
         },
       ])
     } finally {
@@ -123,7 +123,7 @@ export function AIChatBubble() {
             `}
           >
             {isOpen ? <X className="size-5" /> : <MessageCircle className="size-5" />}
-            <span className="sr-only">Chat with Bryan&apos;s portfolio assistant</span>
+            <span className="sr-only">Chat with Bryan Cash&apos;s site assistant</span>
           </Button>
         </PopoverTrigger>
 
@@ -145,7 +145,7 @@ export function AIChatBubble() {
 
                 <div>
                   <h3 className="font-semibold text-foreground text-sm">
-                    Portfolio Assistant
+                    Site Assistant
                   </h3>
                   <p className="text-xs text-muted-foreground">
                     Ask about Bryan&apos;s work
