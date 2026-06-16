@@ -49,17 +49,13 @@ export default function WorkWithMePage() {
         h1={workWithMeContent.hero.h1}
         subtitle={workWithMeContent.hero.subtitle}
       >
-        <Button
-          size="lg"
-          asChild
-          className="min-w-[200px] bg-brand-primary text-text-inverse hover:bg-brand-secondary font-bold shadow-[0_0_20px_rgba(0,255,194,0.3)]"
-        >
+        <Button size="lg" variant="brand" asChild className="min-w-[200px]">
           <Link href={workWithMeContent.hero.primaryCta.href}>
             <Mail className="mr-2 size-4" aria-hidden />
             {workWithMeContent.hero.primaryCta.label}
           </Link>
         </Button>
-        <Button size="lg" variant="outline" asChild className="min-w-[200px]">
+        <Button size="lg" variant="brandOutline" asChild className="min-w-[200px]">
           <Link href={workWithMeContent.hero.secondaryCta.href}>
             {workWithMeContent.hero.secondaryCta.label}
             <ArrowRight className="ml-2 size-4" aria-hidden />

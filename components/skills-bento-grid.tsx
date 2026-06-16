@@ -1,47 +1,11 @@
 "use client"
 
 import Link from "next/link"
+import { SectionHeader } from "@/components/marketing/section-header"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { getEcosystemBadgeColor } from "@/lib/ui/ecosystem-badge-colors"
 import { Database, Cloud, Palette, Code2, ArrowRight } from "lucide-react"
-
-// Reuse your existing logic for brand consistency
-function getTagStyle(tag: string): string {
-    const normalized = tag.toUpperCase();
-    
-    // Grouping by Ecosystems
-    switch (normalized) {
-      // SAP ECOSYSTEM (Blue/Indigo/Teal)
-      case "SAP BTP": case "SAP": case "BUILD WORK ZONE": case "WORK ZONE":
-        return "bg-blue-500/10 text-blue-400 border-blue-500/20";
-      case "CAP": case "CAPM": case "IAS": case "HANA CLOUD": case "HANA": case "ODATA":
-        return "bg-indigo-500/10 text-indigo-400 border-indigo-500/20";
-      case "SAPUI5": case "FIORI": case "SAP FIORI":
-        return "bg-teal-500/10 text-teal-400 border-teal-500/20";
-
-      // SALESFORCE ECOSYSTEM (Sky/Cyan)
-      case "SALESFORCE": case "APEX": case "LWC": case "AURA COMPONENTS": case "LDS": case "EXPERIENCE CLOUD":
-        return "bg-sky-500/10 text-sky-400 border-sky-500/20";
-
-      // DEVOPS & INFRA (Slate/Zinc)
-      case "DEVOPS": case "CI/CD": case "GITHUB ACTIONS": case "GIT":
-        return "bg-slate-500/10 text-slate-400 border-slate-500/20";
-
-      // DESIGN & CREATIVE (Purple/Pink/Rose)
-      case "FIGMA": case "ADOBE XD": case "DESIGN SYSTEMS": case "AXURE": case "PROTOTYPING":
-        return "bg-purple-500/10 text-purple-400 border-purple-500/20";
-      case "PHOTOSHOP": case "ILLUSTRATOR": case "PREMIERE PRO":
-        return "bg-rose-500/10 text-rose-400 border-rose-500/20";
-
-      // MODERN WEB (Emerald/Green)
-      case "NEXT.JS": case "REACT": case "TYPESCRIPT": case "JAVASCRIPT": case "NODE.JS": case "HTML5": case "CSS":
-        return "bg-emerald-500/10 text-emerald-400 border-emerald-500/20";
-
-      // DEFAULT
-      default:
-        return "bg-brand-soft text-brand-primary/70 border-brand-primary/10";
-    }
-}
 
 const skills = [
   {
@@ -98,14 +62,11 @@ export function SkillsBentoGrid() {
     return (
       <section className="px-6 pt-10 pb-20 md:pt-12 md:pb-24 bg-surface-canvas">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12 md:mb-14">
-            <p className="text-sm uppercase tracking-widest text-brand-primary mb-3 font-semibold">
-              Expertise
-            </p>
-            <h2 className="text-3xl md:text-5xl font-bold text-foreground">
-              Core Competencies
-            </h2>
-          </div>
+          <SectionHeader
+            className="mb-12 md:mb-14"
+            eyebrow="Expertise"
+            title="Core Competencies"
+          />
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {skills.map((skill) => (

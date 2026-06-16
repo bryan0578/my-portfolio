@@ -53,9 +53,10 @@ export function ImpactResults({
         {/* Metrics Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
           {metrics.map((metric, index) => (
-            <Card 
+            <Card
               key={index}
-              className="border-border/50 bg-card/50 backdrop-blur-sm text-center hover:border-mint/20 transition-colors"
+              variant="surface"
+              className="text-center hover:border-brand-primary/30 transition-colors"
             >
               <CardContent className="p-6">
                 <p className="text-4xl md:text-5xl font-bold text-foreground mb-2 font-mono">

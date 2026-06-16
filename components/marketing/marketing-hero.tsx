@@ -1,3 +1,6 @@
+import { cn } from "@/lib/utils"
+import { sectionEyebrow } from "@/lib/ui/brand-classes"
+
 interface MarketingHeroProps {
   eyebrow?: string
   h1: string
@@ -18,16 +21,14 @@ export function MarketingHero({
 
       <div className="relative z-10 max-w-4xl mx-auto text-center">
         {eyebrow ? (
-          <p className="text-sm uppercase tracking-widest text-brand-primary mb-4 font-semibold">
-            {eyebrow}
-          </p>
+          <p className={cn(sectionEyebrow, "mb-4")}>{eyebrow}</p>
         ) : null}
 
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground mb-6 text-balance">
+        <h1 className="text-h1 lg:text-hero font-heading text-foreground mb-6 text-balance">
           {h1}
         </h1>
 
-        <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed text-pretty">
+        <p className="text-body-lg text-muted-foreground max-w-3xl mx-auto leading-body text-pretty">
           {subtitle}
         </p>
 

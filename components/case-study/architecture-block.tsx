@@ -73,7 +73,7 @@ export function ArchitectureBlock({
             <div>{children}</div>
           ) : (
             hasDeepDive && (
-              <Card className="border-border/50 bg-card/50 backdrop-blur-sm overflow-hidden">
+              <Card variant="surface" className="overflow-hidden">
                 <CardHeader>
                   <div className="flex items-center gap-2">
                     <Layers className="size-5 text-mint" />
@@ -95,7 +95,7 @@ export function ArchitectureBlock({
           )}
 
           {hasCodeSnippet && (
-            <Card className="border-border/50 bg-card/50 backdrop-blur-sm overflow-hidden">
+            <Card variant="surface" className="overflow-hidden">
               <CardHeader className="flex-row items-center justify-between gap-4">
                 <div className="flex items-center gap-2">
                   {codeLanguage && (

@@ -33,8 +33,9 @@ export function HeroSection() {
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-2.5 sm:gap-3">
                 <Button
                   size="lg"
+                  variant="brand"
                   asChild
-                  className="w-full sm:w-auto min-h-11 bg-brand-primary text-text-inverse hover:bg-brand-secondary shadow-[0_0_16px_rgba(0,255,194,0.18)] hover:shadow-[0_0_22px_rgba(0,255,194,0.28)] transition-all duration-300 font-bold"
+                  className="w-full sm:w-auto min-h-11"
                 >
                   <Link href="/contact" aria-label="Contact Bryan Cash">
                     <Mail className="mr-2 size-4 shrink-0" aria-hidden />

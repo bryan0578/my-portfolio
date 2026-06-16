@@ -1,9 +1,10 @@
 import type { MDXComponents } from "mdx/types"
 import type { ComponentPropsWithoutRef } from "react"
-
-function cx(...classes: Array<string | false | null | undefined>) {
-  return classes.filter(Boolean).join(" ")
-}
+import {
+  blockquoteStyle,
+  codeBlock,
+  inlineCode,
+} from "@/lib/ui/brand-classes"
 
 export function useMDXComponents(
   components: MDXComponents
@@ -11,56 +12,56 @@ export function useMDXComponents(
   return {
     h1: (props) => (
       <h1
-        className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight tracking-tight mb-8"
+        className="text-h1 lg:text-hero font-heading text-foreground leading-heading mb-8"
         {...(props as ComponentPropsWithoutRef<"h1">)}
       />
     ),
 
     h2: (props) => (
       <h2
-        className="text-3xl md:text-4xl font-bold text-foreground tracking-tight mt-16 mb-6"
+        className="text-h2 font-heading text-foreground mt-16 mb-6"
         {...(props as ComponentPropsWithoutRef<"h2">)}
       />
     ),
 
     h3: (props) => (
       <h3
-        className="text-2xl md:text-3xl font-semibold text-foreground tracking-tight mt-12 mb-4"
+        className="text-h3 font-heading text-foreground mt-12 mb-4"
         {...(props as ComponentPropsWithoutRef<"h3">)}
       />
     ),
 
     h4: (props) => (
       <h4
-        className="text-lg md:text-xl font-semibold text-foreground mt-8 mb-3"
+        className="text-h4 font-heading text-foreground mt-8 mb-3"
         {...(props as ComponentPropsWithoutRef<"h4">)}
       />
     ),
 
     p: (props) => (
       <p
-        className="text-base md:text-lg text-foreground/70 leading-8 mb-6"
+        className="text-body text-foreground/70 leading-body mb-6"
         {...(props as ComponentPropsWithoutRef<"p">)}
       />
     ),
 
     ul: (props) => (
       <ul
-        className="mb-6 ml-6 list-disc space-y-3 text-base md:text-lg text-foreground/70 marker:text-brand-primary"
+        className="mb-6 ml-6 list-disc space-y-3 text-body text-foreground/70 marker:text-brand-primary"
         {...(props as ComponentPropsWithoutRef<"ul">)}
       />
     ),
 
     ol: (props) => (
       <ol
-        className="mb-6 ml-6 list-decimal space-y-3 text-base md:text-lg text-foreground/70 marker:text-brand-primary"
+        className="mb-6 ml-6 list-decimal space-y-3 text-body text-foreground/70 marker:text-brand-primary"
         {...(props as ComponentPropsWithoutRef<"ol">)}
       />
     ),
 
     li: (props) => (
       <li
-        className="leading-8"
+        className="leading-body"
         {...(props as ComponentPropsWithoutRef<"li">)}
       />
     ),
@@ -92,21 +93,21 @@ export function useMDXComponents(
 
     blockquote: (props) => (
       <blockquote
-        className="mb-8 border-l-2 border-brand-primary/60 pl-5 text-lg italic text-foreground/80"
+        className={blockquoteStyle}
         {...(props as ComponentPropsWithoutRef<"blockquote">)}
       />
     ),
 
     code: (props) => (
       <code
-        className="rounded-md border border-border bg-black/30 px-1.5 py-0.5 font-mono text-sm text-brand-primary"
+        className={inlineCode}
         {...(props as ComponentPropsWithoutRef<"code">)}
       />
     ),
 
     pre: (props) => (
       <pre
-        className="mb-8 overflow-x-auto rounded-2xl border border-border/50 bg-card/50 p-5 text-sm backdrop-blur-sm"
+        className={codeBlock}
         {...(props as ComponentPropsWithoutRef<"pre">)}
       />
     ),
@@ -129,14 +130,14 @@ export function useMDXComponents(
 
     th: (props) => (
       <th
-        className="px-4 py-3 text-sm font-semibold text-foreground"
+        className="px-4 py-3 text-body-sm font-semibold text-foreground"
         {...(props as ComponentPropsWithoutRef<"th">)}
       />
     ),
 
     td: (props) => (
       <td
-        className="border-t border-border/40 px-4 py-3 text-sm text-foreground/70"
+        className="border-t border-border/40 px-4 py-3 text-body-sm text-foreground/70"
         {...(props as ComponentPropsWithoutRef<"td">)}
       />
     ),

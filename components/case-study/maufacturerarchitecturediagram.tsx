@@ -9,7 +9,7 @@ export function ManufacturerArchitectureDiagram({
   description,
 }: ManufacturerArchitectureDiagramProps) {
   return (
-    <Card className="border-border/50 bg-card/50 backdrop-blur-sm overflow-hidden">
+    <Card variant="surface" className="overflow-hidden">
       <CardHeader>
         <div className="flex items-center gap-2">
           <Layers className="size-5 text-mint" />

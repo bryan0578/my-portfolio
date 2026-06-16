@@ -5,6 +5,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { BlogCard } from "@/components/blog/blog-card"
 import type { BlogPost } from "@/lib/blog"
+import { cn } from "@/lib/utils"
 
 const categories = [
   "All",
@@ -43,11 +44,11 @@ export function BlogIndexClient({ posts }: BlogIndexClientProps) {
   return (
     <div className="max-w-7xl mx-auto w-full">
       <div className="flex flex-col items-center text-center mb-16">
-        <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-foreground mb-6">
+        <h1 className="text-h1 lg:text-hero font-heading text-foreground mb-6">
           Enterprise Development <span className="text-brand-primary">Blog</span>
         </h1>
 
-        <p className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
+        <p className="text-body-lg text-muted-foreground max-w-2xl mx-auto leading-body">
           Articles on enterprise software delivery, SAP and Salesforce ecosystems,
           frontend architecture, and practical lessons from Fortune 500 programs.{" "}
           <Link href="/services" className="text-brand-primary hover:underline font-medium">
@@ -59,13 +60,12 @@ export function BlogIndexClient({ posts }: BlogIndexClientProps) {
           {categories.map((cat) => (
             <Button
               key={cat}
-              variant={filter === cat ? "default" : "outline"}
+              variant={filter === cat ? "brand" : "brandOutline"}
               onClick={() => setFilter(cat)}
-              className={
-                filter === cat
-                  ? "bg-brand-primary text-text-inverse hover:bg-brand-secondary shadow-[0_0_15px_rgba(0,255,194,0.2)]"
-                  : "border-zinc-800 text-muted-foreground hover:border-brand-primary/30"
-              }
+              className={cn(
+                filter !== cat &&
+                  "border-border-default text-muted-foreground hover:border-brand-primary/30"
+              )}
             >
               {cat}
             </Button>

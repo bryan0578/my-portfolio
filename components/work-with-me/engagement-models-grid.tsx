@@ -102,17 +102,13 @@ export function EngagementModelsGrid({
                 </div>
 
                 <div className="mt-auto pt-4 flex flex-wrap gap-3">
-                  <Button
-                    asChild
-                    size="sm"
-                    className="bg-brand-primary text-text-inverse hover:bg-brand-secondary font-semibold"
-                  >
+                  <Button asChild size="sm" variant="brand">
                     <a href={mailtoHref}>
                       <Mail className="mr-1.5 size-3.5" aria-hidden />
                       Discuss this model
                     </a>
                   </Button>
-                  <Button asChild size="sm" variant="ghost">
+                  <Button asChild size="sm" variant="brandGhost">
                     <Link href="/contact">
                       Contact
                       <ArrowRight className="ml-1 size-3.5" aria-hidden />

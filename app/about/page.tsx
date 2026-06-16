@@ -39,17 +39,13 @@ export default function AboutPage() {
         h1={aboutContent.h1}
         subtitle={aboutContent.subtitle}
       >
-        <Button
-          size="lg"
-          asChild
-          className="min-w-[180px] bg-brand-primary text-text-inverse hover:bg-brand-secondary font-bold"
-        >
+        <Button size="lg" variant="brand" asChild className="min-w-[180px]">
           <a href={mailtoHref}>
             <Mail className="mr-2 size-4" />
             Work with Bryan
           </a>
         </Button>
-        <Button size="lg" variant="outline" asChild className="min-w-[180px]">
+        <Button size="lg" variant="brandOutline" asChild className="min-w-[180px]">
           <Link href="/services">
             View services
             <ArrowRight className="ml-2 size-4" />

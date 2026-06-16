@@ -76,7 +76,7 @@ export function ProcessTimeline({ timeline }: ProcessTimelineProps) {
                     </div>
 
                     {/* Step Content */}
-                    <Card className="flex-1 border-border/50 bg-card/50 backdrop-blur-sm hover:border-mint/20 transition-colors">
+                    <Card variant="surface" className="flex-1 hover:border-brand-primary/30 transition-colors">
                     <CardHeader className="pb-2">
                         <div className="flex items-center gap-3">
                         <span className="text-xs font-mono text-mint/70">

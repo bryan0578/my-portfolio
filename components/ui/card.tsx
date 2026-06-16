@@ -1,15 +1,35 @@
 import * as React from 'react'
+import { cva, type VariantProps } from 'class-variance-authority'
 
 import { cn } from '@/lib/utils'
 
-function Card({ className, ...props }: React.ComponentProps<'div'>) {
+const cardVariants = cva(
+  'bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm',
+  {
+    variants: {
+      variant: {
+        default: '',
+        surface: 'border-border/50 bg-card/50 backdrop-blur-sm',
+        surfaceInteractive:
+          'group relative overflow-hidden border-border/50 bg-card/50 backdrop-blur-sm hover:border-border-default transition-all duration-300 hover:shadow-[0_0_40px_-10px_color-mix(in_srgb,var(--color-text-primary)_10%,transparent)]',
+        brand: 'border-brand-primary/20 bg-brand-soft shadow-none',
+      },
+    },
+    defaultVariants: {
+      variant: 'default',
+    },
+  },
+)
+
+function Card({
+  className,
+  variant,
+  ...props
+}: React.ComponentProps<'div'> & VariantProps<typeof cardVariants>) {
   return (
     <div
       data-slot="card"
-      className={cn(
-        'bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm',
-        className,
-      )}
+      className={cn(cardVariants({ variant }), className)}
       {...props}
     />
   )
@@ -32,7 +52,7 @@ function CardTitle({ className, ...props }: React.ComponentProps<'div'>) {
   return (
     <div
       data-slot="card-title"
-      className={cn('leading-none font-semibold', className)}
+      className={cn('font-heading text-h4 leading-heading', className)}
       {...props}
     />
   )
@@ -42,7 +62,7 @@ function CardDescription({ className, ...props }: React.ComponentProps<'div'>) {
   return (
     <div
       data-slot="card-description"
-      className={cn('text-muted-foreground text-sm', className)}
+      className={cn('text-body-sm text-muted-foreground leading-body', className)}
       {...props}
     />
   )
@@ -83,6 +103,7 @@ function CardFooter({ className, ...props }: React.ComponentProps<'div'>) {
 
 export {
   Card,
+  cardVariants,
   CardHeader,
   CardFooter,
   CardTitle,

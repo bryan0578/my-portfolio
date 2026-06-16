@@ -49,17 +49,13 @@ export default function ServicesPage() {
         h1={servicesHubContent.h1}
         subtitle={servicesHubContent.subtitle}
       >
-        <Button
-          size="lg"
-          asChild
-          className="min-w-[180px] bg-brand-primary text-text-inverse hover:bg-brand-secondary font-bold"
-        >
+        <Button size="lg" variant="brand" asChild className="min-w-[180px]">
           <a href={mailtoHref}>
             <Mail className="mr-2 size-4" />
             Request a consultation
           </a>
         </Button>
-        <Button size="lg" variant="outline" asChild className="min-w-[180px]">
+        <Button size="lg" variant="brandOutline" asChild className="min-w-[180px]">
           <Link href="/projects">
             View case studies
             <ArrowRight className="ml-2 size-4" />

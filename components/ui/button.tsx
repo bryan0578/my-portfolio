@@ -10,6 +10,12 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default: 'bg-primary text-primary-foreground hover:bg-primary/90',
+        brand:
+          'bg-brand-primary text-text-inverse hover:bg-brand-secondary font-bold shadow-[0_0_20px_color-mix(in_srgb,var(--color-brand-primary)_25%,transparent)] hover:shadow-[0_0_30px_color-mix(in_srgb,var(--color-brand-primary)_40%,transparent)] transition-all duration-300',
+        brandOutline:
+          'border border-border-default bg-transparent text-foreground shadow-xs hover:border-brand-primary/30 hover:bg-brand-soft hover:text-brand-primary',
+        brandGhost:
+          'text-muted-foreground hover:bg-brand-soft hover:text-brand-primary',
         destructive:
           'bg-destructive text-white hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60',
         outline:
