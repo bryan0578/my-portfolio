@@ -32,7 +32,7 @@ export function ProjectsSection({
             title="Case Studies"
             description={
               <>
-                Delivering measurable business outcomes through strategic technology solutions.{" "}
+                Delivering measurable business outcomes through production SAP, Salesforce, and UI programs.{" "}
                 <Link
                   href="/services"
                   className="text-brand-primary hover:underline font-medium"
@@ -51,8 +51,8 @@ export function ProjectsSection({
         </div>
         <div className="flex justify-center mt-12">
             <Button size="lg" variant="brand" asChild className="min-w-[160px] group">
-                <Link href="/projects" aria-label="View all projects">
-                    View All Projects
+                <Link href="/projects" aria-label="View all case studies">
+                    View all case studies
                     <ArrowRight className="ml-2 size-4 transition-transform group-hover:translate-x-1" />
                 </Link>
             </Button>

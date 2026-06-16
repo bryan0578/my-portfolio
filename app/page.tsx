@@ -1,8 +1,11 @@
 import type { Metadata } from "next"
 import { HeroSection } from "@/components/hero-section"
+import { HomePositioningStrip } from "@/components/home-positioning-strip"
 import { SkillsBentoGrid } from "@/components/skills-bento-grid"
 import { ProjectsSection } from "@/components/projects-section"
 import { MetricsSection } from "@/components/metrics-section"
+import { HomeWorkWithMeTeaser } from "@/components/home-work-with-me-teaser"
+import { HomeClosingCta } from "@/components/home-closing-cta"
 import { AIChatBubble } from "@/components/ai-chat-bubble"
 import { SiteHeader } from "@/components/site-header"
 import { BlogSection } from "@/components/blog-section"
@@ -26,10 +29,13 @@ export default async function Home() {
       <main id="main-content" className="min-h-screen bg-background">
         <SiteHeader />
         <HeroSection />
-        <SkillsBentoGrid />
+        <HomePositioningStrip />
         <ProjectsSection />
+        <SkillsBentoGrid />
+        <HomeWorkWithMeTeaser />
         <BlogSection limit={2} />
         <MetricsSection />
+        <HomeClosingCta />
         <AIChatBubble />
       </main>
     </>
