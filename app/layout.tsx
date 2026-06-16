@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { Geist, Geist_Mono } from "next/font/google"
+import { Sora, Inter, JetBrains_Mono } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { SiteFooter } from "@/components/site-footer"
 import { GlobalJsonLd } from "@/components/seo/global-json-ld"
@@ -7,15 +7,24 @@ import { SkipLink } from "@/components/seo/skip-link"
 import { SITE_NAME, SITE_TAGLINE, DEFAULT_OG_IMAGE, DEFAULT_OG_IMAGE_ALT } from "@/lib/seo/site"
 import "./globals.css"
 
-const geist = Geist({
+const sora = Sora({
   subsets: ["latin"],
-  variable: "--font-geist-sans",
+  weight: ["600", "700"],
+  variable: "--bc-font-heading",
   display: "swap",
 })
 
-const geistMono = Geist_Mono({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-geist-mono",
+  weight: ["400", "500", "600", "700"],
+  variable: "--bc-font-body",
+  display: "swap",
+})
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--bc-font-mono",
   display: "swap",
 })
 
@@ -83,8 +92,12 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${geist.variable} ${geistMono.variable} font-sans antialiased`}>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${sora.variable} ${inter.variable} ${jetbrainsMono.variable}`}
+    >
+      <body className="font-body antialiased">
         <SkipLink />
         <GlobalJsonLd />
         {children}

@@ -25,8 +25,8 @@ export function FitCriteria({ goodFit, notFit }: FitCriteriaProps) {
           Engagement Fit Criteria
         </h2>
         <div className="grid gap-5 md:grid-cols-2">
-          <div className="rounded-2xl border border-[#00FFC2]/30 bg-[#00FFC2]/5 p-6 md:p-8">
-            <h3 className="text-base font-semibold uppercase tracking-wider text-[#00FFC2] mb-5 flex items-center gap-2">
+          <div className="rounded-2xl border border-brand-primary/30 bg-brand-soft p-6 md:p-8">
+            <h3 className="text-base font-semibold uppercase tracking-wider text-brand-primary mb-5 flex items-center gap-2">
               <Check className="size-4" aria-hidden />
               {goodFit.headline}
             </h3>
@@ -34,7 +34,7 @@ export function FitCriteria({ goodFit, notFit }: FitCriteriaProps) {
               {goodFit.items.map((item) => (
                 <li key={item} className="flex gap-3 items-start">
                   <span
-                    className="mt-2 inline-block size-1.5 rounded-full bg-[#00FFC2] shrink-0"
+                    className="mt-2 inline-block size-1.5 rounded-full bg-brand-primary shrink-0"
                     aria-hidden
                   />
                   <span className="text-base text-foreground/90 leading-relaxed">

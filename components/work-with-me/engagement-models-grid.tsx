@@ -17,13 +17,13 @@ export function EngagementModelsGrid({
 }: EngagementModelsGridProps) {
   return (
     <section
-      className="px-6 py-16 md:py-20 bg-[#050505]"
+      className="px-6 py-16 md:py-20 bg-surface-canvas"
       aria-labelledby="engagement-models-heading"
     >
       <div className="max-w-5xl mx-auto">
         <div className="mb-10 flex items-start gap-4">
-          <div className="size-12 rounded-xl bg-[#00FFC2]/10 border border-[#00FFC2]/20 flex items-center justify-center shrink-0">
-            <Briefcase className="size-5 text-[#00FFC2]" aria-hidden />
+          <div className="size-12 rounded-xl bg-brand-soft border border-brand-primary/20 flex items-center justify-center shrink-0">
+            <Briefcase className="size-5 text-brand-primary" aria-hidden />
           </div>
           <div>
             <h2
@@ -46,7 +46,7 @@ export function EngagementModelsGrid({
               <article
                 key={model.id}
                 id={model.id}
-                className="flex flex-col rounded-2xl border border-border/50 bg-card/40 p-6 md:p-7 hover:border-[#00FFC2]/30 transition-colors scroll-mt-24"
+                className="flex flex-col rounded-2xl border border-border/50 bg-card/40 p-6 md:p-7 hover:border-brand-primary/30 transition-colors scroll-mt-24"
               >
                 <h3 className="text-xl font-semibold text-foreground mb-3">
                   {model.title}
@@ -55,8 +55,8 @@ export function EngagementModelsGrid({
                   {model.description}
                 </p>
 
-                <div className="mb-5 rounded-lg border border-[#00FFC2]/20 bg-[#00FFC2]/5 px-4 py-3">
-                  <p className="text-xs uppercase tracking-wider text-[#00FFC2] mb-1 font-semibold">
+                <div className="mb-5 rounded-lg border border-brand-primary/20 bg-brand-soft px-4 py-3">
+                  <p className="text-xs uppercase tracking-wider text-brand-primary mb-1 font-semibold">
                     Best fit
                   </p>
                   <p className="text-sm text-foreground/90 leading-snug">
@@ -72,7 +72,7 @@ export function EngagementModelsGrid({
                     {model.outcomes.map((outcome) => (
                       <li key={outcome} className="flex gap-2 items-start">
                         <CheckCircle2
-                          className="size-4 text-[#00FFC2] mt-0.5 shrink-0"
+                          className="size-4 text-brand-primary mt-0.5 shrink-0"
                           aria-hidden
                         />
                         <span className="text-sm text-foreground/85 leading-snug">
@@ -92,7 +92,7 @@ export function EngagementModelsGrid({
                       <Link
                         key={service.href}
                         href={service.href}
-                        className="inline-flex items-center rounded-full border border-border/60 bg-background/40 px-3 py-1 text-xs text-muted-foreground hover:text-[#00FFC2] hover:border-[#00FFC2]/40 transition-colors"
+                        className="inline-flex items-center rounded-full border border-border/60 bg-background/40 px-3 py-1 text-xs text-muted-foreground hover:text-brand-primary hover:border-brand-primary/40 transition-colors"
                       >
                         {service.label}
                         <ArrowRight className="ml-1 size-3" aria-hidden />
@@ -105,7 +105,7 @@ export function EngagementModelsGrid({
                   <Button
                     asChild
                     size="sm"
-                    className="bg-[#00FFC2] text-zinc-950 hover:bg-[#00FFC2]/90 font-semibold"
+                    className="bg-brand-primary text-text-inverse hover:bg-brand-secondary font-semibold"
                   >
                     <a href={mailtoHref}>
                       <Mail className="mr-1.5 size-3.5" aria-hidden />

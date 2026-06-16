@@ -154,7 +154,7 @@ export function ProjectCard({
 
         <Badge
           variant="secondary"
-          className="w-fit text-xs font-semibold bg-[#00FFC2]/10 text-[#00FFC2] border-[#00FFC2]/20"
+          className="w-fit text-xs font-semibold bg-brand-soft text-brand-primary border-brand-primary/20"
         >
           {impact}
         </Badge>
@@ -181,7 +181,7 @@ export function ProjectCard({
 
         <Button
           variant="ghost"
-          className="w-full mt-2 group/btn hover:bg-[#00FFC2]/5 text-muted-foreground hover:text-[#00FFC2] transition-colors"
+          className="w-full mt-2 group/btn hover:bg-brand-soft text-muted-foreground hover:text-brand-primary transition-colors"
           asChild
         >
           <Link href={`/projects/${slug}`}>

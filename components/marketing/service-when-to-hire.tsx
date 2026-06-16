@@ -12,7 +12,7 @@ export function ServiceWhenToHire({ items }: ServiceWhenToHireProps) {
         <ul className="space-y-3">
           {items.map((item) => (
             <li key={item} className="flex gap-3 text-muted-foreground leading-relaxed">
-              <span className="mt-2 size-1.5 shrink-0 rounded-full bg-[#00FFC2]" aria-hidden />
+              <span className="mt-2 size-1.5 shrink-0 rounded-full bg-brand-primary" aria-hidden />
               <span>{item}</span>
             </li>
           ))}

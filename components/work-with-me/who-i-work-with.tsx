@@ -19,8 +19,8 @@ export function WhoIWorkWith({
     >
       <div className="max-w-5xl mx-auto">
         <div className="mb-10 flex items-start gap-4">
-          <div className="size-12 rounded-xl bg-[#00FFC2]/10 border border-[#00FFC2]/20 flex items-center justify-center shrink-0">
-            <Users className="size-5 text-[#00FFC2]" aria-hidden />
+          <div className="size-12 rounded-xl bg-brand-soft border border-brand-primary/20 flex items-center justify-center shrink-0">
+            <Users className="size-5 text-brand-primary" aria-hidden />
           </div>
           <div>
             <h2
@@ -39,7 +39,7 @@ export function WhoIWorkWith({
           {personas.map((persona) => (
             <article
               key={persona.title}
-              className="rounded-xl border border-border/50 bg-card/40 p-6 hover:border-[#00FFC2]/30 transition-colors"
+              className="rounded-xl border border-border/50 bg-card/40 p-6 hover:border-brand-primary/30 transition-colors"
             >
               <h3 className="text-lg font-semibold text-foreground mb-2">
                 {persona.title}

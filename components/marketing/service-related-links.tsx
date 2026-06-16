@@ -20,7 +20,7 @@ export function ServiceRelatedLinks({ links }: ServiceRelatedLinksProps) {
             <Link
               key={link.href}
               href={link.href}
-              className="inline-flex items-center rounded-full border border-border/50 bg-card/30 px-4 py-2 text-sm text-muted-foreground hover:text-[#00FFC2] hover:border-[#00FFC2]/30 transition-colors"
+              className="inline-flex items-center rounded-full border border-border/50 bg-card/30 px-4 py-2 text-sm text-muted-foreground hover:text-brand-primary hover:border-brand-primary/30 transition-colors"
             >
               {link.label}
               <ArrowRight className="ml-1 size-3" aria-hidden />

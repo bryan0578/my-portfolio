@@ -4,86 +4,207 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Zinc Dark Theme - Default */
-  --background: oklch(0.09 0 0);
-  --foreground: oklch(0.95 0 0);
-  --card: oklch(0.12 0 0);
-  --card-foreground: oklch(0.95 0 0);
-  --popover: oklch(0.12 0 0);
-  --popover-foreground: oklch(0.95 0 0);
-  --primary: oklch(0.95 0 0);
-  --primary-foreground: oklch(0.09 0 0);
-  --secondary: oklch(0.18 0 0);
-  --secondary-foreground: oklch(0.95 0 0);
-  --muted: oklch(0.18 0 0);
-  --muted-foreground: oklch(0.6 0 0);
-  --accent: oklch(0.22 0 0);
-  --accent-foreground: oklch(0.95 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.95 0 0);
-  --border: oklch(0.22 0 0);
-  --input: oklch(0.18 0 0);
-  --ring: oklch(0.5 0 0);
-  --chart-1: oklch(0.7 0.15 200);
-  --chart-2: oklch(0.6 0.15 160);
-  --chart-3: oklch(0.5 0.1 220);
-  --chart-4: oklch(0.8 0.15 80);
-  --chart-5: oklch(0.7 0.18 60);
+  /* Bryan Cash token system (dark mode default) */
+  /* Surfaces */
+  --bc-surface-canvas: #070a0d;
+  --bc-surface-base: #0b1117;
+  --bc-surface-card: #101923;
+  --bc-surface-elevated: #17212d;
+  --bc-surface-subtle: #243241;
+
+  /* Text */
+  --bc-text-primary: #f7fafc;
+  --bc-text-secondary: #cbd5e1;
+  --bc-text-muted: #8a97a8;
+  --bc-text-disabled: #526173;
+  --bc-text-accent: #5ef2c2;
+  --bc-text-inverse: #0b1117;
+
+  /* Brand accents */
+  --bc-brand-primary: #5ef2c2;
+  --bc-brand-secondary: #38d9f2;
+  --bc-brand-premium: #d6b46a;
+  --bc-brand-creative: #a78bfa;
+  --bc-brand-soft: #0f2e28;
+
+  /* Borders */
+  --bc-border-subtle: #17212d;
+  --bc-border-default: #243241;
+  --bc-border-strong: #334155;
+  --bc-border-accent: #5ef2c2;
+  --bc-border-focus: #38d9f2;
+
+  /* Status */
+  --bc-status-success: #22c55e;
+  --bc-status-success-bg: #052e1a;
+  --bc-status-warning: #f59e0b;
+  --bc-status-warning-bg: #3a2503;
+  --bc-status-error: #ef4444;
+  --bc-status-error-bg: #3b0a0a;
+  --bc-status-info: #3b82f6;
+  --bc-status-info-bg: #071d3a;
+  --bc-status-draft: #8b5cf6;
+  --bc-status-draft-bg: #24103f;
+
+  /* Compatibility aliases (existing utility classes) */
+  --background: var(--bc-surface-canvas);
+  --foreground: var(--bc-text-primary);
+  --card: var(--bc-surface-card);
+  --card-foreground: var(--bc-text-primary);
+  --popover: var(--bc-surface-elevated);
+  --popover-foreground: var(--bc-text-primary);
+  --primary: var(--bc-brand-primary);
+  --primary-foreground: var(--bc-text-inverse);
+  --secondary: var(--bc-surface-elevated);
+  --secondary-foreground: var(--bc-text-primary);
+  --muted: var(--bc-surface-subtle);
+  --muted-foreground: var(--bc-text-muted);
+  --accent: var(--bc-brand-soft);
+  --accent-foreground: var(--bc-text-primary);
+  --destructive: var(--bc-status-error);
+  --destructive-foreground: var(--bc-text-primary);
+  --border: var(--bc-border-default);
+  --input: var(--bc-surface-subtle);
+  --ring: var(--bc-border-focus);
+  --chart-1: var(--bc-brand-secondary);
+  --chart-2: var(--bc-brand-primary);
+  --chart-3: var(--bc-brand-creative);
+  --chart-4: var(--bc-brand-premium);
+  --chart-5: var(--bc-status-warning);
   --radius: 0.75rem;
-  --sidebar: oklch(0.1 0 0);
-  --sidebar-foreground: oklch(0.95 0 0);
-  --sidebar-primary: oklch(0.95 0 0);
-  --sidebar-primary-foreground: oklch(0.09 0 0);
-  --sidebar-accent: oklch(0.18 0 0);
-  --sidebar-accent-foreground: oklch(0.95 0 0);
-  --sidebar-border: oklch(0.22 0 0);
-  --sidebar-ring: oklch(0.5 0 0);
-  /* Custom glow effects */
-  --glow: oklch(0.4 0 0);
-  /* Carbon Mint accent */
-  --mint: oklch(0.85 0.18 165);
+  --sidebar: var(--bc-surface-base);
+  --sidebar-foreground: var(--bc-text-primary);
+  --sidebar-primary: var(--bc-brand-primary);
+  --sidebar-primary-foreground: var(--bc-text-inverse);
+  --sidebar-accent: var(--bc-surface-elevated);
+  --sidebar-accent-foreground: var(--bc-text-primary);
+  --sidebar-border: var(--bc-border-default);
+  --sidebar-ring: var(--bc-border-focus);
+  --glow: var(--bc-brand-secondary);
+  --mint: var(--bc-brand-primary);
+
+  /* Typography tokens */
+  --bc-font-heading: "Sora", "IBM Plex Sans", Manrope, Inter, system-ui, sans-serif;
+  --bc-font-body: "Inter", "IBM Plex Sans", Roboto, system-ui, sans-serif;
+  --bc-font-mono: "JetBrains Mono", "Roboto Mono", "Source Code Pro", monospace;
+
+  --bc-text-hero: 4rem;
+  --bc-text-page-title: 3rem;
+  --bc-text-h1: 2.5rem;
+  --bc-text-h2: 2rem;
+  --bc-text-h3: 1.5rem;
+  --bc-text-h4: 1.25rem;
+  --bc-text-body-lg: 1.25rem;
+  --bc-text-body: 1.0625rem;
+  --bc-text-body-sm: 0.9375rem;
+  --bc-text-caption: 0.8125rem;
+  --bc-text-label: 0.75rem;
+  --bc-text-code: 0.875rem;
+
+  --bc-leading-display: 1;
+  --bc-leading-heading: 1.15;
+  --bc-leading-body: 1.65;
+  --bc-leading-code: 1.65;
+  --bc-leading-label: 1.2;
+
+  --bc-tracking-display: -0.04em;
+  --bc-tracking-heading: -0.025em;
+  --bc-tracking-body: 0em;
+  --bc-tracking-label: 0.08em;
+  --bc-tracking-code: -0.01em;
+
+  --bc-weight-regular: 400;
+  --bc-weight-medium: 500;
+  --bc-weight-semibold: 600;
+  --bc-weight-650: 650;
+  --bc-weight-bold: 700;
+
+  --bc-measure-prose: 68ch;
 }
 
-.dark {
-  --background: oklch(0.09 0 0);
-  --foreground: oklch(0.95 0 0);
-  --card: oklch(0.12 0 0);
-  --card-foreground: oklch(0.95 0 0);
-  --popover: oklch(0.12 0 0);
-  --popover-foreground: oklch(0.95 0 0);
-  --primary: oklch(0.95 0 0);
-  --primary-foreground: oklch(0.09 0 0);
-  --secondary: oklch(0.18 0 0);
-  --secondary-foreground: oklch(0.95 0 0);
-  --muted: oklch(0.18 0 0);
-  --muted-foreground: oklch(0.6 0 0);
-  --accent: oklch(0.22 0 0);
-  --accent-foreground: oklch(0.95 0 0);
-  --destructive: oklch(0.396 0.141 25.723);
-  --destructive-foreground: oklch(0.95 0 0);
-  --border: oklch(0.22 0 0);
-  --input: oklch(0.18 0 0);
-  --ring: oklch(0.5 0 0);
-  --chart-1: oklch(0.7 0.15 200);
-  --chart-2: oklch(0.6 0.15 160);
-  --chart-3: oklch(0.5 0.1 220);
-  --chart-4: oklch(0.8 0.15 80);
-  --chart-5: oklch(0.7 0.18 60);
-  --sidebar: oklch(0.1 0 0);
-  --sidebar-foreground: oklch(0.95 0 0);
-  --sidebar-primary: oklch(0.95 0 0);
-  --sidebar-primary-foreground: oklch(0.09 0 0);
-  --sidebar-accent: oklch(0.18 0 0);
-  --sidebar-accent-foreground: oklch(0.95 0 0);
-  --sidebar-border: oklch(0.22 0 0);
-  --sidebar-ring: oklch(0.5 0 0);
-  --glow: oklch(0.4 0 0);
-  --mint: oklch(0.85 0.18 165);
+/* Optional export/print light mode (not used by main site shell). */
+.light-mode {
+  --bc-surface-canvas: #f7fafc;
+  --bc-surface-base: #ffffff;
+  --bc-surface-card: #f8fafc;
+  --bc-surface-elevated: #ffffff;
+  --bc-surface-subtle: #eef2f7;
+  --bc-text-primary: #0b1117;
+  --bc-text-secondary: #334155;
+  --bc-text-muted: #64748b;
+  --bc-text-disabled: #94a3b8;
+  --bc-text-accent: #0f766e;
+  --bc-text-inverse: #f7fafc;
+  --bc-brand-primary: #0f766e;
+  --bc-brand-secondary: #0891b2;
+  --bc-brand-premium: #a16207;
+  --bc-brand-creative: #7c3aed;
+  --bc-brand-soft: #d9fff3;
+  --bc-border-subtle: #e2e8f0;
+  --bc-border-default: #cbd5e1;
+  --bc-border-strong: #94a3b8;
+  --bc-border-accent: #14b8a6;
+  --bc-border-focus: #0891b2;
+  --bc-status-success: #15803d;
+  --bc-status-success-bg: #dcfce7;
+  --bc-status-warning: #b45309;
+  --bc-status-warning-bg: #fef3c7;
+  --bc-status-error: #b91c1c;
+  --bc-status-error-bg: #fee2e2;
+  --bc-status-info: #1d4ed8;
+  --bc-status-info-bg: #dbeafe;
+  --bc-status-draft: #6d28d9;
+  --bc-status-draft-bg: #ede9fe;
+
+  --background: var(--bc-surface-canvas);
+  --foreground: var(--bc-text-primary);
+  --card: var(--bc-surface-card);
+  --card-foreground: var(--bc-text-primary);
+  --popover: var(--bc-surface-elevated);
+  --popover-foreground: var(--bc-text-primary);
+  --primary: var(--bc-brand-primary);
+  --primary-foreground: var(--bc-text-inverse);
+  --secondary: var(--bc-surface-elevated);
+  --secondary-foreground: var(--bc-text-primary);
+  --muted: var(--bc-surface-subtle);
+  --muted-foreground: var(--bc-text-muted);
+  --accent: var(--bc-brand-soft);
+  --accent-foreground: var(--bc-text-primary);
+  --destructive: var(--bc-status-error);
+  --destructive-foreground: var(--bc-text-primary);
+  --border: var(--bc-border-default);
+  --input: var(--bc-surface-subtle);
+  --ring: var(--bc-border-focus);
+  --sidebar: var(--bc-surface-base);
+  --sidebar-foreground: var(--bc-text-primary);
+  --sidebar-primary: var(--bc-brand-primary);
+  --sidebar-primary-foreground: var(--bc-text-inverse);
+  --sidebar-accent: var(--bc-surface-elevated);
+  --sidebar-accent-foreground: var(--bc-text-primary);
+  --sidebar-border: var(--bc-border-default);
+  --sidebar-ring: var(--bc-border-focus);
+  --glow: var(--bc-brand-secondary);
+  --mint: var(--bc-brand-primary);
+}
+
+@media (max-width: 768px) {
+  :root {
+    --bc-text-hero: 2.5rem;
+    --bc-text-page-title: 2.125rem;
+    --bc-text-h1: 1.875rem;
+    --bc-text-h2: 1.625rem;
+    --bc-text-h3: 1.375rem;
+    --bc-text-h4: 1.125rem;
+    --bc-text-body-lg: 1.125rem;
+    --bc-text-body: 1rem;
+  }
 }
 
 @theme inline {
-  --font-sans: 'Geist', 'Geist Fallback';
-  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
+  --font-heading: var(--bc-font-heading);
+  --font-body: var(--bc-font-body);
+  --font-mono: var(--bc-font-mono);
+  --font-sans: var(--bc-font-body);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-glow: var(--glow);
@@ -110,6 +231,119 @@
   --color-chart-3: var(--chart-3);
   --color-chart-4: var(--chart-4);
   --color-chart-5: var(--chart-5);
+  /* Official semantic token namespaces */
+  --color-surface-canvas: var(--bc-surface-canvas);
+  --color-surface-base: var(--bc-surface-base);
+  --color-surface-card: var(--bc-surface-card);
+  --color-surface-elevated: var(--bc-surface-elevated);
+  --color-surface-subtle: var(--bc-surface-subtle);
+
+  --color-text-primary: var(--bc-text-primary);
+  --color-text-secondary: var(--bc-text-secondary);
+  --color-text-muted: var(--bc-text-muted);
+  --color-text-disabled: var(--bc-text-disabled);
+  --color-text-accent: var(--bc-text-accent);
+  --color-text-inverse: var(--bc-text-inverse);
+
+  --color-brand-primary: var(--bc-brand-primary);
+  --color-brand-secondary: var(--bc-brand-secondary);
+  --color-brand-premium: var(--bc-brand-premium);
+  --color-brand-creative: var(--bc-brand-creative);
+  --color-brand-soft: var(--bc-brand-soft);
+
+  --color-border-subtle: var(--bc-border-subtle);
+  --color-border-default: var(--bc-border-default);
+  --color-border-strong: var(--bc-border-strong);
+  --color-border-accent: var(--bc-border-accent);
+  --color-border-focus: var(--bc-border-focus);
+
+  --color-status-success: var(--bc-status-success);
+  --color-status-success-bg: var(--bc-status-success-bg);
+  --color-status-warning: var(--bc-status-warning);
+  --color-status-warning-bg: var(--bc-status-warning-bg);
+  --color-status-error: var(--bc-status-error);
+  --color-status-error-bg: var(--bc-status-error-bg);
+  --color-status-info: var(--bc-status-info);
+  --color-status-info-bg: var(--bc-status-info-bg);
+  --color-status-draft: var(--bc-status-draft);
+  --color-status-draft-bg: var(--bc-status-draft-bg);
+
+  /* Typography utility mappings */
+  --text-hero: var(--bc-text-hero);
+  --text-hero--line-height: 1;
+  --text-hero--letter-spacing: -0.04em;
+  --text-hero--font-weight: 700;
+
+  --text-page-title: var(--bc-text-page-title);
+  --text-page-title--line-height: 1.05;
+  --text-page-title--letter-spacing: -0.035em;
+  --text-page-title--font-weight: 700;
+
+  --text-h1: var(--bc-text-h1);
+  --text-h1--line-height: 1.1;
+  --text-h1--letter-spacing: -0.03em;
+  --text-h1--font-weight: 700;
+
+  --text-h2: var(--bc-text-h2);
+  --text-h2--line-height: 1.15;
+  --text-h2--letter-spacing: -0.025em;
+  --text-h2--font-weight: 650;
+
+  --text-h3: var(--bc-text-h3);
+  --text-h3--line-height: 1.2;
+  --text-h3--letter-spacing: -0.015em;
+  --text-h3--font-weight: 650;
+
+  --text-h4: var(--bc-text-h4);
+  --text-h4--line-height: 1.25;
+  --text-h4--letter-spacing: -0.01em;
+  --text-h4--font-weight: 600;
+
+  --text-body-lg: var(--bc-text-body-lg);
+  --text-body-lg--line-height: 1.6;
+  --text-body-lg--letter-spacing: -0.005em;
+  --text-body-lg--font-weight: 400;
+
+  --text-body: var(--bc-text-body);
+  --text-body--line-height: 1.65;
+  --text-body--letter-spacing: 0em;
+  --text-body--font-weight: 400;
+
+  --text-body-sm: var(--bc-text-body-sm);
+  --text-body-sm--line-height: 1.5;
+  --text-body-sm--letter-spacing: 0em;
+  --text-body-sm--font-weight: 400;
+
+  --text-caption: var(--bc-text-caption);
+  --text-caption--line-height: 1.4;
+  --text-caption--letter-spacing: 0.01em;
+  --text-caption--font-weight: 400;
+
+  --text-label: var(--bc-text-label);
+  --text-label--line-height: 1.2;
+  --text-label--letter-spacing: 0.08em;
+  --text-label--font-weight: 650;
+
+  --text-code-inline: var(--bc-text-code);
+  --text-code-inline--line-height: 1.4;
+  --text-code-inline--letter-spacing: -0.01em;
+  --text-code-inline--font-weight: 500;
+
+  --text-code-block: var(--bc-text-code);
+  --text-code-block--line-height: 1.65;
+  --text-code-block--letter-spacing: -0.01em;
+  --text-code-block--font-weight: 400;
+
+  --leading-tight: var(--bc-leading-display);
+  --leading-heading: var(--bc-leading-heading);
+  --leading-body: var(--bc-leading-body);
+  --leading-label: var(--bc-leading-label);
+
+  --tracking-tightest: var(--bc-tracking-display);
+  --tracking-tight: var(--bc-tracking-heading);
+  --tracking-wide: var(--bc-tracking-label);
+
+  --font-weight-semibold-plus: 650;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -129,6 +363,37 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-body text-body leading-body;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-heading;
+  }
+  h1 {
+    @apply text-h1;
+  }
+  h2 {
+    @apply text-h2;
+  }
+  h3 {
+    @apply text-h3;
+  }
+  h4 {
+    @apply text-h4;
+  }
+  p {
+    @apply text-body leading-body;
+  }
+  a {
+    @apply transition-colors;
+  }
+  code {
+    @apply font-mono text-code-inline;
+  }
+  pre,
+  pre code {
+    @apply font-mono text-code-block;
   }
 }

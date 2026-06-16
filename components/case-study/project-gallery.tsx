@@ -21,7 +21,7 @@ export function ProjectGallery({ gallery }: ProjectGalleryProps) {
     <section className="px-6 py-20">
       <div className="mx-auto max-w-7xl">
         <div className="mb-10 max-w-3xl">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-[#00FFC2]">
+          <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-brand-primary">
             Visual System
           </p>
 

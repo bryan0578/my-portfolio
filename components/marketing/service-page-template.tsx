@@ -52,7 +52,7 @@ export function ServicePageTemplate({ content }: ServicePageTemplateProps) {
         <Button
           size="lg"
           asChild
-          className="min-w-[180px] bg-[#00FFC2] text-zinc-950 hover:bg-[#00FFC2]/90 font-bold"
+          className="min-w-[180px] bg-brand-primary text-text-inverse hover:bg-brand-secondary font-bold"
         >
           <a href={mailtoHref}>
             <Mail className="mr-2 size-4" />

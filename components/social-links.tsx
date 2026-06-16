@@ -108,8 +108,8 @@ export function SocialLinks({
               {...externalProps(external)}
               className={cn(
                 "group inline-flex items-center justify-center rounded-md border border-border/60 bg-card/40 text-muted-foreground transition-colors",
-                "hover:border-[#00FFC2]/40 hover:bg-[#00FFC2]/10 hover:text-[#00FFC2]",
-                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00FFC2]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+                "hover:border-brand-primary/40 hover:bg-brand-soft hover:text-brand-primary",
+                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus/60 focus-visible:ring-offset-2 focus-visible:ring-offset-background",
                 dimension
               )}
             >
@@ -151,8 +151,8 @@ export function SocialLinksWithLabels({
             {...externalProps(external)}
             className={cn(
               "group inline-flex items-center gap-2 rounded-md border border-border/60 bg-card/40 px-3 py-2 text-sm text-muted-foreground transition-colors",
-              "hover:border-[#00FFC2]/40 hover:bg-[#00FFC2]/10 hover:text-[#00FFC2]",
-              "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00FFC2]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              "hover:border-brand-primary/40 hover:bg-brand-soft hover:text-brand-primary",
+              "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus/60 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             )}
           >
             <Icon className="size-4" aria-hidden />
@@ -222,32 +222,32 @@ export function ProfileCards({
                 {...(sharedProps as { href: string })}
                 className={cn(
                   "group flex h-full flex-col rounded-xl border border-border/60 bg-card/40 p-5 transition-colors",
-                  "hover:border-[#00FFC2]/40 hover:bg-[#00FFC2]/5",
-                  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00FFC2]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                  "hover:border-brand-primary/40 hover:bg-brand-primary/5",
+                  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus/60 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 )}
               >
                 <div className="flex items-center justify-between mb-3">
                   <div className="flex items-center gap-2.5">
-                    <span className="inline-flex size-9 items-center justify-center rounded-md bg-[#00FFC2]/10 border border-[#00FFC2]/20 text-[#00FFC2]">
+                    <span className="inline-flex size-9 items-center justify-center rounded-md bg-brand-soft border border-brand-primary/20 text-brand-primary">
                       <Icon className="size-[18px]" aria-hidden />
                     </span>
-                    <span className="text-base font-semibold text-foreground group-hover:text-[#00FFC2] transition-colors">
+                    <span className="text-base font-semibold text-foreground group-hover:text-brand-primary transition-colors">
                       {label}
                     </span>
                   </div>
                   {isExternalLink ? (
                     <ArrowUpRight
-                      className="size-4 text-muted-foreground group-hover:text-[#00FFC2] transition-colors"
+                      className="size-4 text-muted-foreground group-hover:text-brand-primary transition-colors"
                       aria-hidden
                     />
                   ) : (
                     <Mail
-                      className="size-4 text-muted-foreground group-hover:text-[#00FFC2] transition-colors"
+                      className="size-4 text-muted-foreground group-hover:text-brand-primary transition-colors"
                       aria-hidden
                     />
                   )}
                 </div>
-                <p className="text-xs font-mono text-[#00FFC2]/80 mb-3 break-all">
+                <p className="text-xs font-mono text-brand-primary/80 mb-3 break-all">
                   {handle}
                 </p>
                 <p className="text-sm text-muted-foreground leading-relaxed">

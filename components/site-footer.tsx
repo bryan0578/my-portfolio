@@ -14,25 +14,25 @@ export function SiteFooter() {
   return (
     <footer
       role="contentinfo"
-      className="border-t border-border/50 bg-[#050505] px-6 py-16"
+      className="border-t border-border/50 bg-surface-canvas px-6 py-16"
     >
       <div className="max-w-6xl mx-auto grid gap-12 md:grid-cols-3">
         <div>
-          <p className="text-sm font-semibold text-foreground mb-3">Bryan Cash</p>
-          <p className="text-sm text-muted-foreground leading-relaxed">
+          <p className="text-body-sm font-semibold font-heading text-foreground mb-3">Bryan Cash</p>
+          <p className="text-body-sm text-muted-foreground leading-body">
             SAP BTP lead and enterprise UI architect. SAP BTP, SAPUI5, Salesforce,
             and modern frontend delivery for complex organizations.
           </p>
           <div className="mt-4 flex flex-wrap gap-x-4 gap-y-1">
             <Link
               href="/work-with-me"
-              className="text-sm font-medium text-[#00FFC2] hover:text-[#00FFC2]/80 transition-colors"
+              className="text-body-sm font-medium text-brand-primary hover:text-brand-primary/80 transition-colors"
             >
               Engagement options →
             </Link>
             <Link
               href="/contact"
-              className="text-sm font-medium text-[#00FFC2] hover:text-[#00FFC2]/80 transition-colors"
+              className="text-body-sm font-medium text-brand-primary hover:text-brand-primary/80 transition-colors"
             >
               Get in touch →
             </Link>
@@ -40,7 +40,7 @@ export function SiteFooter() {
           <div className="mt-5">
             <p
               id="footer-connect-heading"
-              className="text-xs uppercase tracking-widest text-muted-foreground/80 mb-2"
+              className="text-label uppercase tracking-wide text-muted-foreground/80 mb-2"
             >
               Connect
             </p>
@@ -49,13 +49,13 @@ export function SiteFooter() {
         </div>
 
         <div>
-          <p className="text-sm font-semibold text-foreground mb-3">Services</p>
+          <p className="text-body-sm font-semibold font-heading text-foreground mb-3">Services</p>
           <ul className="space-y-2">
             {serviceHubCards.map((service) => (
               <li key={service.slug}>
                 <Link
                   href={service.href}
-                  className="text-sm text-muted-foreground hover:text-[#00FFC2] transition-colors"
+                  className="text-body-sm text-muted-foreground hover:text-brand-primary transition-colors"
                 >
                   {service.title}
                 </Link>
@@ -65,13 +65,13 @@ export function SiteFooter() {
         </div>
 
         <div>
-          <p className="text-sm font-semibold text-foreground mb-3">Site</p>
+          <p className="text-body-sm font-semibold font-heading text-foreground mb-3">Site</p>
           <ul className="space-y-2">
             {footerLinks.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="text-sm text-muted-foreground hover:text-[#00FFC2] transition-colors"
+                  className="text-body-sm text-muted-foreground hover:text-brand-primary transition-colors"
                 >
                   {link.label}
                 </Link>
@@ -80,7 +80,7 @@ export function SiteFooter() {
             <li>
               <Link
                 href="/services"
-                className="text-sm text-muted-foreground hover:text-[#00FFC2] transition-colors"
+                className="text-body-sm text-muted-foreground hover:text-brand-primary transition-colors"
               >
                 All services
               </Link>
@@ -90,7 +90,7 @@ export function SiteFooter() {
       </div>
 
       <div className="max-w-6xl mx-auto mt-12 pt-8 border-t border-border/50">
-        <p className="text-xs text-muted-foreground text-center">
+        <p className="text-caption text-muted-foreground text-center">
           © {new Date().getFullYear()} Bryan Cash. Enterprise consulting portfolio.
         </p>
       </div>

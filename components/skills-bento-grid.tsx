@@ -39,7 +39,7 @@ function getTagStyle(tag: string): string {
 
       // DEFAULT
       default:
-        return "bg-[#00FFC2]/5 text-[#00FFC2]/70 border-[#00FFC2]/10";
+        return "bg-brand-soft text-brand-primary/70 border-brand-primary/10";
     }
 }
 
@@ -96,10 +96,10 @@ const skills = [
 
 export function SkillsBentoGrid() {
     return (
-      <section className="px-6 pt-10 pb-20 md:pt-12 md:pb-24 bg-[#050505]">
+      <section className="px-6 pt-10 pb-20 md:pt-12 md:pb-24 bg-surface-canvas">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12 md:mb-14">
-            <p className="text-sm uppercase tracking-widest text-[#00FFC2] mb-3 font-semibold">
+            <p className="text-sm uppercase tracking-widest text-brand-primary mb-3 font-semibold">
               Expertise
             </p>
             <h2 className="text-3xl md:text-5xl font-bold text-foreground">

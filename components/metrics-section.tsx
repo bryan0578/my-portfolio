@@ -98,7 +98,7 @@ export function MetricsSection() {
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <p className="text-sm uppercase tracking-widest text-[#00FFC2] mb-3 font-semibold">
+          <p className="text-sm uppercase tracking-widest text-brand-primary mb-3 font-semibold">
             Impact
           </p>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground">

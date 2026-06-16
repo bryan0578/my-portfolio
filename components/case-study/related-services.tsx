@@ -59,7 +59,7 @@ export function RelatedServices({ categories, stack }: RelatedServicesProps) {
             <li key={link.href}>
               <Link
                 href={link.href}
-                className="inline-flex items-center text-sm font-medium text-[#00FFC2] hover:text-[#00FFC2]/80 transition-colors"
+                className="inline-flex items-center text-sm font-medium text-brand-primary hover:text-brand-primary/80 transition-colors"
               >
                 {link.label}
                 <ArrowRight className="ml-1 size-4" aria-hidden />
@@ -71,12 +71,12 @@ export function RelatedServices({ categories, stack }: RelatedServicesProps) {
           See{" "}
           <Link
             href="/work-with-me"
-            className="text-[#00FFC2] hover:underline"
+            className="text-brand-primary hover:underline"
           >
             engagement options
           </Link>{" "}
           or{" "}
-          <Link href="/contact" className="text-[#00FFC2] hover:underline">
+          <Link href="/contact" className="text-brand-primary hover:underline">
             contact Bryan
           </Link>{" "}
           to discuss a similar engagement.

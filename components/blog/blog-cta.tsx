@@ -36,7 +36,7 @@ export function BlogCta({
 
   return (
     <section
-      className="not-prose my-10 sm:my-14 md:my-16 rounded-2xl border border-[#00FFC2]/20 bg-[#00FFC2]/5 p-5 sm:p-7 md:p-10"
+      className="not-prose my-10 sm:my-14 md:my-16 rounded-2xl border border-brand-primary/20 bg-brand-soft p-5 sm:p-7 md:p-10"
       aria-labelledby="blog-cta-heading"
     >
       <h2
@@ -53,7 +53,7 @@ export function BlogCta({
         <Button
           size="lg"
           asChild
-          className="w-full sm:w-auto min-h-11 bg-[#00FFC2] text-zinc-950 hover:bg-[#00FFC2]/90 font-bold shadow-[0_0_18px_rgba(0,255,194,0.2)]"
+          className="w-full sm:w-auto min-h-11 bg-brand-primary text-text-inverse hover:bg-brand-secondary font-bold shadow-[0_0_18px_rgba(0,255,194,0.2)]"
         >
           <a href={mailtoHref}>
             <Mail className="mr-2 size-4" aria-hidden />
@@ -101,14 +101,14 @@ export function BlogCta({
         Want to understand how engagements work first? See{" "}
         <Link
           href="/work-with-me"
-          className="text-[#00FFC2] hover:underline font-medium whitespace-nowrap"
+          className="text-brand-primary hover:underline font-medium whitespace-nowrap"
         >
           Work With Me
         </Link>{" "}
         or visit the{" "}
         <Link
           href="/contact"
-          className="text-[#00FFC2] hover:underline font-medium whitespace-nowrap"
+          className="text-brand-primary hover:underline font-medium whitespace-nowrap"
         >
           contact page
         </Link>

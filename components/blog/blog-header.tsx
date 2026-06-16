@@ -24,7 +24,7 @@ export function BlogHeader({ postTitle }: BlogHeaderProps) {
           {/* Home */}
           <Link
             href="/"
-            className="flex items-center gap-1.5 text-muted-foreground hover:text-[#00FFC2] transition-colors"
+            className="flex items-center gap-1.5 text-muted-foreground hover:text-brand-primary transition-colors"
           >
             <Home className="size-4" />
             <span className="hidden sm:inline">Home</span>
@@ -37,7 +37,7 @@ export function BlogHeader({ postTitle }: BlogHeaderProps) {
             href="/blog"
             className={`transition-colors ${
               isBlogIndex
-                ? "text-[#00FFC2] font-medium pointer-events-none"
+                ? "text-brand-primary font-medium pointer-events-none"
                 : "text-muted-foreground hover:text-foreground"
             }`}
           >
@@ -48,7 +48,7 @@ export function BlogHeader({ postTitle }: BlogHeaderProps) {
           {!isBlogIndex && postTitle && (
             <>
               <ChevronRight className="size-4 text-muted-foreground/50" />
-              <span className="text-[#00FFC2] font-medium truncate max-w-[150px] md:max-w-none">
+              <span className="text-brand-primary font-medium truncate max-w-[150px] md:max-w-none">
                 {postTitle}
               </span>
             </>

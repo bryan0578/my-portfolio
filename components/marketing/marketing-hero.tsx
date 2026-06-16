@@ -14,11 +14,11 @@ export function MarketingHero({
   return (
     <section className="relative px-6 py-20 md:py-28 overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-zinc-900 via-background to-background pointer-events-none" />
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[400px] h-[400px] bg-[#00FFC2]/5 blur-[100px] rounded-full pointer-events-none" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[400px] h-[400px] bg-brand-soft blur-[100px] rounded-full pointer-events-none" />
 
       <div className="relative z-10 max-w-4xl mx-auto text-center">
         {eyebrow ? (
-          <p className="text-sm uppercase tracking-widest text-[#00FFC2] mb-4 font-semibold">
+          <p className="text-sm uppercase tracking-widest text-brand-primary mb-4 font-semibold">
             {eyebrow}
           </p>
         ) : null}

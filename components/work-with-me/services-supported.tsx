@@ -20,8 +20,8 @@ export function ServicesSupported({
     >
       <div className="max-w-5xl mx-auto">
         <div className="mb-10 flex items-start gap-4">
-          <div className="size-12 rounded-xl bg-[#00FFC2]/10 border border-[#00FFC2]/20 flex items-center justify-center shrink-0">
-            <Layers className="size-5 text-[#00FFC2]" aria-hidden />
+          <div className="size-12 rounded-xl bg-brand-soft border border-brand-primary/20 flex items-center justify-center shrink-0">
+            <Layers className="size-5 text-brand-primary" aria-hidden />
           </div>
           <div>
             <h2
@@ -41,14 +41,14 @@ export function ServicesSupported({
             <li key={service.href}>
               <Link
                 href={service.href}
-                className="group block h-full rounded-xl border border-border/50 bg-card/40 p-5 hover:border-[#00FFC2]/40 transition-colors"
+                className="group block h-full rounded-xl border border-border/50 bg-card/40 p-5 hover:border-brand-primary/40 transition-colors"
               >
                 <div className="flex items-start justify-between gap-3 mb-2">
-                  <h3 className="text-base font-semibold text-foreground group-hover:text-[#00FFC2] transition-colors">
+                  <h3 className="text-base font-semibold text-foreground group-hover:text-brand-primary transition-colors">
                     {service.title}
                   </h3>
                   <ArrowRight
-                    className="size-4 text-muted-foreground group-hover:text-[#00FFC2] mt-0.5 shrink-0 transition-colors"
+                    className="size-4 text-muted-foreground group-hover:text-brand-primary mt-0.5 shrink-0 transition-colors"
                     aria-hidden
                   />
                 </div>
@@ -64,7 +64,7 @@ export function ServicesSupported({
           Looking for the full overview?{" "}
           <Link
             href="/services"
-            className="text-[#00FFC2] hover:underline font-medium"
+            className="text-brand-primary hover:underline font-medium"
           >
             View all services
           </Link>

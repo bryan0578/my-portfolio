@@ -42,7 +42,7 @@ export default function AboutPage() {
         <Button
           size="lg"
           asChild
-          className="min-w-[180px] bg-[#00FFC2] text-zinc-950 hover:bg-[#00FFC2]/90 font-bold"
+          className="min-w-[180px] bg-brand-primary text-text-inverse hover:bg-brand-secondary font-bold"
         >
           <a href={mailtoHref}>
             <Mail className="mr-2 size-4" />
@@ -60,7 +60,7 @@ export default function AboutPage() {
       <IntroParagraphs paragraphs={aboutContent.intro} />
       <ContentSections sections={aboutContent.sections} />
 
-      <section className="px-6 py-12 md:py-16 bg-[#050505]">
+      <section className="px-6 py-12 md:py-16 bg-surface-canvas">
         <div className="max-w-5xl mx-auto">
           <ProfileCards
             heading="Connect With Me"

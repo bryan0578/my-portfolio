@@ -49,7 +49,7 @@ export default function ContactPage() {
         <Button
           size="lg"
           asChild
-          className="min-w-[200px] bg-[#00FFC2] text-zinc-950 hover:bg-[#00FFC2]/90 font-bold"
+          className="min-w-[200px] bg-brand-primary text-text-inverse hover:bg-brand-secondary font-bold"
         >
           <a href={mailtoHref}>
             <Mail className="mr-2 size-4" />
@@ -68,12 +68,12 @@ export default function ContactPage() {
 
       <section className="px-6 py-8">
         <div className="max-w-3xl mx-auto">
-          <Card className="border-[#00FFC2]/20 bg-[#00FFC2]/5">
+          <Card className="border-brand-primary/20 bg-brand-soft">
             <CardContent className="pt-6">
               <p className="text-sm text-muted-foreground mb-1">Direct email</p>
               <a
                 href={mailtoHref}
-                className="text-lg font-medium text-[#00FFC2] hover:underline break-all"
+                className="text-lg font-medium text-brand-primary hover:underline break-all"
               >
                 {CONTACT_EMAIL}
               </a>
@@ -82,9 +82,9 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="px-6 py-12 bg-[#050505]">
-        <div className="max-w-3xl mx-auto rounded-2xl border border-[#00FFC2]/20 bg-[#00FFC2]/5 p-6 md:p-8">
-          <p className="text-xs uppercase tracking-widest text-[#00FFC2] mb-2 font-semibold">
+      <section className="px-6 py-12 bg-surface-canvas">
+        <div className="max-w-3xl mx-auto rounded-2xl border border-brand-primary/20 bg-brand-soft p-6 md:p-8">
+          <p className="text-xs uppercase tracking-widest text-brand-primary mb-2 font-semibold">
             Before You Reach Out
           </p>
           <h2 className="text-xl md:text-2xl font-bold text-foreground mb-3">
@@ -104,7 +104,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="px-6 py-12 md:py-16 bg-[#050505]">
+      <section className="px-6 py-12 md:py-16 bg-surface-canvas">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">
             Engagement Types
@@ -139,12 +139,12 @@ export default function ContactPage() {
               <li key={service.slug}>
                 <Link
                   href={service.href}
-                  className="flex items-center justify-between gap-4 rounded-lg border border-border/50 bg-card/30 px-4 py-3 text-sm hover:border-[#00FFC2]/30 transition-colors group"
+                  className="flex items-center justify-between gap-4 rounded-lg border border-border/50 bg-card/30 px-4 py-3 text-sm hover:border-brand-primary/30 transition-colors group"
                 >
-                  <span className="font-medium text-foreground group-hover:text-[#00FFC2] transition-colors">
+                  <span className="font-medium text-foreground group-hover:text-brand-primary transition-colors">
                     {service.title}
                   </span>
-                  <ArrowRight className="size-4 text-muted-foreground group-hover:text-[#00FFC2] shrink-0" />
+                  <ArrowRight className="size-4 text-muted-foreground group-hover:text-brand-primary shrink-0" />
                 </Link>
               </li>
             ))}

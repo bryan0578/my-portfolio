@@ -32,18 +32,18 @@ export function CtaBanner({
 
   return (
     <section className="px-6 py-16 md:py-20">
-      <div className="max-w-4xl mx-auto rounded-2xl border border-[#00FFC2]/20 bg-[#00FFC2]/5 p-8 md:p-12 text-center">
-        <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 text-balance">
+      <div className="max-w-4xl mx-auto rounded-2xl border border-brand-primary/20 bg-brand-soft p-8 md:p-12 text-center">
+        <h2 className="text-h3 md:text-h2 font-heading text-foreground mb-4 text-balance">
           {headline}
         </h2>
-        <p className="text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
+        <p className="text-body text-muted-foreground mb-8 max-w-2xl mx-auto">
           {description}
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <Button
             size="lg"
             asChild
-            className="min-w-[200px] bg-[#00FFC2] text-zinc-950 hover:bg-[#00FFC2]/90 font-bold shadow-[0_0_20px_rgba(0,255,194,0.25)]"
+            className="min-w-[200px] bg-brand-primary text-text-inverse hover:bg-brand-secondary font-bold shadow-[0_0_20px_rgba(0,255,194,0.25)]"
           >
             <a href={mailtoHref}>
               <Mail className="mr-2 size-4" />
@@ -63,9 +63,9 @@ export function CtaBanner({
             </Link>
           </Button>
         </div>
-        <p className="mt-6 text-sm text-muted-foreground">
+        <p className="mt-6 text-body-sm text-muted-foreground">
           Prefer a dedicated contact page?{" "}
-          <Link href="/contact" className="text-[#00FFC2] hover:underline">
+          <Link href="/contact" className="text-brand-primary hover:underline">
             Start here
           </Link>
         </p>

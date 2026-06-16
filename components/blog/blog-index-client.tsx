@@ -44,13 +44,13 @@ export function BlogIndexClient({ posts }: BlogIndexClientProps) {
     <div className="max-w-7xl mx-auto w-full">
       <div className="flex flex-col items-center text-center mb-16">
         <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-foreground mb-6">
-          Enterprise Development <span className="text-[#00FFC2]">Blog</span>
+          Enterprise Development <span className="text-brand-primary">Blog</span>
         </h1>
 
         <p className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
           Articles on enterprise software delivery, SAP and Salesforce ecosystems,
           frontend architecture, and practical lessons from Fortune 500 programs.{" "}
-          <Link href="/services" className="text-[#00FFC2] hover:underline font-medium">
+          <Link href="/services" className="text-brand-primary hover:underline font-medium">
             View services
           </Link>
         </p>
@@ -63,8 +63,8 @@ export function BlogIndexClient({ posts }: BlogIndexClientProps) {
               onClick={() => setFilter(cat)}
               className={
                 filter === cat
-                  ? "bg-[#00FFC2] text-zinc-950 hover:bg-[#00FFC2]/90 shadow-[0_0_15px_rgba(0,255,194,0.2)]"
-                  : "border-zinc-800 text-muted-foreground hover:border-[#00FFC2]/30"
+                  ? "bg-brand-primary text-text-inverse hover:bg-brand-secondary shadow-[0_0_15px_rgba(0,255,194,0.2)]"
+                  : "border-zinc-800 text-muted-foreground hover:border-brand-primary/30"
               }
             >
               {cat}

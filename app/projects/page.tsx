@@ -48,13 +48,13 @@ export default function AllProjectsPage() {
           <div className="flex flex-col items-center text-center mb-16">
             <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-foreground mb-6">
               SAP BTP &amp; Salesforce{" "}
-              <span className="text-[#00FFC2]">Case Studies</span>
+              <span className="text-brand-primary">Case Studies</span>
             </h1>
 
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
               SAP BTP, SAPUI5, Salesforce Experience Cloud, and DevOps case studies—proof
               of enterprise delivery. See{" "}
-              <Link href="/services" className="text-[#00FFC2] hover:underline font-medium">
+              <Link href="/services" className="text-brand-primary hover:underline font-medium">
                 services
               </Link>{" "}
               for how I engage on similar programs.
@@ -68,8 +68,8 @@ export default function AllProjectsPage() {
                   onClick={() => setFilter(cat)}
                   className={
                     filter === cat
-                      ? "bg-[#00FFC2] text-zinc-950 hover:bg-[#00FFC2]/90 shadow-[0_0_15px_rgba(0,255,194,0.2)]"
-                      : "border-zinc-800 text-muted-foreground hover:border-[#00FFC2]/30"
+                      ? "bg-brand-primary text-text-inverse hover:bg-brand-secondary shadow-[0_0_15px_rgba(0,255,194,0.2)]"
+                      : "border-zinc-800 text-muted-foreground hover:border-brand-primary/30"
                   }
                 >
                   {cat}

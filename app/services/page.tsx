@@ -52,7 +52,7 @@ export default function ServicesPage() {
         <Button
           size="lg"
           asChild
-          className="min-w-[180px] bg-[#00FFC2] text-zinc-950 hover:bg-[#00FFC2]/90 font-bold"
+          className="min-w-[180px] bg-brand-primary text-text-inverse hover:bg-brand-secondary font-bold"
         >
           <a href={mailtoHref}>
             <Mail className="mr-2 size-4" />
@@ -82,7 +82,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="px-6 py-12 md:py-16 bg-[#050505]">
+      <section className="px-6 py-12 md:py-16 bg-surface-canvas">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6">
             {servicesHubContent.whySection.title}
@@ -94,7 +94,7 @@ export default function ServicesPage() {
                 className="flex gap-3 text-muted-foreground leading-relaxed"
               >
                 <span
-                  className="mt-2 size-1.5 shrink-0 rounded-full bg-[#00FFC2]"
+                  className="mt-2 size-1.5 shrink-0 rounded-full bg-brand-primary"
                   aria-hidden
                 />
                 <span>{bullet}</span>
@@ -119,7 +119,7 @@ export default function ServicesPage() {
           ))}
           <Link
             href="/projects/dorsyth-records-platform"
-            className="inline-flex items-center text-sm font-medium text-[#00FFC2] hover:text-[#00FFC2]/80"
+            className="inline-flex items-center text-sm font-medium text-brand-primary hover:text-brand-primary/80"
           >
             Dorsyth Records platform case study
             <ArrowRight className="ml-1 size-4" />

@@ -26,7 +26,7 @@ export function ServiceEngagementModels({ models }: ServiceEngagementModelsProps
               <p className="text-sm text-muted-foreground leading-relaxed mb-4 flex-1">
                 {model.description}
               </p>
-              <p className="text-xs font-medium text-[#00FFC2] uppercase tracking-wide">
+              <p className="text-xs font-medium text-brand-primary uppercase tracking-wide">
                 Best for
               </p>
               <p className="text-sm text-foreground/80 mt-1">{model.bestFor}</p>

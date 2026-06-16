@@ -22,11 +22,11 @@ export function RoleSection({ data }: RoleSectionProps) {
         <div className="flex flex-col md:flex-row gap-12 items-start">
           {/* Left Side */}
           <div className="md:w-1/3 md:sticky md:top-32">
-            <div className="inline-flex items-center justify-center p-3 rounded-xl bg-[#00FFC2]/10 border border-[#00FFC2]/20 mb-6">
-              <Briefcase className="size-8 text-[#00FFC2]" />
+            <div className="inline-flex items-center justify-center p-3 rounded-xl bg-brand-soft border border-brand-primary/20 mb-6">
+              <Briefcase className="size-8 text-brand-primary" />
             </div>
 
-            <p className="text-sm uppercase tracking-widest text-[#00FFC2] mb-3">
+            <p className="text-sm uppercase tracking-widest text-brand-primary mb-3">
               Key Contributions
             </p>
 
@@ -44,12 +44,12 @@ export function RoleSection({ data }: RoleSectionProps) {
             {data.points.map((point, index) => (
               <div
                 key={index}
-                className="group relative p-6 rounded-2xl bg-zinc-900/50 border border-zinc-800 hover:border-[#00FFC2]/30 transition-all duration-300"
+                className="group relative p-6 rounded-2xl bg-zinc-900/50 border border-zinc-800 hover:border-brand-primary/30 transition-all duration-300"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-[#00FFC2]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl" />
+                <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl" />
 
                 <div className="relative flex gap-4">
-                  <div className="mt-1 text-[#00FFC2]">
+                  <div className="mt-1 text-brand-primary">
                     <CheckCircle2 className="size-5" />
                   </div>
                   <p className="text-lg text-zinc-300 leading-snug">
@@ -62,7 +62,7 @@ export function RoleSection({ data }: RoleSectionProps) {
             {data.footerLabel && (
               <div className="mt-2 p-6 rounded-2xl border border-dashed border-zinc-800 flex items-center justify-between group">
                 <div className="flex items-center gap-4">
-                  <Layers className="size-5 text-muted-foreground group-hover:text-[#00FFC2] transition-colors" />
+                  <Layers className="size-5 text-muted-foreground group-hover:text-brand-primary transition-colors" />
                   <span className="text-sm font-medium text-muted-foreground uppercase tracking-wider">
                     {data.footerLabel}
                   </span>

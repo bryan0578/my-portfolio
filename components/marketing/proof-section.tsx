@@ -35,7 +35,7 @@ export function ProofSection({
           {proof.map((item) => (
             <Card
               key={item.slug}
-              className="border-border/50 bg-card/50 backdrop-blur-sm hover:border-[#00FFC2]/30 transition-colors group"
+              className="border-border/50 bg-card/50 backdrop-blur-sm hover:border-brand-primary/30 transition-colors group"
             >
               <CardHeader>
                 <CardTitle className="text-lg leading-snug">{item.title}</CardTitle>
@@ -58,7 +58,7 @@ export function ProofSection({
                 )}
                 <Link
                   href={`/projects/${item.slug}`}
-                  className="inline-flex items-center text-sm font-medium text-[#00FFC2] hover:text-[#00FFC2]/80 transition-colors"
+                  className="inline-flex items-center text-sm font-medium text-brand-primary hover:text-brand-primary/80 transition-colors"
                 >
                   View case study
                   <ArrowRight className="ml-1 size-4 transition-transform group-hover:translate-x-0.5" />

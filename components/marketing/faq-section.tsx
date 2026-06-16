@@ -18,7 +18,7 @@ export function FaqSection({
   if (!items.length) return null
 
   return (
-    <section className="px-6 py-16 md:py-20 bg-[#050505]">
+    <section className="px-6 py-16 md:py-20 bg-surface-canvas">
       <div className="max-w-3xl mx-auto">
         <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">
           {title}
@@ -26,7 +26,7 @@ export function FaqSection({
         <Accordion type="single" collapsible className="w-full">
           {items.map((item, index) => (
             <AccordionItem key={item.question} value={`faq-${index}`}>
-              <AccordionTrigger className="text-base text-left text-foreground hover:text-[#00FFC2]">
+              <AccordionTrigger className="text-base text-left text-foreground hover:text-brand-primary">
                 {item.question}
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground leading-relaxed">

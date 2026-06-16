@@ -15,7 +15,7 @@ export function ServiceTechStack({ groups }: ServiceTechStackProps) {
         <div className="space-y-8">
           {groups.map((group) => (
             <div key={group.category}>
-              <h3 className="text-sm font-semibold uppercase tracking-widest text-[#00FFC2] mb-3">
+              <h3 className="text-sm font-semibold uppercase tracking-widest text-brand-primary mb-3">
                 {group.category}
               </h3>
               <div className="flex flex-wrap gap-2">

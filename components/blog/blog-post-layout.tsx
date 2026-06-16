@@ -55,7 +55,7 @@ export function BlogPostLayout({
             {category ? (
               <Badge
                 variant="secondary"
-                className="bg-[#00FFC2]/10 text-[#00FFC2] border-[#00FFC2]/20 font-medium"
+                className="bg-brand-soft text-brand-primary border-brand-primary/20 text-caption font-medium"
               >
                 {category}
               </Badge>
@@ -63,7 +63,7 @@ export function BlogPostLayout({
 
             <Badge
               variant="secondary"
-              className="bg-[#00FFC2]/10 text-[#00FFC2] border-[#00FFC2]/20 font-medium"
+              className="bg-brand-soft text-brand-primary border-brand-primary/20 text-caption font-medium"
             >
               {date}
             </Badge>
@@ -72,22 +72,22 @@ export function BlogPostLayout({
               <Badge
                 key={tag}
                 variant="outline"
-                className={`font-medium ${getTagColor(tag)}`}
+                className={`text-caption font-medium ${getTagColor(tag)}`}
               >
                 {tag}
               </Badge>
             ))}
           </div>
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-8 text-pretty leading-tight">
+          <h1 className="text-h1 lg:text-hero font-heading text-foreground mb-8 text-pretty">
             {title}
           </h1>
 
-          <p className="text-lg md:text-xl text-muted-foreground leading-relaxed text-pretty max-w-3xl">
+          <p className="text-body-lg text-muted-foreground text-pretty max-w-3xl">
             {description}
           </p>
 
-          <div className="mt-12 h-px bg-linear-to-r from-[#00FFC2]/50 via-border to-transparent" />
+          <div className="mt-12 h-px bg-linear-to-r from-brand-primary/50 via-border to-transparent" />
         </div>
       </section>
 

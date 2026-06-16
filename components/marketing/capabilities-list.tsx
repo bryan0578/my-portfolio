@@ -20,7 +20,7 @@ export function CapabilitiesList({
             <Badge
               key={cap}
               variant="outline"
-              className="bg-[#00FFC2]/5 text-[#00FFC2]/90 border-[#00FFC2]/20 font-medium"
+              className="bg-brand-primary/5 text-brand-primary/90 border-brand-primary/20 font-medium"
             >
               {cap}
             </Badge>

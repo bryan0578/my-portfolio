@@ -8,7 +8,7 @@ export function HeroOrbitalVisual() {
       className="relative ml-auto mr-0 w-full max-w-[220px] sm:max-w-[255px] md:max-w-[275px] lg:max-w-[min(100%,305px)] xl:max-w-[min(100%,330px)] 2xl:max-w-[min(100%,355px)] aspect-square shrink-0"
       aria-hidden="true"
     >
-      <div className="absolute inset-[14%] rounded-full bg-[#00FFC2]/[0.06] blur-2xl" />
+      <div className="absolute inset-[14%] rounded-full bg-brand-primary/[0.06] blur-2xl" />
 
       <svg
         viewBox="0 0 400 400"
@@ -17,9 +17,9 @@ export function HeroOrbitalVisual() {
       >
         <defs>
           <radialGradient id="hero-core-glow" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="#00FFC2" stopOpacity="0.65" />
-            <stop offset="55%" stopColor="#00FFC2" stopOpacity="0.18" />
-            <stop offset="100%" stopColor="#00FFC2" stopOpacity="0" />
+            <stop offset="0%" stopColor="var(--bc-brand-primary)" stopOpacity="0.65" />
+            <stop offset="55%" stopColor="var(--bc-brand-primary)" stopOpacity="0.18" />
+            <stop offset="100%" stopColor="var(--bc-brand-primary)" stopOpacity="0" />
           </radialGradient>
           <linearGradient id="hero-ring-front" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" stopColor="#3f4a52" stopOpacity="0.15" />
@@ -56,7 +56,7 @@ export function HeroOrbitalVisual() {
           rx="130"
           ry="42"
           fill="none"
-          stroke="#00FFC2"
+          stroke="var(--bc-brand-primary)"
           strokeOpacity="0.12"
           strokeWidth="1.5"
           transform="rotate(12 200 200)"
@@ -79,7 +79,7 @@ export function HeroOrbitalVisual() {
           rx="88"
           ry="28"
           fill="none"
-          stroke="#00FFC2"
+          stroke="var(--bc-brand-primary)"
           strokeOpacity="0.35"
           strokeWidth="2"
           transform="rotate(22 200 200)"
@@ -91,12 +91,12 @@ export function HeroOrbitalVisual() {
           cx="200"
           cy="200"
           r="28"
-          fill="#00FFC2"
+          fill="var(--bc-brand-primary)"
           fillOpacity="0.72"
           filter="url(#hero-soft-glow)"
         />
         <circle cx="200" cy="200" r="14" fill="#0a1218" fillOpacity="0.6" />
-        <circle cx="200" cy="200" r="8" fill="#00FFC2" />
+        <circle cx="200" cy="200" r="8" fill="var(--bc-brand-primary)" />
 
         {/* Orbital paths */}
         <ellipse
@@ -105,7 +105,7 @@ export function HeroOrbitalVisual() {
           rx="165"
           ry="62"
           fill="none"
-          stroke="#00FFC2"
+          stroke="var(--bc-brand-primary)"
           strokeOpacity="0.2"
           strokeWidth="1"
           strokeDasharray="4 8"
@@ -117,35 +117,35 @@ export function HeroOrbitalVisual() {
           rx="140"
           ry="52"
           fill="none"
-          stroke="#00FFC2"
+          stroke="var(--bc-brand-primary)"
           strokeOpacity="0.15"
           strokeWidth="1"
           transform="rotate(35 200 200)"
         />
 
         {/* Orbital nodes */}
-        <circle cx="318" cy="168" r="5" fill="#00FFC2" fillOpacity="0.9" />
-        <circle cx="92" cy="228" r="4" fill="#00FFC2" fillOpacity="0.7" />
-        <circle cx="248" cy="118" r="3" fill="#00FFC2" fillOpacity="0.6" />
-        <circle cx="142" cy="278" r="3.5" fill="#00FFC2" fillOpacity="0.65" />
-        <circle cx="285" cy="248" r="2.5" fill="#00FFC2" fillOpacity="0.5" />
+        <circle cx="318" cy="168" r="5" fill="var(--bc-brand-primary)" fillOpacity="0.9" />
+        <circle cx="92" cy="228" r="4" fill="var(--bc-brand-primary)" fillOpacity="0.7" />
+        <circle cx="248" cy="118" r="3" fill="var(--bc-brand-primary)" fillOpacity="0.6" />
+        <circle cx="142" cy="278" r="3.5" fill="var(--bc-brand-primary)" fillOpacity="0.65" />
+        <circle cx="285" cy="248" r="2.5" fill="var(--bc-brand-primary)" fillOpacity="0.5" />
 
         {/* Connection accents */}
         <path
           d="M200 200 L318 168"
-          stroke="#00FFC2"
+          stroke="var(--bc-brand-primary)"
           strokeOpacity="0.15"
           strokeWidth="1"
         />
         <path
           d="M200 200 L92 228"
-          stroke="#00FFC2"
+          stroke="var(--bc-brand-primary)"
           strokeOpacity="0.12"
           strokeWidth="1"
         />
         <path
           d="M200 200 L248 118"
-          stroke="#00FFC2"
+          stroke="var(--bc-brand-primary)"
           strokeOpacity="0.1"
           strokeWidth="1"
         />

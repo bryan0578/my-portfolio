@@ -10,7 +10,7 @@ export function ServiceTrustSignals({ signals }: ServiceTrustSignalsProps) {
           {signals.map((signal) => (
             <li
               key={signal}
-              className="rounded-lg border border-[#00FFC2]/15 bg-[#00FFC2]/5 px-4 py-3 text-sm text-foreground/90 leading-snug text-center"
+              className="rounded-lg border border-brand-primary/15 bg-brand-soft px-4 py-3 text-sm text-foreground/90 leading-snug text-center"
             >
               {signal}
             </li>

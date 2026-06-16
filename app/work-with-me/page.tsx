@@ -52,7 +52,7 @@ export default function WorkWithMePage() {
         <Button
           size="lg"
           asChild
-          className="min-w-[200px] bg-[#00FFC2] text-zinc-950 hover:bg-[#00FFC2]/90 font-bold shadow-[0_0_20px_rgba(0,255,194,0.3)]"
+          className="min-w-[200px] bg-brand-primary text-text-inverse hover:bg-brand-secondary font-bold shadow-[0_0_20px_rgba(0,255,194,0.3)]"
         >
           <Link href={workWithMeContent.hero.primaryCta.href}>
             <Mail className="mr-2 size-4" aria-hidden />
@@ -99,7 +99,7 @@ export default function WorkWithMePage() {
         proof={workWithMeContent.proof.cases}
       />
 
-      <section className="px-6 py-12 md:py-16 bg-[#050505]">
+      <section className="px-6 py-12 md:py-16 bg-surface-canvas">
         <div className="max-w-5xl mx-auto">
           <ProfileCards
             heading="Professional Profiles"

@@ -46,14 +46,14 @@ export function useMDXComponents(
 
     ul: (props) => (
       <ul
-        className="mb-6 ml-6 list-disc space-y-3 text-base md:text-lg text-foreground/70 marker:text-[#00FFC2]"
+        className="mb-6 ml-6 list-disc space-y-3 text-base md:text-lg text-foreground/70 marker:text-brand-primary"
         {...(props as ComponentPropsWithoutRef<"ul">)}
       />
     ),
 
     ol: (props) => (
       <ol
-        className="mb-6 ml-6 list-decimal space-y-3 text-base md:text-lg text-foreground/70 marker:text-[#00FFC2]"
+        className="mb-6 ml-6 list-decimal space-y-3 text-base md:text-lg text-foreground/70 marker:text-brand-primary"
         {...(props as ComponentPropsWithoutRef<"ol">)}
       />
     ),
@@ -81,25 +81,25 @@ export function useMDXComponents(
 
     a: (props) => (
       <a
-        className="font-medium text-[#00FFC2] underline underline-offset-4 transition-colors hover:text-[#00FFC2]/80"
+        className="font-medium text-brand-primary underline underline-offset-4 transition-colors hover:text-brand-primary/80"
         {...(props as ComponentPropsWithoutRef<"a">)}
       />
     ),
 
     hr: () => (
-      <div className="my-12 h-px bg-linear-to-r from-[#00FFC2]/50 via-border to-transparent" />
+      <div className="my-12 h-px bg-linear-to-r from-brand-primary/50 via-border to-transparent" />
     ),
 
     blockquote: (props) => (
       <blockquote
-        className="mb-8 border-l-2 border-[#00FFC2]/60 pl-5 text-lg italic text-foreground/80"
+        className="mb-8 border-l-2 border-brand-primary/60 pl-5 text-lg italic text-foreground/80"
         {...(props as ComponentPropsWithoutRef<"blockquote">)}
       />
     ),
 
     code: (props) => (
       <code
-        className="rounded-md border border-border bg-black/30 px-1.5 py-0.5 font-mono text-sm text-[#00FFC2]"
+        className="rounded-md border border-border bg-black/30 px-1.5 py-0.5 font-mono text-sm text-brand-primary"
         {...(props as ComponentPropsWithoutRef<"code">)}
       />
     ),

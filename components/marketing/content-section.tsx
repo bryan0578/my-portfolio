@@ -31,7 +31,7 @@ export function ContentSections({ sections }: ContentSectionsProps) {
                     className="flex gap-3 text-muted-foreground leading-relaxed"
                   >
                     <span
-                      className="mt-2 size-1.5 shrink-0 rounded-full bg-[#00FFC2]"
+                      className="mt-2 size-1.5 shrink-0 rounded-full bg-brand-primary"
                       aria-hidden
                     />
                     <span>{bullet}</span>

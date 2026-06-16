@@ -28,17 +28,17 @@ export function ProjectsSection({
       <div className="max-w-7xl mx-auto">
         {showHeader && (
           <div className="text-center mb-16">
-            <p className="text-sm uppercase tracking-widest text-[#00FFC2] mb-3 font-semibold">
+            <p className="text-label uppercase tracking-wide text-brand-primary mb-3 font-semibold-plus">
               Case Studies
             </p>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+            <h2 className="text-h2 font-heading text-foreground mb-4">
               Enterprise Projects
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-body text-muted-foreground max-w-2xl mx-auto">
               Delivering measurable business outcomes through strategic technology solutions.{" "}
               <Link
                 href="/services"
-                className="text-[#00FFC2] hover:underline font-medium"
+                className="text-brand-primary hover:underline font-medium"
               >
                 Explore services
               </Link>
@@ -55,7 +55,7 @@ export function ProjectsSection({
             <Button
                 size="lg"
                 asChild
-                className="min-w-[160px] bg-[#00FFC2] text-zinc-950 hover:bg-[#00FFC2]/90 shadow-[0_0_20px_rgba(0,255,194,0.3)] hover:shadow-[0_0_30px_rgba(0,255,194,0.5)] transition-all duration-300 font-bold group"
+                className="min-w-[160px] bg-brand-primary text-text-inverse hover:bg-brand-secondary shadow-[0_0_20px_rgba(0,255,194,0.3)] hover:shadow-[0_0_30px_rgba(0,255,194,0.5)] transition-all duration-300 font-bold group"
                 >
                 <Link href="/projects" aria-label="View all projects">
                     View All Projects

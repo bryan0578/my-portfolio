@@ -52,7 +52,7 @@ export function SiteHeader() {
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between gap-4">
         <Link
           href="/"
-          className="text-sm font-semibold text-foreground hover:text-[#00FFC2] transition-colors shrink-0 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00FFC2]/45 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+          className="text-body-sm font-semibold font-heading tracking-tight text-foreground hover:text-brand-primary transition-colors shrink-0 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus/45 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
         >
           Bryan Cash
         </Link>
@@ -69,10 +69,10 @@ export function SiteHeader() {
                 key={href}
                 href={href}
                 className={cn(
-                  "px-2.5 py-1.5 text-sm whitespace-nowrap rounded-md transition-colors",
-                  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00FFC2]/45 focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+                  "px-2.5 py-1.5 text-body-sm font-medium whitespace-nowrap rounded-md transition-colors",
+                  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus/45 focus-visible:ring-offset-2 focus-visible:ring-offset-background",
                   isActive
-                    ? "text-[#00FFC2] font-medium bg-[#00FFC2]/10"
+                    ? "text-brand-primary font-medium bg-brand-soft"
                     : "text-zinc-400 hover:text-zinc-100 hover:bg-white/[0.06]"
                 )}
               >
@@ -91,8 +91,8 @@ export function SiteHeader() {
           className={cn(
             "md:hidden inline-flex items-center justify-center rounded-md border border-border/60 bg-card/50 text-foreground",
             "h-11 w-11 transition-colors",
-            "hover:border-[#00FFC2]/40 hover:text-[#00FFC2] hover:bg-[#00FFC2]/10",
-            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00FFC2]/70 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            "hover:border-brand-primary/40 hover:text-brand-primary hover:bg-brand-soft",
+            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus/70 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           )}
         >
           {mobileOpen ? <X className="size-5" aria-hidden /> : <Menu className="size-5" aria-hidden />}
@@ -122,10 +122,10 @@ export function SiteHeader() {
                       href={href}
                       onClick={closeMobileMenu}
                       className={cn(
-                        "flex items-center rounded-md px-3 min-h-11 text-base transition-colors",
-                        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00FFC2]/45 focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+                        "flex items-center rounded-md px-3 min-h-11 text-body transition-colors",
+                        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus/45 focus-visible:ring-offset-2 focus-visible:ring-offset-background",
                         isActive
-                          ? "text-[#00FFC2] font-medium bg-[#00FFC2]/10"
+                          ? "text-brand-primary font-medium bg-brand-soft"
                           : "text-zinc-400 hover:text-zinc-100 hover:bg-white/[0.06]"
                       )}
                     >
