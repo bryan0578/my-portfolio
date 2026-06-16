@@ -22,11 +22,11 @@ export function ImpactResults({
       <div className="max-w-4xl mx-auto">
         {/* Section Header */}
         <div className="mb-12">
-          <p className="text-sm uppercase tracking-widest text-mint mb-3">
-            Measurable Outcomes
+          <p className="text-label uppercase tracking-wide text-brand-primary mb-3 font-semibold-plus">
+            Outcomes
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-            Results
+          <h2 className="text-h3 font-heading text-foreground">
+            Proof in production
           </h2>
         </div>
         
@@ -39,8 +39,8 @@ export function ImpactResults({
                 <TrendingUp className="size-6 text-mint" />
               </div>
               <div>
-                <p className="text-sm uppercase tracking-wider text-mint/70 mb-2">
-                  Key Impact
+                <p className="text-caption uppercase tracking-wide text-muted-foreground mb-2">
+                  Key outcome
                 </p>
                 <p className="text-2xl md:text-3xl font-bold text-foreground">
                   {impact}
@@ -80,7 +80,7 @@ export function ImpactResults({
             >
               <Link href="/projects">
                 <ArrowLeft className="size-4 mr-2 transition-transform group-hover:-translate-x-1" />
-                Back to All Projects
+                Back to all case studies
               </Link>
             </Button>
           </div>

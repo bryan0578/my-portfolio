@@ -18,6 +18,10 @@ import {
   buildBreadcrumbSchema,
   buildServiceSchema,
 } from "@/lib/seo/schemas"
+import {
+  SERVICE_PROOF_HEADING,
+  SERVICE_PROOF_SUBHEADING,
+} from "@/lib/content/content-ia"
 import type { ServicePageContent } from "@/lib/marketing/types"
 
 interface ServicePageTemplateProps {
@@ -82,7 +86,11 @@ export function ServicePageTemplate({ content }: ServicePageTemplateProps) {
       <ContentSections sections={content.approach} />
       <ServiceEngagementModels models={content.engagementModels} />
       <ServiceTechStack groups={content.techStack} />
-      <ProofSection proof={content.proof} />
+      <ProofSection
+        title={SERVICE_PROOF_HEADING}
+        subheading={SERVICE_PROOF_SUBHEADING}
+        proof={content.proof}
+      />
       {content.midCta ? (
         <CtaBanner
           headline={content.midCta.headline}

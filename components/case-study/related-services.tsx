@@ -1,46 +1,36 @@
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
-
-const categoryToService: Record<string, { href: string; label: string }> = {
-  "SAP BTP": {
-    href: "/services/sap-btp-development",
-    label: "SAP BTP Development",
-  },
-  "UI/UX": {
-    href: "/services/enterprise-ui-ux",
-    label: "Enterprise UI/UX",
-  },
-  DevOps: {
-    href: "/services/salesforce-devops",
-    label: "Salesforce DevOps",
-  },
-  Salesforce: {
-    href: "/services/salesforce-experience-cloud",
-    label: "Salesforce Experience Cloud",
-  },
-}
+import { cardLinkAction } from "@/lib/ui/brand-classes"
+import {
+  getProjectRelatedServices,
+  type ContentLink,
+} from "@/lib/content/content-ia"
 
 type RelatedServicesProps = {
+  slug: string
   categories: string[]
   stack: string[]
 }
 
-export function RelatedServices({ categories, stack }: RelatedServicesProps) {
-  const links = new Map<string, { href: string; label: string }>()
+function ServiceLinksList({ links }: { links: ContentLink[] }) {
+  return (
+    <ul className="space-y-2">
+      {links.map((link) => (
+        <li key={link.href}>
+          <Link href={link.href} className={cardLinkAction}>
+            {link.label}
+            <ArrowRight className="ml-1 size-4" aria-hidden />
+          </Link>
+        </li>
+      ))}
+    </ul>
+  )
+}
 
-  for (const category of categories) {
-    const match = categoryToService[category]
-    if (match) links.set(match.href, match)
-  }
+export function RelatedServices({ slug, categories, stack }: RelatedServicesProps) {
+  const serviceLinks = getProjectRelatedServices(slug, categories, stack)
 
-  if (stack.some((t) => /sapui5|fiori/i.test(t))) {
-    links.set("/services/sapui5-fiori-development", {
-      href: "/services/sapui5-fiori-development",
-      label: "SAPUI5 & Fiori Development",
-    })
-  }
-
-  if (links.size === 0) return null
+  if (serviceLinks.length === 0) return null
 
   return (
     <section
@@ -48,39 +38,38 @@ export function RelatedServices({ categories, stack }: RelatedServicesProps) {
       aria-labelledby="related-services-heading"
     >
       <div className="max-w-4xl mx-auto">
+        <p className="text-label uppercase tracking-wide text-brand-primary mb-2 font-semibold-plus">
+          Practical delivery
+        </p>
         <h2
           id="related-services-heading"
-          className="text-xl font-bold text-foreground mb-4"
+          className="text-h3 font-heading text-foreground mb-3"
         >
-          Related Services
+          Related services
         </h2>
-        <ul className="space-y-2">
-          {Array.from(links.values()).map((link) => (
-            <li key={link.href}>
-              <Link
-                href={link.href}
-                className="inline-flex items-center text-sm font-medium text-brand-primary hover:text-brand-primary/80 transition-colors"
-              >
-                {link.label}
-                <ArrowRight className="ml-1 size-4" aria-hidden />
-              </Link>
-            </li>
-          ))}
-        </ul>
-        <p className="mt-6 text-sm text-muted-foreground">
-          See{" "}
+        <p className="text-body-sm text-muted-foreground leading-body mb-5 max-w-2xl">
+          This case study maps to the services below. For engagement models, fit
+          criteria, and how programs start, see Work With Me.
+        </p>
+
+        <ServiceLinksList links={serviceLinks} />
+
+        <div className="mt-8 flex flex-col sm:flex-row sm:flex-wrap gap-3">
           <Link
             href="/work-with-me"
-            className="text-brand-primary hover:underline"
+            className="inline-flex items-center text-body-sm font-medium text-brand-primary hover:text-brand-primary/80 transition-colors"
           >
-            engagement options
-          </Link>{" "}
-          or{" "}
-          <Link href="/contact" className="text-brand-primary hover:underline">
-            contact Bryan
-          </Link>{" "}
-          to discuss a similar engagement.
-        </p>
+            How engagements work
+            <ArrowRight className="ml-1 size-4" aria-hidden />
+          </Link>
+          <Link
+            href="/contact"
+            className="inline-flex items-center text-body-sm font-medium text-muted-foreground hover:text-brand-primary transition-colors"
+          >
+            Contact Bryan
+            <ArrowRight className="ml-1 size-4" aria-hidden />
+          </Link>
+        </div>
       </div>
     </section>
   )

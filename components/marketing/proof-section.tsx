@@ -12,7 +12,7 @@ interface ProofSectionProps {
 }
 
 export function ProofSection({
-  title = "Related Case Studies",
+  title = "Proof in production",
   subheading,
   proof,
 }: ProofSectionProps) {

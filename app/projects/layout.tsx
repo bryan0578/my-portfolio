@@ -27,7 +27,7 @@ export default function ProjectsLayout({
     }),
     buildBreadcrumbSchema([
       { name: "Home", path: "/" },
-      { name: "Projects", path: "/projects" },
+      { name: "Case Studies", path: "/projects" },
     ]),
   ]
 

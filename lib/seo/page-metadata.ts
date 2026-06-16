@@ -102,7 +102,7 @@ export const projectsIndexMetadata = createPageMetadata({
   path: "/projects",
   keywords: [
     "SAP BTP case study",
-    "SAPUI5 portfolio",
+    "SAPUI5 case study",
     "Salesforce portal case study",
     "enterprise project examples",
   ],

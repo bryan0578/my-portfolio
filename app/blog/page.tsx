@@ -27,7 +27,7 @@ export default async function BlogPage() {
     }),
     buildBreadcrumbSchema([
       { name: "Home", path: "/" },
-      { name: "Blog", path: "/blog" },
+      { name: "Insights", path: "/blog" },
     ]),
   ]
 

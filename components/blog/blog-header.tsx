@@ -41,7 +41,7 @@ export function BlogHeader({ postTitle }: BlogHeaderProps) {
                 : "text-muted-foreground hover:text-foreground"
             }`}
           >
-            Blog
+            Insights
           </Link>
 
           {/* Post Title */}

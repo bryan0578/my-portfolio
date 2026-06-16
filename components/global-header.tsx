@@ -42,7 +42,7 @@ export function GlobalHeader({ projectName }: GlobalHeaderProps) {
                 : "text-muted-foreground hover:text-foreground"
             }`}
           >
-            Projects
+            Case Studies
           </Link>
           
           {/* Only show the specific project name if we aren't on the index page */}

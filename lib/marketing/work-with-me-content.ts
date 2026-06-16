@@ -335,7 +335,7 @@ export const workWithMeContent: WorkWithMeContent = {
     ],
   },
   proof: {
-    headline: "Proof and Case Studies",
+    headline: "Proof in production",
     subheading:
       "The strongest commercial case studies, mapped to the engagement models above. Each case study includes business challenge, technical approach, architectural decisions, tradeoffs, outcomes, and lessons learned.",
     cases: [

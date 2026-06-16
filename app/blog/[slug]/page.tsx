@@ -3,6 +3,8 @@ import type { Metadata } from "next"
 import { BlogHeader } from "@/components/blog/blog-header"
 import { SiteHeader } from "@/components/site-header"
 import { BlogPostLayout } from "@/components/blog/blog-post-layout"
+import { BlogCta } from "@/components/blog/blog-cta"
+import { getBlogEngagementCta } from "@/lib/content/content-ia"
 import { AIChatBubble } from "@/components/ai-chat-bubble"
 import { getAllPostSlugs, getPostBySlug } from "@/lib/blog"
 import { JsonLd } from "@/lib/seo/json-ld"
@@ -66,10 +68,15 @@ export default async function BlogPostPage({
     }),
     buildBreadcrumbSchema([
       { name: "Home", path: "/" },
-      { name: "Blog", path: "/blog" },
+      { name: "Insights", path: "/blog" },
       { name: post.frontmatter.title, path: postPath },
     ]),
   ]
+
+  const engagementCta = getBlogEngagementCta(
+    slug,
+    post.frontmatter.categories ?? []
+  )
 
   return (
     <div className="min-h-screen bg-background">
@@ -86,6 +93,7 @@ export default async function BlogPostPage({
           tags={post.frontmatter.tags}
         >
           <PostComponent />
+          {engagementCta ? <BlogCta {...engagementCta} /> : null}
         </BlogPostLayout>
 
         <AIChatBubble />

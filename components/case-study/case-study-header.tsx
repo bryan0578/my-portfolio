@@ -24,7 +24,7 @@ export function CaseStudyHeader({ projectName }: CaseStudyHeaderProps) {
             href="/projects" 
             className="text-muted-foreground hover:text-foreground transition-colors"
           >
-            Projects
+            Case Studies
           </Link>
           
           <ChevronRight className="size-4 text-muted-foreground/50" />

@@ -75,7 +75,7 @@ export default async function CaseStudyPage({
     }),
     buildBreadcrumbSchema([
       { name: "Home", path: "/" },
-      { name: "Projects", path: "/projects" },
+      { name: "Case Studies", path: "/projects" },
       { name: project.title, path: projectPath },
     ]),
   ]
@@ -158,6 +158,7 @@ export default async function CaseStudyPage({
         {consulting ? <CaseStudyCta cta={consulting.cta} /> : null}
 
         <RelatedServices
+          slug={project.slug}
           categories={project.categories}
           stack={project.stack}
         />
