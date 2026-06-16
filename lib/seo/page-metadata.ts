@@ -1,5 +1,6 @@
 import { createPageMetadata } from "./metadata"
-import { SITE_KEYWORDS, SITE_TAGLINE } from "./site"
+import { SITE_DESCRIPTION, SITE_KEYWORDS, SITE_TAGLINE } from "./site"
+import { withSeoContext } from "./brand-copy"
 import { aboutContent } from "@/lib/marketing/about-content"
 import { contactContent } from "@/lib/marketing/contact-content"
 import { servicesHubContent } from "@/lib/marketing/services-hub-content"
@@ -13,16 +14,16 @@ import {
 
 export const homeMetadata = createPageMetadata({
   title: SITE_TAGLINE,
-  description:
-    "SAP BTP developer and enterprise UI architect for SAPUI5, SAP Fiori, Salesforce Experience Cloud, and modern frontend delivery. Practical systems that turn enterprise complexity into clarity.",
+  description: withSeoContext(SITE_DESCRIPTION),
   path: "/",
   keywords: [...SITE_KEYWORDS],
 })
 
 export const aboutPageMetadata = createPageMetadata({
   title: "About Bryan Cash",
-  description:
-    "Enterprise developer and UI architect specializing in SAP BTP, SAPUI5, Salesforce Experience Cloud, DevOps, and adoption-focused delivery for Fortune 500 programs.",
+  description: withSeoContext(
+    "Developer and enterprise UI architect for SAP BTP, SAPUI5, Salesforce, and adoption-focused delivery on Fortune 500 programs."
+  ),
   path: "/about",
   keywords: [
     "SAP BTP consultant",
@@ -46,8 +47,9 @@ export const contactPageMetadata = createPageMetadata({
 
 export const workWithMeMetadata = createPageMetadata({
   title: "Work With an Enterprise SAP BTP & Salesforce UI Architect",
-  description:
-    "Engage Bryan Cash for SAP BTP, SAPUI5, SAP Fiori, Salesforce Experience Cloud, Salesforce DevOps, and enterprise UI/UX work. Six engagement models, a clear process, and proof from Fortune 500 programs.",
+  description: withSeoContext(
+    "Six engagement models, a clear discovery process, and proof in production for SAP BTP, SAPUI5, Salesforce Experience Cloud, and enterprise UI programs."
+  ),
   path: "/work-with-me",
   keywords: [
     "SAP BTP consultant",
@@ -98,7 +100,7 @@ export const enterpriseUiUxMetadata = getServicePageMetadata(enterpriseUiUx)
 export const projectsIndexMetadata = createPageMetadata({
   title: "SAP BTP & Salesforce Case Studies",
   description:
-    "Enterprise case studies: SAP BTP portals, SAPUI5 applications, Salesforce Experience Cloud, DevOps, and UI/UX delivery with measurable outcomes.",
+    "Proof in production: SAP BTP portals, SAPUI5 applications, Salesforce Experience Cloud, DevOps, and UI delivery with measurable adoption outcomes.",
   path: "/projects",
   keywords: [
     "SAP BTP case study",
@@ -109,14 +111,31 @@ export const projectsIndexMetadata = createPageMetadata({
 })
 
 export const blogIndexMetadata = createPageMetadata({
-  title: "Enterprise Development Blog",
-  description:
-    "Technical articles on enterprise software development, SAP, Salesforce, frontend architecture, and lessons from Fortune 500 delivery.",
+  title: "Enterprise Development Insights",
+  description: withSeoContext(
+    "Technical writing on enterprise delivery, SAP and Salesforce ecosystems, frontend architecture, and practical lessons from production programs."
+  ),
   path: "/blog",
   keywords: [
-    "enterprise development blog",
-    "SAP development insights",
+    "enterprise development insights",
+    "SAP development articles",
     "Salesforce development articles",
     "frontend architecture",
   ],
+})
+
+export const privacyPageMetadata = createPageMetadata({
+  title: "Privacy Policy",
+  description:
+    "How Bryan Cash handles information submitted through this site. Updated for future newsletter and lead-capture features.",
+  path: "/privacy",
+  noIndex: false,
+})
+
+export const termsPageMetadata = createPageMetadata({
+  title: "Terms of Use",
+  description:
+    "Terms for using cashbryan.com, including content, services information, and future digital products.",
+  path: "/terms",
+  noIndex: false,
 })

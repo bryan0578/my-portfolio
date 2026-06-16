@@ -4,6 +4,7 @@ import {
   LINKEDIN_URL,
   ORGANIZATION_ID,
   PERSON_ID,
+  SITE_DESCRIPTION,
   SITE_NAME,
   SITE_TAGLINE,
   SITE_URL,
@@ -23,7 +24,8 @@ export function buildPersonSchema() {
     name: SITE_NAME,
     url: SITE_URL,
     email: CONTACT_EMAIL,
-    jobTitle: SITE_TAGLINE,
+    jobTitle: "Developer, Enterprise UI Architect & Technical Creator",
+    description: SITE_DESCRIPTION,
     knowsAbout: [
       "SAP Business Technology Platform",
       "SAPUI5",
@@ -44,8 +46,7 @@ export function buildProfessionalServiceSchema() {
     "@id": ORGANIZATION_ID,
     name: `${SITE_NAME} — Enterprise Development Consulting`,
     url: absoluteUrl("/services"),
-    description:
-      "SAP BTP development, SAPUI5/Fiori applications, Salesforce Experience Cloud portals, Salesforce DevOps, and enterprise UI/UX consulting.",
+    description: SITE_DESCRIPTION,
     provider: { "@id": PERSON_ID },
     areaServed: {
       "@type": "Place",
@@ -69,8 +70,7 @@ export function buildWebSiteSchema() {
     "@id": WEBSITE_ID,
     url: SITE_URL,
     name: SITE_NAME,
-    description:
-      "SAP BTP, SAPUI5, Salesforce, and enterprise UI architecture—case studies, services, and technical insights from Bryan Cash.",
+    description: SITE_DESCRIPTION,
     publisher: { "@id": PERSON_ID },
     inLanguage: "en-US",
   }

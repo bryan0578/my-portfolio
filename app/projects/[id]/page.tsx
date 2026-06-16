@@ -22,6 +22,7 @@ import { QualitativeOutcomes } from "@/components/case-study/qualitative-outcome
 import { LessonsLearned } from "@/components/case-study/lessons-learned"
 import { WhenItFits } from "@/components/case-study/when-it-fits"
 import { CaseStudyCta } from "@/components/case-study/case-study-cta"
+import { CaseStudyFallbackCta } from "@/components/case-study/case-study-fallback-cta"
 import { getConsultingCaseStudy } from "@/lib/case-studies/consulting"
 import { JsonLd } from "@/lib/seo/json-ld"
 import { createProjectMetadata } from "@/lib/seo/project-metadata"
@@ -155,7 +156,11 @@ export default async function CaseStudyPage({
 
         {consulting ? <WhenItFits data={consulting.whenItFits} /> : null}
 
-        {consulting ? <CaseStudyCta cta={consulting.cta} /> : null}
+        {consulting ? (
+          <CaseStudyCta cta={consulting.cta} />
+        ) : (
+          <CaseStudyFallbackCta projectTitle={project.title} />
+        )}
 
         <RelatedServices
           slug={project.slug}

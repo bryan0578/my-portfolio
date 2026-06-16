@@ -76,3 +76,49 @@ export async function getAllPostSlugs() {
   const posts = await getAllPosts()
   return posts.map((post) => post.slug)
 }
+
+export async function getRelatedPosts(
+  currentSlug: string,
+  options?: {
+    categories?: string[]
+    tags?: string[]
+    limit?: number
+  }
+): Promise<BlogPost[]> {
+  const posts = await getAllPosts()
+  const limit = options?.limit ?? 3
+  const categories = new Set(options?.categories ?? [])
+  const tags = new Set(options?.tags ?? [])
+
+  const ranked = posts
+    .filter((post) => post.slug !== currentSlug)
+    .map((post) => {
+      let score = 0
+      for (const category of post.categories ?? []) {
+        if (categories.has(category)) score += 2
+      }
+      for (const tag of post.tags ?? []) {
+        if (tags.has(tag)) score += 1
+      }
+      return { post, score }
+    })
+    .filter(({ score }) => score > 0)
+    .sort(
+      (a, b) =>
+        b.score - a.score ||
+        new Date(b.post.date).getTime() - new Date(a.post.date).getTime()
+    )
+
+  const related = ranked.slice(0, limit).map(({ post }) => post)
+
+  if (related.length >= limit) {
+    return related
+  }
+
+  const usedSlugs = new Set([currentSlug, ...related.map((post) => post.slug)])
+  const fallback = posts
+    .filter((post) => !usedSlugs.has(post.slug))
+    .slice(0, limit - related.length)
+
+  return [...related, ...fallback]
+}

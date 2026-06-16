@@ -6,10 +6,14 @@ export const SITE_NAME = "Bryan Cash"
 export const SITE_TAGLINE =
   "Developer & Enterprise UI Architect | SAP BTP & Salesforce"
 
+/** Canonical brand positioning for metadata and structured data. */
+export const SITE_DESCRIPTION =
+  "Bryan Cash is a developer, enterprise UI architect, and technical creator helping teams build practical systems for SAP BTP, SAPUI5, Salesforce, and modern frontend platforms that turn complexity into clarity."
+
 export const DEFAULT_OG_IMAGE = "/og-image.png"
 
 export const DEFAULT_OG_IMAGE_ALT =
-  "Bryan Cash — SAP BTP, SAPUI5, Salesforce, and enterprise UI architecture"
+  "Bryan Cash — developer and enterprise UI architect for SAP BTP, SAPUI5, and Salesforce"
 
 export const CONTACT_EMAIL =
   process.env.BRYAN_EMAIL ?? "bryancash.dev@gmail.com"
@@ -26,7 +30,11 @@ export const SITE_KEYWORDS = [
   "Salesforce DevOps consultant",
   "enterprise UI architect",
   "enterprise software consulting",
+  "technical creator",
+  "frontend delivery",
 ] as const
+
+export const RSS_FEED_PATH = "/feed.xml"
 
 /** Canonical external profile URLs. Used in the Person schema `sameAs` and
  *  surfaced in the footer, About page, and Work With Me page. */

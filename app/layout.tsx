@@ -4,8 +4,18 @@ import { Analytics } from "@vercel/analytics/next"
 import { SiteFooter } from "@/components/site-footer"
 import { GlobalJsonLd } from "@/components/seo/global-json-ld"
 import { SkipLink } from "@/components/seo/skip-link"
-import { SITE_NAME, SITE_TAGLINE, DEFAULT_OG_IMAGE, DEFAULT_OG_IMAGE_ALT } from "@/lib/seo/site"
+import {
+  SITE_NAME,
+  SITE_TAGLINE,
+  DEFAULT_OG_IMAGE,
+  DEFAULT_OG_IMAGE_ALT,
+  RSS_FEED_PATH,
+  SITE_URL,
+} from "@/lib/seo/site"
+import { SITE_DESCRIPTION } from "@/lib/seo/brand-copy"
 import "./globals.css"
+
+const defaultDescription = SITE_DESCRIPTION
 
 const sora = Sora({
   subsets: ["latin"],
@@ -28,18 +38,15 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 })
 
-const defaultDescription =
-  "SAP BTP developer and enterprise UI architect for SAPUI5, SAP Fiori, Salesforce Experience Cloud, and modern frontend delivery. Practical systems for enterprise teams."
-
 export const metadata: Metadata = {
-  metadataBase: new URL("https://cashbryan.com"),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: `${SITE_TAGLINE} | ${SITE_NAME}`,
     template: `%s | ${SITE_NAME}`,
   },
   description: defaultDescription,
   applicationName: SITE_NAME,
-  authors: [{ name: SITE_NAME, url: "https://cashbryan.com" }],
+  authors: [{ name: SITE_NAME, url: SITE_URL }],
   creator: SITE_NAME,
   publisher: SITE_NAME,
   category: "technology",
@@ -47,10 +54,17 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  alternates: {
+    types: {
+      "application/rss+xml": `${SITE_URL}${RSS_FEED_PATH}`,
+    },
+  },
   openGraph: {
     siteName: SITE_NAME,
     locale: "en_US",
     type: "website",
+    title: `${SITE_TAGLINE} | ${SITE_NAME}`,
+    description: defaultDescription,
     images: [
       {
         url: DEFAULT_OG_IMAGE,
@@ -62,6 +76,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    title: `${SITE_TAGLINE} | ${SITE_NAME}`,
+    description: defaultDescription,
     images: [DEFAULT_OG_IMAGE],
   },
   icons: {

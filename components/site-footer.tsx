@@ -91,9 +91,25 @@ export function SiteFooter() {
       </div>
 
       <div className="max-w-6xl mx-auto mt-12 pt-8 border-t border-border/50">
-        <p className="text-caption text-muted-foreground text-center">
-          © {new Date().getFullYear()} Bryan Cash. Enterprise development & consulting.
-        </p>
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <p className="text-caption text-muted-foreground text-center sm:text-left">
+            © {new Date().getFullYear()} Bryan Cash. Enterprise development & consulting.
+          </p>
+          <div className="flex flex-wrap justify-center sm:justify-end gap-x-4 gap-y-1 text-caption">
+            <Link
+              href="/privacy"
+              className="text-muted-foreground hover:text-brand-primary transition-colors"
+            >
+              Privacy
+            </Link>
+            <Link
+              href="/terms"
+              className="text-muted-foreground hover:text-brand-primary transition-colors"
+            >
+              Terms
+            </Link>
+          </div>
+        </div>
       </div>
     </footer>
   )

@@ -38,7 +38,10 @@ export function BlogPostLayout({
             ))}
           </div>
 
-          <h1 className="text-h1 lg:text-hero font-heading text-foreground mb-8 text-pretty">
+          <h1
+            id="blog-post-title"
+            className="text-h1 lg:text-hero font-heading text-foreground mb-8 text-pretty"
+          >
             {title}
           </h1>
 
@@ -54,7 +57,13 @@ export function BlogPostLayout({
         <div className="max-w-4xl mx-auto">
           <Card variant="surface">
             <CardContent className="p-6 md:p-10 lg:p-12">
-              <article className="max-w-none">{children}</article>
+              <article
+                id="article-content"
+                aria-labelledby="blog-post-title"
+                className="max-w-none [&_h2]:scroll-mt-28 [&_h3]:scroll-mt-28 [&_pre]:overflow-x-auto"
+              >
+                {children}
+              </article>
             </CardContent>
           </Card>
         </div>

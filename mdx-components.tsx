@@ -1,5 +1,5 @@
 import type { MDXComponents } from "mdx/types"
-import type { ComponentPropsWithoutRef } from "react"
+import type { ComponentPropsWithoutRef, ReactNode } from "react"
 import {
   blockquoteStyle,
   codeBlock,
@@ -11,9 +11,9 @@ export function useMDXComponents(
 ): MDXComponents {
   return {
     h1: (props) => (
-      <h1
-        className="text-h1 lg:text-hero font-heading text-foreground leading-heading mb-8"
-        {...(props as ComponentPropsWithoutRef<"h1">)}
+      <h2
+        className="text-h2 font-heading text-foreground mt-12 mb-6 first:mt-0"
+        {...(props as ComponentPropsWithoutRef<"h2">)}
       />
     ),
 
@@ -107,9 +107,30 @@ export function useMDXComponents(
 
     pre: (props) => (
       <pre
-        className={codeBlock}
+        className={`${codeBlock} overflow-x-auto`}
+        tabIndex={0}
         {...(props as ComponentPropsWithoutRef<"pre">)}
       />
+    ),
+
+    Callout: ({
+      title,
+      children,
+    }: {
+      title?: string
+      children: ReactNode
+    }) => (
+      <aside
+        role="note"
+        className="not-prose mb-8 rounded-xl border border-brand-primary/20 bg-brand-soft p-5"
+      >
+        {title ? (
+          <p className="text-label text-brand-primary mb-2 font-medium">{title}</p>
+        ) : null}
+        <div className="text-body-sm text-muted-foreground [&_p:last-child]:mb-0">
+          {children}
+        </div>
+      </aside>
     ),
 
     table: (props) => (

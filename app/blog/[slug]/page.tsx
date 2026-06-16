@@ -4,9 +4,10 @@ import { BlogHeader } from "@/components/blog/blog-header"
 import { SiteHeader } from "@/components/site-header"
 import { BlogPostLayout } from "@/components/blog/blog-post-layout"
 import { BlogCta } from "@/components/blog/blog-cta"
+import { BlogRelatedPosts } from "@/components/blog/blog-related-posts"
 import { getBlogEngagementCta } from "@/lib/content/content-ia"
 import { AIChatBubble } from "@/components/ai-chat-bubble"
-import { getAllPostSlugs, getPostBySlug } from "@/lib/blog"
+import { getAllPostSlugs, getPostBySlug, getRelatedPosts } from "@/lib/blog"
 import { JsonLd } from "@/lib/seo/json-ld"
 import { createBlogPostMetadata } from "@/lib/seo/blog-metadata"
 import { buildBlogPostingSchema, buildBreadcrumbSchema } from "@/lib/seo/schemas"
@@ -78,6 +79,12 @@ export default async function BlogPostPage({
     post.frontmatter.categories ?? []
   )
 
+  const relatedPosts = await getRelatedPosts(slug, {
+    categories: post.frontmatter.categories,
+    tags: post.frontmatter.tags,
+    limit: 3,
+  })
+
   return (
     <div className="min-h-screen bg-background">
       <JsonLd data={structuredData} />
@@ -93,6 +100,7 @@ export default async function BlogPostPage({
           tags={post.frontmatter.tags}
         >
           <PostComponent />
+          <BlogRelatedPosts posts={relatedPosts} />
           {engagementCta ? <BlogCta {...engagementCta} /> : null}
         </BlogPostLayout>
 

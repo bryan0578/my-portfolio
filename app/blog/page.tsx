@@ -17,12 +17,12 @@ export default async function BlogPage() {
   const structuredData = [
     buildWebPageSchema({
       path: "/blog",
-      name: "Enterprise Development Blog",
+      name: "Enterprise Development Insights",
       description: blogIndexMetadata.description as string,
     }),
     buildCollectionPageSchema({
       path: "/blog",
-      name: "Enterprise Development Blog",
+      name: "Enterprise Development Insights",
       description: blogIndexMetadata.description as string,
     }),
     buildBreadcrumbSchema([
