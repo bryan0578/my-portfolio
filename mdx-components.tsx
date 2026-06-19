@@ -5,20 +5,21 @@ import {
   codeBlock,
   inlineCode,
 } from "@/lib/ui/brand-classes"
+import { MdxHeading } from "@/components/blog/mdx-heading"
 
 export function useMDXComponents(
   components: MDXComponents
 ): MDXComponents {
   return {
     h1: (props) => (
-      <h2
+      <MdxHeading
         className="text-h2 font-heading text-foreground mt-12 mb-6 first:mt-0"
         {...(props as ComponentPropsWithoutRef<"h2">)}
       />
     ),
 
     h2: (props) => (
-      <h2
+      <MdxHeading
         className="text-h2 font-heading text-foreground mt-16 mb-6"
         {...(props as ComponentPropsWithoutRef<"h2">)}
       />
@@ -40,7 +41,7 @@ export function useMDXComponents(
 
     p: (props) => (
       <p
-        className="text-body text-foreground/70 leading-body mb-6"
+        className="text-body text-foreground/70 leading-body mb-6 text-pretty"
         {...(props as ComponentPropsWithoutRef<"p">)}
       />
     ),
@@ -131,6 +132,14 @@ export function useMDXComponents(
           {children}
         </div>
       </aside>
+    ),
+
+    ComparisonTable: ({ children }: { children: ReactNode }) => (
+      <div className="not-prose mb-8 overflow-x-auto rounded-2xl border border-border/50 bg-card/30 backdrop-blur-sm">
+        <table className="w-full border-collapse text-left text-body-sm [&_th]:px-4 [&_th]:py-3 [&_th]:font-semibold [&_th]:text-foreground [&_thead]:border-b [&_thead]:border-border/60 [&_td]:border-t [&_td]:border-border/40 [&_td]:px-4 [&_td]:py-3 [&_td]:text-foreground/70">
+          {children}
+        </table>
+      </div>
     ),
 
     table: (props) => (

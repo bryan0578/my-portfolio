@@ -12,8 +12,6 @@ export const metadata = {
   published: true,
 }
 
-# Salesforce Release Management Across Dev, QA, UAT, and Prod
-
 Salesforce programs do not fail only in Production—they fail in the **handoffs** between environments. A feature “works in Dev” but breaks in UAT because dependencies, profiles, or Experience Cloud site settings were never promoted as a **single releasable unit**.
 
 This article is for delivery managers, Salesforce leads, and IT owners who need a **practical release model** across Dev → QA → UAT → Production—not a tool tutorial.
@@ -37,12 +35,37 @@ Treating promotion as “whoever is free runs the deploy” is how Experience Cl
 
 ## Environment roles (what each is for)
 
-| Environment | Purpose | Common mistakes |
-|-------------|---------|-----------------|
-| **Dev** | Feature development, spikes, breaking changes | Long-lived sandboxes that drift from team norms |
-| **QA** | Integrated testing, regression | Used as personal dev sandboxes |
-| **UAT** | Business acceptance | Missing prod-like identity/site config |
-| **Prod** | Live users | Emergency changes without back-promotion plan |
+<ComparisonTable>
+  <thead>
+    <tr>
+      <th>Environment</th>
+      <th>Purpose</th>
+      <th>Common mistakes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Dev</strong></td>
+      <td>Feature development, spikes, breaking changes</td>
+      <td>Long-lived sandboxes that drift from team norms</td>
+    </tr>
+    <tr>
+      <td><strong>QA</strong></td>
+      <td>Integrated testing, regression</td>
+      <td>Used as personal dev sandboxes</td>
+    </tr>
+    <tr>
+      <td><strong>UAT</strong></td>
+      <td>Business acceptance</td>
+      <td>Missing prod-like identity/site config</td>
+    </tr>
+    <tr>
+      <td><strong>Prod</strong></td>
+      <td>Live users</td>
+      <td>Emergency changes without back-promotion plan</td>
+    </tr>
+  </tbody>
+</ComparisonTable>
 
 **UAT must resemble Production** for portal and auth flows—not only for Apex tests. If federation, Experience Cloud sites, or sharing differ, you are UAT-testing the wrong system.
 

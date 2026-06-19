@@ -60,7 +60,7 @@ export function BlogPostLayout({
               <article
                 id="article-content"
                 aria-labelledby="blog-post-title"
-                className="max-w-none [&_h2]:scroll-mt-28 [&_h3]:scroll-mt-28 [&_pre]:overflow-x-auto"
+                className="max-w-[68ch] mx-auto text-pretty [&_h2]:scroll-mt-28 [&_h3]:scroll-mt-28 [&_pre]:overflow-x-auto [&_a]:decoration-brand-primary/40"
               >
                 {children}
               </article>

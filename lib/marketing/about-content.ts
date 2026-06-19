@@ -23,11 +23,11 @@ export const aboutContent = {
       ],
       bullets: [
         "SAP BTP: CAP, Build Work Zone, IAS/SSO, multi-tenant portals, extensibility governance",
-        "SAPUI5 & Fiori: workflow apps, Launchpad experiences, OData-integrated UIs",
+        "SAPUI5 & Fiori: workflow apps, Launchpad experiences, OData-integrated interfaces",
         "Salesforce: Experience Cloud portals (LWC/Aura), DevOps and SFDX release management",
         "UI/UX: design systems, prototyping, accessibility-aware enterprise interfaces",
         "Modern stack: React, Next.js, TypeScript for product-style web platforms",
-        "Content: technical demos, SAP SAPPHIRE-style video storytelling for executive audiences",
+        "Executive enablement: technical demos, stakeholder walkthroughs, and SAP SAPPHIRE-style storytelling for leadership audiences",
       ],
     } satisfies ContentSection,
     {
@@ -48,7 +48,7 @@ export const aboutContent = {
         "Representative outcomes from recent programs (details in case studies):",
       ],
       bullets: [
-        "22 custom Fiori applications deployed in a unified SAP BTP manufacturer portal",
+        "22 custom SAP Fiori applications deployed in a unified SAP BTP manufacturer portal",
         "40+ legacy portals retired in favor of a centralized external partner experience",
         "Average user adoption improvement around 30% on portal initiatives",
         "20+ product demonstrations delivered to Fortune 500 stakeholders",

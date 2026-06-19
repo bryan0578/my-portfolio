@@ -66,7 +66,7 @@ export function BlogCard({
 
         <Button variant="brandGhost" className={cardGhostAction} asChild>
           <Link href={`/blog/${slug}`}>
-            Read Article
+            Read insight
             <ArrowRight className="ml-2 size-4 transition-transform group-hover/btn:translate-x-1" />
           </Link>
         </Button>

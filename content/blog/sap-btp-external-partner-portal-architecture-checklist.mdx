@@ -12,8 +12,6 @@ export const metadata = {
   published: true,
 }
 
-# SAP BTP External Partner Portal: Architecture Checklist
-
 External partner portals on SAP BTP fail quietly: login works in QA, but **wrong tenants see wrong data**, or every release breaks federation. This checklist is for architects and delivery leads planning a **partner-facing** experience—not an internal Fiori rollout with extra VPN steps.
 
 It reflects patterns from enterprise programs including a [manufacturer analytics portal](/projects/manufacturer-portal) that replaced many fragmented entry points with a unified Build Work Zone experience, CAP-based services, and federated identity.
@@ -114,14 +112,40 @@ Confirm:
 
 ## 8. Go-live readiness (executive view)
 
-| Area | Ready? |
-|------|--------|
-| Partner pilot cohort identified | |
-| Federation tested with real IdP attributes | |
-| ABAC negative tests (Partner A cannot see Partner B) | |
-| Support model for login and access issues | |
-| Rollback plan for portal and services | |
-| Adoption metrics defined (not only go-live date) | |
+<ComparisonTable>
+  <thead>
+    <tr>
+      <th>Area</th>
+      <th>Ready?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Partner pilot cohort identified</td>
+      <td />
+    </tr>
+    <tr>
+      <td>Federation tested with real IdP attributes</td>
+      <td />
+    </tr>
+    <tr>
+      <td>ABAC negative tests (Partner A cannot see Partner B)</td>
+      <td />
+    </tr>
+    <tr>
+      <td>Support model for login and access issues</td>
+      <td />
+    </tr>
+    <tr>
+      <td>Rollback plan for portal and services</td>
+      <td />
+    </tr>
+    <tr>
+      <td>Adoption metrics defined (not only go-live date)</td>
+      <td />
+    </tr>
+  </tbody>
+</ComparisonTable>
 
 ---
 

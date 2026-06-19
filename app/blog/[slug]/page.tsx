@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import { BlogHeader } from "@/components/blog/blog-header"
 import { SiteHeader } from "@/components/site-header"
 import { BlogPostLayout } from "@/components/blog/blog-post-layout"
+import { BlogMdxShell } from "@/components/blog/blog-mdx-shell"
 import { BlogCta } from "@/components/blog/blog-cta"
 import { BlogRelatedPosts } from "@/components/blog/blog-related-posts"
 import { getBlogEngagementCta } from "@/lib/content/content-ia"
@@ -99,7 +100,9 @@ export default async function BlogPostPage({
           category={post.frontmatter.categories?.[0]}
           tags={post.frontmatter.tags}
         >
-          <PostComponent />
+          <BlogMdxShell title={post.frontmatter.title}>
+            <PostComponent />
+          </BlogMdxShell>
           <BlogRelatedPosts posts={relatedPosts} />
           {engagementCta ? <BlogCta {...engagementCta} /> : null}
         </BlogPostLayout>

@@ -12,8 +12,6 @@ export const metadata = {
   published: true,
 }
 
-# Experience Cloud for B2B Partner Portals: What to Plan Before Build
-
 B2B partner portals on **Salesforce Experience Cloud** fail when teams treat them as “a website on Salesforce.” Partners need **operational data**—warranty status, order context, RGA workflows—not marketing pages with a login button.
 
 This guide is for product owners, Salesforce leads, and IT decision makers **before** development starts: what to decide, what to document, and what to assign—so LWC/Aura work does not begin on shifting sand.
@@ -64,12 +62,32 @@ Link to [Salesforce Experience Cloud development services](/services/salesforce-
 
 ## 4. LWC vs Aura—and who builds what
 
-| Topic | Decide early |
-|-------|----------------|
-| Org standard for new components | LWC-first unless legacy requires Aura |
-| Existing codebase | Reuse vs rewrite criteria |
-| Design system | Lightning Design System vs custom enterprise system |
-| Integration pattern | LDS vs imperative Apex calls |
+<ComparisonTable>
+  <thead>
+    <tr>
+      <th>Topic</th>
+      <th>Decide early</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Org standard for new components</td>
+      <td>LWC-first unless legacy requires Aura</td>
+    </tr>
+    <tr>
+      <td>Existing codebase</td>
+      <td>Reuse vs rewrite criteria</td>
+    </tr>
+    <tr>
+      <td>Design system</td>
+      <td>Lightning Design System vs custom enterprise system</td>
+    </tr>
+    <tr>
+      <td>Integration pattern</td>
+      <td>LDS vs imperative Apex calls</td>
+    </tr>
+  </tbody>
+</ComparisonTable>
 
 **Admin vs developer split:** Admins own sites, sharing, and much configuration; developers own complex LWC/Aura and integration. Blurring roles causes UAT delays.
 

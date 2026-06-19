@@ -12,7 +12,7 @@ export const contactContent = {
   subtitle:
     "Tell me about your initiative. I typically respond within one to two business days.",
   intro: [
-    "Whether you need an SAP BTP portal architect, SAPUI5 developer, Salesforce Experience Cloud specialist, or release management support, a short overview helps us determine fit quickly.",
+    "Whether you need an SAP BTP portal architect, SAPUI5 developer, Salesforce Experience Cloud specialist, or release management support, a short overview helps me determine fit quickly.",
     "Include your timeline, primary technology stack, and whether you are looking for project delivery, augmentation, or advisory support.",
   ],
   engagementTypes: [

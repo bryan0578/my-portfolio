@@ -48,7 +48,7 @@ export function BlogRelatedPosts({ posts }: BlogRelatedPostsProps) {
                   href={`/blog/${post.slug}`}
                   className="inline-flex items-center text-body-sm font-medium text-brand-primary hover:text-brand-primary/80 transition-colors"
                 >
-                  Read article
+                  Read insight
                   <ArrowRight className="ml-1.5 size-4" aria-hidden />
                 </Link>
               </CardContent>

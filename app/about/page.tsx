@@ -76,10 +76,10 @@ export default function AboutPage() {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button variant="outline" asChild>
-              <Link href="/projects">View projects</Link>
+              <Link href="/projects">View case studies</Link>
             </Button>
             <Button variant="outline" asChild>
-              <Link href="/blog">Read the blog</Link>
+              <Link href="/blog">Read insights</Link>
             </Button>
           </div>
         </div>

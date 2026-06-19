@@ -31,7 +31,7 @@ export function FaqSection({
         <Accordion type="single" collapsible className="w-full">
           {items.map((item, index) => (
             <AccordionItem key={item.question} value={`faq-${index}`}>
-              <AccordionTrigger className="text-base text-left text-foreground hover:text-brand-primary">
+              <AccordionTrigger className="text-base text-left font-semibold text-foreground no-underline hover:no-underline hover:text-foreground/90 focus-visible:text-brand-primary data-[state=open]:text-brand-primary [&[data-state=open]]:no-underline">
                 {item.question}
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground leading-relaxed">

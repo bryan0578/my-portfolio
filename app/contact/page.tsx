@@ -147,7 +147,7 @@ export default function ContactPage() {
           <SectionHeader
             className="mb-6"
             title="Review Work Before You Reach Out"
-            description="SAP BTP manufacturer portal, Salesforce portals, DevOps, and SAPUI5 case studies are available on the projects page."
+            description="SAP BTP manufacturer portal, Salesforce portals, DevOps, and SAPUI5 case studies are available on the case studies page."
           />
           <div className="text-center">
             <Button asChild variant="brandOutline">

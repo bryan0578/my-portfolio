@@ -45,7 +45,8 @@ export function BlogIndexClient({ posts }: BlogIndexClientProps) {
     <div className="max-w-7xl mx-auto w-full">
       <div className="flex flex-col items-center text-center mb-16">
         <h1 className="text-h1 lg:text-hero font-heading text-foreground mb-6">
-          Enterprise Development <span className="text-brand-primary">Blog</span>
+          Enterprise Development{" "}
+          <span className="text-brand-primary">Insights</span>
         </h1>
 
         <p className="text-body-lg text-muted-foreground max-w-2xl mx-auto leading-body">
