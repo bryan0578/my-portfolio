@@ -1,5 +1,5 @@
 export const CONTACT_EMAIL =
-  process.env.BRYAN_EMAIL ?? "bryancash.dev@gmail.com"
+  process.env.BRYAN_EMAIL ?? "hello@cashbryan.com"
 
 export function buildMailtoHref(
   subject?: string,

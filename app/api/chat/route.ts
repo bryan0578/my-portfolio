@@ -1,5 +1,6 @@
 import OpenAI from "openai"
 import { NextResponse } from "next/server"
+import { CONTACT_EMAIL } from "@/lib/contact"
 import { buildPortfolioContext } from "@/lib/portfolio-assistant"
 
 type ChatMessage = {
@@ -310,7 +311,7 @@ It’s featured because it shows Bryan improving usability, navigation, and onbo
     message.includes("collaborate") ||
     message.includes("reach")
   ) {
-    const email = process.env.BRYAN_EMAIL || "hello@example.com"
+    const email = process.env.BRYAN_EMAIL || CONTACT_EMAIL
     return `You can contact Bryan directly at ${email}. You can also explore the Projects page to get a better sense of his experience across SAP BTP, Salesforce, DevOps, UI/UX, and enterprise solution storytelling.`
   }
 
@@ -348,7 +349,7 @@ The featured projects were chosen because they best represent the breadth and de
     message.includes("collaborate") ||
     message.includes("reach")
   ) {
-    const email = process.env.BRYAN_EMAIL || "hello@example.com"
+    const email = process.env.BRYAN_EMAIL || CONTACT_EMAIL
     return `You can contact Bryan directly at ${email}. You can also use the Contact Bryan quick action in the chat bubble.`
   }
 

@@ -16,7 +16,7 @@ export const DEFAULT_OG_IMAGE_ALT =
   "Bryan Cash — developer and enterprise UI architect for SAP BTP, SAPUI5, and Salesforce"
 
 export const CONTACT_EMAIL =
-  process.env.BRYAN_EMAIL ?? "bryancash.dev@gmail.com"
+  process.env.BRYAN_EMAIL ?? "hello@cashbryan.com"
 
 export const PERSON_ID = `${SITE_URL}/#person`
 export const ORGANIZATION_ID = `${SITE_URL}/#organization`

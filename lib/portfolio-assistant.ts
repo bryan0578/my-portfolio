@@ -1,6 +1,5 @@
 import { projects } from "@/src/data/projects"
-
-const email = process.env.BRYAN_EMAIL || "bryancash.dev@gmail.com"
+import { CONTACT_EMAIL } from "@/lib/contact"
 
 export const quickActions = [
   {
@@ -11,7 +10,7 @@ export const quickActions = [
   {
     label: "Contact Bryan",
     type: "link" as const,
-    href: `mailto:${email}`,
+    href: `mailto:${CONTACT_EMAIL}`,
   },
   {
     label: "Technical Skills",
@@ -62,7 +61,7 @@ About Bryan:
 - He has worked on enterprise applications, customer portals, workflow tools, release management, governance, and showcase content.
 
 Contact:
-- Bryan can be reached at ${email}
+- Bryan can be reached at ${CONTACT_EMAIL}
 
 Projects:
 ${JSON.stringify(allProjects, null, 2)}
