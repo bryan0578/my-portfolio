@@ -22,8 +22,8 @@ export function BlogPostLayout({
 }: BlogPostLayoutProps) {
   return (
     <>
-      <section className="px-6 py-20 md:py-28">
-        <div className="max-w-4xl mx-auto">
+    <section className="px-4 sm:px-6 py-16 md:py-28">
+      <div className="max-w-4xl mx-auto min-w-0">
           <div className="flex flex-wrap gap-2 mb-6">
             {category ? <Badge variant="brand">{category}</Badge> : null}
             <Badge variant="brand">{date}</Badge>
@@ -40,7 +40,7 @@ export function BlogPostLayout({
 
           <h1
             id="blog-post-title"
-            className="text-h1 lg:text-hero font-heading text-foreground mb-8 text-pretty"
+            className="text-h1 lg:text-hero font-heading text-foreground mb-8 text-pretty break-words"
           >
             {title}
           </h1>
@@ -53,10 +53,10 @@ export function BlogPostLayout({
         </div>
       </section>
 
-      <section className="px-6 pb-24">
-        <div className="max-w-4xl mx-auto">
+      <section className="px-4 sm:px-6 pb-24">
+        <div className="max-w-4xl mx-auto min-w-0">
           <Card variant="surface">
-            <CardContent className="p-6 md:p-10 lg:p-12">
+            <CardContent className="p-5 sm:p-6 md:p-10 lg:p-12">
               <article
                 id="article-content"
                 aria-labelledby="blog-post-title"

@@ -49,7 +49,7 @@ export function SiteHeader() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-xl">
-      <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between gap-4">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
         <Link
           href="/"
           className="text-body-sm font-semibold font-heading tracking-tight text-foreground hover:text-brand-primary transition-colors shrink-0 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus/45 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
@@ -58,7 +58,7 @@ export function SiteHeader() {
         </Link>
 
         <nav
-          className="hidden md:flex items-center gap-1 sm:gap-2"
+          className="hidden lg:flex items-center gap-1 xl:gap-2"
           aria-label="Primary navigation"
         >
           {navLinks.map(({ href, label }) => {
@@ -89,7 +89,7 @@ export function SiteHeader() {
           aria-controls="mobile-site-menu"
           onClick={() => setMobileOpen((prev) => !prev)}
           className={cn(
-            "md:hidden inline-flex items-center justify-center rounded-md border border-border/60 bg-card/50 text-foreground",
+            "lg:hidden inline-flex items-center justify-center rounded-md border border-border/60 bg-card/50 text-foreground",
             "h-11 w-11 transition-colors",
             "hover:border-brand-primary/40 hover:text-brand-primary hover:bg-brand-soft",
             "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus/70 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
@@ -102,7 +102,7 @@ export function SiteHeader() {
       {mobileOpen ? (
         <>
           <div
-            className="md:hidden fixed inset-0 z-40 bg-black/50"
+            className="lg:hidden fixed inset-0 z-40 bg-black/50"
             onClick={closeMobileMenu}
             aria-hidden="true"
           />
@@ -110,7 +110,7 @@ export function SiteHeader() {
           <nav
             id="mobile-site-menu"
             aria-label="Mobile navigation"
-            className="md:hidden fixed top-16 left-0 right-0 z-50 border-b border-border/50 bg-background/95 backdrop-blur-xl shadow-lg"
+            className="lg:hidden fixed top-16 left-0 right-0 z-50 border-b border-border/50 bg-background/95 backdrop-blur-xl shadow-lg"
           >
             <ul className="px-4 py-3 space-y-1">
               {navLinks.map(({ href, label }) => {

@@ -8,8 +8,8 @@ interface CaseStudyHeroProps {
 
 export function CaseStudyHero({ title, stack, summary }: CaseStudyHeroProps) {
   return (
-    <section className="px-6 py-20 md:py-28">
-      <div className="max-w-4xl mx-auto">
+    <section className="px-4 sm:px-6 py-16 md:py-28">
+      <div className="max-w-4xl mx-auto min-w-0">
         {/* Tech Stack Badges */}
         <div className="flex flex-wrap gap-2 mb-6">
           {stack.map((tech) => (
@@ -24,7 +24,7 @@ export function CaseStudyHero({ title, stack, summary }: CaseStudyHeroProps) {
         </div>
         
         {/* Title */}
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-8 text-pretty leading-tight">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-8 text-pretty break-words leading-tight">
           {title}
         </h1>
         

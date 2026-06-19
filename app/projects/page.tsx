@@ -62,7 +62,7 @@ export default function AllProjectsPage() {
       <SiteHeader />
       <GlobalHeader />
 
-      <main id="main-content" className="min-h-screen bg-background pt-36 pb-24 px-6">
+      <main id="main-content" className="min-h-screen bg-background pt-36 pb-24 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto w-full">
           <div className="flex flex-col items-center text-center mb-16">
             <h1 className="text-h1 lg:text-hero font-heading text-foreground mb-6">

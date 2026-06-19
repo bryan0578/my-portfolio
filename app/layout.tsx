@@ -113,7 +113,7 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${sora.variable} ${inter.variable} ${jetbrainsMono.variable}`}
     >
-      <body className="font-body antialiased">
+      <body className="font-body antialiased overflow-x-hidden">
         <SkipLink />
         <GlobalJsonLd />
         {children}

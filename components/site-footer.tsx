@@ -15,10 +15,10 @@ export function SiteFooter() {
   return (
     <footer
       role="contentinfo"
-      className="border-t border-border/50 bg-surface-canvas px-6 py-16"
+      className="border-t border-border/50 bg-surface-canvas px-4 sm:px-6 pt-16 pb-24 sm:pb-16"
     >
-      <div className="max-w-6xl mx-auto grid gap-12 md:grid-cols-3">
-        <div>
+      <div className="max-w-6xl mx-auto grid gap-12 md:grid-cols-3 min-w-0">
+        <div className="min-w-0">
           <p className="text-body-sm font-semibold font-heading text-foreground mb-3">Bryan Cash</p>
           <p className="text-body-sm text-muted-foreground leading-body">
             Bryan Cash is a developer, enterprise UI architect, and technical creator
@@ -50,7 +50,7 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div>
+        <div className="min-w-0">
           <p className="text-body-sm font-semibold font-heading text-foreground mb-3">Services</p>
           <ul className="space-y-2">
             {serviceHubCards.map((service) => (
@@ -66,7 +66,7 @@ export function SiteFooter() {
           </ul>
         </div>
 
-        <div>
+        <div className="min-w-0">
           <p className="text-body-sm font-semibold font-heading text-foreground mb-3">Site</p>
           <ul className="space-y-2">
             {footerLinks.map((link) => (

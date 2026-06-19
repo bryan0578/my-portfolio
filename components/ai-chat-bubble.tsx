@@ -110,7 +110,7 @@ export function AIChatBubble() {
   }
 
   return (
-    <div className="fixed bottom-6 right-6 z-50">
+    <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 pb-[env(safe-area-inset-bottom,0px)]">
       <Popover open={isOpen} onOpenChange={setIsOpen}>
         <PopoverTrigger asChild>
           <Button
@@ -131,7 +131,7 @@ export function AIChatBubble() {
           side="top"
           align="end"
           sideOffset={16}
-          className="w-80 md:w-96 p-0 border-border/50 bg-card/95 backdrop-blur-xl shadow-2xl"
+          className="w-[min(calc(100vw-2rem),24rem)] p-0 border-border/50 bg-card/95 backdrop-blur-xl shadow-2xl"
         >
           <div className="p-4 border-b border-border/50">
             <div className="flex items-center justify-between gap-3">

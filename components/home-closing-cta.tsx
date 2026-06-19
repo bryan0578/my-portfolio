@@ -13,14 +13,14 @@ export function HomeClosingCta() {
           title="Ready to turn complexity into a system that works?"
           description="Whether you need architecture guidance, hands-on delivery, or a focused technical review, we can shape the right engagement on a discovery call."
         >
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button size="lg" variant="brand" asChild className="min-w-[200px]">
+          <div className="flex w-full flex-col items-stretch gap-4 sm:flex-row sm:items-center sm:justify-center">
+            <Button size="lg" variant="brand" asChild className="w-full sm:w-auto sm:min-w-[200px]">
               <Link href="/work-with-me">
                 Discuss your program
                 <ArrowRight className="ml-2 size-4" />
               </Link>
             </Button>
-            <Button size="lg" variant="brandOutline" asChild className="min-w-[200px]">
+            <Button size="lg" variant="brandOutline" asChild className="w-full sm:w-auto sm:min-w-[200px]">
               <Link href="/contact">Contact Bryan</Link>
             </Button>
           </div>

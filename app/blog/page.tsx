@@ -36,7 +36,7 @@ export default async function BlogPage() {
       <JsonLd data={structuredData} />
       <SiteHeader />
       <BlogHeader />
-      <main id="main-content" className="min-h-screen bg-background pt-36 pb-24 px-6">
+      <main id="main-content" className="min-h-screen bg-background pt-36 pb-24 px-4 sm:px-6">
         <BlogIndexClient posts={posts} />
         <AIChatBubble />
       </main>

@@ -15,7 +15,7 @@ export function MarketingHero({
   children,
 }: MarketingHeroProps) {
   return (
-    <section className="relative px-6 py-20 md:py-28 overflow-hidden">
+    <section className="relative px-4 sm:px-6 py-16 sm:py-20 md:py-28 overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-zinc-900 via-background to-background pointer-events-none" />
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[400px] h-[400px] bg-brand-soft blur-[100px] rounded-full pointer-events-none" />
 
@@ -33,7 +33,7 @@ export function MarketingHero({
         </p>
 
         {children ? (
-          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="mt-10 flex w-full max-w-md flex-col items-stretch gap-4 sm:max-w-none sm:flex-row sm:flex-wrap sm:items-center sm:justify-center [&>*]:w-full sm:[&>*]:w-auto">
             {children}
           </div>
         ) : null}

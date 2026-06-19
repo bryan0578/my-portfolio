@@ -27,7 +27,9 @@ export function ProjectCard({
     <Card variant="surfaceInteractive">
       <CardHeader className="pb-4">
         <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-3">
-          <CardTitle className="text-h4 leading-heading">{title}</CardTitle>
+          <CardTitle className="text-h4 leading-heading min-w-0 text-pretty break-words">
+            {title}
+          </CardTitle>
 
           <div className="flex flex-wrap gap-1.5 shrink-0">
             {visibleStack.map((tech) => (

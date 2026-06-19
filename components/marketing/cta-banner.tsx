@@ -55,21 +55,21 @@ export function CtaBanner({
             </p>
           }
         >
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button size="lg" variant="brand" asChild className="min-w-[200px]">
+          <div className="flex w-full flex-col items-stretch gap-4 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center">
+            <Button size="lg" variant="brand" asChild className="w-full sm:w-auto sm:min-w-[200px]">
               <a href={mailtoHref}>
                 <Mail className="mr-2 size-4" aria-hidden />
                 {primaryLabel}
               </a>
             </Button>
-            <Button size="lg" variant="brandOutline" asChild className="min-w-[200px]">
+            <Button size="lg" variant="brandOutline" asChild className="w-full sm:w-auto sm:min-w-[200px]">
               <Link href={secondaryHref}>
                 {secondaryLabel}
                 <ArrowRight className="ml-2 size-4" aria-hidden />
               </Link>
             </Button>
             {tertiaryHref ? (
-              <Button size="lg" variant="brandGhost" asChild className="min-w-[200px]">
+              <Button size="lg" variant="brandGhost" asChild className="w-full sm:w-auto sm:min-w-[200px]">
                 <Link href={tertiaryHref}>
                   {tertiaryLabel}
                   <ArrowRight className="ml-2 size-4" aria-hidden />
