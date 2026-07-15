@@ -14,6 +14,7 @@ import {
 } from "@/lib/seo/site"
 import { SITE_DESCRIPTION } from "@/lib/seo/brand-copy"
 import "./globals.css"
+import "./proposal-mobile.css"
 
 const defaultDescription = SITE_DESCRIPTION
 
