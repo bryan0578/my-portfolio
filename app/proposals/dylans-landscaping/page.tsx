@@ -1,16 +1,15 @@
 import type { Metadata } from "next"
 import type { ReactNode } from "react"
+import type { LucideIcon } from "lucide-react"
 import {
   ArrowRight,
   CheckCircle2,
   Clock3,
   Leaf,
   Mail,
-  MapPin,
   MonitorSmartphone,
   Search,
   ShieldCheck,
-  Smartphone,
   Sparkles,
   WalletCards,
 } from "lucide-react"
@@ -25,6 +24,18 @@ export const metadata: Metadata = {
     follow: false,
     nocache: true,
   },
+}
+
+type SummaryCard = {
+  icon: LucideIcon
+  label: string
+}
+
+type AddOn = {
+  title: string
+  price: string
+  description: string
+  items: string[]
 }
 
 const packageItems = [
@@ -66,7 +77,7 @@ const services = [
   "Hardscaping",
 ]
 
-const addOns = [
+const addOns: AddOn[] = [
   {
     title: "Monthly Website Care",
     price: "$100/month",
@@ -109,6 +120,13 @@ const addOns = [
   },
 ]
 
+const summaryCards: SummaryCard[] = [
+  { icon: MonitorSmartphone, label: "Mobile-friendly website" },
+  { icon: Search, label: "Basic SEO setup included" },
+  { icon: WalletCards, label: "$750 deposit / $750 before launch" },
+  { icon: Clock3, label: "Estimated 2–3 week timeline" },
+]
+
 const timelineSteps = [
   "Approve package and deposit",
   "Gather business details and photos",
@@ -145,27 +163,25 @@ function SectionShell({
   )
 }
 
-function Eyebrow({ children }: { children: ReactNode }) {
+function Eyebrow({ children, light = false }: { children: ReactNode; light?: boolean }) {
   return (
-    <p className="mb-3 text-xs font-bold uppercase tracking-[0.24em] text-[#3f7a4b]">
+    <p
+      className={`mb-3 text-xs font-bold uppercase tracking-[0.24em] ${
+        light ? "text-[#f3dfaa]" : "text-[#3f7a4b]"
+      }`}
+    >
       {children}
     </p>
   )
 }
 
-function CheckItem({ children }: { children: ReactNode }) {
+function CheckItem({ children, light = false }: { children: ReactNode; light?: boolean }) {
   return (
-    <li className="flex gap-3 text-sm leading-6 text-[#dfeadc]">
-      <CheckCircle2 className="mt-1 size-4 shrink-0 text-[#f3dfaa]" aria-hidden />
-      <span>{children}</span>
-    </li>
-  )
-}
-
-function LightCheckItem({ children }: { children: ReactNode }) {
-  return (
-    <li className="flex gap-3 text-sm leading-6 text-[#314031]">
-      <CheckCircle2 className="mt-1 size-4 shrink-0 text-[#2f6f45]" aria-hidden />
+    <li className={`flex gap-3 text-sm leading-6 ${light ? "text-[#dfeadc]" : "text-[#314031]"}`}>
+      <CheckCircle2
+        className={`mt-1 size-4 shrink-0 ${light ? "text-[#f3dfaa]" : "text-[#2f6f45]"}`}
+        aria-hidden
+      />
       <span>{children}</span>
     </li>
   )
@@ -188,7 +204,7 @@ function ProposalNav() {
             D
           </span>
           <span className="font-heading text-sm font-bold tracking-tight sm:text-base">
-            Dylan's Proposal
+            Dylan&apos;s Proposal
           </span>
         </a>
         <div className="flex shrink-0 items-center gap-2">
@@ -231,7 +247,7 @@ function DesktopMockup() {
             D
           </span>
           <div>
-            <p className="font-heading text-sm font-bold text-[#172217]">Dylan's Landscaping</p>
+            <p className="font-heading text-sm font-bold text-[#172217]">Dylan&apos;s Landscaping</p>
             <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#63725f]">
               Latonia & Kenton County
             </p>
@@ -251,7 +267,8 @@ function DesktopMockup() {
 
       <div className="grid min-h-[390px] lg:grid-cols-[1.05fr_0.95fr]">
         <div className="relative flex flex-col justify-center overflow-hidden bg-gradient-to-br from-[#193924] via-[#2f6f45] to-[#698147] p-8 sm:p-12">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.18),transparent_32%),repeating-linear-gradient(120deg,rgba(255,255,255,0.08)_0_2px,transparent_2px_28px)]" />
+          <div className="absolute left-[-4rem] top-[-4rem] size-56 rounded-full bg-white/10 blur-3xl" />
+          <div className="absolute bottom-[-5rem] right-[-3rem] size-72 rounded-full bg-[#f3dfaa]/15 blur-3xl" />
           <div className="relative max-w-lg">
             <p className="mb-5 inline-flex rounded-full border border-white/30 bg-white/15 px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.2em] text-[#f3dfaa]">
               Sample image area — final website will use actual project photos.
@@ -279,7 +296,7 @@ function DesktopMockup() {
           </p>
           <h4 className="mt-2 font-heading text-2xl font-bold text-[#172217]">Our Services</h4>
           <div className="mt-6 grid gap-3 sm:grid-cols-2">
-            {services.slice(0, 6).map((service) => (
+            {services.map((service) => (
               <div key={service} className="rounded-2xl border border-[#e5ddca] bg-white p-4">
                 <div className="mb-3 flex size-9 items-center justify-center rounded-xl bg-[#edf4e8]">
                   <Leaf className="size-4 text-[#2f6f45]" aria-hidden />
@@ -319,7 +336,7 @@ function MobileMockup() {
             <span className="flex size-7 items-center justify-center rounded-lg bg-[#1f4b36] text-xs font-bold text-[#f3dfaa]">
               D
             </span>
-            <span className="text-[11px] font-bold text-[#172217]">Dylan's Landscaping</span>
+            <span className="text-[11px] font-bold text-[#172217]">Dylan&apos;s Landscaping</span>
           </div>
           <span className="rounded-full bg-[#172217] px-3 py-1 text-[10px] font-bold text-white">
             Call
@@ -437,7 +454,8 @@ export default function DylansLandscapingProposalPage() {
       <ProposalNav />
 
       <section className="relative overflow-hidden bg-[#172217] px-5 py-20 text-white sm:px-6 lg:px-8 lg:py-28">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(116,170,102,0.35),transparent_30%),radial-gradient(circle_at_82%_12%,rgba(243,223,170,0.2),transparent_28%),repeating-linear-gradient(120deg,rgba(255,255,255,0.04)_0_2px,transparent_2px_28px)]" />
+        <div className="absolute left-[-8rem] top-[-8rem] size-96 rounded-full bg-[#2f6f45]/40 blur-3xl" />
+        <div className="absolute bottom-[-10rem] right-[-8rem] size-96 rounded-full bg-[#f3dfaa]/20 blur-3xl" />
         <div className="relative mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
           <div>
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.22em] text-[#f3dfaa]">
@@ -445,7 +463,7 @@ export default function DylansLandscapingProposalPage() {
               Proposal for Review
             </div>
             <h1 className="max-w-3xl font-heading text-4xl font-bold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
-              Website Proposal for Dylan's Landscaping
+              Website Proposal for Dylan&apos;s Landscaping
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-[#dfeadc]">
               A professional, mobile-friendly website designed to help customers understand your services, view your work, and request estimates.
@@ -484,17 +502,12 @@ export default function DylansLandscapingProposalPage() {
                 </div>
               </div>
               <div className="mt-6 grid gap-3">
-                {[
-                  [MonitorSmartphone, "Mobile-friendly website"],
-                  [Search, "Basic SEO setup included"],
-                  [WalletCards, "$750 deposit / $750 before launch"],
-                  [Clock3, "Estimated 2–3 week timeline"],
-                ].map(([Icon, label]) => (
-                  <div key={String(label)} className="flex items-center gap-3 rounded-2xl border border-[#e3dcc9] bg-white p-4">
+                {summaryCards.map(({ icon: Icon, label }) => (
+                  <div key={label} className="flex items-center gap-3 rounded-2xl border border-[#e3dcc9] bg-white p-4">
                     <span className="flex size-10 items-center justify-center rounded-xl bg-[#edf4e8]">
                       <Icon className="size-5 text-[#2f6f45]" aria-hidden />
                     </span>
-                    <span className="text-sm font-semibold text-[#314031]">{label as string}</span>
+                    <span className="text-sm font-semibold text-[#314031]">{label}</span>
                   </div>
                 ))}
               </div>
@@ -524,7 +537,9 @@ export default function DylansLandscapingProposalPage() {
             </div>
             <ul className="grid gap-3 sm:grid-cols-2">
               {packageItems.map((item) => (
-                <CheckItem key={item}>{item}</CheckItem>
+                <CheckItem key={item} light>
+                  {item}
+                </CheckItem>
               ))}
             </ul>
           </div>
@@ -565,7 +580,7 @@ export default function DylansLandscapingProposalPage() {
             </h2>
           </div>
           <p className="text-base leading-7 text-[#556052]">
-            This is the proposed design direction, not final content. Sample image areas would be replaced with Dylan's actual project photos, and review placeholders would only become real testimonials if Dylan provides real reviews.
+            This is the proposed design direction, not final content. Sample image areas would be replaced with Dylan&apos;s actual project photos, and review placeholders would only become real testimonials if Dylan provides real reviews.
           </p>
         </div>
 
@@ -636,7 +651,7 @@ export default function DylansLandscapingProposalPage() {
               <p className="mt-4 text-sm leading-6 text-[#556052]">{addOn.description}</p>
               <ul className="mt-6 space-y-3">
                 {addOn.items.map((item) => (
-                  <LightCheckItem key={item}>{item}</LightCheckItem>
+                  <CheckItem key={item}>{item}</CheckItem>
                 ))}
               </ul>
             </article>
@@ -647,7 +662,7 @@ export default function DylansLandscapingProposalPage() {
       <SectionShell id="payment" className="bg-white">
         <div className="grid gap-8 lg:grid-cols-2 lg:items-start">
           <div className="rounded-[2rem] bg-[#172217] p-8 text-white">
-            <Eyebrow>Payment Structure</Eyebrow>
+            <Eyebrow light>Payment Structure</Eyebrow>
             <h2 className="font-heading text-3xl font-bold tracking-tight sm:text-4xl">Simple, Split Payment</h2>
             <div className="mt-8 grid gap-4">
               {[
@@ -696,7 +711,7 @@ export default function DylansLandscapingProposalPage() {
               The Build Starts With the Right Details
             </h2>
             <p className="mt-5 text-base leading-7 text-[#556052]">
-              Once approved, these details help turn the concept into a real business website with Dylan's actual information and project photos.
+              Once approved, these details help turn the concept into a real business website with Dylan&apos;s actual information and project photos.
             </p>
           </div>
           <div className="grid gap-3 sm:grid-cols-2">
@@ -710,12 +725,13 @@ export default function DylansLandscapingProposalPage() {
       </SectionShell>
 
       <section id="decision" className="relative overflow-hidden bg-[#172217] px-5 py-20 text-white sm:px-6 lg:px-8 lg:py-24">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_15%,rgba(116,170,102,0.32),transparent_30%),radial-gradient(circle_at_80%_80%,rgba(243,223,170,0.18),transparent_30%)]" />
+        <div className="absolute left-[-8rem] top-[-8rem] size-96 rounded-full bg-[#2f6f45]/35 blur-3xl" />
+        <div className="absolute bottom-[-8rem] right-[-8rem] size-96 rounded-full bg-[#f3dfaa]/20 blur-3xl" />
         <div className="relative mx-auto max-w-4xl text-center">
           <div className="mx-auto mb-6 flex size-14 items-center justify-center rounded-2xl bg-white/10">
             <ShieldCheck className="size-7 text-[#f3dfaa]" aria-hidden />
           </div>
-          <Eyebrow>Next Step</Eyebrow>
+          <Eyebrow light>Next Step</Eyebrow>
           <h2 className="font-heading text-3xl font-bold tracking-tight sm:text-4xl">
             Ready to Decide?
           </h2>
@@ -724,7 +740,7 @@ export default function DylansLandscapingProposalPage() {
           </p>
           <div className="mt-9 flex flex-wrap justify-center gap-4">
             <DecisionButton href={interestedHref} primary>
-              I'm Interested — Let's Move Forward
+              I&apos;m Interested — Let&apos;s Move Forward
             </DecisionButton>
             <DecisionButton href={questionsHref}>I Have Questions</DecisionButton>
             <DecisionButton href={notNowHref}>Not Right Now</DecisionButton>
