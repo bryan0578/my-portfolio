@@ -73,37 +73,33 @@ const services = [
     title: "Lawn Care",
     description:
       "Regular mowing, edging, and seasonal fertilization to keep your lawn healthy and green.",
-    color: "bg-[#2f7647]",
+    color: "bg-[#2f7745]",
   },
   {
     title: "Mulching",
     description:
       "Fresh mulch installation that locks in moisture and gives garden beds a clean, finished look.",
-    color: "bg-[#76513a]",
+    color: "bg-[#765239]",
   },
   {
     title: "Yard Cleanups",
-    description:
-      "Spring and fall cleanups — leaf removal, debris hauling, and bed tidying.",
-    color: "bg-[#cbaa70]",
+    description: "Spring and fall cleanups — leaf removal, debris hauling, and bed tidying.",
+    color: "bg-[#cfad75]",
   },
   {
     title: "Tree & Brush Trimming",
-    description:
-      "Pruning and trimming to keep trees, shrubs, and brush healthy and under control.",
-    color: "bg-[#1f5138]",
+    description: "Pruning and trimming to keep trees, shrubs, and brush healthy and under control.",
+    color: "bg-[#1f4b36]",
   },
   {
     title: "Seasonal Maintenance",
-    description:
-      "Ongoing care plans tailored to each season so your property always looks its best.",
-    color: "bg-[#4f8442]",
+    description: "Ongoing care plans tailored to each season so your property always looks its best.",
+    color: "bg-[#4d813e]",
   },
   {
     title: "Hardscaping",
-    description:
-      "Patios, walkways, and retaining walls built to add lasting value to your outdoor space.",
-    color: "bg-[#92704d]",
+    description: "Patios, walkways, and retaining walls built to add lasting value to your outdoor space.",
+    color: "bg-[#936f4d]",
   },
 ]
 
@@ -122,15 +118,15 @@ const trustItems = [
   },
   {
     title: "Free Estimates",
-    description: "No-obligation quotes so you know the cost upfront.",
+    description: "No-obligation quotes so customers know the cost upfront.",
   },
 ]
 
 const projects = [
-  { title: "Front Yard Renovation", area: "Latonia, KY", after: "bg-[#33723f]" },
-  { title: "Mulch Bed Refresh", area: "Covington, KY", after: "bg-[#836044]" },
-  { title: "Backyard Patio Install", area: "Kenton County, KY", after: "bg-[#c0a06d]" },
-  { title: "Seasonal Cleanup", area: "Latonia, KY", after: "bg-[#24633d]" },
+  { title: "Front Yard Renovation", area: "Latonia, KY", after: "bg-[#347743]" },
+  { title: "Mulch Bed Refresh", area: "Covington, KY", after: "bg-[#805a3d]" },
+  { title: "Backyard Patio Install", area: "Kenton County, KY", after: "bg-[#c6a66f]" },
+  { title: "Seasonal Cleanup", area: "Latonia, KY", after: "bg-[#246b43]" },
 ]
 
 const serviceAreas = ["Latonia", "Covington", "Kenton County", "Edgewood", "Fort Wright", "Erlanger"]
@@ -154,7 +150,7 @@ const addOns: AddOn[] = [
     title: "Additional Pages",
     price: "$150/page",
     description:
-      "Useful if you want dedicated pages for high-value services or seasonal offers.",
+      "Useful for dedicated pages around high-value services or seasonal offers.",
     items: [
       "Lawn care page",
       "Mulching page",
@@ -224,8 +220,8 @@ function SectionShell({
 function Eyebrow({ children, light = false }: { children: ReactNode; light?: boolean }) {
   return (
     <p
-      className={`mb-3 text-xs font-bold uppercase tracking-[0.24em] ${
-        light ? "text-[#f3dfaa]" : "text-[#2f7647]"
+      className={`mb-3 text-xs font-black uppercase tracking-[0.24em] ${
+        light ? "text-[#f3dfaa]" : "text-[#2f7745]"
       }`}
     >
       {children}
@@ -233,19 +229,10 @@ function Eyebrow({ children, light = false }: { children: ReactNode; light?: boo
   )
 }
 
-function CheckItem({ children }: { children: ReactNode }) {
+function CheckItem({ children, light = false }: { children: ReactNode; light?: boolean }) {
   return (
-    <li className="flex gap-3 text-sm leading-6 text-[#dfeadc]">
-      <CheckCircle2 className="mt-1 size-4 shrink-0 text-[#f3dfaa]" aria-hidden />
-      <span>{children}</span>
-    </li>
-  )
-}
-
-function LightCheckItem({ children }: { children: ReactNode }) {
-  return (
-    <li className="flex gap-3 text-sm leading-6 text-[#314031]">
-      <CheckCircle2 className="mt-1 size-4 shrink-0 text-[#2f6f45]" aria-hidden />
+    <li className={`flex gap-3 text-sm leading-6 ${light ? "text-[#dfeadc]" : "text-[#314031]"}`}>
+      <CheckCircle2 className={`mt-1 size-4 shrink-0 ${light ? "text-[#f3dfaa]" : "text-[#2f6f45]"}`} aria-hidden />
       <span>{children}</span>
     </li>
   )
@@ -295,8 +282,8 @@ function ProposalNav() {
 
 function BrowserChrome({ children }: { children: ReactNode }) {
   return (
-    <div className="overflow-hidden rounded-[1.75rem] border border-[#d7d1c1] bg-white shadow-2xl shadow-[#2d2617]/20">
-      <div className="flex items-center gap-2 border-b border-[#e7dfcc] bg-[#efe9db] px-5 py-4">
+    <div className="overflow-hidden rounded-[1.5rem] border border-[#d7d0bf] bg-white shadow-2xl shadow-black/20">
+      <div className="flex items-center gap-2 border-b border-[#e7dfcc] bg-[#f0eadc] px-5 py-4">
         <span className="size-3 rounded-full bg-[#e9a6a6]" />
         <span className="size-3 rounded-full bg-[#f1d783]" />
         <span className="size-3 rounded-full bg-[#9fca9f]" />
@@ -519,25 +506,27 @@ function DesktopConcept() {
           <div className="grid gap-8 md:grid-cols-3">
             <div>
               <div className="flex items-center gap-3">
-                <span className="flex size-9 items-center justify-center rounded-lg bg-[#2f7647] font-heading font-black text-[#f3dfaa]">D</span>
-                <span className="font-heading text-lg font-black">Dylan&apos;s Landscaping</span>
+                <span className="flex size-9 items-center justify-center rounded-lg bg-[#2f7745] font-heading text-sm font-bold text-[#f3dfaa]">
+                  D
+                </span>
+                <p className="font-heading text-lg font-black">Dylan&apos;s Landscaping</p>
               </div>
-              <p className="mt-5 max-w-sm text-sm leading-7 text-[#d9d6ca]">
+              <p className="mt-5 max-w-sm text-sm leading-6 text-[#c9c9bd]">
                 Reliable, high-quality landscaping services for homes and properties throughout Kenton County.
               </p>
             </div>
             <div>
-              <h4 className="font-heading font-black">Contact</h4>
-              <p className="mt-4 text-sm leading-7 text-[#d9d6ca]">(555) 123-4567<br />info@dylanslandscaping.com<br />Latonia, Covington & Kenton County</p>
+              <h4 className="font-heading text-base font-black">Contact</h4>
+              <p className="mt-4 text-sm leading-7 text-[#c9c9bd]">(555) 123-4567<br />info@dylanslandscaping.com<br />Latonia, Covington & Kenton County</p>
             </div>
             <div>
-              <h4 className="font-heading font-black">Quick Links</h4>
-              <p className="mt-4 text-sm leading-7 text-[#d9d6ca]">Services<br />Gallery<br />Get a Quote</p>
+              <h4 className="font-heading text-base font-black">Quick Links</h4>
+              <p className="mt-4 text-sm leading-7 text-[#c9c9bd]">Services<br />Gallery<br />Get a Quote</p>
             </div>
           </div>
-          <p className="mt-10 border-t border-white/10 pt-7 text-center text-xs text-[#9c998d]">
+          <div className="mt-10 border-t border-white/10 pt-8 text-center text-xs text-[#9f9f94]">
             © 2026 Dylan&apos;s Landscaping. All rights reserved. — Concept mockup for client proposal.
-          </p>
+          </div>
         </div>
       </div>
     </BrowserChrome>
@@ -545,61 +534,97 @@ function DesktopConcept() {
 }
 
 function FormField({ children }: { children: ReactNode }) {
+  return <div className="rounded-lg border border-[#d8cfba] bg-[#fbfaf6] px-4 py-4 text-sm text-[#7b7565]">{children}</div>
+}
+
+function PhoneShell({ children }: { children: ReactNode }) {
   return (
-    <div className="rounded-lg border border-[#d8cfba] bg-[#fbfaf6] px-4 py-4 text-sm text-[#7b7565]">
-      {children}
+    <div className="mx-auto w-[350px] max-w-full rounded-[2.5rem] border-[10px] border-[#172217] bg-white shadow-2xl shadow-black/25">
+      <div className="relative h-[760px] overflow-hidden rounded-[1.85rem] bg-white">
+        <div className="absolute left-1/2 top-2 z-10 h-7 w-28 -translate-x-1/2 rounded-full bg-black" />
+        <div className="relative h-full overflow-hidden rounded-[1.85rem] bg-white">{children}</div>
+      </div>
     </div>
   )
 }
 
 function MobileConcept() {
   return (
-    <div className="mx-auto w-[285px] rounded-[2.5rem] border-[10px] border-[#f5f1e8] bg-white shadow-2xl shadow-[#2d2617]/25 ring-1 ring-[#cfc8b9] sm:w-[330px]">
-      <div className="rounded-[1.85rem] bg-white">
-        <div className="relative flex h-12 items-center justify-between px-6 pt-2">
-          <span className="text-sm font-black text-black">9:41</span>
-          <span className="absolute left-1/2 top-3 h-8 w-28 -translate-x-1/2 rounded-full bg-black" />
-          <span className="text-xs font-black text-black">▮▮▮</span>
+    <PhoneShell>
+      <div className="flex items-center justify-between border-b border-[#ece6d7] bg-white px-5 py-12 pb-4 text-[#24251f]">
+        <div className="flex items-center gap-3">
+          <span className="flex size-8 items-center justify-center rounded-lg bg-[#1f4b36] text-sm font-black text-[#f3dfaa]">D</span>
+          <span className="font-heading text-sm font-black">Dylan&apos;s Landscaping</span>
         </div>
-        <div className="flex items-center justify-between border-b border-[#ece6d7] px-5 py-4">
-          <div className="flex items-center gap-2">
-            <span className="flex size-8 items-center justify-center rounded-lg bg-[#1f4b36] text-sm font-black text-[#f3dfaa]">
-              D
-            </span>
-            <span className="text-sm font-black text-[#24251f]">Dylan&apos;s Landscaping</span>
-          </div>
-          <span className="rounded-lg bg-[#24251f] px-3 py-2 text-xs font-black text-white">☎ Call</span>
-        </div>
-        <div className="bg-gradient-to-br from-[#163322] via-[#2f6f45] to-[#607a45] px-5 py-10 text-white">
-          <p className="rounded-xl border border-white/25 bg-white/15 px-3 py-2 text-[10px] font-bold leading-4 text-[#f4edcf]">
+        <span className="rounded-lg bg-[#24251f] px-3 py-2 text-xs font-black text-white">☎ Call</span>
+      </div>
+      <div className="relative overflow-hidden bg-gradient-to-br from-[#163322] via-[#2e673f] to-[#607a45] px-5 py-9 text-white">
+        <div className="absolute inset-0 opacity-25 [background-image:repeating-linear-gradient(112deg,rgba(255,255,255,.22)_0_1px,transparent_1px_29px)]" />
+        <div className="relative">
+          <p className="rounded-full border border-white/30 bg-white/15 px-3 py-2 text-[10px] font-black leading-4 text-[#f4edcf]">
             Sample image area — final website will use your actual project photos.
           </p>
-          <h4 className="mt-5 font-heading text-[1.72rem] font-black leading-[1.08] tracking-tight">
+          <h4 className="mt-5 font-heading text-3xl font-black leading-tight text-white">
             Professional Landscaping Services You Can Count On
           </h4>
-          <p className="mt-5 text-sm leading-6 text-[#f3f5eb]">
+          <p className="mt-4 text-sm leading-6 text-[#f3f5eb]">
             Lawn care, mulching, cleanups, and outdoor improvements for your property.
           </p>
-          <div className="mt-7 grid gap-3">
-            <span className="rounded-lg bg-[#f3dfaa] px-4 py-4 text-center text-sm font-black text-[#1d4a33]">
+          <div className="mt-6 grid gap-3">
+            <span className="rounded-lg bg-[#f3dfaa] px-4 py-3 text-center text-sm font-black text-[#1d4a33]">
               Request a Free Estimate
             </span>
-            <span className="rounded-lg border-2 border-white/55 px-4 py-4 text-center text-sm font-black text-white">
+            <span className="rounded-lg border-2 border-white/55 px-4 py-3 text-center text-sm font-black text-white">
               Call Now
             </span>
           </div>
         </div>
-        <div className="bg-white px-5 py-10 text-center">
-          <Eyebrow>What We Offer</Eyebrow>
-          <h4 className="font-heading text-2xl font-black text-[#24251f]">Our Services</h4>
-          <div className="mt-8 space-y-4 text-left">
-            {services.slice(0, 2).map((service) => (
-              <div key={service.title} className="rounded-2xl border border-[#e2dccb] bg-[#fbfaf6] p-5">
-                <div className={`mb-4 size-10 rounded-xl ${service.color}`} />
-                <p className="font-heading text-base font-black text-[#24251f]">{service.title}</p>
-                <p className="mt-3 text-sm leading-6 text-[#68685d]">{service.description}</p>
-              </div>
-            ))}
+      </div>
+      <div className="rounded-t-[1.85rem] bg-white px-5 py-9 text-center">
+        <Eyebrow>What We Offer</Eyebrow>
+        <h4 className="font-heading text-2xl font-black text-[#24251f]">Our Services</h4>
+        <div className="mt-7 space-y-4 text-left">
+          {services.slice(0, 2).map((service) => (
+            <div key={service.title} className="rounded-2xl border border-[#e2dccb] bg-[#fbfaf6] p-5">
+              <div className={`mb-5 size-10 rounded-xl ${service.color}`} />
+              <h5 className="font-heading text-lg font-black text-[#24251f]">{service.title}</h5>
+              <p className="mt-3 text-sm leading-6 text-[#68685d]">{service.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </PhoneShell>
+  )
+}
+
+function SectionPreview() {
+  return (
+    <div className="rounded-[1.5rem] border border-[#d7d0bf] bg-white p-7 shadow-2xl shadow-black/10 sm:p-9">
+      <Eyebrow>Optional — Section Preview</Eyebrow>
+      <h3 className="font-heading text-3xl font-black text-[#24251f]">Services + Quote Preview</h3>
+      <div className="mt-8 space-y-4">
+        {services.slice(0, 3).map((service) => (
+          <div key={service.title} className="flex gap-5 rounded-2xl border border-[#e2dccb] bg-[#fbfaf6] p-5">
+            <div className={`size-11 shrink-0 rounded-xl ${service.color}`} />
+            <div>
+              <h4 className="font-heading text-base font-black text-[#24251f]">{service.title}</h4>
+              <p className="mt-1 text-sm leading-6 text-[#68685d]">{service.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div className="mt-9 border-t border-[#ece6d7] pt-8">
+        <Eyebrow>Get in Touch</Eyebrow>
+        <h4 className="font-heading text-2xl font-black text-[#24251f]">Request a Free Estimate</h4>
+        <p className="mt-3 text-sm leading-6 text-[#68685d]">
+          Tell us about your property and what you need — we&apos;ll follow up to discuss your estimate.
+        </p>
+        <div className="mt-5 grid gap-3">
+          <FormField>Full Name</FormField>
+          <FormField>Phone Number</FormField>
+          <FormField>Service Needed</FormField>
+          <div className="rounded-lg bg-[#2f7647] px-6 py-4 text-center text-sm font-black text-white">
+            Request My Free Estimate
           </div>
         </div>
       </div>
@@ -607,38 +632,13 @@ function MobileConcept() {
   )
 }
 
-function SectionPreviewCard() {
+function PaymentCard({ label, amount }: { label: string; amount: string }) {
   return (
-    <div className="rounded-[1.75rem] border border-[#d7d1c1] bg-white p-7 shadow-2xl shadow-[#2d2617]/15 sm:p-9">
-      <Eyebrow>What We Offer</Eyebrow>
-      <h3 className="font-heading text-3xl font-black text-[#24251f]">Our Services</h3>
-      <div className="mt-7 space-y-4">
-        {services.slice(0, 3).map((service) => (
-          <div key={service.title} className="flex gap-5 rounded-2xl border border-[#e2dccb] bg-[#fbfaf6] p-5">
-            <div className={`size-12 shrink-0 rounded-xl ${service.color}`} />
-            <div>
-              <h4 className="font-heading text-base font-black text-[#24251f]">{service.title}</h4>
-              <p className="mt-2 text-sm leading-6 text-[#68685d]">{service.description}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      <div className="mt-10">
-        <Eyebrow>Get in Touch</Eyebrow>
-        <h3 className="font-heading text-3xl font-black text-[#24251f]">Request a Free Estimate</h3>
-        <p className="mt-4 text-sm leading-6 text-[#68685d]">
-          Tell us about your property and what you need — we&apos;ll follow up to discuss your estimate.
-        </p>
-        <div className="mt-6 space-y-3">
-          <FormField>Full Name</FormField>
-          <FormField>Phone Number</FormField>
-          <FormField>Service Needed</FormField>
-          <div className="rounded-lg bg-[#2f7647] px-5 py-4 text-center text-sm font-black text-white">
-            Request My Free Estimate
-          </div>
-        </div>
-      </div>
+    <div className="min-h-40 rounded-2xl border border-white/20 bg-white/12 p-7 shadow-lg shadow-black/10">
+      <p className="whitespace-nowrap text-[11px] font-black uppercase tracking-[0.2em] text-[#d3e0cf] sm:text-xs">
+        {label}
+      </p>
+      <p className="mt-6 font-heading text-4xl font-black text-[#f3dfaa]">{amount}</p>
     </div>
   )
 }
@@ -785,7 +785,7 @@ export default function DylansLandscapingProposalPage() {
             </div>
             <ul className="grid gap-3 sm:grid-cols-2">
               {packageItems.map((item) => (
-                <CheckItem key={item}>{item}</CheckItem>
+                <CheckItem key={item} light>{item}</CheckItem>
               ))}
             </ul>
           </div>
@@ -799,64 +799,54 @@ export default function DylansLandscapingProposalPage() {
             Basic SEO Setup Included
           </h2>
           <p className="mt-5 text-base leading-7 text-[#556052]">
-            Basic SEO setup is included in the $1,500 package so the website has the right search foundation from day one.
+            Basic SEO setup is included in the $1,500 package so the site is built correctly from day one. It creates a strong foundation, but ongoing ranking work would be handled separately if needed.
           </p>
         </div>
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {seoItems.map((item) => (
-            <div key={item} className="flex items-center gap-3 rounded-2xl border border-[#ded7c5] bg-white p-4 shadow-sm">
+            <div key={item} className="flex items-center gap-3 rounded-2xl border border-[#ddd5c3] bg-white p-5 shadow-sm">
               <CheckCircle2 className="size-5 shrink-0 text-[#2f6f45]" aria-hidden />
               <span className="text-sm font-semibold text-[#314031]">{item}</span>
             </div>
           ))}
         </div>
-        <div className="mt-8 rounded-2xl border border-dashed border-[#c8b991] bg-[#fbf7ef] p-6">
-          <p className="text-sm leading-6 text-[#5d6559]">
-            Basic SEO setup creates a strong foundation, but ongoing SEO work such as monthly ranking improvement, blog content, competitor research, and local listing management would be handled separately if needed. No first-page ranking promises are included.
-          </p>
-        </div>
       </SectionShell>
 
-      <SectionShell id="mockup" className="bg-[#e9e4d8]">
-        <div className="mb-12 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
-          <div className="max-w-3xl">
+      <section id="mockup" className="bg-[#e9e5d9] px-5 py-16 sm:px-6 lg:px-8 lg:py-24">
+        <div className="mx-auto max-w-7xl">
+          <div className="mx-auto max-w-3xl text-center">
             <Eyebrow>Visual Reference</Eyebrow>
             <h2 className="font-heading text-3xl font-bold tracking-tight text-[#172217] sm:text-4xl">
               Full Website Concept Preview
             </h2>
             <p className="mt-5 text-base leading-7 text-[#556052]">
-              This is a polished concept view of how the landscaping website could feel. Final photos, reviews, services, and contact details would be replaced with Dylan&apos;s actual business information.
+              This shows the proposed direction and structure. Final photos, reviews, service details, and contact information would be customized after project approval.
             </p>
           </div>
-          <a
-            href="#decision"
-            className="inline-flex items-center justify-center rounded-xl bg-[#1f4b36] px-6 py-4 text-sm font-bold text-white hover:bg-[#2f6f45]"
-          >
-            Review Next Step
-            <ArrowRight className="ml-2 size-4" aria-hidden />
-          </a>
-        </div>
 
-        <div className="mb-5 inline-flex rounded-full border border-[#d7d1c1] bg-white px-4 py-2 text-xs font-black uppercase tracking-[0.2em] text-[#24251f]">
-          Desktop — 1440px
-        </div>
-        <DesktopConcept />
-
-        <div className="mt-14 grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-          <div>
-            <div className="mb-5 inline-flex rounded-full border border-[#d7d1c1] bg-white px-4 py-2 text-xs font-black uppercase tracking-[0.2em] text-[#24251f]">
-              Mobile — 390px
+          <div className="mt-12">
+            <div className="mb-5 inline-flex rounded-full border border-[#d7d0bf] bg-white px-4 py-2 text-xs font-black uppercase tracking-[0.18em] text-[#24251f]">
+              Desktop — 1440px
             </div>
-            <MobileConcept />
+            <DesktopConcept />
           </div>
-          <div>
-            <div className="mb-5 inline-flex rounded-full border border-[#d7d1c1] bg-white px-4 py-2 text-xs font-black uppercase tracking-[0.2em] text-[#24251f]">
-              Optional — Section Preview
+
+          <div className="mt-16 grid items-start gap-10 lg:grid-cols-[minmax(300px,390px)_minmax(460px,1fr)] lg:justify-center">
+            <div>
+              <div className="mb-5 inline-flex rounded-full border border-[#d7d0bf] bg-white px-4 py-2 text-xs font-black uppercase tracking-[0.18em] text-[#24251f]">
+                Mobile — 390px
+              </div>
+              <MobileConcept />
             </div>
-            <SectionPreviewCard />
+            <div>
+              <div className="mb-5 inline-flex rounded-full border border-[#d7d0bf] bg-white px-4 py-2 text-xs font-black uppercase tracking-[0.18em] text-[#24251f]">
+                Optional — Section Preview
+              </div>
+              <SectionPreview />
+            </div>
           </div>
         </div>
-      </SectionShell>
+      </section>
 
       <SectionShell id="addons" className="bg-white">
         <div className="mx-auto max-w-3xl text-center">
@@ -864,19 +854,16 @@ export default function DylansLandscapingProposalPage() {
           <h2 className="font-heading text-3xl font-bold tracking-tight text-[#172217] sm:text-4xl">
             Flexible Extras If Needed
           </h2>
-          <p className="mt-5 text-base leading-7 text-[#556052]">
-            The base package is enough to launch. These add-ons are available if Dylan wants ongoing updates or deeper local search support.
-          </p>
         </div>
         <div className="mt-10 grid gap-6 lg:grid-cols-3">
-          {addOns.map((addOn) => (
-            <div key={addOn.title} className="rounded-[1.5rem] border border-[#ded7c5] bg-[#fbf7ef] p-6 shadow-sm">
-              <p className="text-sm font-bold text-[#2f6f45]">{addOn.price}</p>
-              <h3 className="mt-2 font-heading text-xl font-bold text-[#172217]">{addOn.title}</h3>
-              <p className="mt-4 text-sm leading-6 text-[#5d6559]">{addOn.description}</p>
+          {addOns.map((addon) => (
+            <div key={addon.title} className="rounded-[1.5rem] border border-[#ddd5c3] bg-[#fbf7ef] p-7 shadow-sm">
+              <h3 className="font-heading text-xl font-bold text-[#172217]">{addon.title}</h3>
+              <p className="mt-2 font-heading text-2xl font-bold text-[#1f4b36]">{addon.price}</p>
+              <p className="mt-4 text-sm leading-6 text-[#556052]">{addon.description}</p>
               <ul className="mt-6 space-y-3">
-                {addOn.items.map((item) => (
-                  <LightCheckItem key={item}>{item}</LightCheckItem>
+                {addon.items.map((item) => (
+                  <CheckItem key={item}>{item}</CheckItem>
                 ))}
               </ul>
             </div>
@@ -884,54 +871,41 @@ export default function DylansLandscapingProposalPage() {
         </div>
       </SectionShell>
 
-      <SectionShell id="payment" className="bg-[#172217] text-white">
-        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+      <section id="payment" className="bg-[#132417] px-5 py-16 text-white sm:px-6 lg:px-8 lg:py-24">
+        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.8fr_minmax(680px,1fr)] lg:items-center">
           <div>
             <Eyebrow light>Payment Structure</Eyebrow>
-            <h2 className="font-heading text-3xl font-bold tracking-tight text-white sm:text-4xl">
-              Simple 50/50 Payment Plan
-            </h2>
-            <p className="mt-5 text-base leading-7 text-[#dfeadc]">
+            <h2 className="font-heading text-3xl font-bold tracking-tight sm:text-4xl">Simple 50/50 Payment Plan</h2>
+            <p className="mt-5 max-w-xl text-base leading-7 text-[#dfeadc]">
               A deposit starts the project. The final payment is due before launch after review and approved revisions.
             </p>
           </div>
           <div className="grid gap-5 sm:grid-cols-3">
-            {[
-              ["Project Total", "$1,500"],
-              ["Deposit to Start", "$750"],
-              ["Before Launch", "$750"],
-            ].map(([label, value]) => (
-              <div key={label} className="rounded-2xl border border-white/15 bg-white/10 p-6">
-                <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#b9ccb5]">{label}</p>
-                <p className="mt-3 font-heading text-3xl font-bold text-[#f3dfaa]">{value}</p>
-              </div>
-            ))}
+            <PaymentCard label="Project Total" amount="$1,500" />
+            <PaymentCard label="Deposit to Start" amount="$750" />
+            <PaymentCard label="Before Launch" amount="$750" />
           </div>
         </div>
-      </SectionShell>
+      </section>
 
       <SectionShell id="timeline" className="bg-[#f4f0e6]">
-        <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
+        <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
           <div>
             <Eyebrow>Estimated Timeline</Eyebrow>
-            <h2 className="font-heading text-3xl font-bold tracking-tight text-[#172217] sm:text-4xl">
-              2–3 Weeks to Launch
-            </h2>
+            <h2 className="font-heading text-3xl font-bold tracking-tight text-[#172217] sm:text-4xl">2–3 Weeks to Launch</h2>
             <p className="mt-5 text-base leading-7 text-[#556052]">
               Timeline depends on how quickly photos, service details, and business information are provided.
             </p>
           </div>
           <div className="space-y-4">
             {timelineSteps.map((step, index) => (
-              <div key={step} className="flex gap-4 rounded-2xl border border-[#ded7c5] bg-white p-5">
-                <span className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-[#1f4b36] font-heading font-bold text-[#f3dfaa]">
+              <div key={step} className="flex gap-5 rounded-2xl border border-[#ddd5c3] bg-white p-6 shadow-sm">
+                <span className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-[#1f4b36] font-heading text-sm font-bold text-[#f3dfaa]">
                   {index + 1}
                 </span>
                 <div>
                   <h3 className="font-heading text-lg font-bold text-[#172217]">{step}</h3>
-                  <p className="mt-1 text-sm leading-6 text-[#5d6559]">
-                    A clear step so the project stays organized and easy to approve.
-                  </p>
+                  <p className="mt-1 text-sm leading-6 text-[#556052]">A clear step so the project stays organized and easy to approve.</p>
                 </div>
               </div>
             ))}
@@ -943,42 +917,36 @@ export default function DylansLandscapingProposalPage() {
         <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
           <div>
             <Eyebrow>What I Need From You</Eyebrow>
-            <h2 className="font-heading text-3xl font-bold tracking-tight text-[#172217] sm:text-4xl">
-              A Few Details to Start
-            </h2>
-            <p className="mt-5 text-base leading-7 text-[#556052]">
-              These items help replace the mockup placeholders with real business content.
-            </p>
+            <h2 className="font-heading text-3xl font-bold tracking-tight text-[#172217] sm:text-4xl">Simple Info to Get Started</h2>
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
             {neededItems.map((item) => (
-              <div key={item} className="flex items-center gap-3 rounded-2xl border border-[#ded7c5] bg-[#fbf7ef] p-4">
-                <ShieldCheck className="size-5 shrink-0 text-[#2f6f45]" aria-hidden />
-                <span className="text-sm font-semibold text-[#314031]">{item}</span>
+              <div key={item} className="rounded-2xl border border-[#ddd5c3] bg-[#fbf7ef] p-5 text-sm font-semibold text-[#314031]">
+                {item}
               </div>
             ))}
           </div>
         </div>
       </SectionShell>
 
-      <section id="decision" className="bg-[#1f4b36] px-5 py-20 text-white sm:px-6 lg:px-8">
+      <section id="decision" className="bg-[#172217] px-5 py-16 text-white sm:px-6 lg:px-8 lg:py-24">
         <div className="mx-auto max-w-4xl text-center">
           <Eyebrow light>Next Step</Eyebrow>
-          <h2 className="font-heading text-3xl font-bold tracking-tight text-white sm:text-4xl">
-            Ready to Move Forward?
-          </h2>
-          <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-[#dfeadc]">
+          <h2 className="font-heading text-3xl font-bold tracking-tight sm:text-5xl">Ready to Make a Decision?</h2>
+          <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-[#dfeadc]">
             If this package looks like a good fit, the next step would be to confirm the package, collect the deposit, and gather the business details needed to start the website.
           </p>
-          <div className="mt-9 flex flex-wrap justify-center gap-4">
+          <div className="mt-10 flex flex-wrap justify-center gap-4">
             <DecisionButton href={interestedHref} primary>
               I&apos;m Interested — Let&apos;s Move Forward
+              <ArrowRight className="ml-2 size-4" aria-hidden />
             </DecisionButton>
             <DecisionButton href={questionsHref}>I Have Questions</DecisionButton>
             <DecisionButton href={notNowHref}>Not Right Now</DecisionButton>
           </div>
-          <p className="mt-8 text-sm text-[#cfe0cc]">
-            Prefer to reach out directly? Email {CONTACT_EMAIL}.
+          <p className="mt-8 flex items-center justify-center gap-2 text-sm text-[#b9ccb5]">
+            <Mail className="size-4" aria-hidden />
+            Prepared by Bryan • {CONTACT_EMAIL}
           </p>
         </div>
       </section>
