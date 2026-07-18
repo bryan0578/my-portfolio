@@ -7,10 +7,10 @@ import { Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 const navLinks = [
-  { href: "/work-with-me", label: "Work With Me" },
-  { href: "/projects", label: "Case Studies" },
-  { href: "/services", label: "Services" },
-  { href: "/blog", label: "Insights" },
+  { href: "/career", label: "Career" },
+  { href: "/consulting", label: "Consulting" },
+  { href: "/projects", label: "Work" },
+  { href: "/blog", label: "Blog" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ] as const
@@ -18,10 +18,6 @@ const navLinks = [
 export function SiteHeader() {
   const pathname = usePathname()
   const [mobileOpen, setMobileOpen] = useState(false)
-
-  useEffect(() => {
-    setMobileOpen(false)
-  }, [pathname])
 
   useEffect(() => {
     if (!mobileOpen) return
@@ -45,7 +41,9 @@ export function SiteHeader() {
   const closeMobileMenu = () => setMobileOpen(false)
 
   const isActiveRoute = (href: string) =>
-    pathname === href || (href !== "/" && pathname.startsWith(`${href}/`))
+    pathname === href ||
+    (href !== "/" && pathname.startsWith(`${href}/`)) ||
+    (href === "/consulting" && (pathname.startsWith("/services") || pathname.startsWith("/work-with-me")))
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-xl">
