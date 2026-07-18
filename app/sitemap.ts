@@ -35,6 +35,12 @@ const staticRoutes: MetadataRoute.Sitemap = [
     priority: 0.85,
   },
   {
+    url: `${SITE_URL}/web-apps`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.85,
+  },
+  {
     url: SITE_URL,
     lastModified: new Date(),
     changeFrequency: "weekly",

@@ -8,6 +8,7 @@ import { SocialLinksWithLabels } from "@/components/social-links"
 const footerLinks = [
   { href: "/career", label: "Career" },
   { href: "/consulting", label: "Consulting" },
+  { href: "/web-apps", label: "Web Apps" },
   { href: "/projects", label: "Work" },
   { href: "/blog", label: "Blog" },
   { href: "/about", label: "About" },

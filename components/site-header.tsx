@@ -15,6 +15,11 @@ const navLinks = [
   { href: "/contact", label: "Contact" },
 ] as const
 
+const mobileNavLinks = [
+  ...navLinks,
+  { href: "/web-apps", label: "Web Apps" },
+] as const
+
 export function SiteHeader() {
   const pathname = usePathname()
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -111,7 +116,7 @@ export function SiteHeader() {
             className="lg:hidden fixed top-16 left-0 right-0 z-50 border-b border-border/50 bg-background/95 backdrop-blur-xl shadow-lg"
           >
             <ul className="px-4 py-3 space-y-1">
-              {navLinks.map(({ href, label }) => {
+              {mobileNavLinks.map(({ href, label }) => {
                 const isActive = isActiveRoute(href)
 
                 return (
