@@ -48,8 +48,8 @@ export const aboutContent = {
         "Representative outcomes from recent programs (details in case studies):",
       ],
       bullets: [
-        "22 custom SAP Fiori applications deployed in a unified SAP BTP manufacturer portal",
-        "40+ legacy portals retired in favor of a centralized external partner experience",
+        "SAPUI5 reporting applications delivered through a unified SAP BTP experience",
+        "Reusable UI and delivery patterns contributed to an external partner reporting program",
         "Average user adoption improvement around 30% on portal initiatives",
         "20+ product demonstrations delivered to Fortune 500 stakeholders",
         "End-to-end Salesforce release ownership across Dev, QA, UAT, and Production",
