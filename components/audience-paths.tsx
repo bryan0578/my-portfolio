@@ -1,9 +1,11 @@
-import { ArrowRight, BriefcaseBusiness, Handshake } from "lucide-react"
+import { ArrowRight, BookOpen, BriefcaseBusiness, Handshake, PanelsTopLeft } from "lucide-react"
 import { AnalyticsLink } from "@/components/analytics-link"
 
 const paths = [
   { href: "/career", event: "career_journey_selected", icon: BriefcaseBusiness, eyebrow: "FOR HIRING TEAMS", title: "Hiring for a full-time role", text: "Review Bryan’s team contribution, enterprise experience, selected projects, skills, and resume." },
   { href: "/consulting", event: "consulting_journey_selected", icon: Handshake, eyebrow: "FOR CLIENTS", title: "Looking for consulting or project support", text: "Explore focused services, engagement fit, proof of work, process, and ways to start a scoped conversation." },
+  { href: "/web-apps", event: "web_apps_journey_selected", icon: PanelsTopLeft, eyebrow: "FOR FOUNDERS & SMALL TEAMS", title: "Need a web application built", text: "Modern web apps and sites on Next.js — scoped, designed, and shipped." },
+  { href: "/blog", event: "blog_journey_selected", icon: BookOpen, eyebrow: "READERS", title: "Here for the writing", text: "Practical writing on enterprise UI, SAP delivery, and modern frontend." },
 ] as const
 
 export function AudiencePaths() {

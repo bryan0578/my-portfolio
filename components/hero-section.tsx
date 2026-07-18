@@ -16,7 +16,7 @@ export function HeroSection() {
             {/* Copy + CTAs — sole focal point below lg */}
             <div className="relative z-10 text-center lg:text-left order-1 min-w-0 lg:py-1 max-lg:mx-auto max-lg:max-w-lg">
               <p className="text-label tracking-wide text-brand-primary mb-2.5 font-semibold-plus normal-case">
-                Enterprise UI Developer · Technical Lead
+                SAP BTP Solution Engineer &amp; Technical Lead
               </p>
 
               <h1 className="text-h1 lg:text-hero font-bold text-foreground mb-3.5 sm:mb-4 text-balance">
