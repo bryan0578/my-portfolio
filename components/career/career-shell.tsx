@@ -53,7 +53,7 @@ export function CareerShell({ children }: { children: React.ReactNode }) {
           <div className="pointer-events-none absolute inset-y-0 right-0 w-5 bg-gradient-to-l from-background to-transparent" aria-hidden="true" />
         </div>
       </nav>
-      <main id="main-content" className="mx-auto max-w-6xl scroll-mt-32 px-5 py-14 sm:px-6 md:py-20">{children}</main>
+      <main id="main-content" className="mx-auto max-w-6xl scroll-mt-32 px-5 pt-20 pb-14 sm:px-6 md:py-20">{children}</main>
       <AIChatBubble />
     </div>
   )
