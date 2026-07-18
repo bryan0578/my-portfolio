@@ -232,8 +232,7 @@ These projects are valuable because they show Bryan can do more than build syste
   // Individual project: manufacturer
   if (
     message.includes("manufacturer portal") ||
-    message.includes("manufacturer analytics") ||
-    message.includes("mckesson")
+    message.includes("manufacturer analytics")
   ) {
     return `The Manufacturer Analytics Portal is one of Bryan’s flagship projects.
 
@@ -251,8 +250,7 @@ It’s a strong example of Bryan’s ability to work across architecture, enterp
   // Individual project: partner portal
   if (
     message.includes("partner portal") ||
-    message.includes("warranty portal") ||
-    message.includes("juniper")
+    message.includes("warranty portal")
   ) {
     return `The Partner Warranty Portal is a strong Salesforce project in Bryan’s portfolio.
 
@@ -270,8 +268,7 @@ It’s valuable because it shows Bryan contributing across frontend, backend sup
   // Individual project: utility portal
   if (
     message.includes("utility portal") ||
-    message.includes("customer self-service") ||
-    message.includes("entergy")
+    message.includes("customer self-service")
   ) {
     return `The Utility Customer Self-Service Portal highlights Bryan’s experience building customer-facing enterprise UI.
 
@@ -285,10 +282,9 @@ The project included:
 It’s one of the strongest examples of Bryan’s ability to translate design systems into real enterprise interfaces.`
   }
 
-  // Individual project: KPMG dashboard
+  // Individual project: professional-services dashboard
   if (
     message.includes("client dashboard") ||
-    message.includes("kpmg") ||
     message.includes("master-detail")
   ) {
     return `The Client Data Dashboard is a strong SAPUI5 project that highlights Bryan’s frontend and UX-focused work.
