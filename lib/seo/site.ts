@@ -39,7 +39,7 @@ export const RSS_FEED_PATH = "/feed.xml"
 /** Canonical external profile URLs. Used in the Person schema `sameAs` and
  *  surfaced in the footer, About page, and Work With Me page. */
 export const LINKEDIN_URL = "https://www.linkedin.com/in/cashbryan/"
-export const LINKEDIN_HANDLE = "in/cashbryan"
+export const LINKEDIN_HANDLE = "linkedin.com/in/cashbryan"
 
 export const GITHUB_URL = "https://github.com/bryan0578"
 export const GITHUB_HANDLE = "@bryan0578"
