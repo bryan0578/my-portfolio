@@ -1,7 +1,6 @@
 "use client"
 
 import Link from "next/link"
-import { usePathname } from "next/navigation"
 import { serviceHubCards } from "@/lib/marketing/services-content"
 import { SocialLinksWithLabels } from "@/components/social-links"
 
@@ -16,9 +15,6 @@ const footerLinks = [
 ] as const
 
 export function SiteFooter() {
-  const pathname = usePathname()
-  if (pathname.startsWith("/proposals/")) return null
-
   return (
     <footer
       role="contentinfo"
