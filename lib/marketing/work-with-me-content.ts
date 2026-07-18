@@ -345,7 +345,7 @@ export const workWithMeContent: WorkWithMeContent = {
         description:
           "Multi-tenant SAP BTP portal for an external manufacturer/partner network, consolidating fragmented reporting and analytics under federated identity.",
         outcome:
-          "22 SAPUI5 applications deployed, 40 legacy partner portals retired, federated identity with ABAC at the data layer.",
+          "SAPUI5 reporting applications delivered through a unified SAP BTP experience with identity-based access controls.",
         relevance:
           "Flagship SAP BTP delivery with Build Work Zone, CAP services, and IAS-mediated identity federation.",
       },
@@ -355,7 +355,7 @@ export const workWithMeContent: WorkWithMeContent = {
         description:
           "Clean Core extensibility standards for an S/4HANA program with multiple development teams.",
         outcome:
-          "12 governance guidelines and 5 reusable extensibility patterns adopted across 8 stakeholder groups.",
+          "Clean Core-aligned governance guidance and reusable extensibility decision patterns.",
         relevance:
           "Technical advisory and governance delivery aligned to Clean Core principles.",
       },
@@ -393,14 +393,14 @@ export const workWithMeContent: WorkWithMeContent = {
         slug: "fuel-management",
         title: "Fuel Vendor Invoice Management",
         description:
-          "Four SAPUI5 form applications replacing manual fuel-data entry with validated workflows for 20+ daily users.",
+          "Four SAPUI5 form applications supporting structured, validated fuel-data workflows.",
         outcome:
-          "Validation enforced at point of entry, OData integration, and reduced invoice discrepancies for AP.",
+          "Validation at point of entry, OData integration, and more consistent data submission.",
         relevance:
           "SAPUI5 delivery for operational workflows with vendor-contract validation.",
       },
       {
-        slug: "kpmg-client-dashboard",
+        slug: "professional-services-client-dashboard",
         title: "Client Data Dashboard (SAPUI5)",
         description:
           "SAPUI5 master-detail application integrated into Fiori Launchpad with in-app onboarding for new users.",

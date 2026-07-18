@@ -68,38 +68,20 @@ export interface Project {
       featured: true,
       categories: ["SAP BTP","UI/UX", "DevOps", "Technical Documentation"],
       stack: ["SAP BTP", "CAP", "SAPUI5", "Build Work Zone"],
-      summary: "Architected a centralized secure entry point for external manufacturers, replacing legacy Power BI portals with a unified SAP BTP ecosystem.",
+      summary: "Delivered 25 SAPUI5 reporting applications plus 3 onboarding applications within a secure SAP BTP experience for external manufacturers.",
       problem: "External partners faced fragmented data access across siloed portals, leading to reporting delays and security complexities for a major healthcare leader.",
-      solution: "Designed a multi-tenant portal using SAP Build Work Zone and a Node.js CAP backend, centralizing 22 custom SAPUI5 and SAP Fiori applications into a single authenticated experience.",
-      impact: "22 Custom Apps Deployed",
-      architecture: {
-        title: "Multi-Tenant Analytics Architecture",
-        description:
-          "Built on SAP BTP, this architecture enables secure, multi-tenant access for external manufacturers through a unified portal. SAPUI5 applications are delivered via Build Work Zone, while a CAP-based service layer enforces data isolation using attribute-based access control (ABAC). Identity federation with Okta and SAP IAS ensures seamless authentication and tenant-specific data access."
-      },
-      architectureDiagram: {
-        type: "manufacturer-portal"
-      },
-      
-      securityArchitecture: {
-        title: "Advanced Identity Federation",
-        description: "Implemented a seamless SSO experience by federating Okta with SAP Cloud Identity Services (IAS).",
-        highlights: [
-          "Mapped custom Okta attributes (Manufacturer_ID, Region_Code) to SAML assertions.",
-          "Configured SAP IAS as the proxy to pass these attributes into the BTP XSUAA service.",
-          "Implemented Attribute-Based Access Control (ABAC) in the CAP layer to restrict data visibility based on these passed attributes."
-        ]
-      },
+      solution: "Configured SAP Build Work Zone and SAP Cloud Identity Services with Okta-based authentication. Designed and developed the SAP CAP service using Node.js over HANA, and delivered 25 SAPUI5 reporting applications plus 3 onboarding applications that consolidated fragmented partner access into one authenticated experience.",
+      impact: "Unified enterprise reporting experience",
       metrics: [
-        { label: "Applications Built", value: "22" },
-        { label: "User Adoption", value: "+40%" },
-        { label: "Legacy Portals Retired", value: "40" },
+        { label: "Applications", value: "25 Reporting Apps + 3 Onboarding Apps" },
+        { label: "Primary UI", value: "SAPUI5" },
+        { label: "Portal", value: "Build Work Zone" },
       ],
       timeline: {
         discovery: "Analyzed existing Power BI workflows and mapped data requirements for external manufacturer personas. Identified security gaps in cross-platform authentication.",
-        architecture: "Designed a robust architecture using SAP BTP Cloud Foundry. Implemented SAP Build Work Zone and custom SAPUI5 applications for the frontend and SAP CAP (Node.js) for the service layer.",
-        development: "Led a team to develop 15 custom SAPUI5/Fiori applications. Integrated SAP Datasphere for real-time analytics and implemented Okta for secure external identity management.",
-        deployment: "Managed a phased rollout strategy reaching go-live in December 2025. Established CI/CD pipelines to ensure zero-downtime updates for the manufacturer community.",
+        architecture: "Contributed to a SAP BTP solution using Build Work Zone, SAPUI5 applications, CAP services, and enterprise data sources.",
+        development: "Developed SAPUI5/Fiori reporting applications, supported CAP service behavior, and coordinated with technical and functional contributors.",
+        deployment: "Supported testing, troubleshooting, deployment, and post-release stabilization across enterprise environments.",
       },
       deepDive: {
         eyebrow: "Technical Deep Dive",
@@ -107,24 +89,6 @@ export interface Project {
         description:
           "Built on SAP BTP, this architecture enables secure, multi-tenant access..."
       },
-      codeSnippet: `// CAP CDS Service for Manufacturer Analytics
-  service ManufacturerService @(path: '/api/v1/analytics') {
-    @readonly
-    entity SalesPerformance as select from db.Sales {
-      key ID,
-      manufacturerName,
-      productCategory,
-      monthlyRevenue,
-      growthPercentage,
-      virtual marginIndicator : String
-    };
-  
-    annotate SalesPerformance with @(
-      requires: 'authenticated-user',
-      restrict: [{ grant: 'READ', where: 'manufacturerId = $user.id' }]
-    );
-  }`,
-      codeLanguage: "javascript",
     },
     // ... rest of your projects (customer-360, field-service, partner-hub)
     "salesforce-devops": {
@@ -181,9 +145,9 @@ export interface Project {
         impact: "Clean Core Standards Defined",
 
         metrics: [
-            { label: "Guidelines", value: "12" },
-            { label: "Patterns", value: "5" },
-            { label: "Stakeholders", value: "8" }
+            { label: "Deliverable", value: "Standards" },
+            { label: "Focus", value: "Clean Core" },
+            { label: "Format", value: "Guidance" }
         ],
 
         role: {
@@ -195,7 +159,7 @@ export interface Project {
             "Defined guidance for Side-by-Side and In-App extensibility approaches",
             "Created a standards document to support more consistent implementation decisions across teams"
             ],
-            footerLabel: "12 Guidelines • 5 Patterns • 8 Stakeholders"
+            footerLabel: "Clean Core • Standards • Technical Documentation"
         },
 
         timeline: {
@@ -215,18 +179,18 @@ export interface Project {
         categories: ["SAP BTP", "UI/UX", "DevOps"],
         stack: ["SAPUI5", "OData", "Fiori"],
 
-        summary: "Built SAPUI5 applications to streamline fuel data entry and improve accuracy in vendor invoice processing.",
+        summary: "Built SAPUI5 applications to support structured fuel data entry and earlier validation in vendor invoice processing.",
 
         problem: "Fuel data for vendor payments was manually entered across disconnected processes, leading to data inconsistencies, validation issues, and delays in invoice processing.",
 
         solution: "Developed 4 SAPUI5 form-based applications that standardized data entry, introduced validation logic, and integrated with backend OData services to support accurate and consistent vendor invoicing.",
 
-        impact: "Improved Invoice Accuracy",
+        impact: "Structured Invoice Workflows",
 
         metrics: [
             { label: "Apps", value: "4" },
             { label: "Flows", value: "4" },
-            { label: "Users", value: "20+" }
+            { label: "Delivery", value: "Production" }
         ],
 
         role: {
@@ -238,7 +202,7 @@ export interface Project {
             "Implemented client-side validation logic to enforce business rules",
             "Integrated applications with OData services for backend processing"
             ],
-            footerLabel: "4 Apps • 4 Workflows • 20+ Users"
+            footerLabel: "4 Apps • 4 Workflows • SAPUI5"
         },
 
         timeline: {
@@ -435,8 +399,8 @@ export interface Project {
             description: "Focused on simplifying complex technical concepts into clear, engaging narratives through video, combining structured demos, motion design, and voice-driven walkthroughs."
         }
     },
-    "kpmg-client-dashboard": {
-        slug: "kpmg-client-dashboard",
+    "professional-services-client-dashboard": {
+        slug: "professional-services-client-dashboard",
         title: "Client Data Dashboard (SAPUI5)",
         categories: ["SAP BTP", "UI/UX"],
         stack: ["SAPUI5", "Fiori Launchpad", "JavaScript", "Bootstrap"],

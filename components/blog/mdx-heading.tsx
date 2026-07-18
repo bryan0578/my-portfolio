@@ -29,11 +29,8 @@ export function MdxHeading({ className, children, ...props }: MdxHeadingProps) {
   const ctx = useContext(BlogMdxContext)
   const text = headingText(children)
 
-  if (ctx && !ctx.suppressRef.current && text) {
-    if (normalizeHeading(text) === normalizeHeading(ctx.title)) {
-      ctx.suppressRef.current = true
-      return null
-    }
+  if (ctx && text && normalizeHeading(text) === normalizeHeading(ctx.title)) {
+    return null
   }
 
   return (

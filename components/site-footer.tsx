@@ -1,17 +1,24 @@
+"use client"
+
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { serviceHubCards } from "@/lib/marketing/services-content"
 import { SocialLinksWithLabels } from "@/components/social-links"
 
 const footerLinks = [
-  { href: "/work-with-me", label: "Work With Me" },
-  { href: "/projects", label: "Case Studies" },
-  { href: "/services", label: "Services" },
-  { href: "/blog", label: "Insights" },
+  { href: "/career", label: "Career" },
+  { href: "/consulting", label: "Consulting" },
+  { href: "/web-apps", label: "Web Apps" },
+  { href: "/projects", label: "Work" },
+  { href: "/blog", label: "Blog" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ] as const
 
 export function SiteFooter() {
+  const pathname = usePathname()
+  if (pathname.startsWith("/proposals/")) return null
+
   return (
     <footer
       role="contentinfo"
@@ -21,16 +28,15 @@ export function SiteFooter() {
         <div className="min-w-0">
           <p className="text-body-sm font-semibold font-heading text-foreground mb-3">Bryan Cash</p>
           <p className="text-body-sm text-muted-foreground leading-body">
-            Bryan Cash is a developer, enterprise UI architect, and technical creator
-            helping organizations build practical systems for SAP, Salesforce, and modern
-            web platforms that turn complexity into clarity.
+            Enterprise UI developer and technical lead building practical SAP,
+            Salesforce, and modern web experiences with large delivery teams.
           </p>
           <div className="mt-4 flex flex-wrap gap-x-4 gap-y-1">
             <Link
-              href="/work-with-me"
+              href="/career"
               className="text-body-sm font-medium text-brand-primary hover:text-brand-primary/80 transition-colors"
             >
-              Engagement options →
+              Career profile →
             </Link>
             <Link
               href="/contact"

@@ -5,11 +5,9 @@ import {
   ArrowRight,
   CheckCircle2,
   Clock3,
-  Leaf,
   Mail,
   MonitorSmartphone,
   Search,
-  ShieldCheck,
   Sparkles,
   WalletCards,
 } from "lucide-react"

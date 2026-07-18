@@ -13,7 +13,7 @@ const skills = [
     category: "Architecture",
     icon: Cloud,
     href: "/services/sap-btp-development",
-    description: "Enterprise cloud solutions with SAP Business Technology Platform. CAP development, integration suites, and extensibility.",
+    description: "Enterprise cloud solutions on SAP Business Technology Platform — CAP services, Build Work Zone portals, identity and SSO with SAP Cloud Identity Services and Okta, and OData/REST integration into SAPUI5/Fiori applications.",
     tags: ["CAP", "SAPUI5", "Fiori", "Build Work Zone", "IAS", "HANA Cloud"],
     themeColor: "text-blue-400 border-blue-500/50 bg-blue-500/10",
     hoverBorder: "hover:border-blue-500/50",

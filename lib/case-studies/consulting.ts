@@ -3,12 +3,12 @@ import type { ConsultingCaseStudy } from "./types"
 export const consultingCaseStudies: Record<string, ConsultingCaseStudy> = {
   "manufacturer-portal": {
     executiveSummary:
-      "An enterprise modernization that consolidated fragmented partner reporting into a unified SAP BTP portal. Replaced 40+ legacy entry points with a single Build Work Zone experience secured by federated identity, CAP-based attribute access control, and 22 custom SAPUI5 and SAP Fiori applications—delivering a single secure entry point for the external partner community.",
+      "Configured SAP Build Work Zone and SAP Cloud Identity Services with Okta-based authentication. Designed and developed the SAP CAP service using Node.js over HANA, and delivered 25 SAPUI5 reporting applications plus 3 onboarding applications that consolidated fragmented partner access into one authenticated experience.",
     businessChallenge: {
       context:
         "An external partner network accessed performance and reporting data through a patchwork of legacy portals and analytics tools. Each surface had distinct login flows, partial data coverage, and inconsistent security boundaries—creating audit risk and slowing every partner onboarding.",
       keyProblems: [
-        "Fragmented entry points spanning 40+ legacy portals",
+        "Fragmented reporting entry points and inconsistent user experiences",
         "Partial or duplicated data per portal with no canonical view",
         "Identity sprawl across partner organizations and internal directories",
         "Weak tenant isolation enforced inconsistently across surfaces",
@@ -18,94 +18,29 @@ export const consultingCaseStudies: Record<string, ConsultingCaseStudy> = {
         "External manufacturer and partner network, internal IT operations, data governance, and security/compliance reviewers.",
     },
     technicalApproach: {
-      headline: "Multi-tenant BTP architecture led from identity outward",
+      headline: "Enterprise UI delivery within a multi-layer SAP BTP solution",
       summary:
-        "Began with identity boundaries and data isolation before any UI work. Built SAP Build Work Zone as the partner-facing shell and standardized data exposure through a CAP service layer that enforces attribute-based access control at the data tier—not the UI.",
+        "Developed 25 SAPUI5 reporting applications plus 3 onboarding applications and reusable UI patterns while delivering the CAP service, Build Work Zone configuration, identity integration, documentation, testing, and cross-team coordination.",
       points: [
-        "Established the partner attribute model (manufacturer ID, region) sourced from the external IdP",
-        "Deployed SAP Cloud Identity Services (IAS) as the identity proxy translating SAML attributes into XSUAA principals",
-        "Built a Node.js CAP service layer enforcing ABAC at the data boundary",
-        "Consolidated analytics into 22 SAPUI5 applications launched from Build Work Zone",
-        "Established CI/CD for zero-downtime updates across the partner community",
+        "Developed 25 SAPUI5 reporting applications plus 3 onboarding applications and reusable frontend patterns",
+        "Designed and developed the Node.js CAP service over HANA",
+        "Worked with identity attributes used by application authorization",
+        "Supported troubleshooting across SAP IAS, XSUAA, and application layers",
+        "Contributed documentation, testing, deployment, and stabilization support",
       ],
     },
-    architecturalDecisions: [
-      {
-        title: "Build Work Zone as the portal shell",
-        decision:
-          "Use SAP Build Work Zone as the unified partner entry rather than a custom portal framework.",
-        rationale:
-          "Native BTP integration, app catalog, branding, and Fiori Launchpad standards reduce custom code and stay aligned with SAP's roadmap.",
-      },
-      {
-        title: "CAP service layer for all data access",
-        decision:
-          "Centralize data exposure through CAP services rather than direct UI-to-backend queries.",
-        rationale:
-          "Single point to enforce ABAC, version APIs, and isolate UIs from backend volatility as systems evolve.",
-      },
-      {
-        title: "Identity federation with IAS as proxy",
-        decision:
-          "Federate the external IdP (Okta) through SAP IAS rather than registering partner users in SAP IDM.",
-        rationale:
-          "User lifecycle stays with the partner organization. SAP-side identity remains lightweight, auditable, and decoupled from corporate IdP churn.",
-      },
-      {
-        title: "ABAC enforced in the data layer",
-        decision:
-          "Enforce tenant boundaries via CAP attribute restrictions rather than UI-level filtering.",
-        rationale:
-          "UI can never be trusted as a security boundary. ABAC at the data layer ensures partner A cannot read partner B regardless of frontend defects.",
-      },
-      {
-        title: "Phased rollout by partner cohort",
-        decision:
-          "Onboard partners in waves rather than a single big-bang cutover.",
-        rationale:
-          "Identity flows and partner-specific data quirks surface incrementally, and rollback per cohort remains feasible.",
-      },
-    ],
-    tradeoffs: [
-      {
-        title: "Portal shell",
-        chose: "SAP Build Work Zone",
-        insteadOf: "Custom Next.js/React portal",
-        reasoning:
-          "Time-to-value, native Fiori catalog, and SAP roadmap alignment outweighed custom flexibility. A custom shell would have meant rebuilding navigation, branding, and identity glue from scratch.",
-      },
-      {
-        title: "Data access layer",
-        chose: "CAP service layer",
-        insteadOf: "Direct OData from existing systems to the UI",
-        reasoning:
-          "Centralized ABAC, API versioning, and stable contracts justified the extra layer to operate. Direct OData would have leaked backend changes into every app.",
-      },
-      {
-        title: "Authorization model",
-        chose: "Attribute-based access control (ABAC)",
-        insteadOf: "Role-only RBAC",
-        reasoning:
-          "Partner counts grow into the hundreds. One role per partner is unmaintainable; ABAC scales as data, not configuration.",
-      },
-      {
-        title: "Identity federation topology",
-        chose: "IAS as a federation proxy",
-        insteadOf: "Direct SAML from corporate IdP to XSUAA",
-        reasoning:
-          "IAS supports attribute mapping, conditional access, and decouples corporate identity changes from BTP. Direct SAML couples both ends too tightly.",
-      },
-    ],
+    architecturalDecisions: [],
+    tradeoffs: [],
     outcomes: {
       qualitative: [
         "Single secure entry point established for the external partner community",
         "Consistent partner experience across analytical workflows",
-        "Faster partner onboarding—federation eliminates SAP-side user provisioning",
-        "Audit-ready security model with isolation enforced at the data tier",
+        "A more consistent reporting experience across analytical workflows",
+        "Application-layer authorization supported by identity attributes",
         "Foundation in place for adding new analytics apps without re-architecting identity",
       ],
       summary:
-        "Beyond the 22 deployed applications and 40 retired portals, the program produced a reusable security and delivery template for future external-facing BTP work.",
+        "The program produced reusable UI, service, documentation, and delivery patterns for future reporting work.",
     },
     lessonsLearned: [
       "Identity attributes must be agreed across partner IdP, IAS, and CAP before app development—late discovery cascades into UI rework.",
@@ -261,7 +196,7 @@ export const consultingCaseStudies: Record<string, ConsultingCaseStudy> = {
 
   "enterprise-governance": {
     executiveSummary:
-      "Defined SAP BTP extensibility standards for a Clean Core S/4HANA strategy. Translated SAP guidance into 12 actionable guidelines and 5 reusable patterns development teams could apply during sprint planning—reducing inconsistent platform choices and turning architecture review from a bottleneck into an accelerator.",
+      "Produced SAP BTP extensibility guidance supporting a Clean Core S/4HANA strategy. Translated SAP guidance into a practical standards document teams could use when evaluating extension approaches.",
     businessChallenge: {
       context:
         "An enterprise S/4HANA initiative committed to Clean Core principles, but development teams lacked clarity on when to use Side-by-Side versus In-App extensibility, which BTP services to adopt, and how to document decisions for governance review.",
@@ -282,7 +217,7 @@ export const consultingCaseStudies: Record<string, ConsultingCaseStudy> = {
       points: [
         "Reviewed the current landscape and identified extensibility decision points",
         "Cataloged BTP services relevant to common extension scenarios",
-        "Defined 5 reusable extensibility patterns",
+        "Documented reusable extensibility patterns",
         "Authored 12 governance guidelines aligned to Clean Core",
         "Engaged 8 stakeholders across architecture and delivery for validation",
       ],
@@ -382,7 +317,7 @@ export const consultingCaseStudies: Record<string, ConsultingCaseStudy> = {
 
   "fuel-management": {
     executiveSummary:
-      "Replaced manual fuel-data entry across disconnected spreadsheets with four SAPUI5 form applications integrated to OData services. Standardized capture, embedded vendor-contract validation at the point of entry, and gave 20+ business users a single workflow path—reducing invoice discrepancies before they reached backend systems.",
+      "Developed four SAPUI5 form applications integrated with OData services to standardize fuel-data capture and surface validation earlier in vendor-invoice workflows.",
     businessChallenge: {
       context:
         "Fuel-data entry feeding vendor invoice processing was spread across spreadsheets and disconnected manual workflows. Data inconsistencies surfaced downstream as invoicing discrepancies, contract violations, and reconciliation overhead for finance teams.",
@@ -391,7 +326,7 @@ export const consultingCaseStudies: Record<string, ConsultingCaseStudy> = {
         "Validation deferred to backend systems or human review",
         "No structured workflow path for daily operations",
         "Errors caught late, after submission to vendor systems",
-        "20+ users without consistent tooling",
+        "Operational users without consistent workflow tooling",
       ],
       stakeholders:
         "Operations staff entering daily fuel data, vendor management, finance/AP teams, and business owners accountable for invoice accuracy.",
@@ -471,7 +406,7 @@ export const consultingCaseStudies: Record<string, ConsultingCaseStudy> = {
       ],
     },
     lessonsLearned: [
-      "Validation belongs as close to the user as possible. Late errors cost ten times more to fix than early ones.",
+      "Validation belongs as close to the user as practical so issues can be addressed before downstream processing.",
       "Operational users adopt UIs that respect their workflow rhythm, not just visually polished ones.",
       "Vendor contracts change. Validation rules should be data-driven where possible rather than hard-coded.",
       "Four focused apps outperform one configurable monster for distinct workflows.",
@@ -733,7 +668,7 @@ export const consultingCaseStudies: Record<string, ConsultingCaseStudy> = {
     },
   },
 
-  "kpmg-client-dashboard": {
+  "professional-services-client-dashboard": {
     executiveSummary:
       "Built a SAPUI5 master-detail application to organize client data within a Fiori Launchpad environment, including a welcome page and guided onboarding walkthrough. Improved how users navigate complex client records and reduced cognitive load for newer users entering the application.",
     businessChallenge: {
@@ -816,9 +751,9 @@ export const consultingCaseStudies: Record<string, ConsultingCaseStudy> = {
     },
     lessonsLearned: [
       "Master-detail beats clever layouts when the data has a clear parent-child relationship.",
-      "In-app onboarding pays for itself within weeks for any app new users continue to join.",
+      "In-app onboarding can reduce first-use friction when new users continue to join.",
       "Launchpad integration is mandatory for adoption when users live there.",
-      "Welcome pages aren't fluff. They reduce first-visit friction measurably.",
+      "Welcome pages can reduce first-visit friction when they provide useful orientation.",
       "SAPUI5 supports rich onboarding patterns when UX is treated as a first-class concern.",
     ],
     whenItFits: {

@@ -3,6 +3,14 @@
 
 @custom-variant dark (&:is(.dark *));
 
+.career-subnav-scroll {
+  scrollbar-width: none;
+}
+
+.career-subnav-scroll::-webkit-scrollbar {
+  display: none;
+}
+
 :root {
   /* Bryan Cash token system (dark mode default) */
   /* Surfaces */

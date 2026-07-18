@@ -85,12 +85,12 @@ export const sapBtpDevelopment: ServicePageContent = {
   subtitle:
     "Architect and deliver secure SAP Business Technology Platform solutions—from CAP backends to partner-facing portals.",
   intro: [
-    "You are likely here because an SAP modernization program needs a senior practitioner who can own architecture and delivery—not slideware. I help enterprises build on SAP BTP where external users, identity, and UX cannot be afterthoughts.",
+    "You are likely here because an SAP modernization program needs hands-on application and UI delivery support. I help teams build on SAP BTP where external users, identity, and UX cannot be afterthoughts.",
     "My work spans multi-tenant portals, CAP service layers, IAS/Okta federation, and Clean Core extensibility governance. I integrate with your SI, internal CoE, security, and basis teams while staying accountable for outcomes your stakeholders can measure.",
   ],
   trustSignals: [
-    "22 custom Fiori apps in a unified BTP manufacturer portal",
-    "40+ legacy portals retired into one governed entry point",
+    "SAPUI5 reporting applications in a unified BTP experience",
+    "Reusable UI patterns for an external partner reporting program",
     "~40% user adoption improvement on portal programs",
     "Fortune 500 demo and delivery experience",
     "Hands-on CAP, Work Zone, and IAS delivery—not advisory-only",
@@ -111,7 +111,7 @@ export const sapBtpDevelopment: ServicePageContent = {
     {
       title: "Identity and multi-tenant access complexity",
       description:
-        "Federating corporate IdPs with SAP Cloud Identity Services, mapping attributes to ABAC rules, and enforcing tenant isolation in CAP is easy to underestimate until go-live pressure mounts.",
+        "Coordinating identity requirements across platform, service, and UI teams is easy to underestimate until go-live pressure mounts.",
     },
     {
       title: "Unclear extensibility decisions under Clean Core",
@@ -132,7 +132,7 @@ export const sapBtpDevelopment: ServicePageContent = {
       ],
       bullets: [
         "Discovery: persona mapping, data boundaries, and integration points with S/4, analytics, and IdP",
-        "Architecture: Work Zone structure, CAP service design, ABAC model, and environment strategy",
+        "Application support: Work Zone structure, CAP service collaboration, and environment coordination",
         "Build: SAPUI5/Fiori apps, OData services, federation configuration, and CI/CD alignment",
         "Governance: extensibility standards, decision trees, and team enablement documentation",
         "Stabilization: adoption feedback, defect triage, and handoff for long-term operations",
@@ -178,11 +178,11 @@ export const sapBtpDevelopment: ServicePageContent = {
     },
     {
       category: "Development",
-      items: ["SAP CAP (Node.js)", "SAPUI5", "SAP Fiori", "OData v4", "ABAC in CAP"],
+      items: ["SAP CAP (Node.js)", "SAPUI5", "SAP Fiori", "OData v4", "authorization support"],
     },
     {
       category: "Integration & identity",
-      items: ["Okta federation", "SAML attribute mapping", "SAP Datasphere (analytics integration)"],
+      items: ["Identity-team collaboration", "Application attribute troubleshooting", "SAP Datasphere consumption"],
     },
     {
       category: "Delivery",
@@ -195,7 +195,7 @@ export const sapBtpDevelopment: ServicePageContent = {
       title: "Manufacturer Analytics Portal",
       description:
         "Centralized SAP BTP portal replacing fragmented Power BI experiences for external manufacturers, with CAP backend and Work Zone delivery.",
-      outcome: "22 custom apps deployed; 40+ legacy portals retired; Okta–IAS federation with ABAC",
+      outcome: "Production SAPUI5 reporting applications delivered through a unified Build Work Zone experience",
       relevance:
         "Reference for large-scale external portal architecture, multi-tenant access, and phased go-live.",
     },
@@ -213,7 +213,7 @@ export const sapBtpDevelopment: ServicePageContent = {
       title: "Fuel Vendor Invoice Management",
       description:
         "SAPUI5 form applications with validation and OData integration supporting vendor invoicing accuracy.",
-      outcome: "Four workflow apps reducing manual entry errors before backend submission",
+      outcome: "Four workflow apps providing structured validation before backend submission",
       relevance:
         "Shows BTP-adjacent UI delivery integrated with governed backend services.",
     },
@@ -379,12 +379,12 @@ export const sapui5FioriDevelopment: ServicePageContent = {
       title: "Fuel Vendor Invoice Management",
       description:
         "Four SAPUI5 form applications standardizing fuel data entry with validation before OData submission.",
-      outcome: "Improved invoicing accuracy and reduced manual correction cycles",
+      outcome: "Structured entry and earlier validation for vendor-invoice workflows",
       relevance:
         "Model for multi-app workflow delivery with shared validation patterns.",
     },
     {
-      slug: "kpmg-client-dashboard",
+      slug: "professional-services-client-dashboard",
       title: "Client Data Dashboard (SAPUI5)",
       description:
         "Master-detail SAPUI5 application improving client data visibility in a Fiori Launchpad environment.",
@@ -397,7 +397,7 @@ export const sapui5FioriDevelopment: ServicePageContent = {
       title: "Manufacturer Analytics Portal",
       description:
         "Large SAPUI5 footprint within a unified Build Work Zone portal for external manufacturers.",
-      outcome: "22 applications in one governed portal experience",
+      outcome: "25 reporting apps + 3 onboarding apps in one governed portal experience",
       relevance:
         "Model for high-volume Fiori delivery under one portal umbrella.",
     },
@@ -809,7 +809,7 @@ export const enterpriseUiUx: ServicePageContent = {
   ],
   trustSignals: [
     "Design system rollout on large utility customer portal",
-    "Unified UX across 22-app SAP BTP manufacturer portal",
+    "Unified UX across 25 reporting apps + 3 onboarding apps in a SAP BTP manufacturer portal",
     "Config-driven theming on Next.js multi-artist platform",
     "Figma / Adobe XD for stakeholder alignment before build",
     "Works inside agile teams—not detached agency handoffs",
