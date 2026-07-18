@@ -5,6 +5,36 @@ import { SITE_URL } from "@/lib/seo/site"
 
 const staticRoutes: MetadataRoute.Sitemap = [
   {
+    url: `${SITE_URL}/career`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.95,
+  },
+  {
+    url: `${SITE_URL}/career/experience`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.85,
+  },
+  {
+    url: `${SITE_URL}/career/projects`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.85,
+  },
+  {
+    url: `${SITE_URL}/career/resume`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.9,
+  },
+  {
+    url: `${SITE_URL}/consulting`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.85,
+  },
+  {
     url: SITE_URL,
     lastModified: new Date(),
     changeFrequency: "weekly",
