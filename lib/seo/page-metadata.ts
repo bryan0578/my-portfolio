@@ -1,7 +1,6 @@
 import { createPageMetadata } from "./metadata"
-import { SITE_DESCRIPTION, SITE_KEYWORDS, SITE_TAGLINE } from "./site"
+import { SITE_KEYWORDS } from "./site"
 import { withSeoContext } from "./brand-copy"
-import { aboutContent } from "@/lib/marketing/about-content"
 import { contactContent } from "@/lib/marketing/contact-content"
 import { servicesHubContent } from "@/lib/marketing/services-hub-content"
 import {
@@ -13,8 +12,8 @@ import {
 } from "@/lib/marketing/services-content"
 
 export const homeMetadata = createPageMetadata({
-  title: SITE_TAGLINE,
-  description: withSeoContext(SITE_DESCRIPTION),
+  title: "Enterprise UI Developer & Technical Lead",
+  description: "Bryan Cash is an experienced SAPUI5, SAP Fiori, SAP BTP application, Salesforce UI, and enterprise frontend developer open to full-time roles and selected consulting.",
   path: "/",
   keywords: [...SITE_KEYWORDS],
 })
