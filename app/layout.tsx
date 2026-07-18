@@ -47,6 +47,12 @@ export const metadata: Metadata = {
   },
   description: defaultDescription,
   applicationName: SITE_NAME,
+  manifest: "/manifest.webmanifest",
+  appleWebApp: {
+    capable: true,
+    title: SITE_NAME,
+    statusBarStyle: "black-translucent",
+  },
   authors: [{ name: SITE_NAME, url: SITE_URL }],
   creator: SITE_NAME,
   publisher: SITE_NAME,
@@ -98,7 +104,13 @@ export const metadata: Metadata = {
         type: "image/svg+xml",
       },
     ],
-    apple: [{ url: "/apple-icon.png" }],
+    apple: [
+      {
+        url: "/icons/apple-touch-icon.png",
+        sizes: "180x180",
+        type: "image/png",
+      },
+    ],
     shortcut: ["/favicon.ico"],
   },
 }
