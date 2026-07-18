@@ -3,7 +3,7 @@ import type { ConsultingCaseStudy } from "./types"
 export const consultingCaseStudies: Record<string, ConsultingCaseStudy> = {
   "manufacturer-portal": {
     executiveSummary:
-      "Contributed SAPUI5 application development, UI delivery, documentation, testing, and coordination to an enterprise reporting experience delivered through SAP Build Work Zone and supported by CAP services and federated identity.",
+      "Configured SAP Build Work Zone and SAP Cloud Identity Services with Okta-based authentication. Designed and developed the SAP CAP service using Node.js over HANA, and delivered 25 SAPUI5 reporting applications plus 3 onboarding applications that consolidated fragmented partner access into one authenticated experience.",
     businessChallenge: {
       context:
         "An external partner network accessed performance and reporting data through a patchwork of legacy portals and analytics tools. Each surface had distinct login flows, partial data coverage, and inconsistent security boundaries—creating audit risk and slowing every partner onboarding.",
@@ -20,10 +20,10 @@ export const consultingCaseStudies: Record<string, ConsultingCaseStudy> = {
     technicalApproach: {
       headline: "Enterprise UI delivery within a multi-layer SAP BTP solution",
       summary:
-        "Developed SAPUI5 reporting applications and reusable UI patterns while supporting CAP service behavior, Build Work Zone delivery, identity troubleshooting, documentation, testing, and cross-team coordination.",
+        "Developed 25 SAPUI5 reporting applications plus 3 onboarding applications and reusable UI patterns while delivering the CAP service, Build Work Zone configuration, identity integration, documentation, testing, and cross-team coordination.",
       points: [
-        "Developed selected SAPUI5 reporting applications and reusable frontend patterns",
-        "Supported CAP projections, service behavior, and OData consumption",
+        "Developed 25 SAPUI5 reporting applications plus 3 onboarding applications and reusable frontend patterns",
+        "Designed and developed the Node.js CAP service over HANA",
         "Worked with identity attributes used by application authorization",
         "Supported troubleshooting across SAP IAS, XSUAA, and application layers",
         "Contributed documentation, testing, deployment, and stabilization support",

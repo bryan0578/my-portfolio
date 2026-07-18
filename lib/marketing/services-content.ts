@@ -397,7 +397,7 @@ export const sapui5FioriDevelopment: ServicePageContent = {
       title: "Manufacturer Analytics Portal",
       description:
         "Large SAPUI5 footprint within a unified Build Work Zone portal for external manufacturers.",
-      outcome: "22 applications in one governed portal experience",
+      outcome: "25 reporting apps + 3 onboarding apps in one governed portal experience",
       relevance:
         "Model for high-volume Fiori delivery under one portal umbrella.",
     },
@@ -809,7 +809,7 @@ export const enterpriseUiUx: ServicePageContent = {
   ],
   trustSignals: [
     "Design system rollout on large utility customer portal",
-    "Unified UX across 22-app SAP BTP manufacturer portal",
+    "Unified UX across 25 reporting apps + 3 onboarding apps in a SAP BTP manufacturer portal",
     "Config-driven theming on Next.js multi-artist platform",
     "Figma / Adobe XD for stakeholder alignment before build",
     "Works inside agile teams—not detached agency handoffs",
