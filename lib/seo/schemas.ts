@@ -6,7 +6,6 @@ import {
   PERSON_ID,
   SITE_DESCRIPTION,
   SITE_NAME,
-  SITE_TAGLINE,
   SITE_URL,
   WEBSITE_ID,
 } from "./site"
@@ -24,7 +23,7 @@ export function buildPersonSchema() {
     name: SITE_NAME,
     url: SITE_URL,
     email: CONTACT_EMAIL,
-    jobTitle: "Developer, Enterprise UI Architect & Technical Creator",
+    jobTitle: "Enterprise UI Developer and Technical Lead",
     description: SITE_DESCRIPTION,
     knowsAbout: [
       "SAP Business Technology Platform",
