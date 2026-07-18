@@ -36,6 +36,16 @@
     ".next/dev/types/**/*.ts"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "components/theme-provider.tsx",
+    "components/ui/calendar.tsx",
+    "components/ui/carousel.tsx",
+    "components/ui/chart.tsx",
+    "components/ui/command.tsx",
+    "components/ui/drawer.tsx",
+    "components/ui/form.tsx",
+    "components/ui/input-otp.tsx",
+    "components/ui/resizable.tsx",
+    "components/ui/sonner.tsx"
   ]
 }
