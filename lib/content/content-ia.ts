@@ -85,7 +85,7 @@ export const PROJECT_RELATED_SERVICES: Record<string, ContentLink[]> = {
     },
     { href: "/services/sap-btp-development", label: "SAP BTP Development" },
   ],
-  "kpmg-client-dashboard": [
+  "professional-services-client-dashboard": [
     {
       href: "/services/sapui5-fiori-development",
       label: "SAPUI5 & Fiori Development",
