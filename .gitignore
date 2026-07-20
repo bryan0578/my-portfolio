@@ -47,3 +47,6 @@ out
 .env
 .env.local
 .DS_Store
+
+# allow the documented example env file
+!.env.example
