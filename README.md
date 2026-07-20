@@ -70,6 +70,29 @@ npm run lint
 npm run build        # includes type checking
 ```
 
+Test coverage is **guard-unit level only** (validation, rate limiter,
+origin policy, availability, sanitization). There are no route-integration
+tests: the route imports `next/server` and the OpenAI SDK, and mocking them
+under the dependency-free Node test runner would require loader
+infrastructure disproportionate to one route. Route behavior is verified
+via the preview-deployment plan below before closure.
+
+### Preview-deployment verification plan (run once per protection change)
+
+Against a Vercel preview URL of this branch:
+
+1. Normal chat message → 200, `mode:"ai"` (or `"fallback"` if no key).
+2. `CHAT_ASSISTANT_DISABLED=1` set + redeploy → any POST → 503, friendly
+   message, OpenAI dashboard shows zero new requests.
+3. Malformed body (`{}`), 21+ messages, a 2,001-char message, role
+   `system` → each 400 with friendly text, no OpenAI requests.
+4. 9 rapid requests within a minute from one client → at least one 429
+   with `Retry-After`.
+5. POST with header `Origin: https://example.com` → 403.
+6. POST from the preview page itself → allowed (deployment-host rule).
+7. Temporarily set an invalid `OPENAI_API_KEY` + redeploy → 200 fallback,
+   no error details in the response body.
+
 ## 9. Production deployment
 
 Vercel, connected to this repository; production deploys from `main`.
@@ -97,10 +120,13 @@ in `app/api/chat/guard.ts` (dependency-free, unit-tested).
 Enforced in order, all before any OpenAI call:
 
 1. Kill switch (`503`, friendly message).
-2. Origin allowlist — cashbryan.com, `www`, localhost, `*.vercel.app`
-   previews, plus `CHAT_ALLOWED_ORIGINS` (`403` otherwise). Advisory only:
-   requests without an Origin header are allowed (blocking them adds no
-   real security); this is abuse friction, not authentication.
+2. Origin allowlist — cashbryan.com, `www`, localhost, the current
+   deployment's own hostname(s) (derived from `VERCEL_URL`,
+   `VERCEL_BRANCH_URL`, `VERCEL_PROJECT_PRODUCTION_URL`), plus explicit
+   `CHAT_ALLOWED_ORIGINS` entries (`403` otherwise). Arbitrary third-party
+   `*.vercel.app` origins are rejected. Advisory only: requests without an
+   Origin header are allowed (blocking them adds no real security); this
+   is abuse friction, not authentication.
 3. Rate limit — fixed window, 8 requests/minute per client IP (`429` +
    `Retry-After`). **Limitation:** in-memory, per serverless instance; the
    effective global limit is (instances × 8)/min. It is NOT a durable
@@ -145,7 +171,8 @@ engagement ends if the client requests it.
 
 - Rate limiting is per-instance (see §12) — accepted for this risk profile.
 - Kill switch requires a redeploy to take effect (Vercel env model).
-- No end-to-end/UI test suite; tests cover the chat guard logic only.
+- No end-to-end/UI or route-integration test suite; automated tests cover
+  the chat guard logic only (see §8 for the manual route plan).
 - The assistant's canned fallback content is maintained by hand in
   `route.ts` and can drift from site content.
 

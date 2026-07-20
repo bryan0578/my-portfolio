@@ -95,16 +95,34 @@ test("client key derived from forwarded headers", () => {
   assert.equal(clientKeyFromHeaders(headers({})), "unknown")
 })
 
-test("origin allowlist: site + previews allowed, foreign origins blocked, absent allowed", () => {
+test("origin policy: site + localhost + deployment hosts allowed; arbitrary vercel.app and foreign origins blocked; absent allowed", () => {
   const headers = (origin?: string) => ({ get: (k: string) => (k.toLowerCase() === "origin" ? origin ?? null : null) })
   assert.equal(isAllowedOrigin(headers("https://cashbryan.com")), true)
   assert.equal(isAllowedOrigin(headers("https://www.cashbryan.com")), true)
-  assert.equal(isAllowedOrigin(headers("https://my-portfolio-abc123.vercel.app")), true)
   assert.equal(isAllowedOrigin(headers("http://localhost:3000")), true)
+  // arbitrary third-party vercel.app deployments are NOT allowed
+  assert.equal(isAllowedOrigin(headers("https://someone-elses-app.vercel.app")), false)
+  // the current deployment's own hostname IS allowed (from Vercel env)
+  assert.equal(
+    isAllowedOrigin(headers("https://my-portfolio-git-branch-abc.vercel.app"), {
+      deploymentHosts: ["my-portfolio-git-branch-abc.vercel.app", undefined],
+    }),
+    true
+  )
+  // tolerate a full URL in the env var defensively
+  assert.equal(
+    isAllowedOrigin(headers("https://preview.vercel.app"), {
+      deploymentHosts: ["https://preview.vercel.app"],
+    }),
+    true
+  )
   assert.equal(isAllowedOrigin(headers("https://evil.example.com")), false)
   assert.equal(isAllowedOrigin(headers("not a url")), false)
   assert.equal(isAllowedOrigin(headers(undefined)), true, "absent origin allowed by design (documented)")
-  assert.equal(isAllowedOrigin(headers("https://partner.example.com"), "https://partner.example.com"), true)
+  assert.equal(
+    isAllowedOrigin(headers("https://partner.example.com"), { extraAllowed: "https://partner.example.com" }),
+    true
+  )
 })
 
 test("output-token cap exists and is a bounded positive number", () => {

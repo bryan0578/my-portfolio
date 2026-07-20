@@ -12,11 +12,6 @@ import {
   validateChatBody,
 } from "./guard"
 
-type ChatMessage = {
-  role: "user" | "assistant"
-  content: string
-}
-
 function getFallbackResponse(input: string): string {
   const message = input.toLowerCase()
 
@@ -376,7 +371,15 @@ export async function POST(req: Request) {
   }
 
   // 2. Advisory origin check (see guard.ts notes on its limits).
-  if (!isAllowedOrigin(req.headers, process.env.CHAT_ALLOWED_ORIGINS)) {
+  const originPolicy = {
+    extraAllowed: process.env.CHAT_ALLOWED_ORIGINS,
+    deploymentHosts: [
+      process.env.VERCEL_URL,
+      process.env.VERCEL_BRANCH_URL,
+      process.env.VERCEL_PROJECT_PRODUCTION_URL,
+    ],
+  }
+  if (!isAllowedOrigin(req.headers, originPolicy)) {
     return NextResponse.json(GUARD_RESPONSES.badOrigin, { status: 403 })
   }
 
@@ -447,9 +450,14 @@ export async function POST(req: Request) {
       mode: "ai",
     })
   } catch (error: unknown) {
-    // Log server-side only; never surface upstream errors, stacks, or
-    // configuration to the client. The user gets the canned assistant.
-    console.error("Chat route error:", error)
+    // Log a minimal, sanitized record server-side: never user message
+    // content, never full upstream error objects, stacks, or headers.
+    const err = error as { name?: string; status?: number; message?: string }
+    console.error("Chat route error:", {
+      name: err?.name ?? "UnknownError",
+      status: err?.status ?? null,
+      message: typeof err?.message === "string" ? err.message.slice(0, 200) : null,
+    })
     return NextResponse.json({
       message: getFallbackResponse(latestUserMessage),
       mode: "fallback",

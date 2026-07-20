@@ -164,6 +164,17 @@ const DEFAULT_ALLOWED_ORIGINS = [
   "http://localhost:3000",
 ]
 
+export type OriginPolicy = {
+  /** Comma-separated explicit extra origins (CHAT_ALLOWED_ORIGINS). */
+  extraAllowed?: string
+  /**
+   * Hostnames of the current deployment, derived from Vercel env vars
+   * (VERCEL_URL, VERCEL_BRANCH_URL, VERCEL_PROJECT_PRODUCTION_URL).
+   * Only these specific hosts are allowed — NOT arbitrary *.vercel.app.
+   */
+  deploymentHosts?: Array<string | undefined>
+}
+
 /**
  * Advisory same-origin check.
  * - Browser requests carry an Origin header on cross-site POSTs; unknown
@@ -172,12 +183,13 @@ const DEFAULT_ALLOWED_ORIGINS = [
  *   security (Origin is trivially set by non-browser clients) and would
  *   break legitimate tooling. This check is an abuse-friction measure,
  *   not an authentication boundary — documented in the README.
- * - Vercel preview deployments (*.vercel.app) are allowed.
- * - CHAT_ALLOWED_ORIGINS (comma-separated) extends the allowlist.
+ * - Allowed: production origins, localhost, the current deployment's own
+ *   hostname(s) from the policy, and explicit CHAT_ALLOWED_ORIGINS entries.
+ *   Arbitrary third-party *.vercel.app origins are rejected.
  */
 export function isAllowedOrigin(
   headers: HeaderReader,
-  extraAllowed?: string
+  policy: OriginPolicy = {}
 ): boolean {
   const origin = headers.get("origin")
   if (!origin) return true
@@ -192,9 +204,16 @@ export function isAllowedOrigin(
   }
   if (DEFAULT_ALLOWED_ORIGINS.includes(normalized)) return true
   if (host === "localhost" || host === "127.0.0.1") return true
-  if (host.endsWith(".vercel.app")) return true
-  if (extraAllowed) {
-    const extras = extraAllowed
+  for (const deployment of policy.deploymentHosts ?? []) {
+    if (!deployment) continue
+    // Vercel supplies bare hostnames; tolerate full URLs defensively.
+    const deploymentHost = deployment.includes("://")
+      ? deployment.split("://")[1]?.split("/")[0]
+      : deployment
+    if (deploymentHost && host === deploymentHost) return true
+  }
+  if (policy.extraAllowed) {
+    const extras = policy.extraAllowed
       .split(",")
       .map((entry) => entry.trim())
       .filter(Boolean)
