@@ -2,11 +2,15 @@ import OpenAI from "openai"
 import { NextResponse } from "next/server"
 import { CONTACT_EMAIL } from "@/lib/contact"
 import { buildPortfolioContext } from "@/lib/portfolio-assistant"
-
-type ChatMessage = {
-  role: "user" | "assistant"
-  content: string
-}
+import {
+  CHAT_LIMITS,
+  GUARD_RESPONSES,
+  clientKeyFromHeaders,
+  createRateLimiter,
+  isAllowedOrigin,
+  resolveAvailability,
+  validateChatBody,
+} from "./guard"
 
 function getFallbackResponse(input: string): string {
   const message = input.toLowerCase()
@@ -352,30 +356,72 @@ The featured projects were chosen because they best represent the breadth and de
   return "I can help with Bryan’s technical skills, featured projects, SAP BTP work, Salesforce experience, content work, and how to get in touch. Try asking about his strongest skills or featured projects."
 }
 
+// Per-instance rate limiter. See guard.ts for the documented limitation:
+// state is not shared across serverless instances.
+const rateLimiter = createRateLimiter()
+
 export async function POST(req: Request) {
-  let latestUserMessage = ""
+  // 1. Kill switch — no upstream call, controlled unavailable response.
+  const availability = resolveAvailability({
+    CHAT_ASSISTANT_DISABLED: process.env.CHAT_ASSISTANT_DISABLED,
+    OPENAI_API_KEY: process.env.OPENAI_API_KEY,
+  })
+  if (availability === "disabled") {
+    return NextResponse.json(GUARD_RESPONSES.disabled, { status: 503 })
+  }
+
+  // 2. Advisory origin check (see guard.ts notes on its limits).
+  const originPolicy = {
+    extraAllowed: process.env.CHAT_ALLOWED_ORIGINS,
+    deploymentHosts: [
+      process.env.VERCEL_URL,
+      process.env.VERCEL_BRANCH_URL,
+      process.env.VERCEL_PROJECT_PRODUCTION_URL,
+    ],
+  }
+  if (!isAllowedOrigin(req.headers, originPolicy)) {
+    return NextResponse.json(GUARD_RESPONSES.badOrigin, { status: 403 })
+  }
+
+  // 3. Rate limit before any parsing or upstream work.
+  const rate = rateLimiter.check(clientKeyFromHeaders(req.headers))
+  if (!rate.allowed) {
+    return NextResponse.json(GUARD_RESPONSES.rateLimited, {
+      status: 429,
+      headers: { "Retry-After": String(rate.retryAfterSeconds) },
+    })
+  }
+
+  // 4. Strict body validation before any OpenAI call.
+  let parsed: unknown
+  try {
+    parsed = await req.json()
+  } catch {
+    return NextResponse.json(
+      GUARD_RESPONSES.invalidBody("Please send a valid chat request."),
+      { status: 400 }
+    )
+  }
+  const validation = validateChatBody(parsed)
+  if (!validation.ok) {
+    return NextResponse.json(GUARD_RESPONSES.invalidBody(validation.reason), {
+      status: 400,
+    })
+  }
+  const messages = validation.messages
+
+  const latestUserMessage =
+    [...messages].reverse().find((m) => m.role === "user")?.content || ""
+
+  // 5. No key configured — preserve existing canned-response behavior.
+  if (availability === "fallback-only") {
+    return NextResponse.json({
+      message: getFallbackResponse(latestUserMessage),
+      mode: "fallback",
+    })
+  }
 
   try {
-    const body = await req.json()
-    const messages = (body.messages ?? []) as ChatMessage[]
-
-    if (!Array.isArray(messages) || messages.length === 0) {
-      return NextResponse.json(
-        { error: "Messages are required." },
-        { status: 400 }
-      )
-    }
-
-    latestUserMessage =
-      [...messages].reverse().find((m) => m.role === "user")?.content || ""
-
-    if (!process.env.OPENAI_API_KEY) {
-      return NextResponse.json({
-        message: getFallbackResponse(latestUserMessage),
-        mode: "fallback",
-      })
-    }
-
     const client = new OpenAI({
       apiKey: process.env.OPENAI_API_KEY,
     })
@@ -393,6 +439,8 @@ export async function POST(req: Request) {
         })),
       ],
       temperature: 0.5,
+      // Hard per-request output cap — spend bound, enforced upstream.
+      max_completion_tokens: CHAT_LIMITS.maxOutputTokens,
     })
 
     const reply = completion.choices[0]?.message?.content
@@ -402,23 +450,14 @@ export async function POST(req: Request) {
       mode: "ai",
     })
   } catch (error: unknown) {
-    console.error("Chat route error:", error)
-    const err = error as { status?: number | string; code?: number | string; message?: string }
-
-    const status = err.status || err.code
-    const message = String(err.message || "").toLowerCase()
-
-    const isQuotaError = status === 429 || message.includes("quota")
-    const isBillingError =
-      message.includes("billing") || message.includes("rate limit")
-
-    if (isQuotaError || isBillingError) {
-      return NextResponse.json({
-        message: getFallbackResponse(latestUserMessage),
-        mode: "fallback",
-      })
-    }
-
+    // Log a minimal, sanitized record server-side: never user message
+    // content, never full upstream error objects, stacks, or headers.
+    const err = error as { name?: string; status?: number; message?: string }
+    console.error("Chat route error:", {
+      name: err?.name ?? "UnknownError",
+      status: err?.status ?? null,
+      message: typeof err?.message === "string" ? err.message.slice(0, 200) : null,
+    })
     return NextResponse.json({
       message: getFallbackResponse(latestUserMessage),
       mode: "fallback",
