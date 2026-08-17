@@ -93,7 +93,7 @@ export interface Project {
       metrics: [
         { label: "Passing tests", value: "37" },
         { label: "Application routes", value: "24" },
-        { label: "Known dependency vulnerabilities", value: "0" },
+        { label: "Known dependency vulnerabilities at validation", value: "0" },
       ],
       images: [
         {
