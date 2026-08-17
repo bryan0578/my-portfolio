@@ -7,7 +7,7 @@ export function createProjectMetadata(project: Project) {
 
   return createPageMetadata({
     title,
-    description: project.summary,
+    description: project.seoDescription ?? project.summary,
     path,
     keywords: [...project.stack, ...project.categories],
     ogImage: getProjectOgImage(project),

@@ -13,6 +13,7 @@ import type { Project } from "@/src/data/projects"
 
 const CASE_STUDY_FILTER_OPTIONS = [
   "All",
+  "Product Engineering",
   "SAP BTP",
   "SAPUI5",
   "Salesforce",
@@ -66,13 +67,13 @@ export default function AllProjectsPage() {
         <div className="max-w-7xl mx-auto w-full">
           <div className="flex flex-col items-center text-center mb-16">
             <h1 className="text-h1 lg:text-hero font-heading text-foreground mb-6">
-              SAP BTP &amp; Salesforce{" "}
+              Enterprise &amp; Product Engineering{" "}
               <span className="text-brand-primary">Case Studies</span>
             </h1>
 
             <p className="text-body-lg text-muted-foreground max-w-2xl mx-auto leading-body">
-              SAP BTP, SAPUI5, Salesforce Experience Cloud, and DevOps case studies—proof
-              of enterprise delivery. See{" "}
+              Production product engineering, SAP BTP, SAPUI5, Salesforce Experience Cloud,
+              and DevOps case studies—proof of end-to-end delivery. See{" "}
               <Link href="/services" className="text-brand-primary hover:underline font-medium">
                 services
               </Link>{" "}

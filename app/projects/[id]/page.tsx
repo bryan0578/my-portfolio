@@ -23,6 +23,7 @@ import { LessonsLearned } from "@/components/case-study/lessons-learned"
 import { WhenItFits } from "@/components/case-study/when-it-fits"
 import { CaseStudyCta } from "@/components/case-study/case-study-cta"
 import { CaseStudyFallbackCta } from "@/components/case-study/case-study-fallback-cta"
+import { CinemaVaultCaseStudy } from "@/components/case-study/cinema-vault-case-study"
 import { getConsultingCaseStudy } from "@/lib/case-studies/consulting"
 import { JsonLd } from "@/lib/seo/json-ld"
 import { createProjectMetadata } from "@/lib/seo/project-metadata"
@@ -88,15 +89,19 @@ export default async function CaseStudyPage({
       <GlobalHeader projectName={project.title} />
 
       <main id="main-content" className="pt-36">
-        <CaseStudyHero
-          title={project.title}
-          stack={project.stack}
-          summary={project.summary}
-        />
+        {project.caseStudyVariant === "cinema-vault" ? (
+          <CinemaVaultCaseStudy />
+        ) : (
+          <>
+            <CaseStudyHero
+              title={project.title}
+              stack={project.stack}
+              summary={project.summary}
+            />
 
-        {consulting ? (
-          <ExecutiveSummary summary={consulting.executiveSummary} />
-        ) : null}
+            {consulting ? (
+              <ExecutiveSummary summary={consulting.executiveSummary} />
+            ) : null}
 
         {project.gallery ? (
           <ProjectGallery gallery={project.gallery} />
@@ -162,11 +167,13 @@ export default async function CaseStudyPage({
           <CaseStudyFallbackCta projectTitle={project.title} />
         )}
 
-        <RelatedServices
-          slug={project.slug}
-          categories={project.categories}
-          stack={project.stack}
-        />
+            <RelatedServices
+              slug={project.slug}
+              categories={project.categories}
+              stack={project.stack}
+            />
+          </>
+        )}
       </main>
       <AIChatBubble />
     </div>

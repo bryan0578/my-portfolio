@@ -4,8 +4,11 @@ export interface Project {
     slug: string
     title: string
     featured?: boolean
+    projectLabel?: string
+    caseStudyVariant?: "cinema-vault"
+    seoDescription?: string
     projectType?: "development" | "design" | "content" | "hybrid"
-    categories: ("SAP BTP" | "Salesforce" | "DevOps" | "Content" | "UI/UX" | "Technical Documentation" | "UI/UX" | "Content" | "Brand Identity")[]
+    categories: ("SAP BTP" | "Salesforce" | "DevOps" | "Content" | "UI/UX" | "Technical Documentation" | "UI/UX" | "Content" | "Brand Identity" | "Product Engineering")[]
     stack: string[]
     summary: string
     problem: string
@@ -62,6 +65,63 @@ export interface Project {
   }
   
   export const projects: Record<string, Project> = {
+    "cinema-vault": {
+      slug: "cinema-vault",
+      title: "Cinema Vault",
+      featured: true,
+      projectLabel: "Product engineering · Private source",
+      caseStudyVariant: "cinema-vault",
+      projectType: "development",
+      categories: ["Product Engineering", "UI/UX", "DevOps"],
+      stack: [
+        "Next.js 16",
+        "TypeScript",
+        "Neon Postgres",
+        "Neon Auth",
+        "TMDB",
+        "Vercel",
+      ],
+      summary:
+        "Edition-aware movie collection platform with box sets, digital quality, wishlist workflows, TMDB enrichment, authenticated ownership, and production deployment.",
+      seoDescription:
+        "Product engineering case study for Cinema Vault, a private-source Next.js application built around edition-aware ownership, box sets, digital formats, TMDB enrichment, Neon Postgres and authenticated workflows.",
+      problem:
+        "Generic catalog tools can confirm that a title is owned, but they lose the edition, format, digital quality, and collection context that matter to a collector.",
+      solution:
+        "Designed and built a production-deployed, ownership-first application with edition-aware records, box sets, wishlist conversion, duplicate review, authenticated workflows, and TMDB enrichment.",
+      impact: "Production-deployed product",
+      metrics: [
+        { label: "Passing tests", value: "37" },
+        { label: "Application routes", value: "24" },
+        { label: "Known dependency vulnerabilities", value: "0" },
+      ],
+      images: [
+        {
+          src: "/images/projects/cinema-vault/home-interstellar.webp",
+          alt: "Cinema Vault desktop home screen with Interstellar featured",
+        },
+        {
+          src: "/images/projects/cinema-vault/home-recent-favorites.webp",
+          alt: "Cinema Vault Recently Added and Favorites collections",
+        },
+        {
+          src: "/images/projects/cinema-vault/library-box-sets.webp",
+          alt: "Cinema Vault My Library view with box sets and collection overview",
+        },
+        {
+          src: "/images/projects/cinema-vault/dune-editions.webp",
+          alt: "Cinema Vault Dune detail view with physical and digital editions",
+        },
+        {
+          src: "/images/projects/cinema-vault/wishlist.webp",
+          alt: "Cinema Vault wishlist populated with five titles",
+        },
+        {
+          src: "/images/projects/cinema-vault/mobile-library-box-sets.webp",
+          alt: "Cinema Vault mobile My Library view showing box sets",
+        },
+      ],
+    },
     "manufacturer-portal": {
       slug: "manufacturer-portal",
       title: "Manufacturer Analytics Portal",

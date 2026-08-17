@@ -17,6 +17,7 @@ export function ProjectCard({
   title,
   stack,
   impact,
+  projectLabel,
   problem,
   solution,
 }: ProjectCardProps) {
@@ -26,6 +27,11 @@ export function ProjectCard({
   return (
     <Card variant="surfaceInteractive">
       <CardHeader className="pb-4">
+        {projectLabel ? (
+          <p className="mb-1 text-xs font-semibold uppercase tracking-[0.16em] text-brand-primary">
+            {projectLabel}
+          </p>
+        ) : null}
         <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-3">
           <CardTitle className="text-h4 leading-heading min-w-0 text-pretty break-words">
             {title}
