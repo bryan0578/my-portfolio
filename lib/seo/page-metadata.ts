@@ -97,14 +97,16 @@ export const salesforceDevopsMetadata = getServicePageMetadata(salesforceDevops)
 export const enterpriseUiUxMetadata = getServicePageMetadata(enterpriseUiUx)
 
 export const projectsIndexMetadata = createPageMetadata({
-  title: "SAP BTP & Salesforce Case Studies",
+  title: "Enterprise & Product Engineering Case Studies",
   description:
-    "Proof in production: SAP BTP portals, SAPUI5 applications, Salesforce Experience Cloud, DevOps, and UI delivery with measurable adoption outcomes.",
+    "Proof in production across product engineering, SAP BTP portals, SAPUI5 applications, Salesforce Experience Cloud, DevOps, and enterprise UI delivery.",
   path: "/projects",
   keywords: [
     "SAP BTP case study",
     "SAPUI5 case study",
     "Salesforce portal case study",
+    "product engineering case study",
+    "Next.js case study",
     "enterprise project examples",
   ],
 })

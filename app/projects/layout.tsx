@@ -17,12 +17,12 @@ export default function ProjectsLayout({
   const structuredData = [
     buildWebPageSchema({
       path: "/projects",
-      name: "SAP BTP & Salesforce Case Studies",
+      name: "Enterprise & Product Engineering Case Studies",
       description: projectsIndexMetadata.description as string,
     }),
     buildCollectionPageSchema({
       path: "/projects",
-      name: "SAP BTP & Salesforce Case Studies",
+      name: "Enterprise & Product Engineering Case Studies",
       description: projectsIndexMetadata.description as string,
     }),
     buildBreadcrumbSchema([
