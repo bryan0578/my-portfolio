@@ -1,40 +1,34 @@
-import { Badge } from "@/components/ui/badge"
-
 interface CaseStudyHeroProps {
   title: string
   stack: string[]
   summary: string
+  eyebrow?: string
 }
 
-export function CaseStudyHero({ title, stack, summary }: CaseStudyHeroProps) {
+export function CaseStudyHero({ title, stack, summary, eyebrow }: CaseStudyHeroProps) {
   return (
-    <section className="px-4 sm:px-6 py-16 md:py-28">
-      <div className="max-w-4xl mx-auto min-w-0">
-        {/* Tech Stack Badges */}
-        <div className="flex flex-wrap gap-2 mb-6">
-          {stack.map((tech) => (
-            <Badge 
-              key={tech}
-              variant="outline"
-              className="bg-mint/10 text-mint border-mint/30 font-medium"
-            >
-              {tech}
-            </Badge>
-          ))}
+    <section className="px-4 py-14 sm:px-6 md:py-20">
+      <div className="mx-auto max-w-6xl min-w-0">
+        <div className="max-w-4xl">
+          <p className="font-mono text-xs font-medium uppercase tracking-[0.16em] text-brand-primary">
+            Case study{eyebrow ? ` / ${eyebrow}` : ""}
+          </p>
+
+          <h1 className="mt-4 text-4xl font-bold leading-tight tracking-tight text-foreground text-pretty break-words sm:text-5xl lg:text-6xl">
+            {title}
+          </h1>
+
+          <p className="mt-6 max-w-3xl text-lg leading-8 text-muted-foreground text-pretty md:text-xl">
+            {summary}
+          </p>
+
+          <div className="mt-8 border-t border-border/50 pt-5">
+            <p className="font-mono text-xs leading-6 text-muted-foreground">
+              <span className="mr-3 uppercase tracking-[0.14em] text-brand-primary">Stack</span>
+              {stack.join(" · ")}
+            </p>
+          </div>
         </div>
-        
-        {/* Title */}
-        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-8 text-pretty break-words leading-tight">
-          {title}
-        </h1>
-        
-        {/* Summary */}
-        <p className="text-lg md:text-xl text-muted-foreground leading-relaxed text-pretty max-w-3xl">
-          {summary}
-        </p>
-        
-        {/* Decorative Line */}
-        <div className="mt-12 h-px bg-gradient-to-r from-mint/50 via-border to-transparent" />
       </div>
     </section>
   )
