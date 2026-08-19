@@ -2,8 +2,29 @@ import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 
-const systemNodes = ["Build Work Zone", "SAPUI5", "CAP", "HANA"] as const
+const systemLayers = [
+  { label: "Experience", value: "Build Work Zone" },
+  { label: "UI", value: "SAPUI5" },
+  { label: "Services", value: "CAP" },
+  { label: "Data", value: "HANA" },
+] as const
+
 const governanceNodes = ["Business need", "Extensibility decision", "BTP pattern", "Clean Core standard"] as const
+
+function LayerVisual() {
+  return (
+    <div className="rounded-lg border border-white/[0.06] bg-black/20 p-4 sm:p-5" aria-hidden="true">
+      <div className="grid gap-2 sm:grid-cols-4">
+        {systemLayers.map((layer) => (
+          <div key={layer.label} className="rounded-md border border-border/60 bg-background/70 px-3 py-3">
+            <p className="font-mono text-[9px] uppercase tracking-[0.14em] text-brand-primary/70">{layer.label}</p>
+            <p className="mt-1 font-mono text-[11px] leading-5 text-foreground/80">{layer.value}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
 
 function FlowVisual({ nodes }: { nodes: readonly string[] }) {
   return (
@@ -48,7 +69,7 @@ export function HomeSelectedWork() {
             </div>
 
             <div className="mt-6">
-              <FlowVisual nodes={systemNodes} />
+              <LayerVisual />
             </div>
 
             <h3 className="mt-6 text-2xl font-semibold text-foreground sm:text-3xl">
@@ -83,13 +104,13 @@ export function HomeSelectedWork() {
           </article>
 
           <article className="group overflow-hidden rounded-xl border border-border/60 bg-card/40 lg:col-span-5">
-            <div className="relative aspect-[16/10] overflow-hidden border-b border-border/50 bg-zinc-950">
+            <div className="relative aspect-video overflow-hidden border-b border-border/50 bg-zinc-950">
               <Image
                 src="/images/projects/cinema-vault/home-interstellar.webp"
                 alt="Cinema Vault desktop home screen with Interstellar featured"
                 fill
                 sizes="(min-width: 1024px) 42vw, 100vw"
-                className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.015]"
+                className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.01]"
               />
             </div>
             <div className="p-5 sm:p-6">
@@ -99,7 +120,7 @@ export function HomeSelectedWork() {
                 Edition-aware collection platform built around ownership, box sets, digital quality, wishlist workflows, and TMDB enrichment.
               </p>
               <p className="mt-5 font-mono text-xs leading-5 text-foreground/60">
-                37 passing tests · 24 routes · 0 known dependency vulnerabilities at validation
+                37 passing tests · 24 routes · production deployed
               </p>
               <Link
                 href="/projects/cinema-vault"
