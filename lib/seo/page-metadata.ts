@@ -12,8 +12,9 @@ import {
 } from "@/lib/marketing/services-content"
 
 export const homeMetadata = createPageMetadata({
-  title: "Enterprise UI Developer & Technical Lead",
-  description: "Bryan Cash is an experienced SAPUI5, SAP Fiori, SAP BTP application, Salesforce UI, and enterprise frontend developer open to full-time roles and selected consulting.",
+  title: "Senior Software Engineer & SAP BTP Technical Lead",
+  description:
+    "Bryan Cash is a senior software engineer and SAP BTP technical lead with enterprise experience across SAPUI5, Fiori, application architecture, integration leadership, and modern frontend engineering.",
   path: "/",
   keywords: [...SITE_KEYWORDS],
 })
