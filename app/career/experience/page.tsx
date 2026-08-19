@@ -60,10 +60,10 @@ export default function ExperiencePage() {
       <p className="font-mono text-xs font-medium uppercase tracking-[0.16em] text-brand-primary">
         Work history
       </p>
-      <h1 className="mt-4 max-w-4xl text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
+      <h1 className="mt-4 max-w-4xl text-3xl font-bold tracking-tight text-foreground sm:text-5xl">
         Nine years of enterprise delivery, with responsibilities that grew beyond the formal title.
       </h1>
-      <p className="mt-6 max-w-3xl text-lg leading-8 text-muted-foreground">
+      <p className="mt-5 max-w-3xl text-base leading-7 text-muted-foreground sm:mt-6 sm:text-lg sm:leading-8">
         I have worked continuously at Tata Consultancy Services since August 14, 2017.
         My formal title has remained Systems Engineer / Developer while my project
         responsibilities progressed across SAPUI5/Fiori development, SAP BTP
