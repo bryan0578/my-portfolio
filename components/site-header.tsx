@@ -8,16 +8,10 @@ import { cn } from "@/lib/utils"
 
 const navLinks = [
   { href: "/career", label: "Career" },
-  { href: "/consulting", label: "Consulting" },
   { href: "/projects", label: "Work" },
-  { href: "/blog", label: "Blog" },
+  { href: "/blog", label: "Writing" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
-] as const
-
-const mobileNavLinks = [
-  ...navLinks,
-  { href: "/web-apps", label: "Web Apps" },
 ] as const
 
 export function SiteHeader() {
@@ -47,8 +41,7 @@ export function SiteHeader() {
 
   const isActiveRoute = (href: string) =>
     pathname === href ||
-    (href !== "/" && pathname.startsWith(`${href}/`)) ||
-    (href === "/consulting" && (pathname.startsWith("/services") || pathname.startsWith("/work-with-me")))
+    (href !== "/" && pathname.startsWith(`${href}/`))
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-xl">
@@ -116,7 +109,7 @@ export function SiteHeader() {
             className="lg:hidden fixed top-16 left-0 right-0 z-50 border-b border-border/50 bg-background/95 backdrop-blur-xl shadow-lg"
           >
             <ul className="px-4 py-3 space-y-1">
-              {mobileNavLinks.map(({ href, label }) => {
+              {navLinks.map(({ href, label }) => {
                 const isActive = isActiveRoute(href)
 
                 return (
