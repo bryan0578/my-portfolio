@@ -12,7 +12,6 @@ import { projects } from "@/src/data/projects"
 import { RoleSection } from "@/components/case-study/role-section"
 import { ManufacturerArchitectureDiagram } from "@/components/case-study/maufacturerarchitecturediagram"
 import { ProjectGallery } from "@/components/case-study/project-gallery"
-import { RelatedServices } from "@/components/case-study/related-services"
 import { BusinessChallenge } from "@/components/case-study/business-challenge"
 import { TechnicalApproach } from "@/components/case-study/technical-approach"
 import { ArchitecturalDecisions } from "@/components/case-study/architectural-decisions"
@@ -174,12 +173,6 @@ export default async function CaseStudyPage({
             ) : (
               <CaseStudyFallbackCta projectTitle={project.title} />
             )}
-
-            <RelatedServices
-              slug={project.slug}
-              categories={project.categories}
-              stack={project.stack}
-            />
           </>
         )}
       </main>
