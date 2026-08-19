@@ -66,6 +66,13 @@ export default async function CaseStudyPage({
 
   const consulting = getConsultingCaseStudy(project.slug)
   const projectPath = `/projects/${project.slug}`
+  const presentationMetrics =
+    project.slug === "manufacturer-portal"
+      ? [
+          { label: "Applications delivered", value: "28" },
+          ...project.metrics.slice(1),
+        ]
+      : project.metrics
   const structuredData = [
     ...buildCreativeWorkSchema({
       path: projectPath,
@@ -107,7 +114,7 @@ export default async function CaseStudyPage({
                 project.solution
               }
               outcome={consulting?.outcomes.summary ?? project.impact}
-              metrics={project.metrics}
+              metrics={presentationMetrics}
             />
 
             {project.gallery ? (
@@ -153,7 +160,7 @@ export default async function CaseStudyPage({
             {consulting ? <KeyTradeoffs tradeoffs={consulting.tradeoffs} /> : null}
 
             <ImpactResults
-              metrics={project.metrics}
+              metrics={presentationMetrics}
               impact={project.impact}
               showBackLink={!consulting}
             />
