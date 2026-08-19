@@ -11,6 +11,8 @@ import { SiteHeader } from "@/components/site-header"
 import { projects } from "@/src/data/projects"
 import { RoleSection } from "@/components/case-study/role-section"
 import { ManufacturerArchitectureDiagram } from "@/components/case-study/maufacturerarchitecturediagram"
+import { GovernanceDecisionMap } from "@/components/case-study/governance-decision-map"
+import { FuelWorkflowAnnotatedUi } from "@/components/case-study/fuel-workflow-annotated-ui"
 import { ProjectGallery } from "@/components/case-study/project-gallery"
 import { BusinessChallenge } from "@/components/case-study/business-challenge"
 import { TechnicalApproach } from "@/components/case-study/technical-approach"
@@ -67,8 +69,11 @@ export default async function CaseStudyPage({
 
   const consulting = getConsultingCaseStudy(project.slug)
   const projectPath = `/projects/${project.slug}`
+  const isManufacturerPortal = project.slug === "manufacturer-portal"
+  const isGovernance = project.slug === "enterprise-governance"
+  const isFuelManagement = project.slug === "fuel-management"
   const presentationMetrics =
-    project.slug === "manufacturer-portal"
+    isManufacturerPortal
       ? [
           { label: "Applications delivered", value: "28" },
           ...project.metrics.slice(1),
@@ -146,15 +151,19 @@ export default async function CaseStudyPage({
               <ProcessTimeline timeline={project.timeline} />
             ) : null}
 
+            {isFuelManagement ? <FuelWorkflowAnnotatedUi /> : null}
+
             <ArchitectureBlock
               deepDive={project.deepDive}
               codeSnippet={project.codeSnippet}
               codeLanguage={project.codeLanguage}
             >
-              {project.architectureDiagram?.type === "manufacturer-portal" ? (
+              {isManufacturerPortal ? (
                 <ManufacturerArchitectureDiagram
-                  description={project.deepDive?.description}
+                  description="SAP BTP experience architecture connecting Build Work Zone and SAPUI5 applications to CAP/OData services, HANA-backed enterprise data, and the Okta → IAS → XSUAA identity path."
                 />
+              ) : isGovernance ? (
+                <GovernanceDecisionMap />
               ) : null}
             </ArchitectureBlock>
 
