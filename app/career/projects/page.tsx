@@ -58,10 +58,10 @@ export default function ProjectsPage() {
       <p className="font-mono text-xs font-medium uppercase tracking-[0.16em] text-brand-primary">
         Selected work / hiring view
       </p>
-      <h1 className="mt-4 max-w-4xl text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
+      <h1 className="mt-4 max-w-4xl text-3xl font-bold tracking-tight text-foreground sm:text-5xl">
         What I contributed—not just what the program delivered.
       </h1>
-      <p className="mt-6 max-w-3xl text-lg leading-8 text-muted-foreground">
+      <p className="mt-5 max-w-3xl text-base leading-7 text-muted-foreground sm:mt-6 sm:text-lg sm:leading-8">
         These summaries are written for hiring teams. They prioritize my role,
         implementation responsibility, and the capability each project demonstrates
         before sending you into the deeper technical case study.
@@ -71,8 +71,8 @@ export default function ProjectsPage() {
         where needed to protect confidentiality. Owned-product work is identified separately.
       </p>
 
-      <div className="mt-12 space-y-5">
-        {projects.map((project, index) => (
+      <div className="mt-10 space-y-5 sm:mt-12">
+        {projects.map((project) => (
           <article
             key={project.title}
             className="grid gap-6 rounded-xl border border-border/60 bg-card/30 p-6 md:grid-cols-[1fr_0.8fr] md:p-8"
