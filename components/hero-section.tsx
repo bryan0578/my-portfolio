@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Mail, ArrowRight } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 import { HeroOrbitalVisual } from "@/components/hero-orbital-visual"
 
 export function HeroSection() {
@@ -13,10 +13,9 @@ export function HeroSection() {
       <div className="relative z-10 max-w-6xl 2xl:max-w-7xl mx-auto">
         <div className="rounded-xl border border-white/[0.06] bg-zinc-950/50 backdrop-blur-sm shadow-[0_1px_0_0_rgba(255,255,255,0.04)_inset] overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 lg:gap-8 xl:gap-10 2xl:gap-12 items-center lg:items-center p-5 sm:p-6 md:p-6 lg:py-8 lg:px-9 xl:py-9 xl:px-10 2xl:px-12">
-            {/* Copy + CTAs — sole focal point below lg */}
             <div className="relative z-10 text-center lg:text-left order-1 min-w-0 lg:py-1 max-lg:mx-auto max-lg:max-w-lg">
               <p className="text-label tracking-wide text-brand-primary mb-2.5 font-semibold-plus normal-case">
-                SAP BTP Solution Engineer &amp; Technical Lead
+                Senior Software Engineer / SAP BTP Technical Lead
               </p>
 
               <h1 className="text-h1 lg:text-hero font-bold text-foreground mb-3.5 sm:mb-4 text-balance">
@@ -24,8 +23,9 @@ export function HeroSection() {
               </h1>
 
               <p className="text-body lg:text-body-lg text-muted-foreground/90 max-w-xl mx-auto lg:mx-0 mb-5 sm:mb-5 text-pretty">
-                I build SAPUI5, Fiori, SAP BTP, Salesforce, and modern frontend
-                experiences—and help teams move from unclear requirements to reliable delivery.
+                I lead and build SAP BTP, SAPUI5, Fiori, and modern frontend
+                applications—turning complex requirements into reliable systems teams can ship,
+                support, and extend.
               </p>
 
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-2.5 sm:gap-3">
@@ -35,9 +35,9 @@ export function HeroSection() {
                   asChild
                   className="w-full sm:w-auto min-h-11"
                 >
-                  <Link href="/career" aria-label="Review Bryan Cash's career profile">
-                    <Mail className="mr-2 size-4 shrink-0" aria-hidden />
-                    Hiring for a full-time role
+                  <Link href="#selected-work" aria-label="View Bryan Cash's selected engineering work">
+                    View selected work
+                    <ArrowRight className="ml-2 size-4 shrink-0" aria-hidden />
                   </Link>
                 </Button>
 
@@ -48,18 +48,17 @@ export function HeroSection() {
                   className="w-full sm:w-auto min-h-11 text-foreground hover:text-brand-primary hover:bg-transparent underline-offset-4 hover:underline px-2"
                 >
                   <Link
-                    href="/consulting"
-                    aria-label="Explore consulting with Bryan Cash"
+                    href="/career"
+                    aria-label="Review Bryan Cash's professional experience"
                     className="inline-flex items-center justify-center gap-2"
                   >
-                    Looking for project support
+                    View experience
                     <ArrowRight className="size-4 shrink-0" aria-hidden />
                   </Link>
                 </Button>
               </div>
             </div>
 
-            {/* Decorative visual — desktop only (lg+) */}
             <div
               className="hidden lg:flex order-2 relative w-full items-center justify-end lg:self-center translate-x-3 xl:translate-x-5 2xl:translate-x-6 opacity-[0.78]"
               aria-hidden="true"

@@ -1,17 +1,15 @@
 "use client"
 
 import Link from "next/link"
-import { serviceHubCards } from "@/lib/marketing/services-content"
 import { SocialLinksWithLabels } from "@/components/social-links"
 
-const footerLinks = [
-  { href: "/career", label: "Career" },
-  { href: "/consulting", label: "Consulting" },
-  { href: "/web-apps", label: "Web Apps" },
+const professionalLinks = [
+  { href: "/career", label: "Experience" },
   { href: "/projects", label: "Work" },
-  { href: "/blog", label: "Blog" },
+  { href: "/blog", label: "Writing" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
+  { href: "/consulting", label: "Enterprise consulting" },
 ] as const
 
 export function SiteFooter() {
@@ -24,15 +22,15 @@ export function SiteFooter() {
         <div className="min-w-0">
           <p className="text-body-sm font-semibold font-heading text-foreground mb-3">Bryan Cash</p>
           <p className="text-body-sm text-muted-foreground leading-body">
-            Enterprise UI developer and technical lead building practical SAP,
-            Salesforce, and modern web experiences with large delivery teams.
+            Senior Software Engineer / SAP BTP Technical Lead focused on enterprise applications,
+            architecture, integration, and frontend delivery.
           </p>
           <div className="mt-4 flex flex-wrap gap-x-4 gap-y-1">
             <Link
               href="/career"
               className="text-body-sm font-medium text-brand-primary hover:text-brand-primary/80 transition-colors"
             >
-              Career profile →
+              View experience →
             </Link>
             <Link
               href="/contact"
@@ -53,25 +51,9 @@ export function SiteFooter() {
         </div>
 
         <div className="min-w-0">
-          <p className="text-body-sm font-semibold font-heading text-foreground mb-3">Services</p>
+          <p className="text-body-sm font-semibold font-heading text-foreground mb-3">Professional</p>
           <ul className="space-y-2">
-            {serviceHubCards.map((service) => (
-              <li key={service.slug}>
-                <Link
-                  href={service.href}
-                  className="text-body-sm text-muted-foreground hover:text-brand-primary transition-colors"
-                >
-                  {service.title}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="min-w-0">
-          <p className="text-body-sm font-semibold font-heading text-foreground mb-3">Site</p>
-          <ul className="space-y-2">
-            {footerLinks.map((link) => (
+            {professionalLinks.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
@@ -83,12 +65,27 @@ export function SiteFooter() {
             ))}
           </ul>
         </div>
+
+        <div className="min-w-0">
+          <p className="text-body-sm font-semibold font-heading text-foreground mb-3">Independent studio</p>
+          <p className="text-body-sm text-muted-foreground leading-body">
+            Client websites, product design, React and Next.js applications, and independent products live at Dorsyth.
+          </p>
+          <a
+            href="https://dorsyth.com"
+            target="_blank"
+            rel="noreferrer"
+            className="mt-4 inline-flex text-body-sm font-medium text-brand-primary hover:text-brand-primary/80 transition-colors"
+          >
+            Visit Dorsyth ↗
+          </a>
+        </div>
       </div>
 
       <div className="max-w-6xl mx-auto mt-12 pt-8 border-t border-border/50">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <p className="text-caption text-muted-foreground text-center sm:text-left">
-            © {new Date().getFullYear()} Bryan Cash. Enterprise development & consulting.
+            © {new Date().getFullYear()} Bryan Cash.
           </p>
           <div className="flex flex-wrap justify-center sm:justify-end gap-x-4 gap-y-1 text-caption">
             <Link
