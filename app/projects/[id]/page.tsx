@@ -11,6 +11,7 @@ import { SiteHeader } from "@/components/site-header"
 import { projects } from "@/src/data/projects"
 import { RoleSection } from "@/components/case-study/role-section"
 import { ManufacturerArchitectureDiagram } from "@/components/case-study/maufacturerarchitecturediagram"
+import { GovernanceDecisionMap } from "@/components/case-study/governance-decision-map"
 import { ProjectGallery } from "@/components/case-study/project-gallery"
 import { BusinessChallenge } from "@/components/case-study/business-challenge"
 import { TechnicalApproach } from "@/components/case-study/technical-approach"
@@ -68,6 +69,7 @@ export default async function CaseStudyPage({
   const consulting = getConsultingCaseStudy(project.slug)
   const projectPath = `/projects/${project.slug}`
   const isManufacturerPortal = project.slug === "manufacturer-portal"
+  const isGovernance = project.slug === "enterprise-governance"
   const presentationMetrics =
     isManufacturerPortal
       ? [
@@ -156,6 +158,8 @@ export default async function CaseStudyPage({
                 <ManufacturerArchitectureDiagram
                   description="SAP BTP experience architecture connecting Build Work Zone and SAPUI5 applications to CAP/OData services, HANA-backed enterprise data, and the Okta → IAS → XSUAA identity path."
                 />
+              ) : isGovernance ? (
+                <GovernanceDecisionMap />
               ) : null}
             </ArchitectureBlock>
 
