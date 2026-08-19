@@ -7,7 +7,7 @@ import { Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 const navLinks = [
-  { href: "/career", label: "Career" },
+  { href: "/career", label: "Experience" },
   { href: "/projects", label: "Work" },
   { href: "/blog", label: "Writing" },
   { href: "/about", label: "About" },
