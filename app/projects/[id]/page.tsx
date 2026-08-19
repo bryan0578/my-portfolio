@@ -67,8 +67,9 @@ export default async function CaseStudyPage({
 
   const consulting = getConsultingCaseStudy(project.slug)
   const projectPath = `/projects/${project.slug}`
+  const isManufacturerPortal = project.slug === "manufacturer-portal"
   const presentationMetrics =
-    project.slug === "manufacturer-portal"
+    isManufacturerPortal
       ? [
           { label: "Applications delivered", value: "28" },
           ...project.metrics.slice(1),
@@ -151,9 +152,9 @@ export default async function CaseStudyPage({
               codeSnippet={project.codeSnippet}
               codeLanguage={project.codeLanguage}
             >
-              {project.architectureDiagram?.type === "manufacturer-portal" ? (
+              {isManufacturerPortal ? (
                 <ManufacturerArchitectureDiagram
-                  description={project.deepDive?.description}
+                  description="SAP BTP experience architecture connecting Build Work Zone and SAPUI5 applications to CAP/OData services, HANA-backed enterprise data, and the Okta → IAS → XSUAA identity path."
                 />
               ) : null}
             </ArchitectureBlock>
