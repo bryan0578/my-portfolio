@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { ArrowRight } from "lucide-react"
 import { AnalyticsLink } from "@/components/analytics-link"
+import { CareerDeliveryMap } from "@/components/career/career-delivery-map"
 import { JsonLd } from "@/lib/seo/json-ld"
 import { buildBreadcrumbSchema, buildWebPageSchema } from "@/lib/seo/schemas"
 
@@ -51,8 +52,6 @@ const strengths = [
     text: "I turn business needs, APIs, OData services, identity constraints, and distributed-team dependencies into executable technical plans.",
   },
 ] as const
-
-const workflow = ["Clarify", "Architect", "Build", "Unblock", "Validate"] as const
 
 const bestFitRoles = [
   "Senior Software Engineer — SAP BTP / Enterprise Frontend",
@@ -190,8 +189,8 @@ export default function CareerPage() {
         </div>
       </section>
 
-      <section className="mt-20 rounded-xl border border-border/60 bg-black/10 p-6 sm:p-8">
-        <div className="grid gap-8 lg:grid-cols-[0.7fr_1.3fr] lg:items-center">
+      <section className="mt-20">
+        <div className="mb-6 grid gap-5 lg:grid-cols-[0.7fr_1.3fr] lg:items-end">
           <div>
             <p className="font-mono text-xs font-medium uppercase tracking-[0.16em] text-brand-primary">
               How I work
@@ -199,20 +198,13 @@ export default function CareerPage() {
             <h2 className="mt-3 text-3xl font-bold text-foreground">
               From unclear ask to dependable release.
             </h2>
-            <p className="mt-4 leading-7 text-muted-foreground">
-              I stay engaged across the lifecycle instead of treating architecture,
-              implementation, and delivery as separate conversations.
-            </p>
           </div>
-          <div className="grid gap-2 sm:grid-cols-5">
-            {workflow.map((step, index) => (
-              <div key={step} className="relative rounded-lg border border-border/60 bg-background/60 px-4 py-4 text-center">
-                <p className="font-mono text-[10px] text-brand-primary">0{index + 1}</p>
-                <p className="mt-2 text-sm font-semibold text-foreground">{step}</p>
-              </div>
-            ))}
-          </div>
+          <p className="max-w-2xl leading-7 text-muted-foreground lg:justify-self-end">
+            I stay engaged across the lifecycle instead of treating architecture,
+            implementation, dependencies, and validation as separate conversations.
+          </p>
         </div>
+        <CareerDeliveryMap />
       </section>
 
       <section className="mt-20 grid gap-8 border-y border-border/50 py-10 lg:grid-cols-[0.8fr_1.2fr]">
