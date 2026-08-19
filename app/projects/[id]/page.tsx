@@ -22,6 +22,7 @@ import { WhenItFits } from "@/components/case-study/when-it-fits"
 import { CaseStudyCta } from "@/components/case-study/case-study-cta"
 import { CaseStudyFallbackCta } from "@/components/case-study/case-study-fallback-cta"
 import { CinemaVaultCaseStudy } from "@/components/case-study/cinema-vault-case-study"
+import { CinemaVaultHiringIntro } from "@/components/case-study/cinema-vault-hiring-intro"
 import { getConsultingCaseStudy } from "@/lib/case-studies/consulting"
 import { JsonLd } from "@/lib/seo/json-ld"
 import { createProjectMetadata } from "@/lib/seo/project-metadata"
@@ -95,7 +96,13 @@ export default async function CaseStudyPage({
 
       <main id="main-content" className="pt-36">
         {project.caseStudyVariant === "cinema-vault" ? (
-          <CinemaVaultCaseStudy />
+          <>
+            <CinemaVaultHiringIntro />
+            <div className="[&>div>section:first-child]:hidden [&>div>section:nth-child(2)]:hidden [&>div>section:last-child]:hidden">
+              <CinemaVaultCaseStudy />
+            </div>
+            <CaseStudyFallbackCta projectTitle={project.title} />
+          </>
         ) : (
           <>
             <CaseStudyHero
