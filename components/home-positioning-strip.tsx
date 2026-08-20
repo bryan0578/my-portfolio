@@ -5,7 +5,7 @@ const proofPoints = [
   },
   {
     value: "28 apps",
-    label: "SAPUI5 reporting + onboarding applications delivered",
+    label: "Flagship SAP BTP program · 25 reporting + 3 onboarding",
   },
   {
     value: "SAP BTP",

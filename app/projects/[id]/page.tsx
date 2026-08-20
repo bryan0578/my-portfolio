@@ -72,6 +72,7 @@ export default async function CaseStudyPage({
   const isManufacturerPortal = project.slug === "manufacturer-portal"
   const isGovernance = project.slug === "enterprise-governance"
   const isFuelManagement = project.slug === "fuel-management"
+
   const presentationMetrics =
     isManufacturerPortal
       ? [
@@ -79,6 +80,34 @@ export default async function CaseStudyPage({
           ...project.metrics.slice(1),
         ]
       : project.metrics
+
+  const presentationTechnicalApproach =
+    isManufacturerPortal && consulting
+      ? {
+          ...consulting.technicalApproach,
+          headline: "Owned application delivery across SAPUI5, CAP, and Work Zone",
+          summary:
+            "Delivered 25 SAPUI5 reporting applications plus 3 onboarding applications, designed and developed the Node.js CAP service over HANA, and configured the SAP BTP experience around Build Work Zone and enterprise identity. Shared-system responsibilities such as cross-layer troubleshooting, testing, and stabilization are called out separately rather than overstated as sole ownership.",
+          points: [
+            "Delivered 25 SAPUI5 reporting applications plus 3 onboarding applications and reusable frontend patterns",
+            "Designed and developed the Node.js CAP service over HANA",
+            "Configured SAP Build Work Zone and SAP Cloud Identity Services with Okta-based authentication",
+            "Supported cross-layer troubleshooting across SAP IAS, XSUAA, and application layers",
+            "Produced delivery documentation and supported testing, deployment, and stabilization",
+          ],
+        }
+      : consulting?.technicalApproach
+
+  const presentationOutcomes =
+    isManufacturerPortal && consulting
+      ? {
+          ...consulting.outcomes,
+          qualitative: consulting.outcomes.qualitative.filter(
+            (item) => item !== "A more consistent reporting experience across analytical workflows",
+          ),
+        }
+      : consulting?.outcomes
+
   const structuredData = [
     ...buildCreativeWorkSchema({
       path: projectPath,
@@ -103,9 +132,16 @@ export default async function CaseStudyPage({
         {project.caseStudyVariant === "cinema-vault" ? (
           <>
             <CinemaVaultHiringIntro />
-            <div className="[&>div>section:first-child]:hidden [&>div>section:nth-child(2)]:hidden [&>div>section:last-child]:hidden">
+            <div className="cinema-vault-deep-dive">
               <CinemaVaultCaseStudy />
             </div>
+            <style>{`
+              .cinema-vault-deep-dive > div > section:nth-of-type(1),
+              .cinema-vault-deep-dive > div > section:nth-of-type(2),
+              .cinema-vault-deep-dive > div > section:last-of-type {
+                display: none;
+              }
+            `}</style>
             <CaseStudyFallbackCta projectTitle={project.title} />
           </>
         ) : (
@@ -141,8 +177,8 @@ export default async function CaseStudyPage({
               <SecuritySection data={project.securityArchitecture} />
             ) : null}
 
-            {consulting ? (
-              <TechnicalApproach data={consulting.technicalApproach} />
+            {presentationTechnicalApproach ? (
+              <TechnicalApproach data={presentationTechnicalApproach} />
             ) : project.role ? (
               <RoleSection data={project.role} />
             ) : null}
@@ -181,8 +217,8 @@ export default async function CaseStudyPage({
               showBackLink={!consulting}
             />
 
-            {consulting ? (
-              <QualitativeOutcomes outcomes={consulting.outcomes} />
+            {presentationOutcomes ? (
+              <QualitativeOutcomes outcomes={presentationOutcomes} />
             ) : null}
 
             {consulting ? (
